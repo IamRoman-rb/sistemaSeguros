@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pólizas</title>
 </head>
 <body>
-    <%- include("../partials/header") %>
-    <h1>Polizas</h1>
+  <%- include("../partials/header") %> <h1>Pólizas</h1>
+  <% if (polizas.length > 0) { %>  <ul>  <% polizas.forEach(poliza => { %>
+        <li>
+          <p>Marca: <%= poliza.marca %></p> </li>
+          <p>Modelo: <%= poliza.modelo %></p> </li>
+          <p>Año: <%= poliza.anio %></p> </li>
+          <p>Patente: <%= poliza.patente %></p> 
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No hay pólizas disponibles.</p>
+  <% } %>
 </body>
 </html>
