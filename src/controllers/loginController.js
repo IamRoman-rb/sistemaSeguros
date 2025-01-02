@@ -26,7 +26,7 @@ const loginController = {
       );
 
       if (user) {
-        res.send(`¡Bienvenido, ${user.name}!`);
+        res.redirect('/polizas');
       } else {
         res.status(401).send("Usuario o contraseña incorrectos");
       }
