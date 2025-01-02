@@ -15,6 +15,11 @@ const __dirname = path.resolve(dirname(new URL(import.meta.url).pathname).replac
 const app = express();
 const port = 3000;
 
+// middlewares
+app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: true }));
+
+
 // settings
 app.set("port", process.env.PORT || port);
 app.set("view engine", "ejs");
@@ -22,8 +27,6 @@ app.set("view engine", "ejs");
 // Aquí corregimos la ruta de las vistas:
 app.set("views", path.join(__dirname, "views")); // Usamos path.join() para evitar errores de rutas
 
-// middlewares
-app.use(morgan("dev"));
 
 // routes
 app.use(main);

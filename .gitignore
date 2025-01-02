@@ -1,0 +1,7 @@
+# Ignorar la carpeta node_modules
+node_modules/
+
+# Otros archivos comunes que podrían ser ignorados
+*.log
+*.env
+.DS_Store
