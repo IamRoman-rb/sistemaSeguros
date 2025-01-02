@@ -8,5 +8,73 @@
 <body>
     <%- include("../partials/header") %>
     <h1>Poliza nueva</H1>
+        <form action="" method="POST">
+            <label for="n_poliza" class="label" id="label_n_poliza">N Poliza
+                <input type="number" name="n_poliza" id="n_poliza">
+            </label>
+            <label for="f_emision" class="label" id="label_f_emision">Fecha Emision
+                <input type="date" name="f_emision" id="f_emision">
+            </label>
+            <label for="f_ini_vigencia" class="label" id="label_f_ini_vigencia">Inicio Vigencia
+                <input type="date" name="f_ini_vigencia" id="f_ini_vigencia">
+            </label>
+            <label for="f_fin_vigencia" class="label" id="label_f_fin_vigencia">Fin Vigencia
+                <input type="date" name="f_fin_vigencia" id="f_fin_vigencia">
+            </label>
+            <label for="suma" class="label" id="label_suma">Suma Asegurada
+                <input type="number" name="suma" id="suma">
+            </label>
+            <label for="cuotas" class="label" id="label_cuotas">Cuotas
+                <select name="cuotas" id="cuotas">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </label>
+            <label for="empresa">Empresa
+                <input type="text" name="empresa" id="empresa">
+            </label>
+            <label for="precio">Precio
+                <input type="number" name="precio" id="Precio">
+            </label>
+            <label for="marca">Marca
+                <input type="text" name="marca" id="marca">
+            </label>
+            <label for="modelo">Modelo
+                <input type="text" name="modelo" id="modelo">
+            </label>
+            <label for="patente">Patente
+                <input type="text" name="patente" id="patente">
+            </label>
+            <label for="anio">Año
+                <input type="number" name="anio" id="anio">
+            </label>
+            <label for="n_chasis">N Chasis
+                <input type="text" name="n_chasis" id="n_chasis">
+            </label>
+            <label for="n_motor">N motor
+                <input type="text" name="n_motor" id="n_motor">
+            </label>
+            <label for="combustible">Combustible
+                <select name="combustible" id="combustible">
+                    <option value="nafta">Nafta</option>
+                    <option value="diesel">Diesel</option>
+                    <option value="GNC">GNC</option>
+                </select>
+            </label>
+            <section class="btns">
+                <button type="reset">Cancelar</button>
+                <button type="submit">Emitir</button>
+            </section>
+        </form>
 </body>
 </html>

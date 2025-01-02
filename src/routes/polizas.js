@@ -5,5 +5,5 @@ const router = Router();
 
 router.get("/polizas", polizas.index);
 router.get('/polizas/nueva', polizas.nueva);
-
+router.post('/polizas/nueva', polizas.crearPoliza);
 export default router;

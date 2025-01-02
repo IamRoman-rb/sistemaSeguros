@@ -6,7 +6,9 @@
   <title>Pólizas</title>
 </head>
 <body>
-  <%- include("../partials/header") %> <h1>Pólizas</h1>
+  <%- include("../partials/header") %> 
+  <a href="/polizas/nueva">Nueva</a>
+  <h1>Pólizas</h1>
   <% if (polizas.length > 0) { %>  <ul>  <% polizas.forEach(poliza => { %>
         <li>
           <p>Marca: <%= poliza.marca %></p> </li>

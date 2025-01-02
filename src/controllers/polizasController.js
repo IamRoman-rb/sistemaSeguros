@@ -18,6 +18,27 @@ const polizasController = {
     nueva: (req, res) => {
       res.render('polizas/nueva');
     },
+    crearPoliza: async (req, res) => {
+      try {
+        const nuevaPoliza = req.body; // Obtén los datos del formulario
+        const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
+    
+        // Lee el contenido actual del archivo
+        const data = await fs.promises.readFile(polizasPath, 'utf8');
+        const polizas = JSON.parse(data);
+    
+        // Agrega la nueva póliza al array
+        polizas.push(nuevaPoliza);
+    
+        // Escribe el nuevo contenido al archivo
+        await fs.promises.writeFile(polizasPath, JSON.stringify(polizas, null, 2));
+    
+        res.redirect('/polizas'); // Redirige a la lista de pólizas
+      } catch (error) {
+        console.error('Error al guardar la póliza:', error);
+        res.status(500).send('Error al guardar la póliza');
+      }
+    }
   };
   
   export default polizasController;
