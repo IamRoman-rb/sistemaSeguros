@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nuevo Cliente</title>
 </head>
 <body>
     <%- include("../partials/header") %>
-    <h1>Cliente nuevo</h1>
+    <h1>Nuevo Cliente</h1>
+    <form method="POST" action="/clientes/nuevo">
+        <label for="nombre">Nombre:
+            <input type="text" id="nombre" name="nombre">
+        </label>
+        <label for="cuit">CUIT:
+            <input type="text" id="cuit" name="cuit">
+        </label>
+        <label for="fecha_n">Fecha de Nacimiento:
+            <input type="date" id="fecha_n" name="fecha_n">
+        </label>
+        <label for="telefono">Telefono:
+            <input type="text" id="telefono" name="telefono">
+        </label>
+        <label for="provincia">Provincia:
+            <input type="text" id="provincia" name="provincia">
+        </label>
+        <label for="localidad">Localidad:
+            <input type="text" id="localidad" name="localidad">
+        </label>
+        <label for="direccion">Direccion:
+            <input type="text" id="direccion" name="direccion">
+        </label>
+        <button type="reset">Cancelar</button>
+        <button type="submit">Guardar</button>
+    </form>
 </body>
 </html>

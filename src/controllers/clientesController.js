@@ -45,6 +45,47 @@ const clientesController = {
         console.error('Error al obtener los detalles del cliente:', error.message);
         res.status(500).send('Error al obtener los detalles del cliente');
     }
+    },
+    nuevo: async (req, res) => {
+      res.render('clientes/nuevo');
+    },
+    crearCliente: async (req, res) => {
+      try {
+        const { nombre, cuit, fecha_n, telefono, provincia, localidad, direccion } = req.body;
+
+        const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
+        const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
+        const clientes = JSON.parse(clientesData);
+
+        // Verificar si el cliente ya existe
+        const clienteExistente = clientes.find(cliente => cliente.cuit === cuit);
+
+        if (clienteExistente) {
+            return res.status(400).send('El cliente con ese CUIT ya existe.');
+        }
+
+        // Si el cliente no existe, lo creamos
+        const nuevoCliente = {
+            id: Date.now(),
+            nombre, 
+            cuit, 
+            fecha_n, 
+            telefono, 
+            provincia, 
+            localidad, 
+            direccion,
+            polizas: []
+        };
+
+        clientes.push(nuevoCliente);
+
+        await fs.promises.writeFile(clientesPath, JSON.stringify(clientes, null, 2));
+
+        res.redirect('/clientes');
+    } catch (error) {
+        console.error('Error al crear el cliente:', error.message);
+        res.status(500).send('Error al crear el cliente');
+    }
     }
   };
   

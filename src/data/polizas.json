@@ -36,5 +36,24 @@
     "combustible": "diesel",
     "clienteId": "1",
     "id": 2
+  },
+  {
+    "n_poliza": "35345643",
+    "f_emision": "2025-01-03",
+    "f_ini_vigencia": "2025-01-03",
+    "f_fin_vigencia": "2025-01-03",
+    "suma": "0",
+    "cuotas": "4",
+    "empresa": "AGROSALTA",
+    "precio": "0",
+    "marca": "FORD",
+    "modelo": "FIESTA",
+    "patente": "AAA333",
+    "anio": "2000",
+    "n_chasis": "OOOOOO8888888",
+    "n_motor": "22222222aaaaaaa",
+    "combustible": "GNC",
+    "clienteId": "1735935333300",
+    "id": 3
   }
 ]
