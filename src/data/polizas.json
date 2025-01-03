@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "n_poliza": "1342352",
+    "f_emision": "2025-01-03",
+    "f_ini_vigencia": "2025-01-03",
+    "f_fin_vigencia": "2025-05-03",
+    "suma": "7832975270",
+    "cuotas": "4",
+    "empresa": "AGROSALTA",
+    "precio": "90000",
+    "marca": "VOLKWAGEN",
+    "modelo": "GOL GTI 2.0",
+    "patente": "AG500AA",
+    "anio": "2024",
+    "n_chasis": "FNWKJNFG9784920370",
+    "n_motor": "MGVFEOKNGVOIKER9074980217450",
+    "combustible": "nafta",
+    "clienteId": "1",
+    "id": 1
+  }
+]

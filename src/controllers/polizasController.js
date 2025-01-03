@@ -1,35 +1,52 @@
 import path from "path";
 import fs from "fs";
 const polizasController = {
-    index: async (req, res) => {
-        try {
-            const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
-            const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
-    
-            // Leer los datos de clientes
-            const clientesData = await fs.promises.readFile(clientesPath, "utf8");
-            const clientes = JSON.parse(clientesData);
-    
-            // Leer los datos de pólizas
-            const polizasData = await fs.promises.readFile(polizasPath, "utf8");
-            const polizas = JSON.parse(polizasData);
-    
-            // Añadir el cliente correspondiente a cada póliza
-            const polizasConClientes = polizas.map((poliza) => {
-                const cliente = clientes.find((c) => c.polizas.includes(poliza.id));
-                return {
-                    ...poliza,
-                    cliente,
-                };
+  index: async (req, res) => {
+    try {
+        const { busqueda } = req.query || {};
+
+        const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
+        const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
+
+        // Leer los datos de clientes
+        const clientesData = await fs.promises.readFile(clientesPath, "utf8");
+        const clientes = JSON.parse(clientesData);
+
+        // Leer los datos de pólizas
+        const polizasData = await fs.promises.readFile(polizasPath, "utf8");
+        const polizas = JSON.parse(polizasData);
+
+        // Añadir el cliente correspondiente a cada póliza
+        const polizasConClientes = polizas.map((poliza) => {
+            const cliente = clientes.find((c) => c.polizas.includes(poliza.id));
+            return {
+                ...poliza,
+                cliente,
+            };
+        });
+
+        // Filtrar las pólizas si hay un término de búsqueda
+        let polizasFiltradas = polizasConClientes;
+        if (busqueda) {
+            const busquedaLower = busqueda.toLowerCase();
+            polizasFiltradas = polizasConClientes.filter((poliza) => {
+                return (
+                    (poliza.cliente && poliza.cliente.nombre.toLowerCase().includes(busquedaLower)) ||
+                    (poliza.n_poliza && poliza.n_poliza.toString().includes(busqueda)) ||
+                    (poliza.patente && poliza.patente.toLowerCase().includes(busquedaLower))
+                );
             });
-    
-            // Renderizar la vista con las pólizas y sus clientes
-            res.render("polizas/polizas", { polizas: polizasConClientes });
-        } catch (error) {
-            console.error("Error al cargar las pólizas:", error.message);
-            res.status(500).send("Error al cargar las pólizas: " + error.message);
         }
-    },
+
+        // Renderizar la vista con las pólizas filtradas y la búsqueda (si existe)
+        res.render("polizas/polizas", { polizas: polizasFiltradas, busqueda });
+    } catch (error) {
+        console.error("Error al cargar las pólizas:", error.message);
+        res.status(500).send("Error al cargar las pólizas: " + error.message);
+    }
+},
+
+
   nueva: async (req, res) => {
     try {
       const { id } = req.params; // Obtener el ID del cliente desde la URL
