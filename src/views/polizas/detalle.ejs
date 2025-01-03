@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de Póliza</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle de la Póliza</title>
 </head>
 <body>
-    src/views/polizas/nueva.ejs
-    <h1>Detalle de la Póliza</h1>
+  <%- include("../partials/header") %>
+  <h1>Detalle de la Póliza</h1>
+  <section>
     <h2>Póliza</h2>
-    <ul>
-        <li><strong>Número de Póliza:</strong> <%= poliza.n_poliza %></li>
-        <li><strong>Fecha de Emisión:</strong> <%= poliza.f_emision %></li>
-        <li><strong>Inicio Vigencia:</strong> <%= poliza.f_ini_vigencia %></li>
-        <li><strong>Fin Vigencia:</strong> <%= poliza.f_fin_vigencia %></li>
-        <li><strong>Suma Asegurada:</strong> <%= poliza.suma %></li>
-        <li><strong>Empresa:</strong> <%= poliza.empresa %></li>
-        <!-- Agrega más campos de la póliza aquí -->
-    </ul>
-
+    <p>Número de Póliza: <%= poliza.n_poliza %></p>
+    <p>Fecha de Emisión: <%= poliza.f_emision %></p>
+    <p>Inicio Vigencia: <%= poliza.f_ini_vigencia %></p>
+    <p>Fin Vigencia: <%= poliza.f_fin_vigencia %></p>
+    <p>Suma Asegurada: <%= poliza.suma %></p>
+    <p>Empresa: <%= poliza.empresa %></p>
+  </section>
+  <section>
     <h2>Cliente Asociado</h2>
-    <ul>
-        <li><strong>Nombre:</strong> <%= cliente.nombre %></li>
-        <li><strong>CUIT:</strong> <%= cliente.cuit %></li>
-        <li><strong>Teléfono:</strong> <%= cliente.telefono %></li>
-        <!-- Agrega más campos del cliente aquí -->
-    </ul>
+    <p>Nombre: <%= cliente.nombre %></p>
+    <p>CUIT: <%= cliente.cuit %></p>
+    <p>Teléfono: <%= cliente.telefono %></p>
+  </section>
+
+  <!-- Botón para eliminar la póliza -->
+  <form action="/polizas/eliminar/<%= poliza.id %>" method="get">
+    <button type="submit" style="background-color: red; color: white;">Eliminar Póliza</button>
+  </form>
 </body>
 </html>

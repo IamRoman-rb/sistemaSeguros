@@ -203,6 +203,67 @@ const polizasController = {
         .send("Error al obtener el detalle de la póliza: " + error.message);
     }
   },
+  confirmarEliminar: async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
+        const polizasData = await fs.promises.readFile(polizasPath, "utf8");
+        const polizas = JSON.parse(polizasData);
+
+        // Buscar la póliza por ID
+        const poliza = polizas.find((p) => p.id.toString() === id);
+        if (!poliza) {
+            return res.status(404).send("Póliza no encontrada");
+        }
+
+        // Renderizar la vista de confirmación desde alertas
+        res.render("alertas/confirmar", { poliza });
+    } catch (error) {
+        console.error("Error al confirmar eliminación:", error.message);
+        res.status(500).send("Error al confirmar eliminación: " + error.message);
+    }
+},
+  eliminar: async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
+      const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
+
+      // Leer pólizas existentes
+      const polizasData = await fs.promises.readFile(polizasPath, "utf8");
+      let polizas = JSON.parse(polizasData);
+
+      // Leer clientes
+      const clientesData = await fs.promises.readFile(clientesPath, "utf8");
+      const clientes = JSON.parse(clientesData);
+
+      // Buscar la póliza y eliminarla
+      const polizaIndex = polizas.findIndex((p) => p.id.toString() === id);
+      if (polizaIndex === -1) {
+        return res.status(404).send("Póliza no encontrada");
+      }
+
+      // Eliminar el ID de la póliza del cliente asociado
+      const cliente = clientes.find((c) => c.polizas.includes(Number(id)));
+      if (cliente) {
+        cliente.polizas = cliente.polizas.filter((pid) => pid !== Number(id));
+      }
+
+      // Eliminar la póliza de la lista
+      polizas.splice(polizaIndex, 1);
+
+      // Guardar los cambios
+      await fs.promises.writeFile(polizasPath, JSON.stringify(polizas, null, 2));
+      await fs.promises.writeFile(clientesPath, JSON.stringify(clientes, null, 2));
+
+      res.redirect("/polizas");
+    } catch (error) {
+      console.error("Error al eliminar la póliza:", error.message);
+      res.status(500).send("Error al eliminar la póliza: " + error.message);
+    }
+  },
 };
 
 export default polizasController;

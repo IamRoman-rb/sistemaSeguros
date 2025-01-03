@@ -8,5 +8,7 @@ router.get('/polizas/buscarCliente', polizas.buscarCliente); // Ruta conectada
 router.get('/polizas/nueva/:id', polizas.nueva); // Ruta para manejar el ID
 router.post('/polizas/nueva/:id', polizas.crearPoliza);
 router.get('/polizas/detalle/:id', polizas.detalle);
+router.get("/polizas/eliminar/:id", polizas.confirmarEliminar);
+router.post("/polizas/eliminar/:id", polizas.eliminar);
 
 export default router;
