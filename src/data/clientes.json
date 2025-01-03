@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "nombre": "Roman Borla",
+    "cuit": "20458123617",
+    "fecha_n": "23/03/2004",
+    "telefono": "2246481147",
+    "provincia": "Buenos Aires",
+    "localidad": "Las Toninas",
+    "Direccion": "Calle 18 346",
+    "polizas": []
+  }
+]
