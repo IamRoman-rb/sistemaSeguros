@@ -8,6 +8,8 @@
     "provincia": "Buenos Aires",
     "localidad": "Las Toninas",
     "Direccion": "Calle 18 346",
-    "polizas": []
+    "polizas": [
+      1
+    ]
   }
 ]

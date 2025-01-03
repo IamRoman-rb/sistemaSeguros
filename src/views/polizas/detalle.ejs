@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Póliza</title>
+</head>
+<body>
+    src/views/polizas/nueva.ejs
+    <h1>Detalle de la Póliza</h1>
+    <h2>Póliza</h2>
+    <ul>
+        <li><strong>Número de Póliza:</strong> <%= poliza.n_poliza %></li>
+        <li><strong>Fecha de Emisión:</strong> <%= poliza.f_emision %></li>
+        <li><strong>Inicio Vigencia:</strong> <%= poliza.f_ini_vigencia %></li>
+        <li><strong>Fin Vigencia:</strong> <%= poliza.f_fin_vigencia %></li>
+        <li><strong>Suma Asegurada:</strong> <%= poliza.suma %></li>
+        <li><strong>Empresa:</strong> <%= poliza.empresa %></li>
+        <!-- Agrega más campos de la póliza aquí -->
+    </ul>
+
+    <h2>Cliente Asociado</h2>
+    <ul>
+        <li><strong>Nombre:</strong> <%= cliente.nombre %></li>
+        <li><strong>CUIT:</strong> <%= cliente.cuit %></li>
+        <li><strong>Teléfono:</strong> <%= cliente.telefono %></li>
+        <!-- Agrega más campos del cliente aquí -->
+    </ul>
+</body>
+</html>
