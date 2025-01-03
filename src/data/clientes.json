@@ -7,9 +7,10 @@
     "telefono": "2246481147",
     "provincia": "Buenos Aires",
     "localidad": "Las Toninas",
-    "Direccion": "Calle 18 346",
+    "direccion": "Calle 18 346",
     "polizas": [
-      1
+      1,
+      2
     ]
   }
 ]

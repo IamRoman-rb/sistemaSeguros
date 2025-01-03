@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs";
+
 const polizasController = {
   index: async (req, res) => {
     try {
@@ -7,7 +8,7 @@ const polizasController = {
 
         const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
         const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
-
+        
         // Leer los datos de clientes
         const clientesData = await fs.promises.readFile(clientesPath, "utf8");
         const clientes = JSON.parse(clientesData);

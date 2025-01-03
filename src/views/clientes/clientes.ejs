@@ -8,5 +8,16 @@
 <body>
     <%- include("../partials/header") %>
     <h1>Clientes</h1>
+    <ul>
+        <% clientes.forEach(cliente => { %>
+            <a href="/clientes/detalle/<%= cliente.id %>">
+                <li>
+                    <%= cliente.nombre %>
+                    <%= cliente.telefono %>
+                    <%= cliente.localidad %>
+                </li>
+            </a>
+        <% }); %>
+    </ul>
 </body>
 </html>

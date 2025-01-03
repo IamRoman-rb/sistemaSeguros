@@ -5,5 +5,6 @@ const router = Router();
 
 router.get("/clientes", clientes.index);
 router.get("/clientes/nuevo", clientes.nuevo);
+router.get('/clientes/detalle/:id', clientes.detalle);
 
 export default router;

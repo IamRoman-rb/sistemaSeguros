@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Cliente</title>
+</head>
+<body>
+    <%- include("../partials/header") %>
+    <h1>Detalles del Cliente</h1>
+    <p>Nombre: <%= cliente.nombre %></p>
+    <p>CUIT: <%= cliente.cuit %></p>
+    <p>Fecha de Nacimiento: <%= cliente.fecha_n %></p>
+    <p>Telefono: <%= cliente.telefono %></p>
+    <p>Provincia: <%= cliente.provincia %></p>
+    <p>Localidad: <%= cliente.localidad %></p>
+    <p>Direccion: <%= cliente.direccion %></p>
+    <section id="polizasAsociadas">
+        <h2>Polizas Asociadas</h2>
+        <ul>
+        <% polizasCliente.forEach(poliza => { %>
+            <li> 
+                <%= poliza.n_poliza %> 
+                <%= poliza.f_ini_vigencia %> 
+                <%= poliza.f_fin_vigencia %> 
+                <%= poliza.suma %> 
+                <%= poliza.empresa %> 
+                <%= poliza.marca %>
+                <%= poliza.modelo %>  
+                <%= poliza.patente %> 
+                <%= poliza.anio %> 
+            </li>    
+            
+        <% }) %>
+        </ul>
+    </section>
+</body>
+</html>
