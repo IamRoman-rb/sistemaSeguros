@@ -17,5 +17,24 @@
     "combustible": "nafta",
     "clienteId": "1",
     "id": 1
+  },
+  {
+    "n_poliza": "07988904573",
+    "f_emision": "2025-01-03",
+    "f_ini_vigencia": "2025-01-03",
+    "f_fin_vigencia": "2025-02-03",
+    "suma": "0",
+    "cuotas": "1",
+    "empresa": "FEDERACION PATRONAL",
+    "precio": "20000",
+    "marca": "PEUGEOT",
+    "modelo": "208",
+    "patente": "AE909YO",
+    "anio": "2023",
+    "n_chasis": "NJKOFVWENO98492",
+    "n_motor": "NVKJSDNV984912",
+    "combustible": "nafta",
+    "clienteId": "1",
+    "id": 2
   }
 ]

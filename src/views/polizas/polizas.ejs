@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalle de la Póliza</title>
+  <title>Lista de Pólizas</title>
 </head>
 <body>
-  <h1>Detalle de la Póliza</h1>
-  <section>
-    <h2>Póliza</h2>
-    <p>Número de Póliza: <%= poliza.n_poliza %></p>
-    <p>Fecha de Emisión: <%= poliza.f_emision %></p>
-    <p>Inicio Vigencia: <%= poliza.f_ini_vigencia %></p>
-    <p>Fin Vigencia: <%= poliza.f_fin_vigencia %></p>
-    <p>Suma Asegurada: <%= poliza.suma %></p>
-    <p>Empresa: <%= poliza.empresa %></p>
-  </section>
-  <section>
-    <h2>Cliente Asociado</h2>
-    <p>Nombre: <%= cliente.nombre %></p>
-    <p>CUIT: <%= cliente.cuit %></p>
-    <p>Teléfono: <%= cliente.telefono %></p>
-  </section>
+  <%- include("../partials/header") %> 
+  <a href="/polizas/buscarCliente">Nueva</a>
+  <h1>Pólizas</h1>
+  <% if (polizas.length > 0) { %>
+    <ul>
+      <% polizas.forEach(poliza => { %>
+        <li>
+          <a href="/polizas/detalle/<%= poliza.id %>">
+            <p>Número de Póliza: <%= poliza.n_poliza %></p>
+            <p>Marca: <%= poliza.marca %></p>
+            <p>Modelo: <%= poliza.modelo %></p>
+            <p>Año: <%= poliza.anio %></p>
+            <p>Cliente: <%= poliza.cliente ? poliza.cliente.nombre : 'Sin cliente asociado' %></p>
+          </a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No hay pólizas disponibles.</p>
+  <% } %>
 </body>
 </html>
