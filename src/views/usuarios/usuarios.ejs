@@ -8,5 +8,23 @@
 <body>
     <%- include("../partials/header") %>
     <h1>Usuarios</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Rol</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% usuarios.forEach(usuario => { %>
+                <tr>
+                    <td><%= usuario.nombre %></td>
+                    <td><%= usuario.descripcionPermiso %></td>
+                    <td><a href="/usuarios/detalle/<%= usuario.id %>">Detalle</a></td>
+                    <td><a href="/usuarios/editar/<%= usuario.id %>">Editar</a></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
 </body>
 </html>

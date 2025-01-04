@@ -1,8 +1,8 @@
 [
-    {
-        "id": 1,
-        "name": "admin",
-        "contraseña": "admin",
-        "permisos": 0
-    }
+  {
+    "id": 1,
+    "nombre": "admin",
+    "contraseña": "admin",
+    "permisos": 1
+  }
 ]

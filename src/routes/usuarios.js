@@ -6,5 +6,8 @@ const router = Router();
 router.get("/usuarios", usuarios.index);
 router.get("/usuarios/nuevo", usuarios.nuevo);
 router.get("/usuarios/perfil", usuarios.perfil);
+router.get('/usuarios/detalle/:id', usuarios.detalleUsuario);
+router.get('/usuarios/editar/:id', usuarios.editar);
+router.post('/usuarios/editar/:id', usuarios.actualizar);
 
 export default router;
