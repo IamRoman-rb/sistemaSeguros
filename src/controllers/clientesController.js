@@ -121,7 +121,66 @@ const clientesController = {
   } catch (error) {
       console.error('Error al eliminar el cliente:', error.message);
       res.status(500).send('Error al eliminar el cliente');
-  }}
+  }},
+  editar: async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json"); // Ajusta la ruta según tu estructura
+
+        const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
+        const clientes = JSON.parse(clientesData);
+        const cliente = clientes.find(cliente => cliente.id === parseInt(id));
+
+        if (!cliente) {
+            return res.status(404).send('Cliente no encontrado');
+        }
+
+        res.render('clientes/editar', { cliente });
+    } catch (error) {
+        console.error('Error al leer el archivo clientes.json:', error);
+        res.status(500).send('Error al obtener los datos del cliente');
+    }
+    },
+    actualizarCliente: async (req, res) => {
+        const { id } = req.params;
+        const { nombre, cuit, fecha_n, telefono, provincia, localidad, direccion, email, observaciones } = req.body; // Agrega más campos según sea necesario
+    
+        try {
+            // Leer los datos de los clientes desde el archivo JSON
+            const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
+            const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
+            const clientes = JSON.parse(clientesData);
+    
+            const index = clientes.findIndex(cliente => cliente.id === parseInt(id));
+
+            // Verificar si se encontró el cliente
+            if (index === -1) {
+                return res.status(404).send('Cliente no encontrado');
+            }
+
+            // Crear un objeto con los cambios a realizar
+            const cambios = {};
+            if (nombre !== clientes[index].nombre) cambios.nombre = nombre;
+            if (cuit !== clientes[index].cuit) cambios.cuit = cuit;
+            if (fecha_n !== clientes[index].fecha_n) cambios.fecha_n = fecha_n;
+            if (telefono !== clientes[index].telefono) cambios.telefono = telefono;
+            if (provincia !== clientes[index].provincia) cambios.provincia = provincia;
+            if (localidad !== clientes[index].localidad) cambios.localidad = localidad;
+            if (direccion !== clientes[index].direccion) cambios.direccion = direccion;
+    
+            // Aplicar los cambios al cliente
+            Object.assign(clientes[index], cambios);
+    
+            // Escribir los datos actualizados en el archivo JSON
+            await fs.promises.writeFile(clientesPath, JSON.stringify(clientes, null, 2));
+    
+            res.redirect('/clientes');
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Error al actualizar el cliente');
+        }
+    }
   };
   
   export default clientesController;

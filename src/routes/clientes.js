@@ -9,5 +9,7 @@ router.post('/clientes/nuevo', clientes.crearCliente);
 router.get('/clientes/detalle/:id', clientes.detalle);
 router.get('/clientes/confirmar/:id', clientes.confirmar);
 router.get('/clientes/eliminar/:id', clientes.eliminar);
+router.get('/clientes/editar/:id', clientes.editar);
+router.post('/clientes/editar/:id', clientes.actualizarCliente);
 
 export default router;
