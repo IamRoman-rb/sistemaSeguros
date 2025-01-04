@@ -3,6 +3,14 @@
     "id": 1,
     "nombre": "admin",
     "contraseña": "admin",
-    "permisos": 1
+    "permisos": 1,
+    "dni": "869231460"
+  },
+  {
+    "id": 2,
+    "nombre": "ruben",
+    "contraseña": "$2b$10$Po2UKxZKz6eu4znJG6lmgOE/TjDNbgQGk1101hMDa0j7v0ck17O.u",
+    "permisos": 3,
+    "dni": "17586700"
   }
 ]

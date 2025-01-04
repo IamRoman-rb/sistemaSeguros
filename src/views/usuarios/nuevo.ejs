@@ -6,6 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Nuevo</h1>    
+    <h1>Nuevo</h1>
+    <form action="/usuarios/nuevo" method="POST">
+        <label for="nombre"> Nombre
+            <input type="text" name="nombre" id="nombre">
+        </label>
+        <label for="contraseña"> Contraseña
+            <input type="password" name="contraseña" id="contraseña">
+        </label>
+        <select name="permiso" id="permiso">
+            <% permisos.forEach(p => { %>
+                <option value="<%= p.id %>"><%= p.descripcion %></option>
+            <% }) %>
+        </select>
+        <label for="dni"> DNI
+            <input type="text" name="dni" id="dni">
+        </label>
+        <button type="reset">Cancelar</button>
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>
