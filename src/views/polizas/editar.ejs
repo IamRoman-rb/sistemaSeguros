@@ -7,22 +7,22 @@
 </head>
 <body>
     <%- include("../partials/header") %>
-    <h1>Poliza nueva</H1>
+    <h1>Editar Poliza</h1>
         <form action="" method="POST">
             <label for="n_poliza" class="label" id="label_n_poliza">N Poliza
-                <input type="number" name="n_poliza" id="n_poliza">
+                <input type="number" name="n_poliza" id="n_poliza" value="<%= poliza.n_poliza %>">
             </label>
-            <label for="f_emision" class="label" id="label_f_emision">Fecha Emision
-                <input type="date" name="f_emision" id="f_emision">
+            <label for="f_emision" class="label" id="label_f_emision" >Fecha Emision
+                <input type="date" name="f_emision" id="f_emision" value="<%= poliza.f_emision %>">
             </label>
             <label for="f_ini_vigencia" class="label" id="label_f_ini_vigencia">Inicio Vigencia
-                <input type="date" name="f_ini_vigencia" id="f_ini_vigencia">
+                <input type="date" name="f_ini_vigencia" id="f_ini_vigencia" value="<%= poliza.f_ini_vigencia %>">
             </label>
             <label for="f_fin_vigencia" class="label" id="label_f_fin_vigencia">Fin Vigencia
-                <input type="date" name="f_fin_vigencia" id="f_fin_vigencia">
+                <input type="date" name="f_fin_vigencia" id="f_fin_vigencia" value="<%= poliza.f_fin_vigencia %>">
             </label>
             <label for="suma" class="label" id="label_suma">Suma Asegurada
-                <input type="number" name="suma" id="suma">
+                <input type="number" name="suma" id="suma" value="<%= poliza.suma %>">
             </label>
             <label for="cuotas" class="label" id="label_cuotas">Cuotas
                 <select name="cuotas" id="cuotas">
@@ -41,32 +41,28 @@
                 </select>
             </label>
             <label for="empresa">Empresa
-                <input type="text" name="empresa" id="empresa">
+                <input type="text" name="empresa" id="empresa" value="<%= poliza.empresa %>">
             </label>
             <label for="precio">Precio
-                <input type="number" name="precio" id="Precio">
+                <input type="number" name="precio" id="precio" value="<%= poliza.precio %>">
             </label>
-            <label for="cobetura">Cobertura
-                <input type="text" name="cobertura" id="cobertura">
-            </label>
-            
             <label for="marca">Marca
-                <input type="text" name="marca" id="marca">
+                <input type="text" name="marca" id="marca" value="<%= poliza.marca %>">
             </label>
             <label for="modelo">Modelo
-                <input type="text" name="modelo" id="modelo">
+                <input type="text" name="modelo" id="modelo" value="<%= poliza.modelo %>">
             </label>
             <label for="patente">Patente
-                <input type="text" name="patente" id="patente">
+                <input type="text" name="patente" id="patente" value="<%= poliza.patente %>">
             </label>
             <label for="anio">Año
-                <input type="number" name="anio" id="anio">
+                <input type="number" name="anio" id="anio" value="<%= poliza.anio %>">
             </label>
             <label for="n_chasis">N Chasis
-                <input type="text" name="n_chasis" id="n_chasis">
+                <input type="text" name="n_chasis" id="n_chasis" value="<%= poliza.n_chasis %>">
             </label>
             <label for="n_motor">N motor
-                <input type="text" name="n_motor" id="n_motor">
+                <input type="text" name="n_motor" id="n_motor" value="<%= poliza.n_motor %>">
             </label>
             <label for="combustible">Combustible
                 <select name="combustible" id="combustible">
@@ -76,8 +72,8 @@
                 </select>
             </label>
             <section class="btns">
-                <button type="reset">Cancelar</button>
-                <button type="submit">Emitir</button>
+                <a href="/polizas">Cancelar</a>
+                <button type="submit">Editar</button>
             </section>
         </form>
 </body>

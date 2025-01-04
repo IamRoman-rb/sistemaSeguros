@@ -1,13 +1,16 @@
 [
   {
-    "id": 1735964226315,
-    "nombre": "ROMAN BORLA",
-    "cuit": "20458123617",
-    "fecha_n": "2004-03-23",
-    "telefono": "2246481147",
+    "id": 1736018605773,
+    "nombre": "Ariel Borla",
+    "cuit": "9572057",
+    "fecha_n": "2025-01-04",
+    "telefono": "4731280954723",
     "provincia": "BUENOS AIRES",
-    "localidad": "SOLANO",
+    "localidad": "Quilmes",
     "direccion": "Jose Craviotto 3674",
-    "polizas": []
+    "polizas": [
+      1,
+      2
+    ]
   }
 ]

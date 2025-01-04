@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "n_poliza": "1111111111111111",
+    "f_emision": "2025-01-04",
+    "f_ini_vigencia": "2025-01-04",
+    "f_fin_vigencia": "2025-01-04",
+    "suma": "0",
+    "cuotas": "1",
+    "empresa": "AGROSALTA",
+    "precio": "40000",
+    "cobertura": "A",
+    "marca": "FORD",
+    "modelo": "ESCORT",
+    "patente": "bgui890",
+    "anio": "2012",
+    "n_chasis": "JKENJRE098423908",
+    "n_motor": "VNLASKJNV0948U2390",
+    "combustible": "nafta",
+    "clienteId": "1736018605773",
+    "id": 1
+  },
+  {
+    "n_poliza": "5437657",
+    "f_emision": "2025-01-04",
+    "f_ini_vigencia": "2025-01-04",
+    "f_fin_vigencia": "2025-12-23",
+    "suma": "5865978067",
+    "cuotas": "1",
+    "empresa": "AGROSALTA",
+    "precio": "95723405701",
+    "cobertura": "B",
+    "marca": "FORD",
+    "modelo": "ESCORT",
+    "patente": "NG8491NJK",
+    "anio": "2024",
+    "n_chasis": "MGVIOEWRMGVIEOR8549203859",
+    "n_motor": "NGVJERNJBNER90874920754",
+    "combustible": "nafta",
+    "clienteId": "1736018605773",
+    "id": 2
+  }
+]

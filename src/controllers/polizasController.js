@@ -88,6 +88,7 @@ const polizasController = {
         cuotas: req.body.cuotas,
         empresa: req.body.empresa,
         precio: req.body.precio,
+        cobertura: req.body.cobertura,
         marca: req.body.marca,
         modelo: req.body.modelo,
         patente: req.body.patente,
@@ -282,6 +283,70 @@ const polizasController = {
       res.status(500).send("Error al eliminar la póliza: " + error.message);
     }
   },
+  editar: async function editarPoliza(req, res) {
+    const { id } = req.params;
+
+    try {
+        // Leer los datos de las pólizas desde el archivo JSON (o base de datos)
+        const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
+        const polizasData = await fs.promises.readFile(polizasPath, 'utf8');
+        const polizas = JSON.parse(polizasData);
+
+        // Encontrar la póliza a editar
+        const poliza = polizas.find(poliza => poliza.id === parseInt(id));
+
+        if (!poliza) {
+            return res.status(404).send('Póliza no encontrada');
+        }
+
+        // Renderizar la vista de edición con los datos de la póliza
+        res.render('polizas/editar', { poliza });
+    } catch (error) {
+        console.error('Error al editar la póliza:', error);
+        res.status(500).send('Error al editar la póliza');
+    }
+},
+ modificarPoliza: async (req, res) => {
+  const { id } = req.params;
+  const { n_poliza, f_emision, f_ini_vigencia, f_fin_vigencia, suma, cuotas, empresa, precio, cobertura, marca, modelo, patente, anio, n_chasis, n_motor, combustible } = req.body;
+
+  try {
+    // Leer los datos de las pólizas desde el archivo JSON
+    const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
+    const polizasData = await fs.promises.readFile(polizasPath, 'utf8');
+    const polizas = JSON.parse(polizasData);
+
+    // Encontrar el índice de la póliza a modificar
+    const index = polizas.findIndex(poliza => poliza.id === parseInt(id));
+
+    if (index === -1) {
+        return res.status(404).send('Póliza no encontrada');
+    }
+
+    // Crear un objeto con los cambios a realizar
+    const cambios = {};
+
+    // Utilizar un bucle for para iterar sobre todos los campos y crear los condicionales
+    const campos = ['n_poliza', 'f_emision', 'f_fin_vigencia', 'suma', 'cuotas', 'empresa', 'precio', 'cobertura', 'marca', 'modelo', 'patente', 'anio', 'n_chasis', 'n_motor', 'combustible'];
+
+    for (const campo of campos) {
+        if (req.body[campo] !== undefined && req.body[campo] !== polizas[index][campo]) {
+            cambios[campo] = req.body[campo];
+        }
+    }
+
+    // Aplicar los cambios a la póliza
+    Object.assign(polizas[index], cambios);
+
+    // Escribir los datos actualizados en el archivo JSON
+    await fs.promises.writeFile(polizasPath, JSON.stringify(polizas, null, 2));
+
+    res.redirect('/polizas'); // Redirige a la lista de pólizas
+} catch (error) {
+    console.error('Error al modificar la póliza:', error);
+    res.status(500).send('Error al modificar la póliza');
+}
+}
 };
 
 export default polizasController;

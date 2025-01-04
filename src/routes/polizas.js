@@ -10,5 +10,7 @@ router.post('/polizas/nueva/:id', polizas.crearPoliza);
 router.get('/polizas/detalle/:id', polizas.detalle);
 router.get("/polizas/eliminar/:id", polizas.confirmarEliminar);
 router.post("/polizas/eliminar/:id", polizas.eliminar);
+router.get('/polizas/editar/:id', polizas.editar);
+router.post('/polizas/editar/:id', polizas.modificarPoliza);
 
 export default router;
