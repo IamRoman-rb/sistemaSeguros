@@ -21,7 +21,12 @@ const loginController = {
   
       if (user) {
         // Pass the password entered by the user and the hashed password from the database
+        
         const isMatch = await bcrypt.compare(contraseña, user.contraseña);
+
+        console.log(isMatch);
+        
+
         if (isMatch) {
           res.redirect('/polizas');
         } else {

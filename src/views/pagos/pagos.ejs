@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagos</title>
+</head>
+
+<body>
+    <%- include("../partials/header") %>
+        <h1>Pagos Realizados</h1>
+
+        <% if (pagos.length> 0) { %>
+            <table border="1" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>
+                        <th>ID Pago</th>
+                        <th>Cliente</th>
+                        <th>Póliza</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Monto</th>
+                        <th>Cuota</th>
+                        <th>Cobrador</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% pagos.forEach(pago=> { %>
+                        <tr>
+                            <td>
+                                <%= pago.id %>
+                            </td>
+                            <td>
+                                <% if (pago.cliente) { %>
+                                    <%= pago.cliente.nombre %> (CUIT: <%= pago.cliente.cuit %>)
+                                            <% } else { %>
+                                                Cliente no encontrado
+                                                <% } %>
+                            </td>
+                            <td>
+                                <% if (pago.poliza) { %>
+                                    <%= pago.poliza.n_poliza %> (<%= pago.poliza.marca %>
+                                            <%= pago.poliza.modelo %>
+                                                <%= pago.poliza.patente %>)
+                                                    <% } else { %>
+                                                        Póliza no encontrada
+                                                        <% } %>
+                            </td>
+                            <td>
+                                <%= pago.fecha %>
+                            </td>
+                            <td>
+                                <%= pago.hora || "Sin especificar" %>
+                            </td>
+                            <td>$<%= pago.monto %>
+                            </td>
+                            <td>
+                                <%= pago.cuota %>
+                            </td>
+                            <td>
+                                <% if (pago.cobrador) { %>
+                                    <%= pago.cobrador.nombre %>
+                                        <% } else { %>
+                                            Cobrador no encontrado
+                                            <% } %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <p>No se han realizado pagos.</p>
+                <% } %>
+</body>
+
+</html>

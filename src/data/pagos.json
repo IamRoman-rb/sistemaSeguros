@@ -1,0 +1,13 @@
+[
+    {
+        "id": 0,
+        "id_cliente": 1736018605773,
+        "id_poliza": 1,
+        "n_poliza": 1111111111111111,
+        "fecha": "2025-01-04",
+        "hora": "",
+        "monto": 40000,
+        "cuota": 1,
+        "id_cobrador": 1
+    }
+]
