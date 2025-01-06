@@ -4,12 +4,12 @@ import isAuthenticated from '../middlewares/usuarioAutenticado.js';
 
 const router = Router();
 
-router.get("/usuarios", isAuthenticated, usuarios.index);
-router.get("/usuarios/nuevo", isAuthenticated, usuarios.nuevo);
-router.post('/usuarios/nuevo', isAuthenticated, usuarios.crearUsuario);
-router.get("/usuarios/perfil", isAuthenticated ,usuarios.perfil);
-router.get('/usuarios/detalle/:id', isAuthenticated, usuarios.detalleUsuario);
-router.get('/usuarios/editar/:id', isAuthenticated, usuarios.editar);
-router.post('/usuarios/editar/:id', isAuthenticated, usuarios.actualizar);
+router.get("/", isAuthenticated, usuarios.index);
+router.get("/nuevo", isAuthenticated, usuarios.nuevo);
+router.post('/guardar', isAuthenticated, usuarios.crearUsuario);
+router.get("/perfil", isAuthenticated ,usuarios.perfil);
+router.get('/detalle/:id', isAuthenticated, usuarios.detalleUsuario);
+router.get('/editar/:id', isAuthenticated, usuarios.editar);
+router.post('/actualizar/:id', isAuthenticated, usuarios.actualizar);
 
 export default router;
