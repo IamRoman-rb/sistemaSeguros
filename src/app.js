@@ -2,6 +2,7 @@ import express from "express";
 import path, { dirname } from "node:path";
 import morgan from "morgan";
 import session from 'express-session';
+import cookie from 'cookie-parser';
 
 import main from "./routes/main.js";
 import polizas from "./routes/polizas.js";
@@ -19,23 +20,26 @@ const __dirname = path.resolve(dirname(new URL(import.meta.url).pathname).replac
 const app = express();
 const port = 3000;
 
-// middlewares
-app.use(morgan("dev"));
-app.use(express.urlencoded({ extended: true }));
-
-app.use(session({resave:false, saveUninitialized:true, secret:'1234'}))
-
-app.use(setUserMiddleware());
-
-
-
 // settings
 app.set("port", process.env.PORT || port);
 app.set("view engine", "ejs");
 
 // Aquí corregimos la ruta de las vistas:
-app.set("views", path.join(__dirname, "views")); // Usamos path.join() para evitar errores de rutas
+app.set("views", path.join(__dirname, "views"));
 
+// starting the server
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+
+// statics files
+app.use(express.static(path.join(__dirname, "../public")));
+
+// middlewares
+app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: true }));
+app.use(cookie("secret"));
+app.use(session({resave:false, saveUninitialized:true, secret:'1234'}))
+app.use(setUserMiddleware());
 
 // routes
 app.use(main);
@@ -45,14 +49,3 @@ app.use(clientes);
 app.use(login);
 app.use(pagos);
 app.use(usuarios);
-
-// statics files
-app.use(express.static(path.join(__dirname, "../public")));
-
-// starting the server
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-
-
-// Revisar error al intentar iniciar sesion
-
-// Hola Mundo
