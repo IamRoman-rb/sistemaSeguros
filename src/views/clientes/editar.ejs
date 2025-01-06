@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Editar Cliente</h1>
-    <form method="POST" action="/clientes/editar/<%= cliente.id %>">
+    <form method="POST" action="/clientes/actualizar/<%= cliente.id %>">
         <label for="nombre">Nombre:
             <input type="text" id="nombre" name="nombre" value="<%= cliente.nombre %>">
         </label>

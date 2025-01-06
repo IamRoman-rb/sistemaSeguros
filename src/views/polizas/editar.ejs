@@ -8,7 +8,7 @@
 <body>
     <%- include("../partials/header") %>
     <h1>Editar Poliza</h1>
-        <form action="" method="POST">
+        <form action="/polizas/actualizar/<%= poliza.id %>" method="POST">
             <label for="n_poliza" class="label" id="label_n_poliza">N Poliza
                 <input type="number" name="n_poliza" id="n_poliza" value="<%= poliza.n_poliza %>">
             </label>

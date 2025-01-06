@@ -48,10 +48,12 @@ app.use(session({
 app.use(setUserMiddleware);  // Aquí lo pasas como un middleware sin invocar
 
 // routes
-app.use(main);
-app.use(polizas);
-app.use(caja);
-app.use(clientes);
 app.use(login);
-app.use(pagos);
 app.use("/usuarios",usuarios);
+app.use(main);
+app.use("/clientes",clientes);
+/*
+app.use("/polizas",polizas);
+app.use("/pagos",pagos);
+app.use("/caja",caja);
+*/
