@@ -30,7 +30,6 @@ app.set("views", path.join(__dirname, "views"));
 // starting the server
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
-
 // statics files
 app.use(express.static(path.join(__dirname, "../public")));
 
@@ -38,8 +37,14 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookie("secret"));
-app.use(session({resave:false, saveUninitialized:true, secret:'1234'}))
-app.use(setUserMiddleware());
+app.use(session({
+  secret: '1234',
+  resave: false,
+  saveUninitialized: true
+}));
+
+// middleware para establecer el usuario en res.locals
+app.use(setUserMiddleware);  // Aquí lo pasas como un middleware sin invocar
 
 // routes
 app.use(main);
