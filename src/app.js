@@ -1,6 +1,6 @@
 import express from "express";
 import path, { dirname } from "node:path";
-import morgan from "morgan";
+// import morgan from "morgan";
 import session from 'express-session';
 import cookie from 'cookie-parser';
 
@@ -22,26 +22,26 @@ const port = 3000;
 
 // settings
 app.set("port", process.env.PORT || port);
+// starting the server
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
 app.set("view engine", "ejs");
 
 // Aquí corregimos la ruta de las vistas:
 app.set("views", path.join(__dirname, "views"));
 
-// starting the server
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-
 // statics files
 app.use(express.static(path.join(__dirname, "../public")));
 
 // middlewares
-app.use(morgan("dev"));
+// app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}))
-app.use(cookie("secret"));
+app.use(cookie());
 app.use(session({
   secret: '1234',
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false
 }));
 
 // middleware para establecer el usuario en res.locals
