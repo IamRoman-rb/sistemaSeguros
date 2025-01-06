@@ -23,9 +23,14 @@ export const access = async (req, res) => {
       const isMatch = await bcrypt.compare(clave, user['contraseña']);
 
       if (isMatch) {
+        const permisosPath = path.resolve(process.cwd(), "src/data", "permisos.json");
+        const permisos = JSON.parse(fs.readFileSync(permisosPath, "utf8"));
+        const permiso = permisos.find(p => p.id === user.permisos);
         req.session.user = {
           id: user.id,
           nombre: user.nombre,
+          rol: permiso.descripcion,
+          permisos: permiso.alcances,
         };
 
         res.redirect('/clientes');

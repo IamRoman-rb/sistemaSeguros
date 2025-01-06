@@ -3,35 +3,34 @@
         "id": 1,
         "descripcion": "Administrador",
         "alcances":{
-            "usuarios": ["todos", "crear", "editar", "eliminar"],
-            "auxiliares": ["todos", "crear", "editar", "eliminar"],
-            "clientes": ["todos", "crear", "editar", "eliminar"],
-            "polizas": ["todos", "crear", "editar", "eliminar"],
-            "pagos": ["todos", "crear", "editar", "eliminar"],
-            "caja": ["todos", "crear", "editar", "eliminar"],
-            "empresas": ["todos", "crear", "editar", "eliminar"]
+            "usuarios": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
+            "auxiliares": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
+            "clientes": ["/", "/nuevo", "/detalle", "/editar", "/confirmar" , "/eliminar"],
+            "polizas": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
+            "pagos": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
+            "caja": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
+            "empresas": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"]
         }
     },
     {
         "id": 2,
         "descripcion": "Empleado",
         "alcances":{
-            "clientes": ["todos", "crear", "editar", "eliminar"],
-            "polizas": ["todos", "crear", "editar", "eliminar"],
-            "pagos": ["todos", "crear", "editar", "eliminar"],
-            "caja": ["todos", "crear", "editar", "eliminar"],
-            "empresas": ["todos", "crear", "editar", "eliminar"]
+            "clientes": ["/", "/nuevo", "/detalle", "/editar", "/confirmar", "/eliminar"],
+            "polizas": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
+            "pagos": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"]
         }
     },
     {
         "id": 3,
         "descripcion": "Propietario",
         "alcances":{
-            "clientes": ["todos", "crear", "editar", "eliminar"],
-            "polizas": ["todos", "crear", "editar", "eliminar"],
-            "pagos": ["todos", "crear", "editar", "eliminar"],
-            "caja": ["todos", "crear", "editar", "eliminar"],
-            "empresas": ["todos", "crear", "editar", "eliminar"]
+            "auxiliares": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
+            "clientes": ["/", "/nuevo", "/detalle", "/editar", "/confirmar", "/eliminar"],
+            "polizas": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
+            "pagos": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
+            "caja": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
+            "empresas": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"]
         }
     }
 ]
