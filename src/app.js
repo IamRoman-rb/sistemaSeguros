@@ -35,7 +35,8 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 // middlewares
 app.use(morgan("dev"));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({extended:false}))
 app.use(cookie("secret"));
 app.use(session({
   secret: '1234',
