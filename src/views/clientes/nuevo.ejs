@@ -4,8 +4,11 @@
     <title>Nuevo Cliente</title>
 </head>
 <body>
-    <%- include("../partials/header") %>
-    <h1>Nuevo Cliente</h1>
+    <header>
+        <h1>Nuevo Cliente</h1>
+        <a href="/clientes">Regresar</a>
+    </header>
+
     <form method="POST" action="/clientes/guardar">
         <fieldset>
             <label for="nombre">Nombre:
@@ -37,7 +40,7 @@
             <input type="text" id="direccion" name="direccion">
         </fieldset>
         <fieldset>
-            <button type="reset">Cancelar</button>
+            <button type="reset">Borrar</button>
             <button type="submit">Guardar</button>
         </fieldset>
     </form>

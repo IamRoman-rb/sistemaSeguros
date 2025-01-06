@@ -57,8 +57,7 @@ app.use(auth);
 app.use(isAuthenticated);
 app.use("/usuarios",usuarios);
 app.use("/clientes",clientes);
-/*
 app.use("/polizas",polizas);
 app.use("/pagos",pagos);
 app.use("/caja",caja);
-*/
+
