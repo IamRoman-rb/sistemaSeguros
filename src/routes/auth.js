@@ -4,7 +4,7 @@ import login from "../controllers/loginController.js"; // Usamos 'import' en lug
 const router = Router();
 
 router.get("/login", login.index);
-router.post("/login", login.post);
+router.post("/access", login.post);
 
 
 export default router;

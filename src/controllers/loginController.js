@@ -7,9 +7,9 @@ const loginController = {
     res.render("login");
   },
   post: async (req, res) => {
-    const { nombre, contraseña } = req.body;
+    const { nombre, clave } = req.body;
   
-    if (!nombre || !contraseña) {
+    if (!nombre || !clave) {
       return res.status(400).send("Todos los campos son obligatorios");
     }
 
@@ -20,7 +20,7 @@ const loginController = {
       const user = users.find(u => u.nombre === nombre);
   
       if (user) {
-        const isMatch = await bcrypt.compare(contraseña, user.contraseña);
+        const isMatch = await bcrypt.compare(clave, user.clave);
   
         if (isMatch) {
           req.session.user = {
@@ -28,7 +28,7 @@ const loginController = {
             nombre: user.nombre,
           };
   
-          res.redirect('/polizas');
+          res.redirect('/clientes');
         } else {
           res.status(401).send("Usuario o contraseña incorrectos");
         }

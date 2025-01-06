@@ -1,10 +1,11 @@
 const isAuthenticated = (req, res, next) => {
-    if (req?.session?.user) {
+  console.log('Middleware de autenticación');
+  if(req?.session && req?.session?.user) {
       console.log('Usuario autenticado');
       console.log(req.session.user);
-      next();
+      return next();
     } else {
-      res.redirect('/login');
+      return res.redirect('/login');
     }
   };
   

@@ -7,17 +7,15 @@
 </head>
 <body>
     <h1>Iniciar Sesion</h1>
-    <form action="/login" method="POST">
-        <label for="nombre">Nombre de usuario
-            <input type="text" name="nombre" id="nombre">
-        </label>
-        <label for="contraseña">Contraseña
-            <input type="password" name="contraseña" id="contraseña">
-        </label>
-        <section id="buttons" class="buttons">
+    <form action="/access" method="POST">
+        <label for="nombre">Nombre de usuario</label>
+        <input type="text" name="nombre" id="nombre">
+        <label for="clave">Contraseña</label>
+        <input type="password" name="clave" id="clave">
+        <fieldset id="buttons" class="buttons">
             <button type="reset">Cancelar</button>
             <button type="submit">Ingresar</button>
-        </section>
+        </fieldset>
     </form>
 </body>
 </html>
