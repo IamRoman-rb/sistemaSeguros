@@ -6,30 +6,39 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Editar Cliente</h1>
-    <form method="POST" action="/clientes/actualizar/<%= cliente.id %>">
-        <label for="nombre">Nombre:
-            <input type="text" id="nombre" name="nombre" value="<%= cliente.nombre %>">
-        </label>
-        <label for="cuit">CUIT:
-            <input type="text" id="cuit" name="cuit" value="<%= cliente.cuit %>">
-        </label>
-        <label for="fecha_n">Fecha de Nacimiento:
-            <input type="date" id="fecha_n" name="fecha_n" value="<%= cliente.fecha_n %>">
-        </label>
-        <label for="telefono">Telefono:
-            <input type="text" id="telefono" name="telefono" value="<%= cliente.telefono %>">
-        </label>
-        <label for="provincia">Provincia:
-            <input type="text" id="provincia" name="provincia" value="<%= cliente.provincia %>">
-        </label>
-        <label for="localidad">Localidad:
-            <input type="text" id="localidad" name="localidad" value="<%= cliente.localidad %>">
-        </label>
-        <label for="direccion">Direccion:
-            <input type="text" id="direccion" name="direccion" value="<%= cliente.direccion %>">
-        </label>
+    <header>
+        <h1>Editar Cliente</h1>
         <a href="/clientes">Cancelar</a>
+    </header>
+    <form method="POST" action="/clientes/actualizar/<%= cliente.id %>">
+        <fieldset>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value="<%= cliente.nombre %>">
+        </fieldset>
+        <fieldset>
+            <label for="cuit">CUIT:</label>
+            <input type="text" id="cuit" name="cuit" value="<%= cliente.cuit %>">
+        </fieldset>
+        <fieldset>
+            <label for="fecha_n">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_n" name="fecha_n" value="<%= cliente.fecha_n %>">
+        </fieldset>
+        <fieldset>
+            <label for="telefono">Telefono:</label>
+            <input type="text" id="telefono" name="telefono" value="<%= cliente.telefono %>">
+        </fieldset>
+        <fieldset>
+            <label for="provincia">Provincia:</label>
+            <input type="text" id="provincia" name="provincia" value="<%= cliente.provincia %>">
+        </fieldset>
+        <fieldset>
+            <label for="localidad">Localidad:</label>
+            <input type="text" id="localidad" name="localidad" value="<%= cliente.localidad %>">
+        </fieldset>
+        <fieldset>
+            <label for="direccion">Direccion:</label>
+            <input type="text" id="direccion" name="direccion" value="<%= cliente.direccion %>">
+        </fieldset>
         <button type="submit">Editar</button>
     </form>
 </body>

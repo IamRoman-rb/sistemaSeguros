@@ -8,14 +8,29 @@
 <body>
     <h1>Iniciar Sesion</h1>
     <form action="/access" method="POST">
-        <label for="nombre">Nombre de usuario</label>
-        <input type="text" name="nombre" id="nombre">
-        <label for="clave">Contraseña</label>
-        <input type="password" name="clave" id="clave">
+        <fieldset>
+            <label for="nombre">Nombre de usuario</label>
+            <input type="text" name="nombre" id="nombre">
+        </fieldset>
+        <fieldset>
+            <label for="clave">Contraseña</label>
+            <input type="password" name="clave" id="clave">
+            <button type="button" id="showPassword">Mostrar</button>
+        </fieldset>
         <fieldset id="buttons" class="buttons">
             <button type="reset">Cancelar</button>
             <button type="submit">Ingresar</button>
         </fieldset>
     </form>
+    <script>
+        document.getElementById("showPassword").addEventListener("click", function() {
+            var passwordInput = document.getElementById("clave");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    </script>
 </body>
 </html>

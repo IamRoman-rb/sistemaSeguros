@@ -18,9 +18,8 @@ const loginController = {
       const users = JSON.parse(fs.readFileSync(usersPath, "utf8"));
   
       const user = users.find(u => u.nombre === nombre);
-  
       if (user) {
-        const isMatch = await bcrypt.compare(clave, user.clave);
+        const isMatch = await bcrypt.compare(clave, user['contraseña']);
   
         if (isMatch) {
           req.session.user = {
