@@ -187,7 +187,6 @@ realizarPago: async (req, res) => {
   }
 }
 
-
-  };
+};
   
   export default pagosController;
