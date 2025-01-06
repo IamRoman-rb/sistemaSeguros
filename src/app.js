@@ -12,6 +12,7 @@ import pagos from "./routes/pagos.js";
 import usuarios from "./routes/usuarios.js";
 
 import setUserMiddleware from './middlewares/setUserMiddleware.js';
+
 // Usar import.meta.url para obtener el directorio actual
 const __dirname = path.resolve(dirname(new URL(import.meta.url).pathname).replace(/^\/([A-Za-z]):/, "$1:"));
 
@@ -22,13 +23,10 @@ const port = 3000;
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 
-app.use(session({
-  secret: 'secreto', // Cambia esto por un valor seguro
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: process.env.NODE_ENV === 'production' }
-}));
-app.use(setUserMiddleware);
+app.use(session({resave:false, saveUninitialized:true, secret:'1234'}))
+
+app.use(setUserMiddleware());
+
 
 
 // settings

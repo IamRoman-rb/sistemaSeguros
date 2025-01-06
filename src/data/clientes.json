@@ -1,16 +1,13 @@
 [
   {
-    "id": 1736018605773,
+    "id": 1736183794458,
     "nombre": "Ariel Borla",
-    "cuit": "9572057",
-    "fecha_n": "2025-01-04",
+    "cuit": "20458123617",
+    "fecha_n": "2025-01-06",
     "telefono": "4731280954723",
-    "provincia": "BUENOS AIRES",
+    "provincia": "Buenos Aires",
     "localidad": "Quilmes",
     "direccion": "Jose Craviotto 3674",
-    "polizas": [
-      1,
-      2
-    ]
+    "polizas": []
   }
 ]

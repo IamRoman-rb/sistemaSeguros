@@ -12,8 +12,6 @@ const loginController = {
     if (!nombre || !contraseña) {
       return res.status(400).send("Todos los campos son obligatorios");
     }
-    
-    
 
     try {
       const usersPath = path.resolve(process.cwd(), "src/data", "usuarios.json");

@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <%- include("../partials/header") %>
-    <h1>Poliza nueva</H1>
-        <form action="" method="POST">
+        <h1>Poliza nueva</H1>
+        <form action="" method="POST" id="create-poliza-form">
             <label for="n_poliza" class="label" id="label_n_poliza">N Poliza
                 <input type="number" name="n_poliza" id="n_poliza">
             </label>
@@ -49,7 +51,7 @@
             <label for="cobetura">Cobertura
                 <input type="text" name="cobertura" id="cobertura">
             </label>
-            
+
             <label for="marca">Marca
                 <input type="text" name="marca" id="marca">
             </label>
@@ -75,10 +77,12 @@
                     <option value="GNC">GNC</option>
                 </select>
             </label>
+            <input type="hidden" id="id_cliente" value="<%= cliente.id %>">
             <section class="btns">
                 <button type="reset">Cancelar</button>
                 <button type="submit">Emitir</button>
             </section>
         </form>
 </body>
+
 </html>
