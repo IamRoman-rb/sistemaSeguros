@@ -1,14 +1,37 @@
 [
     {
         "id": 1,
-        "descripcion": "Administrador"
+        "descripcion": "Administrador",
+        "alcances":{
+            "usuarios": ["todos", "crear", "editar", "eliminar"],
+            "auxiliares": ["todos", "crear", "editar", "eliminar"],
+            "clientes": ["todos", "crear", "editar", "eliminar"],
+            "polizas": ["todos", "crear", "editar", "eliminar"],
+            "pagos": ["todos", "crear", "editar", "eliminar"],
+            "caja": ["todos", "crear", "editar", "eliminar"],
+            "empresas": ["todos", "crear", "editar", "eliminar"]
+        }
     },
     {
         "id": 2,
-        "descripcion": "Empleado"
+        "descripcion": "Empleado",
+        "alcances":{
+            "clientes": ["todos", "crear", "editar", "eliminar"],
+            "polizas": ["todos", "crear", "editar", "eliminar"],
+            "pagos": ["todos", "crear", "editar", "eliminar"],
+            "caja": ["todos", "crear", "editar", "eliminar"],
+            "empresas": ["todos", "crear", "editar", "eliminar"]
+        }
     },
     {
         "id": 3,
-        "descripcion": "Propietario"
+        "descripcion": "Propietario",
+        "alcances":{
+            "clientes": ["todos", "crear", "editar", "eliminar"],
+            "polizas": ["todos", "crear", "editar", "eliminar"],
+            "pagos": ["todos", "crear", "editar", "eliminar"],
+            "caja": ["todos", "crear", "editar", "eliminar"],
+            "empresas": ["todos", "crear", "editar", "eliminar"]
+        }
     }
 ]
