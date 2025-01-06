@@ -2,21 +2,21 @@
   {
     "id": 1,
     "nombre": "admin",
-    "contraseña": "$2b$10$6elhMUGBPUr8J1RXJqDkjetTMHQ4iSAQtlYiuJwDveWL2OwIzgPOO",
+    "contraseña": "$2b$10$wRNpVIkHvKvQWvILSDpgOOZdwchPbOhhcRO3dzqtruQxkFYdh5Eqa",
     "permisos": 1,
     "dni": "45812361"
   },
   {
     "id": 2,
     "nombre": "ruben",
-    "contraseña": "$2b$10$7GSOvW5blFakqEQINWd4S.klxeHVzm3HUbqXXsfcPZ1QihVzHwpLi",
+    "contraseña": "$2b$10$FnM7zjJ7A8pqRvn0OgoidOLBRHYrSa1Iqnacka5rzToy9ieLblW9C",
     "permisos": 3,
     "dni": "17586700"
   },
   {
     "id": 3,
     "nombre": "MariaJose",
-    "contraseña": "$2b$10$ySvBAnFKJmFdBzBy5vvE7uVQoHJhtX4qdnEbNqek7QKZ4eb3piEuy",
+    "contraseña": "$2b$10$jnsmJUNYbX54TiO3jnByle8pp7NvFoLRYV4VFJOZ4MWdAjiS.jSDS",
     "permisos": 3,
     "dni": "23700586"
   }

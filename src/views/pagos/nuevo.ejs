@@ -7,5 +7,57 @@
 </head>
 <body>
     <h1>Nuevo pago</h1>
+    <form action="/pagos/nuevo" method="get" style="margin-bottom: 20px;">
+        <input 
+          type="text" 
+          name="busqueda" 
+          placeholder="Buscar por nombre, número de póliza o patente" 
+          value="<%= typeof busqueda !== 'undefined' ? busqueda : '' %>" 
+          style="width: 300px;"
+        >
+        <button type="submit">Buscar</button>
+        <a href="/pagos">Cancelar</a>
+      </form>
+    
+      <% if (busqueda) { %>
+        <p>Resultados de la búsqueda para: "<strong><%= busqueda %></strong>"</p>
+      <% } else { %>
+        <p>Mostrando todas las pólizas disponibles.</p>
+      <% } %>
+    
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Número de Póliza</th>
+            <th>Fecha de Emisión</th>
+            <th>Inicio Vigencia</th>
+            <th>Fin Vigencia</th>
+            <th>Cobertura</th>
+            <th>Cliente</th>
+            <th>Patente</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (polizas.length === 0) { %>
+            <tr>
+              <td colspan="7">No se encontraron pólizas.</td>
+            </tr>
+          <% } else { %>
+            <% polizas.forEach(poliza => { %>
+              <tr>
+                <td><%= poliza.n_poliza %></td>
+                <td><%= poliza.f_emision %></td>
+                <td><%= poliza.f_ini_vigencia %></td>
+                <td><%= poliza.f_fin_vigencia %></td>
+                <td><%= poliza.cobertura %></td>
+                <td><%= poliza.cliente ? poliza.cliente.nombre : "Sin Cliente" %></td>
+                <td><%= poliza.patente %></td>
+                <td>
+                    <a href="/pagos/pagarPoliza/<%= poliza.id %>">Pagar</a>
+                </td>
+              </tr>
+            <% }); %>
+          <% } %>
 </body>
 </html>

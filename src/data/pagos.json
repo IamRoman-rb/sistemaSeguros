@@ -1,13 +1,66 @@
 [
-    {
-        "id": 0,
-        "id_cliente": 1736018605773,
-        "id_poliza": 1,
-        "n_poliza": 1111111111111111,
-        "fecha": "2025-01-04",
-        "hora": "",
-        "monto": 40000,
-        "cuota": 1,
-        "id_cobrador": 1
-    }
+  {
+    "id": 0,
+    "id_cliente": 1736018605773,
+    "id_poliza": 1,
+    "n_poliza": 1111111111111111,
+    "fecha": "2025-01-04",
+    "hora": "",
+    "monto": 40000,
+    "cuota": 1,
+    "id_cobrador": 1
+  },
+  {
+    "id": null,
+    "id_poliza": 2,
+    "n_poliza": "5437657",
+    "fecha": "2025-01-06",
+    "hora": "12:30:4",
+    "monto": "95723405701",
+    "cuota": 2,
+    "id_cobrador": 1
+  },
+  {
+    "id": 1,
+    "id_poliza": 2,
+    "n_poliza": "5437657",
+    "fecha": "2025-01-06",
+    "hora": "12:36:57",
+    "monto": "95723405701",
+    "cuota": 3,
+    "id_cobrador": 1
+  },
+  {
+    "id": 2,
+    "id_cliente": "1736018605773",
+    "id_poliza": 2,
+    "n_poliza": "5437657",
+    "fecha": "2025-01-06",
+    "hora": "12:38:32",
+    "monto": "95723405701",
+    "cuota": 4,
+    "id_cobrador": 1
+  },
+  {
+    "id": 3,
+    "id_cliente": 1736018605773,
+    "id_poliza": 1,
+    "n_poliza": "1111111111111111",
+    "fecha": "2025-01-06",
+    "hora": "12:40:7",
+    "monto": "40000",
+    "cuota": 1,
+    "id_cobrador": 1
+  },
+  {
+    "id": 4,
+    "id_cliente": 1736018605773,
+    "id_poliza": 1,
+    "n_poliza": "1111111111111111",
+    "fecha": "2025-01-06",
+    "hora": "12:41:58",
+    "monto": "40000",
+    "cuota": 2,
+    "id_cobrador": 1
+  }
 ]
