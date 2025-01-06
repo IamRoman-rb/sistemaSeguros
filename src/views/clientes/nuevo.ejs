@@ -4,32 +4,45 @@
     <title>Nuevo Cliente</title>
 </head>
 <body>
-    <%- include("../partials/header") %>
-    <h1>Nuevo Cliente</h1>
+    <header>
+        <h1>Nuevo Cliente</h1>
+        <a href="/clientes">Regresar</a>
+    </header>
+
     <form method="POST" action="/clientes/guardar">
-        <label for="nombre">Nombre:
+        <fieldset>
+            <label for="nombre">Nombre:
+            </label>
             <input type="text" id="nombre" name="nombre">
-        </label>
-        <label for="cuit">CUIT:
+        </fieldset>
+        <fieldset>
+            <label for="cuit">CUIT:</label>
             <input type="text" id="cuit" name="cuit">
-        </label>
-        <label for="fecha_n">Fecha de Nacimiento:
+        </fieldset>
+        <fieldset>
+            <label for="fecha_n">Fecha de Nacimiento:</label>
             <input type="date" id="fecha_n" name="fecha_n">
-        </label>
-        <label for="telefono">Telefono:
+        </fieldset>
+        <fieldset>
+            <label for="telefono">Telefono:</label>
             <input type="text" id="telefono" name="telefono">
-        </label>
-        <label for="provincia">Provincia:
+        </fieldset>
+        <fieldset>
+            <label for="provincia">Provincia:</label>
             <input type="text" id="provincia" name="provincia">
-        </label>
-        <label for="localidad">Localidad:
+        </fieldset>
+        <fieldset>
+            <label for="localidad">Localidad:</label>
             <input type="text" id="localidad" name="localidad">
-        </label>
-        <label for="direccion">Direccion:
+        </fieldset>
+        <fieldset>
+            <label for="direccion">Direccion:</label>
             <input type="text" id="direccion" name="direccion">
-        </label>
-        <button type="reset">Cancelar</button>
-        <button type="submit">Guardar</button>
+        </fieldset>
+        <fieldset>
+            <button type="reset">Borrar</button>
+            <button type="submit">Guardar</button>
+        </fieldset>
     </form>
 </body>
 </html>

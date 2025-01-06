@@ -1,18 +1,22 @@
-import express from "express";
 import path, { dirname } from "node:path";
-// import morgan from "morgan";
+
+// Third-party Libraries
+import express from "express";
+import morgan from "morgan";
 import session from 'express-session';
 import cookie from 'cookie-parser';
 
-import main from "./routes/main.js";
+// Import Routes
+import auth from "./routes/auth.js";
+import usuarios from "./routes/usuarios.js";
+import clientes from "./routes/clientes.js";
 import polizas from "./routes/polizas.js";
 import caja from "./routes/caja.js";
-import clientes from "./routes/clientes.js";
-import login from "./routes/login.js";
 import pagos from "./routes/pagos.js";
-import usuarios from "./routes/usuarios.js";
 
+// Import Middlewares
 import setUserMiddleware from './middlewares/setUserMiddleware.js';
+import isAuthenticated from './middlewares/isAuthenticated.js';
 
 // Usar import.meta.url para obtener el directorio actual
 const __dirname = path.resolve(dirname(new URL(import.meta.url).pathname).replace(/^\/([A-Za-z]):/, "$1:"));
@@ -45,15 +49,15 @@ app.use(session({
 }));
 
 // middleware para establecer el usuario en res.locals
-app.use(setUserMiddleware);  // Aquí lo pasas como un middleware sin invocar
+app.use(setUserMiddleware);
+
 
 // routes
-app.use(login);
+app.use(auth);
+app.use(isAuthenticated);
 app.use("/usuarios",usuarios);
-app.use(main);
 app.use("/clientes",clientes);
-/*
 app.use("/polizas",polizas);
 app.use("/pagos",pagos);
 app.use("/caja",caja);
-*/
+

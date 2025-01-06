@@ -1,15 +1,15 @@
 import { Router } from "express";
 import usuarios from "../controllers/usuariosController.js"; // Usamos 'import' en lugar de 'require'
-import isAuthenticated from '../middlewares/usuarioAutenticado.js';
+import hasPermitions from "../middlewares/hasPermitions.js";
 
 const router = Router();
 
-router.get("/", isAuthenticated, usuarios.index);
-router.get("/nuevo", isAuthenticated, usuarios.nuevo);
-router.post('/guardar', isAuthenticated, usuarios.crearUsuario);
-router.get("/perfil", isAuthenticated ,usuarios.perfil);
-router.get('/detalle/:id', isAuthenticated, usuarios.detalleUsuario);
-router.get('/editar/:id', isAuthenticated, usuarios.editar);
-router.post('/actualizar/:id', isAuthenticated, usuarios.actualizar);
+router.get("/", hasPermitions, usuarios.index);
+router.get("/nuevo", hasPermitions, usuarios.nuevo);
+router.get("/perfil", hasPermitions, usuarios.perfil);
+router.get('/detalle/:id', hasPermitions, usuarios.detalleUsuario);
+router.get('/editar/:id', hasPermitions, usuarios.editar);
+router.post('/guardar', usuarios.crearUsuario);
+router.post('/actualizar/:id', usuarios.actualizar);
 
 export default router;

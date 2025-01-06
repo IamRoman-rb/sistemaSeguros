@@ -1,12 +1,12 @@
 import { Router } from "express";
 import pagos from "../controllers/pagosController.js"; // Usamos 'import' en lugar de 'require'
-import isAuthenticated from '../middlewares/usuarioAutenticado.js';
+import hasPermitions from "../middlewares/hasPermitions.js";
 
 const router = Router();
 
-router.get("/", isAuthenticated, pagos.index);
-router.get('/nuevo', isAuthenticated, pagos.nuevo);
-router.get('/pagarPoliza/:id', isAuthenticated, pagos.pagarPoliza);
-router.post('/pagarPoliza', isAuthenticated, pagos.realizarPago);
+router.get("/", hasPermitions, pagos.index);
+router.get('/nuevo', hasPermitions, pagos.nuevo);
+router.get('/pagarPoliza/:id', hasPermitions, pagos.pagarPoliza);
+router.post('/pagarPoliza', pagos.realizarPago);
 
 export default router;

@@ -1,11 +1,10 @@
 import { Router } from "express";
 import caja from "../controllers/cajaController.js"; // Usamos 'import' en lugar de 'require'
-import isAuthenticated from '../middlewares/usuarioAutenticado.js';
-
+import hasPermitions from "../middlewares/hasPermitions.js";
 const router = Router();
 
-router.get("/caja", isAuthenticated, caja.index);
-router.get("/caja/ingreso", isAuthenticated, caja.ingreso);
-router.get("/caja/resumen", isAuthenticated, caja.resumen);
+router.get("/", hasPermitions, caja.index);
+router.get("/ingreso", hasPermitions, caja.ingreso);
+router.get("/resumen", hasPermitions, caja.resumen);
 
 export default router;

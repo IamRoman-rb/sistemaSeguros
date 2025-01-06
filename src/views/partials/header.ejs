@@ -6,9 +6,12 @@
         <a href="/caja">caja</a>
         <a href="/usuarios">Usuarios</a>
     </nav>
-    <form action="">
-        <label for="">
-            <%= user.nombre %>
-        </label>
+    <nav>
+        <a href="/perfil">
+            <%= user.nombre %> | <%= user.rol %>
+        </a>
+    </nav>
+    <form action="/logout" method="get">
+        <button type="submit">Cerrar Sesion</button>
     </form>
 </header>
