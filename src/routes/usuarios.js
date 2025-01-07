@@ -10,6 +10,7 @@ router.get("/perfil", hasPermitions, usuarios.perfil);
 router.get('/detalle/:id', hasPermitions, usuarios.detalleUsuario);
 router.get('/editar/:id', hasPermitions, usuarios.editar);
 router.post('/guardar', usuarios.crearUsuario);
-router.post('/actualizar/:id', usuarios.actualizar);
+router.post('/actualizar', usuarios.actualizar);
+router.post('/eliminar', usuarios.eliminar);
 
 export default router;
