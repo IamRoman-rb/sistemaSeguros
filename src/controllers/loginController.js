@@ -19,6 +19,11 @@ export const access = async (req, res) => {
     const users = JSON.parse(fs.readFileSync(usersPath, "utf8"));
 
     const user = users.find(u => u.nombre === nombre);
+
+    if(user && !user.activo){
+      return res.status(401).send("El usuario esta inactivo");
+    }
+
     if (user) {
       const isMatch = await bcrypt.compare(clave, user['contraseña']);
 

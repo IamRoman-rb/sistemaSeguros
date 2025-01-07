@@ -3,30 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Usuarios | Editar</title>
 </head>
 <body>
-    <h1>Editar Usuario</h1>
-    <form action="/usuarios/actualizar/<%= usuario.id %>" method="POST">
-        <label for="nombre">
-            <input type="text" id="nombre" name="nombre" value="<%= usuario.nombre %>">
-        </label>
-        <label for="contraseña">
-            <input type="password" id="contraseña" name="contraseña" value="<%= usuario.contraseña %>">
-        </label>
-        <select name="permiso" id="permiso">
-            <option value="<%= usuario.permisos %>" selected><%= permiso.descripcion %></option>
-            <% permisos.forEach(p => { %>
-                <% if (usuario.permisos != p.id) { %>
-                 <option value="<%= p.id %>"><%= p.descripcion %></option>
-                <% } %>
-            <% }) %>
-        </select>
-        <label for="dni">DNI
+    <header>
+        <h1>Editar Usuario</h1>
+        <a href="/usuarios">Regresar</a>
+    </header>
+    <form action="/usuarios/actualizar" method="POST">
+        <input type="hidden" name="userId" value="<%= usuario.id %>">
+        <fieldset>
+            <label for="nombre"> Nombre </label>
+            <input type="text" name="nombre" id="nombre" value="<%= usuario.nombre %>">
+        </fieldset>
+        <fieldset>
+            <label for="clave"> Contraseña </label>
+            <input type="password" name="clave" id="clave">
+            <button type="button" id="showPassword">Mostrar</button>
+        </fieldset>
+        <fieldset>
+            <label for="dni"> DNI </label>
             <input type="text" name="dni" id="dni" value="<%= usuario.dni %>">
-        </label>
-        <a href="/usuarios">Cancelar</a>
-        <button type="submit">Enviar</button>
+        </fieldset>
+        <fieldset>
+            <select name="permiso" id="permiso">
+                <option value="0" disabled>Perfil</option>
+                <% permisos.forEach(p => { %>
+                    <% if (p.id == usuario.permisos) { %>
+                        <option value="<%= p.id %>" selected><%= p.descripcion %></option>
+                    <% } else { %>
+                        <option value="<%= p.id %>" ><%= p.descripcion %></option>
+                    <% } %>
+                <% }) %>
+            </select>
+            <select name="sucursal" id="sucursal">
+                <option value="0" disabled>Sucursal</option>
+                <% sucursales.forEach(s => { %>
+                    <% if (s.id == usuario.sucursal) { %>
+                        <option value="<%= s.id %>" selected><%= s.nombre %></option>
+                    <% } else { %>
+                        <option value="<%= s.id %>"><%= s.nombre %></option>
+                    <% } %>
+                <% }) %>
+            </select>
+        </fieldset>
+        <pre>
+            <code>
+                <%= JSON.stringify(usuario, null, 2) %>
+            </code>
+        </pre>
+        <button type="reset">Borrar</button>
+        <button type="submit">Actualizar</button>
     </form>
 </body>
 </html>

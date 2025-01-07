@@ -4,27 +4,35 @@
     "nombre": "admin",
     "contraseña": "$2b$10$wRNpVIkHvKvQWvILSDpgOOZdwchPbOhhcRO3dzqtruQxkFYdh5Eqa",
     "permisos": 1,
-    "dni": "45812361"
+    "dni": "45812361",
+    "sucursal": 1,
+    "activo": true
   },
   {
     "id": 2,
     "nombre": "ruben",
     "contraseña": "$2b$10$FnM7zjJ7A8pqRvn0OgoidOLBRHYrSa1Iqnacka5rzToy9ieLblW9C",
     "permisos": 3,
-    "dni": "17586700"
+    "dni": "17586700",
+    "sucursal": 1,
+    "activo": true
   },
   {
     "id": 3,
     "nombre": "MariaJose",
     "contraseña": "$2b$10$jnsmJUNYbX54TiO3jnByle8pp7NvFoLRYV4VFJOZ4MWdAjiS.jSDS",
     "permisos": 2,
-    "dni": "23700586"
+    "dni": "23700586",
+    "sucursal": 1,
+    "activo": true
   },
   {
     "id": 4,
     "nombre": "eduardo",
-    "contraseña": "$2b$10$uOTCaLKW0hji5Sv9UwcBOulWaWiCejujsrjPvdslv.s8c1bsbsVki",
-    "permisos": 2,
-    "dni": "40681808"
+    "contraseña": "$2b$10$409DxMRdpcqBmxQP8GojV.LVs14JEWfH0M5hex5vWbP0ziVr67PT2",
+    "permisos": 1,
+    "dni": "40681808",
+    "sucursal": 1,
+    "activo": false
   }
 ]

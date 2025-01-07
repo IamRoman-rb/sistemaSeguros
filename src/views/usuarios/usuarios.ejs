@@ -7,25 +7,80 @@
 </head>
 <body>
     <%- include("../partials/header") %>
-    <a href="/usuarios/nuevo">Nuevo</a>
-    <h1>Usuarios</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Rol</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% usuarios.forEach(usuario => { %>
-                <tr>
-                    <td><%= usuario.nombre %></td>
-                    <td><%= usuario.descripcionPermiso %></td>
-                    <td><a href="/usuarios/detalle/<%= usuario.id %>">Detalle</a></td>
-                    <td><a href="/usuarios/editar/<%= usuario.id %>">Editar</a></td>
-                </tr>
-            <% }); %>
-        </tbody>
-    </table>
+
+    <main>
+
+        <header>
+            <h1>Usuarios</h1>
+            <a href="/usuarios/nuevo">Nuevo</a>
+        </header>
+
+        <article>
+            <h2>Usuarios Activos</h2>
+            <ul>
+                <% usuarios.filter(u => u.activo).forEach(usuario => { %>
+                    <li>
+                        <dl>
+                            <dt>Nombre:</dt>
+                                <dd><%= usuario.nombre %></dd>
+                            <dt>DNI:</dt>
+                                <dd><%= usuario.dni %></dd>
+                            <dt>Permiso:</dt>
+                                <dd><%= usuario.permiso.descripcion %></dd>
+                            <dt>Sucursal:</dt>
+                                <dd><%= usuario.sucursal.nombre %></dd>
+                            <dt>Activo:</dt>
+                                <dd><%= usuario.activo ? "Si" : "No" %></dd>
+                        </dl>
+                        <ul>
+                            <li>
+                                <a href="/usuarios/detalle/<%= usuario.id %>">Detalle</a>
+                            </li>
+                            <li>
+                                <a href="/usuarios/editar/<%= usuario.id %>">Editar</a>
+                            </li>
+                        </ul>
+                        <form action="/usuarios/eliminar" method="post">
+                            <input type="hidden" name="id" value="<%= usuario.id %>">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </li>
+                <% }); %>
+            </ul>
+        </article>
+        <article>
+            <h2>Usuarios Inactivos</h2>
+            <ul>
+                <% usuarios.filter(u => !u.activo).forEach(usuario => { %>
+                    <li>
+                        <dl>
+                            <dt>Nombre:</dt>
+                                <dd><%= usuario.nombre %></dd>
+                            <dt>DNI:</dt>
+                                <dd><%= usuario.dni %></dd>
+                            <dt>Permiso:</dt>
+                                <dd><%= usuario.permiso.descripcion %></dd>
+                            <dt>Sucursal:</dt>
+                                <dd><%= usuario.sucursal.nombre %></dd>
+                            <dt>Activo:</dt>
+                                <dd><%= usuario.activo ? "Si" : "No" %></dd>
+                        </dl>
+                        <ul>
+                            <li>
+                                <a href="/usuarios/detalle/<%= usuario.id %>">Detalle</a>
+                            </li>
+                            <li>
+                                <a href="/usuarios/editar/<%= usuario.id %>">Editar</a>
+                            </li>
+                        </ul>
+                        <form action="/usuarios/eliminar" method="post">
+                            <input type="hidden" name="id" value="<%= usuario.id %>">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </li>
+                <% }); %>
+            </ul>
+        </article>
+    </main>
 </body>
 </html>

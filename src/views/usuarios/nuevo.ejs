@@ -3,27 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Usuarios | Nuevo</title>
 </head>
 <body>
-    <h1>Nuevo</h1>
+    <header>
+        <h1>Nuevo Usuario</h1>
+        <a href="/usuarios">Regresar</a>
+    </header>
     <form action="/usuarios/guardar" method="POST">
-        <label for="nombre"> Nombre
+        <fieldset>
+            <label for="nombre"> Nombre </label>
             <input type="text" name="nombre" id="nombre">
-        </label>
-        <label for="contraseña"> Contraseña
-            <input type="password" name="contraseña" id="contraseña">
-        </label>
-        <select name="permiso" id="permiso">
-            <% permisos.forEach(p => { %>
-                <option value="<%= p.id %>"><%= p.descripcion %></option>
-            <% }) %>
-        </select>
-        <label for="dni"> DNI
+        </fieldset>
+        <fieldset>
+            <label for="clave"> Contraseña </label>
+            <input type="password" name="clave" id="clave">
+            <button type="button" id="showPassword">Mostrar</button>
+        </fieldset>
+        <fieldset>
+            <label for="dni"> DNI </label>
             <input type="text" name="dni" id="dni">
-        </label>
-        <button type="reset">Cancelar</button>
-        <button type="submit">Enviar</button>
+        </fieldset>
+        <fieldset>
+            <select name="permiso" id="permiso">
+                <option value="0" selected disabled>Perfil</option>
+                <% permisos.forEach(p => { %>
+                    <option value="<%= p.id %>"><%= p.descripcion %></option>
+                <% }) %>
+            </select>
+            <select name="sucursal" id="sucursal">
+                <option value="0" selected disabled>Sucursal</option>
+                <% sucursales.forEach(s => { %>
+                    <option value="<%= s.id %>"><%= s.nombre %></option>
+                <% }) %>
+            </select>
+        </fieldset>
+        <button type="reset">Borrar</button>
+        <button type="submit">Guardar</button>
     </form>
+    <script>
+        document.getElementById("showPassword").addEventListener("click", function() {
+            var passwordInput = document.getElementById("clave");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    </script>
 </body>
 </html>
