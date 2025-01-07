@@ -1,24 +1,23 @@
 <header id="header" class="header">
-    <section>
-        <ul>
-            <% for (const entity of Object.keys(user.permisos)) { %>
-                <li>
-                    <%= entity %>
-                    <ul>
-                        <% for (const action of user.permisos[entity]) { %>
-                            <% if (action.method === 'get' && !action.path.includes(':id')) { %>
-                                <li>
-                                    <a href="/<%= entity %><%= action.path %>">
-                                        <%= action.alias %>
-                                    </a>
-                                </li>
-                            <% } %>
+  
+    <ul>
+        <% for (const entity of Object.keys(user.permisos)) { %>
+            <li>
+                <%= entity %>
+                <ul>
+                    <% for (const action of user.permisos[entity]) { %>
+                        <% if (action.method === 'get' && !action.path.includes(':id')) { %>
+                            <li>
+                                <a href="/<%= entity %><%= action.path %>">
+                                    <%= action.alias %>
+                                </a>
+                            </li>
                         <% } %>
-                    </ul>
-                </li>
-            <% } %>
-        </ul>
-    </section>
+                    <% } %>
+                </ul>
+            </li>
+        <% } %>
+    </ul>
     <nav>
         <a href="/perfil">
             <%= user.nombre %> | <%= user.rol %>
