@@ -1,7 +1,7 @@
 const hasPermitions = (req, res, next) => {
     const user = req.session.user;
     const entity = req.originalUrl.split('/')[1]; // Obtiene la entidad de la URL
-    const action = req.route.path;
+    const action = req.route.path;   
 
     if (user) {
         const permisos = req.session.user.permisos;
