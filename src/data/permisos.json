@@ -40,20 +40,413 @@
                     "method":"post"
                 }
             ],
-            "clientes": ["/", "/nuevo", "/detalle/:id", "/editar/:id", "/confirmar/:id" , "/eliminar"],
-            "polizas": ["/", "/buscarCliente", "/nuevo/:id", "/detalle:/id", "/editar/:id", "/eliminar"],
-            "pagos": ["/", "/nuevo", "/detalle/:id", "/editar/:id", "/eliminar"],
-            "caja": ["/", "/nuevo", "/detalle/:id", "/editar/:id", "/eliminar"],
-            "empresas": ["/", "/nuevo", "/detalle/:id", "/editar/:id", "/eliminar"]
+            "clientes": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/editar/:id",
+                    "alias": "editar",
+                    "method": "get"
+                },
+                {
+                    "path": "/confirmar/:id",
+                    "alias": "confirmar",
+                    "method": "get"
+                },
+                {
+                    "path": "/guardar",
+                    "alias":"guardar",
+                    "method":"post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias":"actualizar",
+                    "method":"post"
+                },
+                {
+                    "path": "/eliminar",
+                    "alias": "eliminar",
+                    "method": "post"
+                }
+            ],
+            "polizas": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/buscarCliente",
+                    "alias": "buscar",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo/:id",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/editar/:id",
+                    "alias": "editar",
+                    "method": "get"
+                },
+                {
+                    "path": "/confirmar/:id",
+                    "alias": "confirmar",
+                    "method": "get"
+                },
+                {
+                    "path": "/guardar",
+                    "alias":"guardar",
+                    "method":"post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias":"actualizar",
+                    "method":"post"
+                },
+                {
+                    "path": "/eliminar",
+                    "alias": "eliminar",
+                    "method": "post"
+                }
+            ],
+            "pagos": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/pagar/:id",
+                    "alias": "pagar",
+                    "method": "get"
+                },
+                {
+                    "path": "/acreditar",
+                    "alias": "acreditar",
+                    "method": "post"
+                },
+                {
+                    "path": "/guardar",
+                    "alias": "guardar",
+                    "method": "post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias": "actualizar",
+                    "method": "post"
+                }
+            ],
+            "caja": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/ingresos",
+                    "alias": "ingresos",
+                    "method": "get"
+                },
+                {
+                    "path": "/resumen",
+                    "alias": "resumen",
+                    "method": "get"
+                }
+            ]
         }
     },
     {
         "id": 2,
         "descripcion": "Empleado",
         "alcances":{
-            "clientes": ["/", "/nuevo", "/detalle", "/editar", "/confirmar", "/eliminar"],
-            "polizas": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
-            "pagos": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"]
+            "clientes": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/editar/:id",
+                    "alias": "editar",
+                    "method": "get"
+                },
+                {
+                    "path": "/confirmar/:id",
+                    "alias": "confirmar",
+                    "method": "get"
+                },
+                {
+                    "path": "/guardar",
+                    "alias":"guardar",
+                    "method":"post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias":"actualizar",
+                    "method":"post"
+                },
+                {
+                    "path": "/eliminar",
+                    "alias": "eliminar",
+                    "method": "post"
+                }
+            ],
+            "polizas": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/buscarCliente",
+                    "alias": "buscar",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo/:id",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/editar/:id",
+                    "alias": "editar",
+                    "method": "get"
+                },
+                {
+                    "path": "/confirmar/:id",
+                    "alias": "confirmar",
+                    "method": "get"
+                },
+                {
+                    "path": "/guardar",
+                    "alias":"guardar",
+                    "method":"post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias":"actualizar",
+                    "method":"post"
+                },
+                {
+                    "path": "/eliminar",
+                    "alias": "eliminar",
+                    "method": "post"
+                }
+            ],
+            "pagos": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/pagar/:id",
+                    "alias": "pagar",
+                    "method": "get"
+                },
+                {
+                    "path": "/acreditar",
+                    "alias": "acreditar",
+                    "method": "post"
+                },
+                {
+                    "path": "/guardar",
+                    "alias": "guardar",
+                    "method": "post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias": "actualizar",
+                    "method": "post"
+                }
+            ]
+        }
+    },
+    {
+        "id": 4,
+        "descripcion": "Supervisor",
+        "alcances":{
+            "clientes": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/editar/:id",
+                    "alias": "editar",
+                    "method": "get"
+                },
+                {
+                    "path": "/confirmar/:id",
+                    "alias": "confirmar",
+                    "method": "get"
+                },
+                {
+                    "path": "/guardar",
+                    "alias":"guardar",
+                    "method":"post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias":"actualizar",
+                    "method":"post"
+                },
+                {
+                    "path": "/eliminar",
+                    "alias": "eliminar",
+                    "method": "post"
+                }
+            ],
+            "polizas": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/buscarCliente",
+                    "alias": "buscar",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo/:id",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/editar/:id",
+                    "alias": "editar",
+                    "method": "get"
+                },
+                {
+                    "path": "/confirmar/:id",
+                    "alias": "confirmar",
+                    "method": "get"
+                },
+                {
+                    "path": "/guardar",
+                    "alias":"guardar",
+                    "method":"post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias":"actualizar",
+                    "method":"post"
+                },
+                {
+                    "path": "/eliminar",
+                    "alias": "eliminar",
+                    "method": "post"
+                }
+            ],
+            "pagos": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/pagar/:id",
+                    "alias": "pagar",
+                    "method": "get"
+                },
+                {
+                    "path": "/acreditar",
+                    "alias": "acreditar",
+                    "method": "post"
+                },
+                {
+                    "path": "/guardar",
+                    "alias": "guardar",
+                    "method": "post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias": "actualizar",
+                    "method": "post"
+                }
+            ]
         }
     },
     {
@@ -61,11 +454,149 @@
         "descripcion": "Propietario",
         "alcances":{
             "auxiliares": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
-            "clientes": ["/", "/nuevo", "/detalle", "/editar", "/confirmar", "/eliminar"],
-            "polizas": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
-            "pagos": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
-            "caja": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
-            "empresas": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"]
+            "clientes": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/editar/:id",
+                    "alias": "editar",
+                    "method": "get"
+                },
+                {
+                    "path": "/confirmar/:id",
+                    "alias": "confirmar",
+                    "method": "get"
+                },
+                {
+                    "path": "/guardar",
+                    "alias":"guardar",
+                    "method":"post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias":"actualizar",
+                    "method":"post"
+                },
+                {
+                    "path": "/eliminar",
+                    "alias": "eliminar",
+                    "method": "post"
+                }
+            ],
+            "polizas": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/buscarCliente",
+                    "alias": "buscar",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo/:id",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/editar/:id",
+                    "alias": "editar",
+                    "method": "get"
+                },
+                {
+                    "path": "/confirmar/:id",
+                    "alias": "confirmar",
+                    "method": "get"
+                },
+                {
+                    "path": "/guardar",
+                    "alias":"guardar",
+                    "method":"post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias":"actualizar",
+                    "method":"post"
+                },
+                {
+                    "path": "/eliminar",
+                    "alias": "eliminar",
+                    "method": "post"
+                }
+            ],
+            "pagos": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/nuevo",
+                    "alias": "nuevo",
+                    "method": "get"
+                },
+                {
+                    "path": "/detalle/:id",
+                    "alias": "detalle",
+                    "method": "get"
+                },
+                {
+                    "path": "/pagar/:id",
+                    "alias": "pagar",
+                    "method": "get"
+                },
+                {
+                    "path": "/acreditar",
+                    "alias": "acreditar",
+                    "method": "post"
+                },
+                {
+                    "path": "/guardar",
+                    "alias": "guardar",
+                    "method": "post"
+                },
+                {
+                    "path": "/actualizar",
+                    "alias": "actualizar",
+                    "method": "post"
+                }
+            ],
+            "caja": [
+                {
+                    "path": "/",
+                    "alias": "listado",
+                    "method": "get"
+                },
+                {
+                    "path": "/ingresos",
+                    "alias": "ingresos",
+                    "method": "get"
+                },
+                {
+                    "path": "/resumen",
+                    "alias": "resumen",
+                    "method": "get"
+                }
+            ]
         }
     }
 ]

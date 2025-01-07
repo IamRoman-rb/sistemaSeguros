@@ -7,9 +7,9 @@ router.get("/", hasPermitions, clientes.index);
 router.get("/nuevo", hasPermitions, clientes.nuevo);
 router.get('/detalle/:id', hasPermitions, clientes.detalle);
 router.get('/confirmar/:id', hasPermitions, clientes.confirmar);
-router.get('/eliminar/:id', hasPermitions, clientes.eliminar);
 router.get('/editar/:id', hasPermitions, clientes.editar);
 router.post('/guardar', clientes.crearCliente);
-router.post('/actualizar/:id', clientes.actualizarCliente);
+router.post('/actualizar', clientes.actualizarCliente);
+// router.post('/eliminar', clientes.eliminarCliente);
 
 export default router;

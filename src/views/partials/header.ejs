@@ -1,11 +1,24 @@
 <header id="header" class="header">
-    <nav>
-        <a href="/clientes">clientes</a>
-        <a href="/polizas">Polizas</a>
-        <a href="/pagos">pagos</a>
-        <a href="/caja">caja</a>
-        <a href="/usuarios">Usuarios</a>
-    </nav>
+    <section>
+        <ul>
+            <% for (const entity of Object.keys(user.permisos)) { %>
+                <li>
+                    <%= entity %>
+                    <ul>
+                        <% for (const action of user.permisos[entity]) { %>
+                            <% if (action.method === 'get' && !action.path.includes(':id')) { %>
+                                <li>
+                                    <a href="/<%= entity %><%= action.path %>">
+                                        <%= action.alias %>
+                                    </a>
+                                </li>
+                            <% } %>
+                        <% } %>
+                    </ul>
+                </li>
+            <% } %>
+        </ul>
+    </section>
     <nav>
         <a href="/perfil">
             <%= user.nombre %> | <%= user.rol %>

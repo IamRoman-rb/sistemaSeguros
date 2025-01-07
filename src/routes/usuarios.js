@@ -6,11 +6,11 @@ const router = Router();
 
 router.get("/", hasPermitions, usuarios.index);
 router.get("/nuevo", hasPermitions, usuarios.nuevo);
-router.get("/perfil", hasPermitions, usuarios.perfil);
+router.get("/perfil", usuarios.perfil);
 router.get('/detalle/:id', hasPermitions, usuarios.detalleUsuario);
 router.get('/editar/:id', hasPermitions, usuarios.editar);
 router.post('/guardar', usuarios.crearUsuario);
 router.post('/actualizar', usuarios.actualizar);
-router.post('/eliminar', usuarios.eliminar);
+// router.post('/eliminar', usuarios.eliminar);
 
 export default router;

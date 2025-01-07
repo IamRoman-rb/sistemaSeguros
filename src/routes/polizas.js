@@ -8,10 +8,10 @@ router.get("/", hasPermitions, polizas.index);
 router.get('/buscarCliente', hasPermitions, polizas.buscarCliente); // Ruta conectada
 router.get('/nuevo/:id', hasPermitions, polizas.nueva); // Ruta para manejar el ID
 router.get('/detalle/:id', hasPermitions, polizas.detalle);
-router.get("/eliminar/:id", hasPermitions, polizas.confirmarEliminar);
-router.post("/eliminar/:id", hasPermitions, polizas.eliminar);
+router.get("/confirmar/:id", hasPermitions, polizas.confirmarEliminar);
 router.get('/editar/:id', hasPermitions, polizas.editar);
-router.post('/guardar/:id', polizas.crearPoliza);
-router.post('/actualizar/:id', polizas.modificarPoliza);
+router.post('/guardar', polizas.crearPoliza);
+router.post('/actualizar', polizas.modificarPoliza);
+router.post("/eliminar", polizas.eliminar);
 
 export default router;

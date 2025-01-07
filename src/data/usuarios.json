@@ -19,5 +19,12 @@
     "contraseña": "$2b$10$jnsmJUNYbX54TiO3jnByle8pp7NvFoLRYV4VFJOZ4MWdAjiS.jSDS",
     "permisos": 2,
     "dni": "23700586"
+  },
+  {
+    "id": 4,
+    "nombre": "eduardo",
+    "contraseña": "$2b$10$uOTCaLKW0hji5Sv9UwcBOulWaWiCejujsrjPvdslv.s8c1bsbsVki",
+    "permisos": 2,
+    "dni": "40681808"
   }
 ]
