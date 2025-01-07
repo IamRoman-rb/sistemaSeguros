@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/", hasPermitions, polizas.index);
 router.get('/buscarCliente', hasPermitions, polizas.buscarCliente); // Ruta conectada
-router.get('/nueva/:id', hasPermitions, polizas.nueva); // Ruta para manejar el ID
+router.get('/nuevo/:id', hasPermitions, polizas.nueva); // Ruta para manejar el ID
 router.get('/detalle/:id', hasPermitions, polizas.detalle);
 router.get("/eliminar/:id", hasPermitions, polizas.confirmarEliminar);
 router.post("/eliminar/:id", hasPermitions, polizas.eliminar);

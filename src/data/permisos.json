@@ -6,7 +6,7 @@
             "usuarios": ["/", "/nuevo", "/detalle/:id", "/editar/:id", "/eliminar"],
             "auxiliares": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
             "clientes": ["/", "/nuevo", "/detalle/:id", "/editar/:id", "/confirmar/:id" , "/eliminar"],
-            "polizas": ["/", "/nuevo", "/detalle:/id", "/editar/:id", "/eliminar"],
+            "polizas": ["/", "/buscarCliente", "/nuevo/:id", "/detalle:/id", "/editar/:id", "/eliminar"],
             "pagos": ["/", "/nuevo", "/detalle/:id", "/editar/:id", "/eliminar"],
             "caja": ["/", "/nuevo", "/detalle/:id", "/editar/:id", "/eliminar"],
             "empresas": ["/", "/nuevo", "/detalle/:id", "/editar/:id", "/eliminar"]
