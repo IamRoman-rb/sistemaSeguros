@@ -20,7 +20,7 @@
             <li>No se encontraron clientes.</li>
         <% } else { %>
             <% clientes.forEach(cliente => { %>
-                <li><a href="/polizas/nueva/<%= cliente.id %>"><%= cliente.nombre %> <%= cliente.apellido %></a></li>
+                <li><a href="/polizas/nuevo/<%= cliente.id %>"><%= cliente.nombre %> <%= cliente.apellido %></a></li>
             <% }); %>
         <% } %>
     </ul>

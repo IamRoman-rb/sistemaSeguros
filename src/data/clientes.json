@@ -8,7 +8,9 @@
     "provincia": "BUENOS AIRES",
     "localidad": "LAS TONINAS",
     "direccion": "CALLE 18 346",
-    "polizas": []
+    "polizas": [
+      1
+    ]
   },
   {
     "id": 1736187791245,

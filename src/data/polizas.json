@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "n_poliza": "123123",
+    "f_emision": "2025-01-08",
+    "f_ini_vigencia": "2025-01-08",
+    "f_fin_vigencia": "2025-01-08",
+    "suma": "0",
+    "cuotas": "1",
+    "empresa": "AGROSALTA",
+    "precio": "28000",
+    "cobertura": "A",
+    "marca": "CHEVROLET",
+    "modelo": "CORSA",
+    "patente": "FJE923",
+    "anio": "2015",
+    "n_chasis": "FKMAWKON09184190",
+    "n_motor": "NAVJAIKWN90384U209",
+    "combustible": "nafta",
+    "clienteId": "1736187151114",
+    "id": 1
+  }
+]

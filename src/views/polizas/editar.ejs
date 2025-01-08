@@ -8,7 +8,7 @@
 <body>
     <%- include("../partials/header") %>
     <h1>Editar Poliza</h1>
-        <form action="/polizas/actualizar/<%= poliza.id %>" method="POST">
+        <form action="/polizas/actualizar/" method="POST">
             <label for="n_poliza" class="label" id="label_n_poliza">N Poliza
                 <input type="number" name="n_poliza" id="n_poliza" value="<%= poliza.n_poliza %>">
             </label>
@@ -71,6 +71,8 @@
                     <option value="GNC">GNC</option>
                 </select>
             </label>
+            <input type="hidden" name="clientId" value="<%= cliente.id %>">
+            <input type="hidden" name="id" value="<%= poliza.id %>">
             <section class="btns">
                 <a href="/polizas">Cancelar</a>
                 <button type="submit">Editar</button>
