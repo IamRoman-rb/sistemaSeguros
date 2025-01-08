@@ -29,17 +29,6 @@ const polizasController = {
 
         // Filtrar las pólizas si hay un término de búsqueda
         let polizasFiltradas = polizasConClientes;
-        if (busqueda) {
-            const busquedaLower = busqueda.toLowerCase();
-            polizasFiltradas = polizasConClientes.filter((poliza) => {
-                return (
-                    (poliza.cliente && poliza.cliente.nombre.toLowerCase().includes(busquedaLower)) ||
-                    (poliza.n_poliza && poliza.n_poliza.toString().includes(busqueda)) ||
-                    (poliza.patente && poliza.patente.toLowerCase().includes(busquedaLower))
-                );
-            });
-            return res.render('polizas/buscarCliente', { polizas: polizasFiltradas, busqueda });
-        }
 
         // Renderizar la vista con las pólizas filtradas y la búsqueda (si existe)
         res.render("polizas/polizas", { polizas: polizasFiltradas, busqueda });
