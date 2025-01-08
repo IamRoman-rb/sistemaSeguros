@@ -48,8 +48,6 @@ const polizasController = {
         res.status(500).send("Error al cargar las pólizas: " + error.message);
     }
 },
-
-
   nueva: async (req, res) => {
     try {
       const { id } = req.params; // Obtener el ID del cliente desde la URL
@@ -153,32 +151,51 @@ const polizasController = {
       res.status(500).send("Error al guardar la póliza: " + error.message);
     }
   },
-  buscarCliente: async (req, res) => {
+  buscarPoliza: async (req, res) => {
     try {
-      const { nombre } = req.query || {};
-      const clientesPath = path.resolve(
-        process.cwd(),
-        "src/data",
-        "clientes.json"
-      );
+      const { busqueda } = req.query || {};
 
+      const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
+      const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
+      
+      // Leer los datos de clientes
       const clientesData = await fs.promises.readFile(clientesPath, "utf8");
       const clientes = JSON.parse(clientesData);
 
-      // FALTA BUSCAR LA POLIZA
+      // Leer los datos de pólizas
+      const polizasData = await fs.promises.readFile(polizasPath, "utf8");
+      const polizas = JSON.parse(polizasData);
 
-      const clientesEncontrados = nombre
-        ? clientes.filter((cliente) =>
-            cliente.nombre.toLowerCase().includes(nombre.toLowerCase())
-          )
-        : [];
-      console.log(clientesEncontrados);
+      // Añadir el cliente correspondiente a cada póliza
+      const polizasConClientes = polizas.map((poliza) => {
+          const cliente = clientes.find((c) => c.polizas.includes(poliza.id));
+          return {
+              ...poliza,
+              cliente,
+          };
+      });
 
-      res.render("polizas/buscarCliente", { clientes: clientesEncontrados });
-    } catch (error) {
-      console.error("Error al buscar clientes:", error.message);
-      res.render("polizas/buscarCliente", { clientes: [] });
-    }
+      // Filtrar las pólizas si hay un término de búsqueda
+      let polizasFiltradas = polizasConClientes;
+      if (busqueda) {
+          const busquedaLower = busqueda.toLowerCase();
+          polizasFiltradas = polizasConClientes.filter((poliza) => {
+              return (
+                  (poliza.cliente && poliza.cliente.nombre.toLowerCase().includes(busquedaLower)) ||
+                  (poliza.n_poliza && poliza.n_poliza.toString().includes(busqueda)) ||
+                  (poliza.patente && poliza.patente.toLowerCase().includes(busquedaLower))
+              );
+          });
+          return res.render('polizas/buscarCliente', { polizas: polizasFiltradas, busqueda });
+      }      
+      console.log(polizasFiltradas);
+      
+      // Renderizar la vista con las pólizas filtradas y la búsqueda (si existe)
+      res.render("polizas/buscarCliente", { polizas: polizasFiltradas, busqueda });
+  } catch (error) {
+      console.error("Error al cargar las pólizas:", error.message);
+      res.status(500).send("Error al cargar las pólizas: " + error.message);
+  }
   },
   detalle: async (req, res) => {
     try {
