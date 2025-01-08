@@ -10,25 +10,6 @@
   <a href="/polizas/buscarCliente">Nueva</a>
   <h1>Lista de Pólizas</h1>
 
-  <!-- Formulario de búsqueda -->
-  <form action="/polizas" method="get" style="margin-bottom: 20px;">
-    <input 
-      type="text" 
-      name="busqueda" 
-      placeholder="Buscar por nombre, número de póliza o patente" 
-      value="<%= typeof busqueda !== 'undefined' ? busqueda : '' %>" 
-      style="width: 300px;"
-    >
-    <button type="submit">Buscar</button>
-    <a href="/polizas">Cancelar</a>
-  </form>
-
-  <% if (busqueda) { %>
-    <p>Resultados de la búsqueda para: "<strong><%= busqueda %></strong>"</p>
-  <% } else { %>
-    <p>Mostrando todas las pólizas disponibles.</p>
-  <% } %>
-
   <table border="1">
     <thead>
       <tr>

@@ -1,5 +1,6 @@
 import path from "path";
 import fs from "fs";
+import { log } from "console";
 
 const polizasController = {
   index: async (req, res) => {
@@ -37,6 +38,7 @@ const polizasController = {
                     (poliza.patente && poliza.patente.toLowerCase().includes(busquedaLower))
                 );
             });
+            return res.render('polizas/buscarCliente', { polizas: polizasFiltradas, busqueda });
         }
 
         // Renderizar la vista con las pólizas filtradas y la búsqueda (si existe)
@@ -78,7 +80,6 @@ const polizasController = {
   },
   crearPoliza: async (req, res) => {
     try {
-      const { id } = req.params; // ID del cliente desde la URL
       const nuevaPoliza = {
         n_poliza: req.body.n_poliza,
         f_emision: req.body.f_emision,
@@ -96,7 +97,7 @@ const polizasController = {
         n_chasis: req.body.n_chasis,
         n_motor: req.body.n_motor,
         combustible: req.body.combustible,
-        clienteId: id, // Asociar la póliza al cliente
+        clienteId: req.body.clientId, // Asociar la póliza al cliente
       };
 
       const polizasPath = path.resolve(
@@ -114,7 +115,7 @@ const polizasController = {
       const clientesData = await fs.promises.readFile(clientesPath, "utf8");
       const clientes = JSON.parse(clientesData);
 
-      const cliente = clientes.find((cliente) => cliente.id.toString() === id);
+      const cliente = clientes.find((cliente) => cliente.id.toString() === req.body.clientId);
       if (!cliente) {
         return res.status(404).send("Cliente no encontrado");
       }
@@ -163,6 +164,8 @@ const polizasController = {
 
       const clientesData = await fs.promises.readFile(clientesPath, "utf8");
       const clientes = JSON.parse(clientesData);
+
+      // FALTA BUSCAR LA POLIZA
 
       const clientesEncontrados = nombre
         ? clientes.filter((cliente) =>
@@ -245,7 +248,7 @@ const polizasController = {
 },
   eliminar: async (req, res) => {
     try {
-      const { id } = req.params;
+      const { id } = req.body;
 
       const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
       const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
@@ -292,24 +295,31 @@ const polizasController = {
         const polizasData = await fs.promises.readFile(polizasPath, 'utf8');
         const polizas = JSON.parse(polizasData);
 
+        const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
+        const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
+        const clientes = JSON.parse(clientesData);
+
         // Encontrar la póliza a editar
         const poliza = polizas.find(poliza => poliza.id === parseInt(id));
+
+        // Encontrar el cliente
+        const cliente = clientes.find(cliente => cliente.id === parseInt(poliza.clienteId));
+
+        console.log(cliente);
+        
 
         if (!poliza) {
             return res.status(404).send('Póliza no encontrada');
         }
 
         // Renderizar la vista de edición con los datos de la póliza
-        res.render('polizas/editar', { poliza });
+        res.render('polizas/editar', { poliza, cliente });
     } catch (error) {
         console.error('Error al editar la póliza:', error);
         res.status(500).send('Error al editar la póliza');
     }
 },
  modificarPoliza: async (req, res) => {
-  const { id } = req.params;
-  const { n_poliza, f_emision, f_ini_vigencia, f_fin_vigencia, suma, cuotas, empresa, precio, cobertura, marca, modelo, patente, anio, n_chasis, n_motor, combustible } = req.body;
-
   try {
     // Leer los datos de las pólizas desde el archivo JSON
     const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
@@ -317,7 +327,7 @@ const polizasController = {
     const polizas = JSON.parse(polizasData);
 
     // Encontrar el índice de la póliza a modificar
-    const index = polizas.findIndex(poliza => poliza.id === parseInt(id));
+    const index = polizas.findIndex(poliza => poliza.id === parseInt(req.body.id));
 
     if (index === -1) {
         return res.status(404).send('Póliza no encontrada');
