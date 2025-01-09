@@ -9,70 +9,69 @@
 
 <body>
     <%- include("../partials/header") %> 
-    <a href="/pagos/nuevo">Nuevo</a>
-        <h1>Pagos Realizados</h1>
 
+    <main>
+        <header>
+            <h1>Pagos Realizados</h1>
+            <a href="/pagos/nuevo">Nuevo</a>
+        </header> 
         <% if (pagos.length> 0) { %>
-            <table border="1" cellspacing="0" cellpadding="5">
-                <thead>
-                    <tr>
-                        <th>ID Pago</th>
-                        <th>Cliente</th>
-                        <th>Póliza</th>
-                        <th>Fecha</th>
-                        <th>Hora</th>
-                        <th>Monto</th>
-                        <th>Cuota</th>
-                        <th>Cobrador</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% pagos.forEach(pago=> { %>
-                        <tr>
-                            <td>
-                                <%= pago.id %>
-                            </td>
-                            <td>
+            <ul>
+                <% pagos.forEach(pago=> { %>
+                    <li>
+                        <p>Pago #<%= pago.id %></p>
+                        <dl>
+                            <dt>Cliente</dt>
+                            <dd>
                                 <% if (pago.cliente) { %>
                                     <%= pago.cliente.nombre %> (CUIT: <%= pago.cliente.cuit %>)
-                                            <% } else { %>
-                                                Cliente no encontrado
-                                                <% } %>
-                            </td>
-                            <td>
+                                <% } else { %>
+                                    Cliente no encontrado
+                                <% } %>
+                            </dd>
+                            <dt>Póliza</dt>
+                            <dd>
                                 <% if (pago.poliza) { %>
                                     <%= pago.poliza.n_poliza %> (<%= pago.poliza.marca %>
-                                            <%= pago.poliza.modelo %>
-                                                <%= pago.poliza.patente %>)
-                                                    <% } else { %>
-                                                        Póliza no encontrada
-                                                        <% } %>
-                            </td>
-                            <td>
-                                <%= pago.fecha %>
-                            </td>
-                            <td>
-                                <%= pago.hora || "Sin especificar" %>
-                            </td>
-                            <td>$<%= pago.monto %>
-                            </td>
-                            <td>
-                                <%= pago.cuota %>
-                            </td>
-                            <td>
+                                    <%= pago.poliza.modelo %>
+                                    <%= pago.poliza.patente %>)
+                                <% } else { %>
+                                    Póliza no encontrada
+                                <% } %>
+                            </dd>
+                            <dt>Fecha</dt>
+                            <dd><%= pago.fecha %></dd>
+                            <dt>Hora</dt>
+                            <dd><%= pago.hora || "Sin especificar" %></dd>
+                            <dt>Monto</dt>
+                            <dd>$<%= pago.monto %></dd>
+                            <dt>Cuota</dt>
+                            <dd><%= pago.cuota %></dd>
+                            <dt>Cobrador</dt>
+                            <dd>
                                 <% if (pago.cobrador) { %>
                                     <%= pago.cobrador.nombre %>
-                                        <% } else { %>
-                                            Cobrador no encontrado
-                                            <% } %>
-                            </td>
-                        </tr>
-                        <% }) %>
-                </tbody>
-            </table>
-            <% } else { %>
-                <p>No se han realizado pagos.</p>
-                <% } %>
+                                <% } else { %>
+                                    Cobrador no encontrado
+                                <% } %>
+                            </dd>
+                        </dl>
+                        <nav>
+                            <a href="/pagos/detalle/<%= pago.id %>">Detalle</a>
+                            <a href="/pagos/pagar/<%= pago.id %>">Pagar</a>
+                            <a href="/pagos/editar/<%= pago.id %>">Editar</a>
+                        </nav>
+                        <form action="/pagos/eliminar" method="post">
+                            <input type="hidden" name="id" value="<%= pago.id %>">
+                            <button type="submit">Eliminar</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No se han realizado pagos.</p>
+        <% } %>
+    </main>
 </body>
 
 </html>

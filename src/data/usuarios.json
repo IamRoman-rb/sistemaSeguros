@@ -29,10 +29,10 @@
   {
     "id": 4,
     "nombre": "eduardo",
-    "contraseña": "$2b$10$409DxMRdpcqBmxQP8GojV.LVs14JEWfH0M5hex5vWbP0ziVr67PT2",
-    "permisos": 1,
+    "contraseña": "$2b$10$qSA8yzoQ0CYnayTyZM/31eAkdG0BM7.45k4Q33K6PoAGx2OifaycG",
+    "permisos": 2,
     "dni": "40681808",
     "sucursal": 1,
-    "activo": false
+    "activo": true
   }
 ]

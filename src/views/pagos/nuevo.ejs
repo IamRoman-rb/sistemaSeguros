@@ -6,58 +6,65 @@
     <title>Document</title>
 </head>
 <body>
+  <header>
+
     <h1>Nuevo pago</h1>
-    <form action="/pagos/nuevo" method="get" style="margin-bottom: 20px;">
-        <input 
-          type="text" 
-          name="busqueda" 
-          placeholder="Buscar por nombre, número de póliza o patente" 
-          value="<%= typeof busqueda !== 'undefined' ? busqueda : '' %>" 
-          style="width: 300px;"
-        >
-        <button type="submit">Buscar</button>
-        <a href="/pagos">Cancelar</a>
-      </form>
+    <nav>
+      <a href="/pagos">Regresar</a>
+    </nav>
+    <form action="/pagos/nuevo" method="get">
+      <select name="parametro" id="parametro">
+        <option value="0" <%= !parametro ? "selected" : '' %> disabled>Buscar por</option>
+        <option value="n_poliza" <%= parametro === 'n_poliza' ? "selected" : '' %>>Número de Póliza</option>
+        <option value="patente" <%= parametro === 'patente' ? "selected" : '' %>>Patente</option>
+        <option value="cliente" <%= parametro === 'cliente' ? "selected" : '' %>>Cliente</option>
+      </select>
+      <input 
+      type="text" 
+      name="busqueda" 
+      placeholder="Buscar por nombre, número de póliza o patente" 
+      value="<%= typeof busqueda !== 'undefined' ? busqueda : '' %>"
+      >
+      <button type="submit">Buscar</button>
+    </form>
+  </header>
     
       <% if (busqueda) { %>
         <p>Resultados de la búsqueda para: "<strong><%= busqueda %></strong>"</p>
-      <% } else { %>
-        <p>Mostrando todas las pólizas disponibles.</p>
       <% } %>
     
-      <table border="1">
-        <thead>
-          <tr>
-            <th>Número de Póliza</th>
-            <th>Fecha de Emisión</th>
-            <th>Inicio Vigencia</th>
-            <th>Fin Vigencia</th>
-            <th>Cobertura</th>
-            <th>Cliente</th>
-            <th>Patente</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% if (polizas.length === 0) { %>
-            <tr>
-              <td colspan="7">No se encontraron pólizas.</td>
-            </tr>
-          <% } else { %>
-            <% polizas.forEach(poliza => { %>
-              <tr>
-                <td><%= poliza.n_poliza %></td>
-                <td><%= poliza.f_emision %></td>
-                <td><%= poliza.f_ini_vigencia %></td>
-                <td><%= poliza.f_fin_vigencia %></td>
-                <td><%= poliza.cobertura %></td>
-                <td><%= poliza.cliente ? poliza.cliente.nombre : "Sin Cliente" %></td>
-                <td><%= poliza.patente %></td>
-                <td>
-                    <a href="/pagos/pagarPoliza/<%= poliza.id %>">Pagar</a>
-                </td>
-              </tr>
-            <% }); %>
-          <% } %>
+      <% if (polizas.length === 0) { %>
+        <p>No se encontraron pólizas.</p>
+      <% } else { %>
+          <ul>
+              <% polizas.forEach(poliza => { %>
+                <li>
+                  <dl>
+                    <dt>Número de Póliza</dt>
+                    <dd><%= poliza.n_poliza %></dd>
+                    <dt>Fecha de Emisión</dt>
+                    <dd><%= poliza.f_emision %></dd>
+                    <dt>Inicio Vigencia</dt>
+                    <dd><%= poliza.f_ini_vigencia %></dd>
+                    <dt>Fin Vigencia</dt>
+                    <dd><%= poliza.f_fin_vigencia %></dd>
+                    <dt>A tiempo</dt>
+                    <dd><%= new Date(poliza.f_fin_vigencia).getTime() > new Date().getTime() ? "Si" : "No" %></dd>
+                    <dt>Cobertura</dt>
+                    <dd><%= poliza.cobertura %></dd>
+                    <dt>Cliente</dt>
+                    <dd><%= poliza.cliente ? poliza.cliente.nombre : "Sin Cliente" %></dd>
+                    <dt>Patente</dt>
+                    <dd><%= poliza.patente %></dd>
+                  </dl>
+                  <nav>
+                    <a href="/pagos/pagar/<%= poliza.id %>">Pagar</a>
+                  </nav>
+                </li>
+              <% }); %>
+          </ul>
+      <% } %>
+    
+      
 </body>
 </html>

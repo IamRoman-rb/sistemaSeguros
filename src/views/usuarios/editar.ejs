@@ -55,5 +55,15 @@
         <button type="reset">Borrar</button>
         <button type="submit">Actualizar</button>
     </form>
+    <script>
+        document.getElementById("showPassword").addEventListener("click", function() {
+            var passwordInput = document.getElementById("clave");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    </script>
 </body>
 </html>

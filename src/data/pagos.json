@@ -42,5 +42,16 @@
     "monto": "50000",
     "cuota": 4,
     "id_cobrador": 1
+  },
+  {
+    "id": 5,
+    "id_cliente": 1736187151114,
+    "id_poliza": 1,
+    "n_poliza": "456",
+    "fecha": "2025-01-09",
+    "hora": "17:4:6",
+    "monto": "28000",
+    "cuota": 1,
+    "id_cobrador": 1
   }
 ]
