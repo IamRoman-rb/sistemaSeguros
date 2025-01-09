@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "provincia": "CAPITAL FEDERAL"
+  },
+  {
+    "id": 2,
+    "provincia": "BUENOS AIRES"
+  },
+  {
+    "id": 3,
+    "provincia": "CATAMARCA"
+  },
+  {
+    "id": 4,
+    "provincia": "CHACO"
+  },
+  {
+    "id": 5,
+    "provincia": "CHUBUT"
+  },
+  {
+    "id": 6,
+    "provincia": "CORDOBA"
+  },
+  {
+    "id": 7,
+    "provincia": "CORRIENTES"
+  },
+  {
+    "id": 8,
+    "provincia": "ENTRE RIOS"
+  },
+  {
+    "id": 9,
+    "provincia": "FORMOSA"
+  },
+  {
+    "id": 10,
+    "provincia": "JUJUY"
+  },
+  {
+    "id": 11,
+    "provincia": "LA PAMPA"
+  },
+  {
+    "id": 12,
+    "provincia": "LA RIOJA"
+  },
+  {
+    "id": 13,
+    "provincia": "MENDOZA"
+  },
+  {
+    "id": 14,
+    "provincia": "MISIONES"
+  },
+  {
+    "id": 15,
+    "provincia": "NEUQUEN"
+  },
+  {
+    "id": 16,
+    "provincia": "RIO NEGRO"
+  },
+  {
+    "id": 17,
+    "provincia": "SALTA"
+  },
+  {
+    "id": 18,
+    "provincia": "SAN JUAN"
+  },
+  {
+    "id": 19,
+    "provincia": "SAN LUIS"
+  },
+  {
+    "id": 20,
+    "provincia": "SANTA CRUZ"
+  },
+  {
+    "id": 21,
+    "provincia": "SANTA FE"
+  },
+  {
+    "id": 22,
+    "provincia": "SANTIAGO DEL ESTERO"
+  },
+  {
+    "id": 23,
+    "provincia": "TIERRA DEL FUEGO"
+  },
+  {
+    "id": 24,
+    "provincia": "TUCUMAN"
+  }
+]

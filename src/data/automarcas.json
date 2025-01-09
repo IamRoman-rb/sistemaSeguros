@@ -1,0 +1,306 @@
+[
+  {
+    "id": 1,
+    "marca": "Ford"
+  },
+  {
+    "id": 2,
+    "marca": "Renault"
+  },
+  {
+    "id": 3,
+    "marca": "Fiat"
+  },
+  {
+    "id": 4,
+    "marca": "Alfa Romeo"
+  },
+  {
+    "id": 5,
+    "marca": "Audi"
+  },
+  {
+    "id": 6,
+    "marca": "BMW"
+  },
+  {
+    "id": 7,
+    "marca": "Chevrolet"
+  },
+  {
+    "id": 8,
+    "marca": "Chrysler"
+  },
+  {
+    "id": 9,
+    "marca": "Citroen"
+  },
+  {
+    "id": 10,
+    "marca": "Daihatsu"
+  },
+  {
+    "id": 11,
+    "marca": "Dodge"
+  },
+  {
+    "id": 12,
+    "marca": "Ferrari"
+  },
+  {
+    "id": 13,
+    "marca": "Honda"
+  },
+  {
+    "id": 14,
+    "marca": "Hyundai"
+  },
+  {
+    "id": 15,
+    "marca": "Isuzu"
+  },
+  {
+    "id": 16,
+    "marca": "Iveco"
+  },
+  {
+    "id": 17,
+    "marca": "Jaguar"
+  },
+  {
+    "id": 18,
+    "marca": "Jeep"
+  },
+  {
+    "id": 19,
+    "marca": "Kia"
+  },
+  {
+    "id": 20,
+    "marca": "Land Rover"
+  },
+  {
+    "id": 21,
+    "marca": "Lexus"
+  },
+  {
+    "id": 22,
+    "marca": "Maserati"
+  },
+  {
+    "id": 23,
+    "marca": "Mercedes-Benz"
+  },
+  {
+    "id": 24,
+    "marca": "Mini"
+  },
+  {
+    "id": 25,
+    "marca": "Mitsubishi"
+  },
+  {
+    "id": 26,
+    "marca": "Nissan"
+  },
+  {
+    "id": 27,
+    "marca": "Peugeot"
+  },
+  {
+    "id": 28,
+    "marca": "Porsche"
+  },
+  {
+    "id": 29,
+    "marca": "Rover"
+  },
+  {
+    "id": 30,
+    "marca": "Saab"
+  },
+  {
+    "id": 31,
+    "marca": "Sangyong"
+  },
+  {
+    "id": 32,
+    "marca": "Seat"
+  },
+  {
+    "id": 33,
+    "marca": "Subaru"
+  },
+  {
+    "id": 34,
+    "marca": "Suzuki"
+  },
+  {
+    "id": 35,
+    "marca": "Toyota"
+  },
+  {
+    "id": 36,
+    "marca": "Volkswagen"
+  },
+  {
+    "id": 37,
+    "marca": "Volvo"
+  },
+  {
+    "id": 38,
+    "marca": "Rastrojero"
+  },
+  {
+    "id": 39,
+    "marca": "Zanella"
+  },
+  {
+    "id": 40,
+    "marca": "Yamaha"
+  },
+  {
+    "id": 41,
+    "marca": "Rambler"
+  },
+  {
+    "id": 42,
+    "marca": "TRAILER "
+  },
+  {
+    "id": 43,
+    "marca": "OPEL"
+  },
+  {
+    "id": 44,
+    "marca": "Grosspal"
+  },
+  {
+    "id": 45,
+    "marca": "Aiello"
+  },
+  {
+    "id": 46,
+    "marca": "Ast-Pra"
+  },
+  {
+    "id": 47,
+    "marca": "Acoplado"
+  },
+  {
+    "id": 48,
+    "marca": "Kawasaki"
+  },
+  {
+    "id": 49,
+    "marca": "AUTOELEVADOR"
+  },
+  {
+    "id": 50,
+    "marca": "DACIA"
+  },
+  {
+    "id": 51,
+    "marca": "ASIA"
+  },
+  {
+    "id": 52,
+    "marca": "TAVRIA"
+  },
+  {
+    "id": 53,
+    "marca": "MONDIAL"
+  },
+  {
+    "id": 54,
+    "marca": "GILERA"
+  },
+  {
+    "id": 55,
+    "marca": "GUERRERO"
+  },
+  {
+    "id": 56,
+    "marca": "A.F.F."
+  },
+  {
+    "id": 57,
+    "marca": "Motomel"
+  },
+  {
+    "id": 58,
+    "marca": "Chirette"
+  },
+  {
+    "id": 59,
+    "marca": "Whelan"
+  },
+  {
+    "id": 60,
+    "marca": "Siambretta"
+  },
+  {
+    "id": 61,
+    "marca": "Jawa"
+  },
+  {
+    "id": 62,
+    "marca": "Brava"
+  },
+  {
+    "id": 63,
+    "marca": "Daewo"
+  },
+  {
+    "id": 64,
+    "marca": "Willys"
+  },
+  {
+    "id": 65,
+    "marca": "Torino"
+  },
+  {
+    "id": 66,
+    "marca": "IKA"
+  },
+  {
+    "id": 67,
+    "marca": "Prati-Fruehauf"
+  },
+  {
+    "id": 68,
+    "marca": "Pluscarga"
+  },
+  {
+    "id": 69,
+    "marca": "Jordan"
+  },
+  {
+    "id": 70,
+    "marca": "Const. Metalurgicas S.A.I.C."
+  },
+  {
+    "id": 71,
+    "marca": "Agrale"
+  },
+  {
+    "id": 72,
+    "marca": "Trenquemolque"
+  },
+  {
+    "id": 73,
+    "marca": "Chamula"
+  },
+  {
+    "id": 74,
+    "marca": "CERRO"
+  },
+  {
+    "id": 75,
+    "marca": "Chery"
+  },
+  {
+    "id": 76,
+    "marca": "LADA"
+  }
+]
