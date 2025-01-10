@@ -1,34 +1,48 @@
 import path from 'path';
-import fs from 'fs';
+import { readFile, writeFile } from 'node:fs/promises';
 
-const clientesController = {
-    index: async (req, res) => {
-      try {
+
+export const listado = async (req, res) => {
+    try {
+        const { busqueda = null } = req.query || {};
         const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
-        const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
-        const clientes = JSON.parse(clientesData);
-
-        res.render('clientes/clientes', { clientes });
+        const clientesData = await readFile(clientesPath, 'utf8');
+        let clientes = JSON.parse(clientesData);
+        if (busqueda) {
+            clientes = clientes.filter(cliente => {
+                return (
+                    cliente.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
+                    cliente.cuit.toLowerCase().includes(busqueda.toLowerCase())
+                )
+            })
+        }
+        res.render('clientes/clientes', { clientes, busqueda });
     } catch (error) {
         console.error('Error al cargar los clientes:', error.message);
         res.status(500).send('Error al cargar los clientes: ' + error.message);
     }
-    },
-    nuevo: (req, res) => {
-      res.render('clientes/nuevo');
-    },
-    detalle: async (req, res) => {
-      try {
+};
+export const nuevo = async (req, res) => {
+    const resources = [
+        path.resolve(process.cwd(), "src/data", "provincias.json"),
+        path.resolve(process.cwd(), "src/data", "ciudades.json"),
+    ]
+    let [provincias, ciudades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+
+    ciudades = ciudades.map((c) => ({ ...c, provincia: provincias.find(({ id }) => id == Number(c.idprovincia)) }))
+    return res.render('clientes/nuevo', { provincias, ciudades });
+};
+export const detalle = async (req, res) => {
+    try {
         const { id } = req.params;
+        const resources = [
+            path.resolve(process.cwd(), "src/data", "clientes.json"),
+            path.resolve(process.cwd(), "src/data", "polizas.json"),
+            path.resolve(process.cwd(), "src/data", "provincias.json"),
+            path.resolve(process.cwd(), "src/data", "ciudades.json"),
+        ]
 
-        const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
-        const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
-
-        const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
-        const polizasData = await fs.promises.readFile(polizasPath, 'utf8');
-
-        const clientes = JSON.parse(clientesData);
-        const polizas = JSON.parse(polizasData);
+        const [clientes, polizas, provincias, ciudades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
         // Buscar al cliente por ID
         const cliente = clientes.find(cliente => cliente.id === Number(id));
@@ -37,24 +51,25 @@ const clientesController = {
             return res.status(404).send('Cliente no encontrado');
         }
 
+        cliente.provincia = provincias.find(({ id }) => id == Number(cliente.provincia))
+        cliente.localidad = ciudades.find(({ id }) => id == Number(cliente.localidad))
+        // return res.status(200).json({ cliente, polizas })
         // Obtener las pólizas del cliente
-        const polizasCliente = polizas.filter(poliza => cliente.polizas.includes(poliza.id));
+        const polizasCliente = cliente.polizas.length == 0 ? cliente.polizas : polizas.filter(poliza => cliente.polizas.includes(poliza.id));
 
-        res.render('clientes/detalle', { cliente, polizasCliente });
+        res.render('clientes/detalle', { cliente, polizas: polizasCliente });
     } catch (error) {
         console.error('Error al obtener los detalles del cliente:', error.message);
         res.status(500).send('Error al obtener los detalles del cliente');
     }
-    },
-    nuevo: async (req, res) => {
-      res.render('clientes/nuevo');
-    },
-    crearCliente: async (req, res) => {
-      try {
+};
+
+export const guardar = async (req, res) => {
+    try {
         const { nombre, cuit, fecha_n, telefono, provincia, localidad, direccion } = req.body;
 
         const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
-        const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
+        const clientesData = await readFile(clientesPath, 'utf8');
         const clientes = JSON.parse(clientesData);
 
         // Verificar si el cliente ya existe
@@ -67,120 +82,127 @@ const clientesController = {
         // Si el cliente no existe, lo creamos
         const nuevoCliente = {
             id: Date.now(),
-            nombre, 
-            cuit, 
-            fecha_n, 
-            telefono, 
-            provincia, 
-            localidad, 
+            nombre,
+            cuit,
+            fecha_n,
+            telefono,
+            provincia,
+            localidad,
             direccion,
             polizas: []
         };
 
         clientes.push(nuevoCliente);
 
-        await fs.promises.writeFile(clientesPath, JSON.stringify(clientes, null, 2));
+        await writeFile(clientesPath, JSON.stringify(clientes, null, 2));
 
         res.redirect('/clientes');
     } catch (error) {
         console.error('Error al crear el cliente:', error.message);
         res.status(500).send('Error al crear el cliente');
     }
-    },
-    confirmar: async (req, res) => {
+};
+
+export const confirmar = async (req, res) => {
+    const { id } = req.params;
+
+    res.render('alertas/eliminarCliente', { cliente });
+};
+export const eliminar = async (req, res) => {
+    try {
         const { id } = req.params;
 
-        res.render('alertas/eliminarCliente', { clienteId: id });
-    },
-    eliminar: async (req, res) =>{
-      try {
-      const { id } = req.params;
+        // Ruta al archivo JSON de clientes
+        const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
 
-      // Ruta al archivo JSON de clientes
-      const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
-      // Ruta al archivo JSON de pólizas
-      const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
+        // Ruta al archivo JSON de pólizas
+        const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
 
-      // Leer los datos de los archivos JSON
-      const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
-      const clientes = JSON.parse(clientesData);
-      const polizasData = await fs.promises.readFile(polizasPath, 'utf8');
-      const polizas = JSON.parse(polizasData);
+        // Leer los datos de los archivos JSON
+        const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
+        const clientes = JSON.parse(clientesData);
+        const polizasData = await fs.promises.readFile(polizasPath, 'utf8');
+        const polizas = JSON.parse(polizasData);
 
-      // Filtrar los clientes para eliminar el que coincide con el ID
-      const clientesFiltrados = clientes.filter(cliente => cliente.id !== Number(id));
+        // Filtrar los clientes para eliminar el que coincide con el ID
+        const clientesFiltrados = clientes.filter(cliente => cliente.id !== Number(id));
 
-      // Filtrar las pólizas que pertenecen al cliente a eliminar
-      const polizasFiltradas = polizas.filter(poliza => !clientesFiltrados.some(cliente => cliente.polizas.includes(poliza.id)));
+        // Filtrar las pólizas que pertenecen al cliente a eliminar
+        const polizasFiltradas = polizas.filter(poliza => !clientesFiltrados.some(cliente => cliente.polizas.includes(poliza.id)));
 
-      // Escribir los clientes y pólizas filtrados en sus respectivos archivos JSON
-      await fs.promises.writeFile(clientesPath, JSON.stringify(clientesFiltrados, null, 2));
-      await fs.promises.writeFile(polizasPath, JSON.stringify(polizasFiltradas, null, 2));
+        // Escribir los clientes y pólizas filtrados en sus respectivos archivos JSON
+        await fs.promises.writeFile(clientesPath, JSON.stringify(clientesFiltrados, null, 2));
+        await fs.promises.writeFile(polizasPath, JSON.stringify(polizasFiltradas, null, 2));
 
-      res.redirect('/clientes');
-  } catch (error) {
-      console.error('Error al eliminar el cliente:', error.message);
-      res.status(500).send('Error al eliminar el cliente');
-  }},
-  editar: async (req, res) => {
+        res.redirect('/clientes');
+    } catch (error) {
+        console.error('Error al eliminar el cliente:', error.message);
+        res.status(500).send('Error al eliminar el cliente');
+    }
+};
+
+export const editar = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json"); // Ajusta la ruta según tu estructura
 
-        const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
-        const clientes = JSON.parse(clientesData);
+        const resources = [
+            path.resolve(process.cwd(), "src/data", "clientes.json"),
+            path.resolve(process.cwd(), "src/data", "provincias.json"),
+            path.resolve(process.cwd(), "src/data", "ciudades.json"),
+        ]
+        let [clientes, provincias, ciudades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+
+        ciudades = ciudades.map((c) => ({ ...c, provincia: provincias.find(({ id }) => id == Number(c.idprovincia)) }))
         const cliente = clientes.find(cliente => cliente.id === parseInt(id));
 
         if (!cliente) {
             return res.status(404).send('Cliente no encontrado');
         }
 
-        res.render('clientes/editar', { cliente });
+        res.render('clientes/editar', { cliente, provincias, ciudades });
     } catch (error) {
         console.error('Error al leer el archivo clientes.json:', error);
         res.status(500).send('Error al obtener los datos del cliente');
     }
-    },
-    actualizarCliente: async (req, res) => {
-        const { id } = req.params;
-        const { nombre, cuit, fecha_n, telefono, provincia, localidad, direccion, email, observaciones } = req.body; // Agrega más campos según sea necesario
-    
-        try {
-            // Leer los datos de los clientes desde el archivo JSON
-            const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
-            const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
-            const clientes = JSON.parse(clientesData);
-    
-            const index = clientes.findIndex(cliente => cliente.id === parseInt(id));
+};
 
-            // Verificar si se encontró el cliente
-            if (index === -1) {
-                return res.status(404).send('Cliente no encontrado');
-            }
+export const actualizar = async (req, res) => {
 
-            // Crear un objeto con los cambios a realizar
-            const cambios = {};
-            if (nombre !== clientes[index].nombre) cambios.nombre = nombre;
-            if (cuit !== clientes[index].cuit) cambios.cuit = cuit;
-            if (fecha_n !== clientes[index].fecha_n) cambios.fecha_n = fecha_n;
-            if (telefono !== clientes[index].telefono) cambios.telefono = telefono;
-            if (provincia !== clientes[index].provincia) cambios.provincia = provincia;
-            if (localidad !== clientes[index].localidad) cambios.localidad = localidad;
-            if (direccion !== clientes[index].direccion) cambios.direccion = direccion;
-    
-            // Aplicar los cambios al cliente
-            Object.assign(clientes[index], cambios);
-    
-            // Escribir los datos actualizados en el archivo JSON
-            await fs.promises.writeFile(clientesPath, JSON.stringify(clientes, null, 2));
-    
-            res.redirect('/clientes');
-        } catch (error) {
-            console.error(error);
-            res.status(500).send('Error al actualizar el cliente');
+    const { nombre, cuit, fecha_n, telefono, provincia, localidad, direccion, id } = req.body; // Agrega más campos según sea necesario
+
+    try {
+        // Leer los datos de los clientes desde el archivo JSON
+        const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
+        const clientesData = await readFile(clientesPath, 'utf8');
+        const clientes = JSON.parse(clientesData);
+
+        const index = clientes.findIndex(cliente => cliente.id === parseInt(id));
+
+        // Verificar si se encontró el cliente
+        if (index === -1) {
+            return res.status(404).send('Cliente no encontrado');
         }
+
+        // Crear un objeto con los cambios a realizar
+        const cambios = {};
+        if (nombre !== clientes[index].nombre) cambios.nombre = nombre;
+        if (cuit !== clientes[index].cuit) cambios.cuit = cuit;
+        if (fecha_n !== clientes[index].fecha_n) cambios.fecha_n = fecha_n;
+        if (telefono !== clientes[index].telefono) cambios.telefono = telefono;
+        if (provincia !== clientes[index].provincia) cambios.provincia = provincia;
+        if (localidad !== clientes[index].localidad) cambios.localidad = localidad;
+        if (direccion !== clientes[index].direccion) cambios.direccion = direccion;
+
+        // Aplicar los cambios al cliente
+        Object.assign(clientes[index], cambios);
+
+        // Escribir los datos actualizados en el archivo JSON
+        await writeFile(clientesPath, JSON.stringify(clientes, null, 2));
+
+        res.redirect('/clientes');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al actualizar el cliente');
     }
-  };
-  
-  export default clientesController;
+}

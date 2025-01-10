@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <%- include("../partials/header") %>
-    <a href="/clientes/nuevo">Nuevo</a>
-    <h1>Clientes</h1>
-    <ul>
-        <% clientes.forEach(cliente => { %>
-            <a href="/clientes/detalle/<%= cliente.id %>">
-                <li>
-                    <%= cliente.nombre %>
-                    <%= cliente.telefono %>
-                    <%= cliente.localidad %>
-                </li>
-            </a>
-        <% }); %>
-    </ul>
+        <main>
+            <header>
+                <h1>Clientes</h1>
+                <a href="/clientes/nuevo">Nuevo</a>
+            </header>
+            <form method="GET">
+                <label for="busqueda">Buscar Cliente:</label>
+                <input type="text" id="busqueda" name="busqueda" value="<%= busqueda ? busqueda : "" %>">
+                <button type="submit">Buscar</button>
+            </form>
+            <ul>
+                <% clientes.forEach(cliente=> { %>
+                    <li>
+                        <dl>
+                            <dt>Nombre:</dt>
+                            <dd>
+                                <%= cliente.nombre %>
+                            </dd>
+                            <dt>CUIT:</dt>
+                            <dd>
+                                <%= cliente.cuit %>
+                            </dd>
+                            <dt>Telefono:</dt>
+                            <dd>
+                                <%= cliente.telefono %>
+                            </dd>
+                        </dl>
+                        <a href="/clientes/detalle/<%= cliente.id %>">
+                            Detalle
+                        </a>
+                    </li>
+                    <% }); %>
+            </ul>
+        </main>
 </body>
+
 </html>
