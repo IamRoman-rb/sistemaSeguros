@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("../partials/header") %>
+    
+    <main>
+        
+        <header>
+            <h1>Empresas</h1>
+            <!-- <a href="/usuarios/nuevo">Nuevo</a> -->
+        </header>
+
+        <article>
+            <ul>
+                <% empresas.forEach(empresa => { %>
+                    <li>
+                        <dl>
+                            <dt>Nombre:</dt>
+                                <dd><%= empresa.nombre %></dd>
+                            <dt>Coberturas:</dt>
+                            <% empresa.coberturas.forEach(cobertura => { %>
+                                <dd><%= cobertura %> </dd>
+                            <% }) %>
+                        </dl>
+                <% }); %>
+            </ul>
+        </article>
+    </main>
+</body>
+</html>

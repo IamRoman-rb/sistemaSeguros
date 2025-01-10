@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "id_empresa": 1,
+        "coberturas": [
+            "A",
+            "B",
+            "B1",
+            "C",
+            "C1"
+        ]
+    },
+    {
+        "id": 2,
+        "id_empresa": 2,
+        "coberturas": [
+            "A",
+            "B",
+            "B1",
+            "C",
+            "C1",
+            "CF",
+            "TD"
+        ]
+    }
+    
+]

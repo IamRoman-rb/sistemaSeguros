@@ -1,42 +1,14 @@
 [
   {
     "id": 1,
-    "empresa": "LA ECO"
+    "nombre": "AGROSALTA"
   },
   {
     "id": 2,
-    "empresa": "METROPOL"
+    "nombre": "FEDERACION PATRONAL"
   },
   {
     "id": 3,
-    "empresa": "ANTARTIDA"
-  },
-  {
-    "id": 4,
-    "empresa": "ESCUDO"
-  },
-  {
-    "id": 5,
-    "empresa": "FEDERAL"
-  },
-  {
-    "id": 6,
-    "empresa": "RIO URUGUAY"
-  },
-  {
-    "id": 7,
-    "empresa": "LIDERAR"
-  },
-  {
-    "id": 8,
-    "empresa": "AGROSALTA"
-  },
-  {
-    "id": 9,
-    "empresa": "PARANA"
-  },
-  {
-    "id": 10,
-    "empresa": "PROVIDENCIA"
+    "nombre": "RUS"
   }
 ]
