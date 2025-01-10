@@ -2,16 +2,45 @@
   {
     "id": 1,
     "nombre": "AGROSALTA",
-    "coberturas": [1, 2, 3, 4, 5]
+    "coberturas": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
   },
   {
     "id": 2,
     "nombre": "FEDERACION PATRONAL",
-    "coberturas": [1, 2, 3, 4, 5, 6, 7]
+    "coberturas": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
   },
   {
     "id": 3,
     "nombre": "RUS",
-    "coberturas": [1, 2, 3, 4, 5]
+    "coberturas": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 4,
+    "nombre": "EMPRESA",
+    "coberturas": [
+      "1",
+      "2",
+      "3"
+    ]
   }
 ]

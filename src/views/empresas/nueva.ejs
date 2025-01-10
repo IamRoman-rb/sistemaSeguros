@@ -11,6 +11,16 @@
         <label for="nombre">Nombre
             <input type="text" name="nombre" id="nombre">
         </label>
+        <ul>
+            <% coberturas.forEach(cobertura => { %>
+                <li>
+                    <label for="coberturas">
+                        <%= cobertura.nombre %>
+                        <input type="checkbox" name="coberturas" id="<%= cobertura.id %>" value="<%= cobertura.id %>">                
+                    </label>
+                </li>
+            <% }) %>
+        </ul>
         <section id="buttons" class="buttons">
             <button type="reset">Cancelar</button>
             <button type="submit">Crear</button>
