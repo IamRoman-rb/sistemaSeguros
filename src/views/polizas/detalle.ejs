@@ -7,36 +7,82 @@
 </head>
 <body>
   <%- include("../partials/header") %>
-  <h1>Detalle de la Póliza</h1>
-  <section>
-    <h2>Póliza</h2>
-    <p>Número de Póliza: <%= poliza.n_poliza %></p>
-    <p>Fecha de Emisión: <%= poliza.f_emision %></p>
-    <p>Inicio Vigencia: <%= poliza.f_ini_vigencia %></p>
-    <p>Fin Vigencia: <%= poliza.f_fin_vigencia %></p>
-    <p>Suma Asegurada: <%= poliza.suma %></p>
-    <p>Empresa: <%= poliza.empresa %></p>
-    <p>Cobertura: <%= poliza.cobertura %></p>
-    <p>Cuotas: <%= poliza.cuotas %></p>
-    <p>Cuotas Pagas: <%= poliza.cuotasPagas %></p>
-    <p>Marca: <%= poliza.marca %></p>
-    <p>Modelo: <%= poliza.modelo %></p>
-    <p>Año: <%= poliza.anio %></p>
-    <p>Patente: <%= poliza.patente %></p>
-    <p>N Chasis: <%= poliza.n_chasis %></p>
-    <p>N Motor: <%= poliza.n_motor %></p>
-    <p>Combustible: <%= poliza.combustible %></p>
-  </section>
-  <section>
-    <h2>Cliente Asociado</h2>
-    <p>Nombre: <%= cliente.nombre %></p>
-    <p>CUIT: <%= cliente.cuit %></p>
-    <p>Teléfono: <%= cliente.telefono %></p>
-  </section>
+  <main>
+    <header>
+      <h1>Detalle de la Póliza</h1>
+      <nav>
+        <a href="/polizas">Volver al listado de polizas</a>
+        <a href="/polizas/editar/<%= poliza.id %>">Editar</a>
+        <a href="/pagos/nuevo/<%= poliza.id %>">Nuevo Pago</a>
+      </nav>
+    </header>
+    <ul>
+      <li>
+        <strong>Cliente:</strong>
+        <dl>
+          <dt>Nombre:</dt>
+          <dd><%= cliente.nombre %></dd>
+          <dt>CUIT:</dt>
+          <dd><%= cliente.cuit %></dd>
+          <dt>Telefono:</dt>
+          <dd><%= cliente.telefono %></dd>
+        </dl>
+      </li>
 
-  <!-- Botón para eliminar la póliza -->
-  <form action="/polizas/confirmar/<%= poliza.id %>" method="get">
-    <button type="submit" style="background-color: red; color: white;">Eliminar Póliza</button>
-  </form>
+      <li>
+        <strong>Poliza:</strong>
+        <dl>
+          <dt>Número de Poliza:</dt>
+          <dd><%= poliza.n_poliza %></dd>
+          <dt>Fecha de Emisión:</dt>
+          <dd><%= poliza.f_emision %></dd>
+          <dt>Inicio Vigencia:</dt>
+          <dd><%= poliza.f_ini_vigencia %></dd>
+          <dt>Fin Vigencia:</dt>
+          <dd><%= poliza.f_fin_vigencia %></dd>
+          <dt>Precio de la Poliza:</dt>
+          <dd><%= poliza.precio %></dd>
+          <dt>Empresa:</dt>
+          <dd><%= poliza.empresa.empresa %></dd>
+          <dt>Cobertura:</dt>
+          <dd><%= poliza.cobertura %></dd>
+          <dt>Cuotas:</dt>
+          <dd><%= poliza.cuotas %></dd>
+          <dt>Cuotas Pagas:</dt>
+          <dd><%= poliza.pagos.length %></dd>
+          </dl>
+      </li>
+      <li>
+        <strong>Vehiculo:</strong>
+        <dl>
+          <dt>Marca:</dt>
+          <dd><%= poliza.marca.marca %></dd>
+          <dt>Modelo:</dt>
+          <dd><%= poliza.modelo %></dd>
+          <dt>Año:</dt>
+          <dd><%= poliza.anio %></dd>
+          <dt>Patente:</dt>
+          <dd><%= poliza.patente %></dd>
+          <dt>N Chasis:</dt>
+          <dd><%= poliza.n_chasis %></dd>
+          <dt>N Motor:</dt>
+          <dd><%= poliza.n_motor %></dd>
+          <dt>Combustible:</dt>
+          <dd><%= poliza.combustible %></dd>
+        </dl>
+      </li>
+      <li>
+        <strong>Pagos:</strong>
+        <ul>
+          <% poliza.pagos.forEach(pago => { %>
+            <li>
+              <p>Fecha: <%= pago.fecha %></p>
+              <p>Monto: <%= pago.monto %></p>
+            </li>
+          <% }) %>
+        </ul>
+      </li>
+    </ul> 
+  </main>
 </body>
 </html>

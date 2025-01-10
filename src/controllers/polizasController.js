@@ -67,11 +67,23 @@ export const nueva = async (req, res) => {
 };
 export const guardar = async (req, res) => {
   try {
-    const nuevaPoliza = {
+      /* Agregar sucursal del usuario logueado */
+      const {sucursal} = req.session.user;
+      // Calcular la fecha actual
+      const fechaActual = new Date();
+      const dia = fechaActual.getDate();
+      const mes = fechaActual.getMonth() + 1; // Los meses se indican desde 0
+      const anio = fechaActual.getFullYear();
+      const fechaFormateada = `${anio}-${mes.toString().padStart(2, '0')}-${dia.toString().padStart(2, '0')}`;
+      // Calcular la fecha de vencimiento de la póliza
+      const f_vencimiento = new Date(req.body.f_ini_vigencia);
+      f_vencimiento.setMonth(f_vencimiento.getMonth() + req.body.cuotas);
+      const fechaVencimientoFormateada = `${f_vencimiento.getFullYear()}-${(f_vencimiento.getMonth() + 1).toString().padStart(2, '0')}-${f_vencimiento.getDate().toString().padStart(2, '0')}`;
+      const nuevaPoliza = {
       n_poliza: req.body.n_poliza,
-      f_emision: req.body.f_emision,
+      f_emision: fechaFormateada,
       f_ini_vigencia: req.body.f_ini_vigencia,
-      f_fin_vigencia: req.body.f_fin_vigencia,
+      f_fin_vigencia: fechaVencimientoFormateada,
       suma: req.body.suma,
       cuotas: req.body.cuotas,
       empresa: req.body.empresa,
@@ -84,7 +96,8 @@ export const guardar = async (req, res) => {
       n_chasis: req.body.n_chasis,
       n_motor: req.body.n_motor,
       combustible: req.body.combustible,
-      clienteId: req.body.clientId, // Asociar la póliza al cliente
+      clienteId: Number(req.body.clientId), // Asociar la póliza al cliente
+      sucursal: sucursal,
       pagos: []
     };
 
@@ -141,36 +154,39 @@ export const detalle = async (req, res) => {
   try {
     const { id } = req.params; // ID de la póliza desde la URL
 
-    const clientesPath = path.resolve(
-      process.cwd(),
-      "src/data",
-      "clientes.json"
-    );
-    const polizasPath = path.resolve(
-      process.cwd(),
-      "src/data",
-      "polizas.json"
-    );
+    const resources = [
+      path.resolve(process.cwd(), "src/data", "clientes.json"),
+      path.resolve(process.cwd(), "src/data", "polizas.json"),
+      path.resolve(process.cwd(), "src/data", "pagos.json"),
+      path.resolve(process.cwd(), "src/data", "ciudades.json"),
+      path.resolve(process.cwd(), "src/data", "provincias.json"),
+      path.resolve(process.cwd(), "src/data", "automarcas.json"),
+      path.resolve(process.cwd(), "src/data", "sucursales.json"),
+      path.resolve(process.cwd(), "src/data", "empresas.json"),
+    ];
 
-    // Leer datos de clientes
-    const clientesData = await readFile(clientesPath, "utf8");
-    const clientes = JSON.parse(clientesData);
+    const [clientes, polizas, pagos, ciudades, provincias, automarcas, sucursales, empresas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
 
-    // Leer datos de pólizas
-    const polizasData = await readFile(polizasPath, "utf8");
-    const polizas = JSON.parse(polizasData);
 
     // Buscar la póliza por ID
-    const poliza = polizas.find((p) => p.id.toString() === id);
+    let poliza = polizas.find((p) => p.id.toString() === id);
     if (!poliza) {
       return res.status(404).send("Póliza no encontrada");
     }
 
     // Buscar el cliente asociado a la póliza
-    const cliente = clientes.find((c) => c.polizas.includes(Number(id)));
+    let cliente = clientes.find((c) => c.polizas.includes(Number(id)));
     if (!cliente) {
       return res.status(404).send("Cliente asociado no encontrado");
     }
+    
+    cliente.provincia = provincias.find((p) => p.id === Number(cliente.idprovincia));
+    cliente.ciudad = ciudades.find((c) => c.id === Number(cliente.idciudad));
+
+    poliza.empresa = empresas.find((e) => e.id === Number(poliza.empresa));
+    poliza.sucursal = sucursales.find((s) => s.id === Number(poliza.sucursal));
+    poliza.marca = automarcas.find((a) => a.id === Number(poliza.marca));
+    poliza.pagos = pagos.filter((pago) => pago.id_poliza === Number(id));
 
     // Renderizar la vista con los detalles
     res.render("polizas/detalle", { poliza, cliente });
@@ -249,14 +265,14 @@ export const editar = async function editarPoliza(req, res) {
   const { id } = req.params;
 
   try {
-    // Leer los datos de las pólizas desde el archivo JSON (o base de datos)
-    const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
-    const polizasData = await fs.promises.readFile(polizasPath, 'utf8');
-    const polizas = JSON.parse(polizasData);
+    const resources = [
+      path.resolve(process.cwd(), "src/data", "polizas.json"),
+      path.resolve(process.cwd(), "src/data", "clientes.json"),
+      path.resolve(process.cwd(), "src/data", "automarcas.json"),
+      path.resolve(process.cwd(), "src/data", "empresas.json"),
+    ]
+    let [polizas, clientes, autos, empresas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
-    const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
-    const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
-    const clientes = JSON.parse(clientesData);
 
     // Encontrar la póliza a editar
     const poliza = polizas.find(poliza => poliza.id === parseInt(id));
@@ -272,7 +288,7 @@ export const editar = async function editarPoliza(req, res) {
     }
 
     // Renderizar la vista de edición con los datos de la póliza
-    res.render('polizas/editar', { poliza, cliente });
+    res.render('polizas/editar', { poliza, cliente, autos, empresas });
   } catch (error) {
     console.error('Error al editar la póliza:', error);
     res.status(500).send('Error al editar la póliza');
@@ -283,7 +299,7 @@ export const actualizar = async (req, res) => {
   try {
     // Leer los datos de las pólizas desde el archivo JSON
     const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
-    const polizasData = await fs.promises.readFile(polizasPath, 'utf8');
+    const polizasData = await readFile(polizasPath, 'utf8');
     const polizas = JSON.parse(polizasData);
 
     // Encontrar el índice de la póliza a modificar
@@ -297,13 +313,17 @@ export const actualizar = async (req, res) => {
     const cambios = {};
 
     // Utilizar un bucle for para iterar sobre todos los campos y crear los condicionales
-    const campos = ['n_poliza', 'f_emision', 'f_fin_vigencia', 'suma', 'cuotas', 'empresa', 'precio', 'cobertura', 'marca', 'modelo', 'patente', 'anio', 'n_chasis', 'n_motor', 'combustible'];
+    let campos = Object.keys(req.body);
+    campos = campos.filter(campo => !["id", "clientId"].includes(campo));
+
+    return res.status(202).json(campos);
 
     for (const campo of campos) {
       if (req.body[campo] !== undefined && req.body[campo] !== polizas[index][campo]) {
         cambios[campo] = req.body[campo];
       }
     }
+
 
     // Aplicar los cambios a la póliza
     Object.assign(polizas[index], cambios);
