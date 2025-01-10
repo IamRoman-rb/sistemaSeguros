@@ -22,16 +22,8 @@ export const listar = async (req, res) => {
       const coberturasData = await fs.promises.readFile(coberturasPath, "utf-8");
       const coberturas = JSON.parse(coberturasData);
 
-      const empresasConCoberturas = empresas.map(empresa => {
-        const coberturasEmpresa = coberturas.filter(cobertura => cobertura.id_empresa === empresa.id);
-        
-        return {
-            ...empresa,
-            coberturas: coberturasEmpresa.map(c => c.coberturas)
-        };
-    });
-    
-      res.render("empresas/empresas", { empresas: empresasConCoberturas });
+
+      res.render("empresas/empresas", { empresas, coberturas });
     } catch (error) {
       console.error("Error al cargar las empresas:", error.message);
       res.status(500).send("Error al cargar las empresas");

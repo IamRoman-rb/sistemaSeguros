@@ -12,24 +12,36 @@
         <header>
             <h1>Empresas</h1>
         </header>
-
         <article>
             <ul>
-                <% empresas.forEach(empresa => { %>
-                    <li>
-                        <dl>
-                            <dt>Nombre:</dt>
-                                <dd><%= empresa.nombre %></dd>
-                            <dt>Coberturas:</dt>
-                            <% empresa.coberturas.forEach(cobertura => { %>
-                                <dd><%= cobertura %> </dd>
+              <% empresas.forEach(empresa => { %>
+                <li>
+                  <dl>
+                    <dt>Nombre:</dt>
+                    <dd><%= empresa.nombre %></dd>
+                    <dt>Coberturas:</dt>
+                    <dd>
+                      <ul>
+                        <% empresa.coberturas.forEach((cobertura_empresa, index) => { %>
+                            <% coberturas.forEach(cobertura => { %>
+                                <% if (cobertura_empresa == cobertura.id) { %>
+                                    <li>
+                                        <%= cobertura.nombre %>: <%= cobertura.descripcion %> 
+                                    </li>
+                                <% } %>
                             <% }) %>
-                            <a href="/empresas/editar/<%= empresa.id %>">Editar</a>
-                        </dl>
-                    </li>
-                <% }); %>
+                        <% }) %>
+                      </ul>
+                    </dd>
+                    <dt>Acciones:</dt>
+                    <dd>
+                      <a href="/empresas/editar/<%= empresa.id %>">Editar</a>
+                      </dd>
+                  </dl>
+                </li>
+              <% }); %>
             </ul>
-        </article>
+          </article>
     </main>
 </body>
 </html>
