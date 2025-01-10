@@ -50,7 +50,7 @@
                     <option value="0" disabled selected>Empresa</option>
                     <% empresas.forEach(empresa=> { %>
                         <option value="<%= empresa.id %>">
-                            <%= empresa.empresa %>
+                            <%= empresa.nombre %>
                         </option>
                         <% }) %>
                 </select>
@@ -62,10 +62,19 @@
                 <input type="number" name="precio" id="Precio">
             </fieldset>
             <fieldset>
-                <label for="cobetura">
-                    Cobertura
-                </label>
-                <input type="text" name="cobertura" id="cobertura">
+                <select name="cobertura" id="cobertura">
+                    <option value="0" disabled selected> Cobertura</option>
+                    <% empresas.forEach(empresa=> { %>
+                        <optgroup label="<%= empresa.nombre %>">
+                            <% coberturas.forEach(cobertura=> { %>
+                                <% if (empresa.coberturas.includes(cobertura.id)) { %>
+                                    <option value="<%= cobertura.id %>">
+                                        <%= cobertura.nombre %>
+                                    </option>
+                                <% } }) %>
+                        </optgroup>
+                    <% }) %>
+                </select>
             </fieldset>
             <fieldset>
                 <select name="marca" id="marca">
@@ -129,6 +138,17 @@
             </section>
         </form>
     </main>
+
+    <script>
+        document.querySelector("#empresa").addEventListener('change', (e) => {
+            document.querySelectorAll('#cobertura optgroup').forEach((group) => group.disabled = true)
+            const { value } = e.target
+            const option = document.querySelector(`#empresa option[value='${value}']`)
+            const label = String(option.innerText).trim()
+            const group = document.querySelector(`#cobertura optgroup[label='${label}']`)
+            group.disabled = false
+        })
+    </script>
 </body>
 
 </html>

@@ -50,11 +50,11 @@
                     <% empresas.forEach(empresa=> { %>
                         <% if (empresa.id == poliza.empresa) { %>
                             <option value="<%= empresa.id %>" selected>
-                                <%= empresa.empresa %>
+                                <%= empresa.nombre %>
                             </option>
                         <% } else { %>
                             <option value="<%= empresa.id %>">
-                                <%= empresa.empresa %>
+                                <%= empresa.nombre %>
                             </option>
                         <% } %>
                     <% }) %>

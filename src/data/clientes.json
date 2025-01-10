@@ -9,7 +9,9 @@
     "localidad": "1",
     "direccion": "Yerbal 1925",
     "polizas": [
-      1
+      1,
+      2,
+      2
     ]
   }
 ]
