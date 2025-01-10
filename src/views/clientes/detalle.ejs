@@ -54,7 +54,7 @@
                     <p>No tiene polizas asociadas</p>
                     <% } else { %>
                         <ul>
-                            <% polizasCliente.forEach(poliza=> { %>
+                            <% polizas.forEach(poliza=> { %>
                                 <li>
                                     <dl>
                                         <dt>Numero de Poliza:</dt>
@@ -71,11 +71,11 @@
                                         </dd>
                                         <dt> Empresa:</dt>
                                         <dd>
-                                            <%= poliza.empresa %>
+                                            <%= poliza.empresa.empresa %>
                                         </dd>
                                         <dt> Marca del auto:</dt>
                                         <dd>
-                                            <%= poliza.marca %>
+                                            <%= poliza.marca.marca %>
                                         </dd>
                                         <dt> Modelo de auto:</dt>
                                         <dd>

@@ -40,9 +40,11 @@ export const detalle = async (req, res) => {
             path.resolve(process.cwd(), "src/data", "polizas.json"),
             path.resolve(process.cwd(), "src/data", "provincias.json"),
             path.resolve(process.cwd(), "src/data", "ciudades.json"),
+            path.resolve(process.cwd(), "src/data", "empresas.json"),
+            path.resolve(process.cwd(), "src/data", "automarcas.json"),
         ]
 
-        const [clientes, polizas, provincias, ciudades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+        const [clientes, polizas, provincias, ciudades, empresas, autos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
         // Buscar al cliente por ID
         const cliente = clientes.find(cliente => cliente.id === Number(id));
@@ -53,9 +55,10 @@ export const detalle = async (req, res) => {
 
         cliente.provincia = provincias.find(({ id }) => id == Number(cliente.provincia))
         cliente.localidad = ciudades.find(({ id }) => id == Number(cliente.localidad))
-        // return res.status(200).json({ cliente, polizas })
-        // Obtener las pólizas del cliente
-        const polizasCliente = cliente.polizas.length == 0 ? cliente.polizas : polizas.filter(poliza => cliente.polizas.includes(poliza.id));
+
+        const polizasCliente = cliente.polizas.length == 0 ? cliente.polizas : polizas.filter(poliza => cliente.polizas.includes(poliza.id)).map(poliza => {
+            return ({ ...poliza, empresa: empresas.find(empresa => empresa.id == poliza.empresa), marca: autos.find(auto => auto.id == poliza.marca) })
+        })
 
         res.render('clientes/detalle', { cliente, polizas: polizasCliente });
     } catch (error) {
@@ -96,7 +99,7 @@ export const guardar = async (req, res) => {
 
         await writeFile(clientesPath, JSON.stringify(clientes, null, 2));
 
-        res.redirect('/clientes');
+        res.redirect(`/clientes/detalle/${nuevoCliente.id}`);
     } catch (error) {
         console.error('Error al crear el cliente:', error.message);
         res.status(500).send('Error al crear el cliente');

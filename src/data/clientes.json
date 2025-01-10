@@ -8,6 +8,8 @@
     "provincia": "1",
     "localidad": "1",
     "direccion": "Yerbal 1925",
-    "polizas": []
+    "polizas": [
+      1
+    ]
   }
 ]

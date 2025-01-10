@@ -8,26 +8,45 @@
 </head>
 
 <body>
-    <%- include("../partials/header") %>
-        <h1>Poliza nueva</H1>
+    <main>
+        <header>
+            <h1>Poliza nueva</h1>
+            <nav>
+                <a href="/clientes/detalle/<%= cliente.id %>">Volver al perfil del cliente</a>
+                <a href="/polizas/">Volver al listado de polizas</a>
+            </nav>
+        </header>
         <form action="/polizas/guardar" method="POST" id="create-poliza-form">
-            <label for="n_poliza" class="label" id="label_n_poliza">N Poliza
+            <fieldset>
+                <label for="n_poliza" class="label" id="label_n_poliza">N Poliza
+                </label>
                 <input type="number" name="n_poliza" id="n_poliza">
-            </label>
-            <label for="f_emision" class="label" id="label_f_emision">Fecha Emision
+            </fieldset>
+            <fieldset>
+                <label for="f_emision" class="label" id="label_f_emision">Fecha Emision</label>
                 <input type="date" name="f_emision" id="f_emision">
-            </label>
-            <label for="f_ini_vigencia" class="label" id="label_f_ini_vigencia">Inicio Vigencia
+            </fieldset>
+            <fieldset>
+                <label for="f_ini_vigencia" class="label" id="label_f_ini_vigencia">
+                    Inicio Vigencia
+                </label>
                 <input type="date" name="f_ini_vigencia" id="f_ini_vigencia">
-            </label>
-            <label for="f_fin_vigencia" class="label" id="label_f_fin_vigencia">Fin Vigencia
+            </fieldset>
+            <fieldset>
+                <label for="f_fin_vigencia" class="label" id="label_f_fin_vigencia">
+                    Fin Vigencia
+                </label>
                 <input type="date" name="f_fin_vigencia" id="f_fin_vigencia">
-            </label>
-            <label for="suma" class="label" id="label_suma">Suma Asegurada
+            </fieldset>
+            <fieldset>
+                <label for="suma" class="label" id="label_suma">
+                    Suma Asegurada
+                </label>
                 <input type="number" name="suma" id="suma">
-            </label>
-            <label for="cuotas" class="label" id="label_cuotas">Cuotas
+            </fieldset>
+            <fieldset>
                 <select name="cuotas" id="cuotas">
+                    <option value="0" disabled selected> Cantidad de Cuotas</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -41,42 +60,77 @@
                     <option value="11">11</option>
                     <option value="12">12</option>
                 </select>
-            </label>
-            <label for="empresa">Empresa
-                <input type="text" name="empresa" id="empresa">
-            </label>
-            <label for="precio">Precio
+            </fieldset>
+            <fieldset>
+                <select name="empresa" id="empresa">
+                    <option value="0" disabled selected>Empresa</option>
+                    <% empresas.forEach(empresa=> { %>
+                        <option value="<%= empresa.id %>">
+                            <%= empresa.empresa %>
+                        </option>
+                        <% }) %>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="precio">
+                    Precio
+                </label>
                 <input type="number" name="precio" id="Precio">
-            </label>
-            <label for="cobetura">Cobertura
+            </fieldset>
+            <fieldset>
+                <label for="cobetura">
+                    Cobertura
+                </label>
                 <input type="text" name="cobertura" id="cobertura">
-            </label>
-
-            <label for="marca">Marca
-                <input type="text" name="marca" id="marca">
-            </label>
-            <label for="modelo">Modelo
+            </fieldset>
+            <fieldset>
+                <select name="marca" id="marca">
+                    <option value="0" disabled selected> Marca del Vehiculo</option>
+                    <% autos.forEach(auto=> { %>
+                        <option value="<%= auto.id %>">
+                            <%= auto.marca %>
+                        </option>
+                        <% }) %>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="modelo">
+                    Modelo del Vehiculo
+                </label>
                 <input type="text" name="modelo" id="modelo">
-            </label>
-            <label for="patente">Patente
+            </fieldset>
+            <fieldset>
+                <label for="patente">
+                    Patente del Vehiculo
+                </label>
                 <input type="text" name="patente" id="patente">
-            </label>
-            <label for="anio">Año
+            </fieldset>
+            <fieldset>
+                <label for="anio">
+                    Año del Vehiculo
+                </label>
                 <input type="number" name="anio" id="anio">
-            </label>
-            <label for="n_chasis">N Chasis
+            </fieldset>
+            <fieldset>
+                <label for="n_chasis">
+                    N Chasis
+                </label>
                 <input type="text" name="n_chasis" id="n_chasis">
-            </label>
-            <label for="n_motor">N motor
+            </fieldset>
+            <fieldset>
+                <label for="n_motor">
+                    N motor
+                </label>
                 <input type="text" name="n_motor" id="n_motor">
-            </label>
-            <label for="combustible">Combustible
+            </fieldset>
+            <fieldset>
                 <select name="combustible" id="combustible">
+                    <option value="0" disabled selected>Combustible del Vehiculo</option>
                     <option value="nafta">Nafta</option>
                     <option value="diesel">Diesel</option>
                     <option value="GNC">GNC</option>
                 </select>
-            </label>
+            </fieldset>
             <input type="hidden" id="id_cliente" name="clientId" value="<%= cliente.id %>">
 
             <section class="btns">
@@ -84,6 +138,7 @@
                 <button type="submit">Emitir</button>
             </section>
         </form>
+    </main>
 </body>
 
 </html>
