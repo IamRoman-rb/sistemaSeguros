@@ -37,70 +37,49 @@ export const listar = async (req, res) => {
     }
   };
 export const  nuevo = async (req, res) => {
-    const permisosPath = path.resolve(
-      process.cwd(),
-      "src/data",
-      "permisos.json"
-    );
-    const permisosData = await fs.promises.readFile(permisosPath, "utf8");
-    const permisos = JSON.parse(permisosData);
-    const sucursalesPath = path.resolve(
-      process.cwd(),
-      "src/data",
-      "sucursales.json"
-    );
-    const sucursalesData = await fs.promises.readFile(sucursalesPath, "utf8");
-    const sucursales = JSON.parse(sucursalesData);
-
-    res.render("usuarios/nuevo", { permisos: permisos,sucursales:sucursales }); // Renderiza la vista 'index.ejs'
+    res.render("empresas/nueva");
   };
 
 export const guardar = async (req, res) => {
     try {
-      const { nombre, contraseña, permiso, dni,sucursal} = req.body;
+      const { nombre } = req.body;
 
-      const usuariosPath = path.resolve(
+      if (!nombre) {
+        return res.status(400).send("El campo nombre es obligatorio");
+      }
+
+      const empresasPath = path.resolve(
         process.cwd(),
         "src/data",
-        "usuarios.json"
+        "empresas.json"
       );
-      const usuariosData = await fs.promises.readFile(usuariosPath, "utf8");
-      const usuarios = JSON.parse(usuariosData);
+      const empresasData = await fs.promises.readFile(empresasPath, "utf8");
+      const empresas = JSON.parse(empresasData);
 
       // Verificar si el usuario ya existe por DNI
-      const usuarioExistente = usuarios.find((u) => u.dni === dni);
-      if (usuarioExistente) {
+      const empresaExistente = empresas.find((e) => e.nombre === nombre);
+      if (empresaExistente) {
         return res.status(400).send("El usuario con ese DNI ya existe");
       }
 
-      // Encriptar la contraseña
-      const saltRounds = 10;
-      const hashedPassword = await bcrypt.hash(contraseña, saltRounds);
-
       // Generar un nuevo ID
-      const nuevoId = usuarios.length + 1;
+      const nuevoId = empresas.length + 1;
 
-      const permisoId = parseInt(permiso);
-
-      const nuevoUsuario = {
+      const nuevaEmpresa = {
         id: nuevoId,
         nombre,
-        contraseña: hashedPassword,
-        permisos: permisoId,
-        dni,
-        sucursal:parseInt(sucursal),
-        activo: true
+        coberturas: []
       };
 
-      usuarios.push(nuevoUsuario);
+      empresas.push(nuevaEmpresa);
 
       // Guardar los cambios en el archivo JSON
-      fs.writeFileSync(usuariosPath, JSON.stringify(usuarios, null, 2));
+      fs.writeFileSync(empresasPath, JSON.stringify(empresas, null, 2));
 
-      res.redirect("/usuarios");
+      res.redirect("/empresas");
     } catch (error) {
-      console.error("Error al crear el usuario:", error.message);
-      res.status(500).send("Error al crear el usuario");
+      console.error("Error al crear una nueva empresa:", error.message);
+      res.status(500).send("Error al crear una nueva empresa");
     }
   };
 

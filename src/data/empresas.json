@@ -10,5 +10,10 @@
   {
     "id": 3,
     "nombre": "RUS"
+  },
+  {
+    "id": 4,
+    "nombre": "FEDERAL",
+    "coberturas": []
   }
 ]
