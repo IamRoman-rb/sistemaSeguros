@@ -11,7 +11,6 @@
         
         <header>
             <h1>Empresas</h1>
-            <!-- <a href="/usuarios/nuevo">Nuevo</a> -->
         </header>
 
         <article>
@@ -25,7 +24,9 @@
                             <% empresa.coberturas.forEach(cobertura => { %>
                                 <dd><%= cobertura %> </dd>
                             <% }) %>
+                            <a href="/empresas/editar/<%= empresa.id %>">Editar</a>
                         </dl>
+                    </li>
                 <% }); %>
             </ul>
         </article>
