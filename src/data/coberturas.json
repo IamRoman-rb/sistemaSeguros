@@ -1,0 +1,37 @@
+[
+   {
+    "id": 1,
+    "nombre": "A",
+    "descripcion": "RESPONSABILIDAD CIVIL"
+   },
+   {
+    "id": 2,
+    "nombre": "B",
+    "descripcion": "ROBO, INCENDIO TOTAL CON DESTRUCCION TOTAL"
+   },
+   {
+    "id": 3,
+    "nombre": "B1",
+    "descripcion": "ROBO, INCENDIO TOTAL SIN DESTRUCCION TOTAL"
+   },
+   {
+    "id": 4,
+    "nombre": "C",
+    "descripcion": "ROBO, INCENDIO TOTAL Y PARCIAL CON DESTRUCCION TOTAL"
+   },
+   {
+    "id": 5,
+    "nombre": "C1",
+    "descripcion": "ROBO, INCENDIO TOTAL Y PARCIAL SIN DESTRUCCION TOTAL"
+   },
+   {
+    "id": 6,
+    "nombre": "CF",
+    "descripcion": "ROBO, INCENDIO TOTAL Y PARCIAL CON DESTRUCCION TOTAL + CRISTALES, LUNETA Y PARABRISAS"
+   },
+   {
+    "id": 7,
+    "nombre": "TD",
+    "descripcion": "TODO RIESGO"
+   }
+]
