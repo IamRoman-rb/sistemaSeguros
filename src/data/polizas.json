@@ -1,26 +1,5 @@
 [
   {
-    "n_poliza": "1524",
-    "f_emision": "2025-01-10",
-    "f_ini_vigencia": "2025-02-01",
-    "f_fin_vigencia": "2025-08-31",
-    "suma": "2500000",
-    "cuotas": 6,
-    "empresa": 1,
-    "precio": "2500",
-    "cobertura": "Total",
-    "marca": 3,
-    "modelo": "Siena",
-    "patente": "PHT452",
-    "anio": "2010",
-    "n_chasis": "1",
-    "n_motor": "1",
-    "combustible": "nafta",
-    "clienteId": 1736473877514,
-    "pagos": [],
-    "id": 1
-  },
-  {
     "n_poliza": "152",
     "f_emision": "2025-01-10",
     "f_ini_vigencia": "2025-01-17",

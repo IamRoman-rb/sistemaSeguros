@@ -9,11 +9,12 @@
   <%- include("../partials/header") %>
   <main>
     <header>
-      <h1>Detalle de la Póliza</h1>
+      <h1>Detalle de la Póliza #<%= poliza.n_poliza %></h1>
       <nav>
         <a href="/polizas">Volver al listado de polizas</a>
         <a href="/polizas/editar/<%= poliza.id %>">Editar</a>
         <a href="/pagos/nuevo/<%= poliza.id %>">Nuevo Pago</a>
+        <a href="/polizas/confirmar/<%= poliza.id %>">Eliminar Poliza</a>
       </nav>
     </header>
     <ul>
@@ -45,7 +46,7 @@
           <dt>Empresa:</dt>
           <dd><%= poliza.empresa.nombre %></dd>
           <dt>Cobertura:</dt>
-          <dd><%= poliza.cobertura %></dd>
+          <dd><%= poliza.cobertura.nombre %>: <%= poliza.cobertura.descripcion %></dd>
           <dt>Cuotas:</dt>
           <dd><%= poliza.cuotas %></dd>
           <dt>Cuotas Pagas:</dt>
