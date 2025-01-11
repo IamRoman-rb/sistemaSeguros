@@ -169,6 +169,11 @@
           "method": "get"
         },
         {
+          "path": "/recibo/:id",
+          "alias": "recibo",
+          "method": "get"
+        },
+        {
           "path": "/pagar/:id",
           "alias": "pagar",
           "method": "get"
@@ -181,6 +186,11 @@
         {
           "path": "/guardar",
           "alias": "guardar",
+          "method": "post"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "eliminar",
           "method": "post"
         }
       ],
@@ -297,6 +307,11 @@
         {
           "path": "/detalle/:id",
           "alias": "detalle",
+          "method": "get"
+        },
+        {
+          "path": "/recibo/:id",
+          "alias": "recibo",
           "method": "get"
         },
         {
@@ -435,6 +450,11 @@
           "method": "get"
         },
         {
+          "path": "/recibo/:id",
+          "alias": "recibo",
+          "method": "get"
+        },
+        {
           "path": "/pagar/:id",
           "alias": "pagar",
           "method": "get"
@@ -442,6 +462,11 @@
         {
           "path": "/acreditar",
           "alias": "acreditar",
+          "method": "post"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "eliminar",
           "method": "post"
         }
       ]
@@ -555,6 +580,11 @@
         {
           "path": "/acreditar",
           "alias": "acreditar",
+          "method": "post"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "eliminar",
           "method": "post"
         }
       ],

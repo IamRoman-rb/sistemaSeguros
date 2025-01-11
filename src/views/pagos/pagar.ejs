@@ -9,90 +9,101 @@
     <main>
       <header>
         <h1>Confirmar Pago</h1>
-        <p>Estás a punto de pagar la póliza número <%= poliza.n_poliza %> verifica que los datos sean correctos.</p>
+        <p>Estás a punto de pagar la póliza número #<%= poliza.n_poliza %> verifica que los datos sean correctos.</p>
+        <a href="/polizas/detalle/<%= poliza.id %>">Volver al detalle de la poliza</a>
       </header>
-      <ul>
-        <li>
-          <p>Poliza</p>
-          <dl>
-            <dt>Fecha de Emision</dt>
-            <dd><%= poliza.f_emision %></dd>
-            <dt>Fecha de Inicio de Vigencia</dt>
-            <dd><%= poliza.f_ini_vigencia %></dd>
-            <dt>Fecha de Fin de Vigencia</dt>
-            <dd><%= poliza.f_fin_vigencia %></dd>
-            <dt>Premio</dt>
-            <dd><%= poliza.precio %></dd>
-            <dt>Cuotas</dt>
-            <dd><%= poliza.cuotas %></dd>
-            <dt>Empresa</dt>
-            <dd><%= poliza.empresa.nombre %></dd>
-            <dt>Cobertura</dt>
-            <dd><%= poliza.cobertura.nombre %>: <%= poliza.cobertura.descripcion %></dd>
-          </dl>
-        </li>
-        <li>
-          <p>Vehiculo</p>
-          <dl>
-            <dt>Marca</dt>
-            <dd><%= poliza.marca.marca %></dd>
-            <dt>Modelo</dt>
-            <dd><%= poliza.modelo %></dd>
-            <dt>Patente</dt>
-            <dd><%= poliza.patente %></dd>
-            <dt>Año</dt>
-            <dd><%= poliza.anio %></dd>
-          </dl>
-        </li>
-        <li>
-          <p>Cliente</p>
-          <dl>
-            <dt>Nombre</dt>
-            <dd><%= cliente.nombre %></dd>
-            <dt>Telefono</dt>
-            <dd><%= cliente.telefono %></dd>
-            <dt>CUIT</dt>
-            <dd><%= cliente.cuit %></dd>
-          </dl>
-        </li>
-        <li>
-          <p>Pagos</p>
-          <% if (poliza.pagos.length > 0) { %>
-            <ul>
-              <% poliza.pagos.forEach(pago => { %>
-                <li>
-                  <p>Fecha: <%= pago.fecha %></p>
-                  <p>Monto: <%= pago.monto %></p>
-                </li>
-              <% }) %>
-            </ul>
-          <% } else { %>
-            <p>No hay pagos registrados.</p>
-          <% } %>
-        </li>
-      </ul>
-
+      <article>
+        <h2>Datos</h2>
+        <ul>
+          <li>
+            <p>Poliza #<%= poliza.n_poliza %></p>
+            <dl>
+              <dt>Fecha de Emision</dt>
+              <dd><%= poliza.f_emision %></dd>
+              <dt>Fecha de Inicio de Vigencia</dt>
+              <dd><%= poliza.f_ini_vigencia %></dd>
+              <dt>Fecha de Fin de Vigencia</dt>
+              <dd><%= poliza.f_fin_vigencia %></dd>
+              <dt>Premio</dt>
+              <dd><%= poliza.precio %></dd>
+              <dt>Cuotas</dt>
+              <dd><%= poliza.cuotas %></dd>
+              <dt>Empresa</dt>
+              <dd><%= poliza.empresa.nombre %></dd>
+              <dt>Cobertura</dt>
+              <dd><%= poliza.cobertura.nombre %>: <%= poliza.cobertura.descripcion %></dd>
+            </dl>
+          </li>
+          <li>
+            <p>Vehiculo</p>
+            <dl>
+              <dt>Marca</dt>
+              <dd><%= poliza.marca.marca %></dd>
+              <dt>Modelo</dt>
+              <dd><%= poliza.modelo %></dd>
+              <dt>Patente</dt>
+              <dd><%= poliza.patente %></dd>
+              <dt>Año</dt>
+              <dd><%= poliza.anio %></dd>
+            </dl>
+          </li>
+          <li>
+            <p>Cliente</p>
+            <dl>
+              <dt>Nombre</dt>
+              <dd><%= cliente.nombre %></dd>
+              <dt>Telefono</dt>
+              <dd><%= cliente.telefono %></dd>
+              <dt>CUIT</dt>
+              <dd><%= cliente.cuit %></dd>
+            </dl>
+          </li>
+          <li>
+            <p>Pagos</p>
+            <% if (poliza.pagos.length > 0) { %>
+              <ul>
+                <% poliza.pagos.forEach(pago => { %>
+                  <li>
+                    <p>Fecha: <%= pago.fecha %></p>
+                    <p>Monto: <%= pago.monto %></p>
+                  </li>
+                <% }) %>
+              </ul>
+            <% } else { %>
+              <p>No hay pagos registrados.</p>
+            <% } %>
+          </li>
+        </ul>
+      </article>
       <!-- Agregar tips de validacion -->
+      <article>
+        <h2>Tips de Validación</h2>
+        <ul>
+          <li>
+            <p>La fecha de pago debe ser mayor a la de emision.</p>
+          </li>
+          <li>
+            <p>La fecha de pago debe estar fuera de los pagos anteriores.</p>
+          </li>
+          <li>
+            <p>En caso de el cliente pague con efectivo, verifique que el monto a pagar sea igual al precio de la póliza.</p>
+          </li>
+        </ul>
+      </article>
+
       <!-- Cambiar el redireccion del controller a pagar -->
       <form method="POST" action="/pagos/acreditar">
         <input type="hidden" name="polizaId" value="<%= poliza.id %>">
         <fieldset>
-          <label for="importe">Importe</label>
-          <input type="number" name="importe" min="<%= poliza.precio %>" id="importe" value="<%= poliza.precio %>" required>
-        </fieldset>
-        <fieldset>
-          <select name="metodo" id="metodo">
+          <select name="metodo" id="metodo" required>
             <option value="0" disabled selected>Metodo de Pago</option>
             <option value="efectivo">Efectivo</option>
             <option value="transferencia">Transferencia</option>
-            <option value="tarjeta">Tarjeta</option>
           </select>
-        </fieldset>
-        <fieldset>
           <label for="observaciones">Observaciones</label>
-          <textarea name="observaciones" id="observaciones" cols="30" rows="10"></textarea>
+          <textarea name="observaciones" id="observaciones" cols="30" rows="10" required></textarea>
         </fieldset>
-        <button type="submit">Pagar</button>
+        <button type="submit">Confirmar Pago</button>
       </form>
     </main>
     

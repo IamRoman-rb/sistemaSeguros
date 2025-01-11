@@ -12,19 +12,24 @@
             <h1>Detalle de Pago</h1>
             <% if (!["Empleado"].includes(user.rol)) { %>
                 <form action="/pagos/eliminar" method="post">
-                    <input type="hidden" name="id" value="<%= pago.id %>">
+                    <input type="hidden" name="pagoId" value="<%= pago.id %>">
+                    <input type="hidden" name="polizaId" value="<%= pago.poliza.id %>">
+
                     <button type="submit">Eliminar</button>
                 </form>
             <% } %>
+            <nav>
+                <a href="/pagos/recibo/<%= pago.id %>">Recibo</a>
+            </nav>
         </header>
         <ul>
             <li>
                 <p>Pago #<%= pago.id %></p>
                 <dl>
                     <dt>Fecha</dt>
-                    <dd><%= pago.fecha %></dd>
-                    <dt>Importe</dt>
-                    <dd><%= pago.monto %></dd>
+                    <dd><%= pago.fecha %> a las <%= pago.hora %></dd>
+                    <dt>Premio</dt>
+                    <dd>$<%= pago.valor %></dd>
                     <dt>Forma de Pago</dt>
                     <dd><%= pago.forma_pago %></dd>
                     <dt>Observaciones</dt>
@@ -44,6 +49,10 @@
                     <dd><%= pago.poliza.precio %></dd>
                     <dt>Empresa</dt>
                     <dd><%= pago.poliza.empresa.nombre %></dd>
+                    <dt>Cuotas</dt>
+                    <dd><%= pago.poliza.cuotas %> cuotas</dd>
+                    <dt>Pagos</dt>
+                    <dd><%= pago.poliza.pagos.length %> de <%= pago.poliza.cuotas %> cuotas</dd>
                     <dt>Cobertura</dt>
                     <dd><%= pago.poliza.cobertura.nombre %>: <%= pago.poliza.cobertura.descripcion %></dd>
                 </dl>
