@@ -17,7 +17,9 @@
     "n_motor": 1,
     "combustible": "nafta",
     "clienteId": 1736473877514,
-    "pagos": [],
+    "pagos": [
+      1
+    ],
     "id": 2
   }
 ]

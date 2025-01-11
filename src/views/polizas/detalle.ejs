@@ -12,9 +12,15 @@
       <h1>Detalle de la Póliza #<%= poliza.n_poliza %></h1>
       <nav>
         <a href="/polizas">Volver al listado de polizas</a>
-        <a href="/polizas/editar/<%= poliza.id %>">Editar</a>
-        <a href="/pagos/nuevo/<%= poliza.id %>">Nuevo Pago</a>
-        <a href="/polizas/confirmar/<%= poliza.id %>">Eliminar Poliza</a>
+        <% if (poliza.pagos.length == 0) { %>
+          <a href="/polizas/editar/<%= poliza.id %>">Editar</a>
+        <% } %>
+        <% if (poliza.pagos.length < poliza.cuotas) { %>
+          <a href="/pagos/pagar/<%= poliza.id %>">Nuevo Pago</a>
+        <% } %>
+        <% if (!["Empleado"].includes(user.rol)) { %>
+          <a href="/polizas/confirmar/<%= poliza.id %>">Eliminar Poliza</a>
+        <% } %>
       </nav>
     </header>
     <ul>
@@ -28,6 +34,9 @@
           <dt>Telefono:</dt>
           <dd><%= cliente.telefono %></dd>
         </dl>
+        <nav>
+          <a href="/clientes/detalle/<%= cliente.id %>">Ver Cliente</a>
+        </nav>
       </li>
 
       <li>
@@ -74,14 +83,29 @@
       </li>
       <li>
         <strong>Pagos:</strong>
-        <ul>
-          <% poliza.pagos.forEach(pago => { %>
-            <li>
-              <p>Fecha: <%= pago.fecha %></p>
-              <p>Monto: <%= pago.monto %></p>
-            </li>
-          <% }) %>
-        </ul>
+        <% if (poliza.pagos.length == 0) { %>
+          <p>No hay pagos</p>
+        <% } else { %>
+          <ul>
+            <% poliza.pagos.forEach(pago => { %>
+              <li>
+                <dl>
+                  <dt>Fecha:</dt>
+                  <dd><%= pago.fecha %></dd>
+                  <dt>Monto:</dt>
+                  <dd><%= pago.monto %></dd>
+                  <dt>Observaciones:</dt>
+                  <dd><%= pago.observaciones %></dd>
+                  <dt>Forma de Pago:</dt>
+                  <dd><%= pago.forma_pago %></dd>
+                </dl>
+                <nav>
+                  <a href="/pagos/detalle/<%= pago.id %>">Detalle</a>
+                </nav>
+              </li>
+            <% }) %>
+          </ul>
+        <% } %>
       </li>
     </ul> 
   </main>

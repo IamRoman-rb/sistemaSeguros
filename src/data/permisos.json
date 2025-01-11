@@ -164,16 +164,6 @@
       ],
       "pagos": [
         {
-          "path": "/",
-          "alias": "listado",
-          "method": "get"
-        },
-        {
-          "path": "/nuevo",
-          "alias": "nuevo",
-          "method": "get"
-        },
-        {
           "path": "/detalle/:id",
           "alias": "detalle",
           "method": "get"
@@ -191,11 +181,6 @@
         {
           "path": "/guardar",
           "alias": "guardar",
-          "method": "post"
-        },
-        {
-          "path": "/actualizar",
-          "alias": "actualizar",
           "method": "post"
         }
       ],
@@ -222,6 +207,7 @@
     "id": 2,
     "descripcion": "Empleado",
     "alcances": {
+
       "clientes": [
         {
           "path": "/",
@@ -309,16 +295,6 @@
       ],
       "pagos": [
         {
-          "path": "/",
-          "alias": "listado",
-          "method": "get"
-        },
-        {
-          "path": "/nuevo",
-          "alias": "nuevo",
-          "method": "get"
-        },
-        {
           "path": "/detalle/:id",
           "alias": "detalle",
           "method": "get"
@@ -331,16 +307,6 @@
         {
           "path": "/acreditar",
           "alias": "acreditar",
-          "method": "post"
-        },
-        {
-          "path": "/guardar",
-          "alias": "guardar",
-          "method": "post"
-        },
-        {
-          "path": "/actualizar",
-          "alias": "actualizar",
           "method": "post"
         }
       ]
@@ -437,16 +403,6 @@
       ],
       "pagos": [
         {
-          "path": "/",
-          "alias": "listado",
-          "method": "get"
-        },
-        {
-          "path": "/nuevo",
-          "alias": "nuevo",
-          "method": "get"
-        },
-        {
           "path": "/detalle/:id",
           "alias": "detalle",
           "method": "get"
@@ -460,16 +416,6 @@
           "path": "/acreditar",
           "alias": "acreditar",
           "method": "post"
-        },
-        {
-          "path": "/guardar",
-          "alias": "guardar",
-          "method": "post"
-        },
-        {
-          "path": "/actualizar",
-          "alias": "actualizar",
-          "method": "post"
         }
       ]
     }
@@ -478,7 +424,6 @@
     "id": 3,
     "descripcion": "Propietario",
     "alcances": {
-      "auxiliares": ["/", "/nuevo", "/detalle", "/editar", "/eliminar"],
       "clientes": [
         {
           "path": "/",
@@ -566,18 +511,13 @@
       ],
       "pagos": [
         {
-          "path": "/",
-          "alias": "listado",
-          "method": "get"
-        },
-        {
-          "path": "/nuevo",
-          "alias": "nuevo",
-          "method": "get"
-        },
-        {
           "path": "/detalle/:id",
           "alias": "detalle",
+          "method": "get"
+        },
+        {
+          "path": "/recibo/:id",
+          "alias": "recibo",
           "method": "get"
         },
         {
@@ -588,16 +528,6 @@
         {
           "path": "/acreditar",
           "alias": "acreditar",
-          "method": "post"
-        },
-        {
-          "path": "/guardar",
-          "alias": "guardar",
-          "method": "post"
-        },
-        {
-          "path": "/actualizar",
-          "alias": "actualizar",
           "method": "post"
         }
       ],

@@ -1,32 +1,16 @@
 import path from "path";
-import fs from "fs";
+import {readFile,writeFile} from "node:fs/promises";
 import bcrypt from "bcrypt";
 
 
 export const listar = async (req, res) => {
     try {
-      const usuariosPath = path.resolve(
-        process.cwd(),
-        "src/data",
-        "usuarios.json"
-      );
-      const permisosPath = path.resolve(
-        process.cwd(),
-        "src/data",
-        "permisos.json"
-      );
-      const sucursalesPath = path.resolve(
-        process.cwd(),
-        "src/data",
-        "sucursales.json"
-      );
-      const usuariosData = await fs.promises.readFile(usuariosPath, "utf8");
-      const permisosData = await fs.promises.readFile(permisosPath, "utf8");
-      const sucursalesData = await fs.promises.readFile(sucursalesPath, "utf8");
-      const usuarios = JSON.parse(usuariosData);
-      const permisos = JSON.parse(permisosData);
-      const sucursales = JSON.parse(sucursalesData);
-
+      const resources = [
+        path.resolve(process.cwd(), "src/data", "usuarios.json"),
+        path.resolve(process.cwd(), "src/data", "permisos.json"),
+        path.resolve(process.cwd(), "src/data", "sucursales.json"),
+      ];
+      let [usuarios, permisos, sucursales] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
       // Agregar la descripción del permiso a cada usuario
       const usuariosConPermisos = usuarios.map((usuario) => {
         const permiso = permisos.find((p) => p.id === usuario.permisos);
@@ -45,22 +29,13 @@ export const listar = async (req, res) => {
     }
   };
 export const  nuevo = async (req, res) => {
-    const permisosPath = path.resolve(
-      process.cwd(),
-      "src/data",
-      "permisos.json"
-    );
-    const permisosData = await fs.promises.readFile(permisosPath, "utf8");
-    const permisos = JSON.parse(permisosData);
-    const sucursalesPath = path.resolve(
-      process.cwd(),
-      "src/data",
-      "sucursales.json"
-    );
-    const sucursalesData = await fs.promises.readFile(sucursalesPath, "utf8");
-    const sucursales = JSON.parse(sucursalesData);
+  const resources = [
+    path.resolve(process.cwd(), "src/data", "permisos.json"),
+    path.resolve(process.cwd(), "src/data", "sucursales.json"),
+  ];
+  let [permisos, sucursales] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
-    res.render("usuarios/nuevo", { permisos: permisos,sucursales:sucursales }); // Renderiza la vista 'index.ejs'
+    res.render("usuarios/nuevo", { permisos,sucursales }); // Renderiza la vista 'index.ejs'
   };
 
 export const guardar = async (req, res) => {
@@ -72,7 +47,7 @@ export const guardar = async (req, res) => {
         "src/data",
         "usuarios.json"
       );
-      const usuariosData = await fs.promises.readFile(usuariosPath, "utf8");
+      const usuariosData = await readFile(usuariosPath, "utf8");
       const usuarios = JSON.parse(usuariosData);
 
       // Verificar si el usuario ya existe por DNI
@@ -103,7 +78,7 @@ export const guardar = async (req, res) => {
       usuarios.push(nuevoUsuario);
 
       // Guardar los cambios en el archivo JSON
-      fs.writeFileSync(usuariosPath, JSON.stringify(usuarios, null, 2));
+      await writeFile(usuariosPath, JSON.stringify(usuarios, null, 2));
 
       res.redirect("/usuarios");
     } catch (error) {
@@ -112,33 +87,49 @@ export const guardar = async (req, res) => {
     }
   };
 
-export const perfil = (req, res) => res.render("usuarios/perfil");
+export const perfil = async (req, res) => {
+  const resources = [
+    path.resolve(process.cwd(), "src/data", "usuarios.json"),
+    path.resolve(process.cwd(), "src/data", "polizas.json"),
+    path.resolve(process.cwd(), "src/data", "pagos.json"),
+    path.resolve(process.cwd(), "src/data", "sucursales.json"),
+    path.resolve(process.cwd(), "src/data", "permisos.json")
+
+  ];
+  let [usuarios, polizas, pagos, sucursales, permisos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+  
+  const usuario = usuarios.find((u) => u.id === req.session.user.id);
+
+  if (!usuario) {
+    return res.status(404).send("Usuario no encontrado");
+  }
+
+  usuario.permisos = permisos.find(p => p.id === Number(usuario.permisos));
+  usuario.sucursal = sucursales.find(s => s.id === Number(usuario.sucursal));
+
+  polizas = polizas.map(poliza => ({ ...poliza, pagos: pagos.filter(pago => pago.id_poliza === poliza.id)}));
+  
+  // polizas cobradas por el usuario
+
+  polizas = polizas.filter(poliza => poliza.pagos.some(pago => pago.id_cobrador === usuario.id)); 
+
+  // polizas cobradas por el usuario en año actual y mes actual
+
+  let mesActual = polizas.filter(poliza => poliza.pagos.some(pago => new Date(pago.fecha).getFullYear() === new Date().getFullYear() && new Date(pago.fecha).getMonth() === new Date().getMonth()));
+
+  res.render("usuarios/perfil", { usuario, polizas, mesActual });
+} 
 
 export const detalle =  async (req, res) => {
     try {
       const { id } = req.params; // Obtener el ID del usuario desde la URL
 
-      const usuariosPath = path.resolve(
-        process.cwd(),
-        "src/data",
-        "usuarios.json"
-      );
-      const permisosPath = path.resolve(
-        process.cwd(),
-        "src/data",
-        "permisos.json"
-      );
-      const sucursalesPath = path.resolve(
-        process.cwd(),
-        "src/data",
-        "sucursales.json"
-      );
-      const usuariosData = await fs.promises.readFile(usuariosPath, "utf8");
-      const permisosData = await fs.promises.readFile(permisosPath, "utf8");
-      const sucursalesData = await fs.promises.readFile(sucursalesPath, "utf8");
-      const usuarios = JSON.parse(usuariosData);
-      const permisos = JSON.parse(permisosData);
-      const sucursales = JSON.parse(sucursalesData);
+      const resources = [
+        path.resolve(process.cwd(), "src/data", "usuarios.json"),
+        path.resolve(process.cwd(), "src/data", "permisos.json"),
+        path.resolve(process.cwd(), "src/data", "sucursales.json"),
+      ];
+      let [usuarios, permisos, sucursales] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
       const usuario = usuarios.find((u) => u.id === parseInt(id));
 
@@ -161,27 +152,13 @@ export const editar = async (req, res) => {
     try {
       const { id } = req.params;
 
-      const usuariosPath = path.resolve(
-        process.cwd(),
-        "src/data",
-        "usuarios.json"
-      );
-      const permisosPath = path.resolve(
-        process.cwd(),
-        "src/data",
-        "permisos.json"
-      );
-      const sucursalesPath = path.resolve(
-        process.cwd(),
-        "src/data",
-        "sucursales.json"
-      );
-      const usuariosData = await fs.promises.readFile(usuariosPath, "utf8");
-      const permisosData = await fs.promises.readFile(permisosPath, "utf8");
-      const sucursalesData = await fs.promises.readFile(sucursalesPath, "utf8");
-      const usuarios = JSON.parse(usuariosData);
-      const permisos = JSON.parse(permisosData);
-      const sucursales = JSON.parse(sucursalesData);
+      const resources = [
+        path.resolve(process.cwd(), "src/data", "usuarios.json"),
+        path.resolve(process.cwd(), "src/data", "permisos.json"),
+        path.resolve(process.cwd(), "src/data", "sucursales.json"),
+      ];
+      let [usuarios, permisos, sucursales] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+
       const usuario = usuarios.find((u) => u.id === parseInt(id));
 
       if (!usuario) {
@@ -199,13 +176,10 @@ export const editar = async (req, res) => {
     try {
       const { nombre, clave, permiso, dni, userId, sucursal } = req.body;
 
-      const usuariosPath = path.resolve(
-        process.cwd(),
-        "src/data",
-        "usuarios.json"
-      );
-      const usuariosData = await fs.promises.readFile(usuariosPath, "utf8");
-      const usuarios = JSON.parse(usuariosData);
+      const resources = [
+        path.resolve(process.cwd(), "src/data", "usuarios.json"),
+      ];
+      let [usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
       const usuarioIndex = usuarios.findIndex((u) => u.id === parseInt(userId));
 
@@ -233,7 +207,7 @@ export const editar = async (req, res) => {
       usuarios[usuarioIndex].sucursal = parseInt(sucursal);
 
       // Guardar los cambios en el archivo JSON
-      fs.writeFileSync(usuariosPath, JSON.stringify(usuarios, null, 2));
+      await writeFile(resources[0], JSON.stringify(usuarios, null, 2));
 
       res.redirect("/usuarios");
     } catch (error) {
@@ -243,13 +217,14 @@ export const editar = async (req, res) => {
   };
 
 
-export const eliminar = (req, res) => {
+export const eliminar = async (req, res) => {
     try {
       const { id } = req.body;
 
-      const usuariosPath = path.resolve(process.cwd(),"src/data/usuarios.json");
-      const usuariosData = fs.readFileSync(usuariosPath, "utf8");
-      const usuarios = JSON.parse(usuariosData);
+      const resources = [
+        path.resolve(process.cwd(), "src/data", "usuarios.json"),
+      ];
+      let [usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
       const usuarioIndex = usuarios.findIndex((u) => u.id === parseInt(id));
 
@@ -261,7 +236,7 @@ export const eliminar = (req, res) => {
       usuarios[usuarioIndex].activo = false;
 
       // Guardar los cambios en el archivo JSON
-      fs.writeFileSync(usuariosPath, JSON.stringify(usuarios, null, 2));
+      await writeFile(resources[0], JSON.stringify(usuarios, null, 2));
 
       res.redirect("/usuarios");
     } catch (error) {

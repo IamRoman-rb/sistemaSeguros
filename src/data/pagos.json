@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": 1,
+    "id_cliente": 1736473877514,
+    "id_poliza": 2,
+    "n_poliza": 152,
+    "fecha": "2025-01-11",
+    "hora": "13:12:56",
+    "monto": 125000,
+    "forma_pago": "efectivo",
+    "observaciones": "Probando",
+    "id_cobrador": 4
+  }
+]

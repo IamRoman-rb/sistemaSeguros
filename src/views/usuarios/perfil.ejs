@@ -6,6 +6,39 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Perfil</h1>
+    <%- include("../partials/header") %>
+    <main>
+        <header>
+            <h1>Perfil</h1>
+        </header>
+        <article>
+            <dl>
+                <dt>Nombre:</dt>
+                <dd><%= usuario.nombre %></dd>
+                <dt>Rol:</dt>
+                <dd><%= usuario.permisos.descripcion %></dd>
+                <dt>Sucursal:</dt>
+                <dd><%= usuario.sucursal.nombre %></dd>
+            </dl>
+        </article>
+        <ul>
+            <li>
+                <p>
+                    total de polizas cobradas
+                </p>
+                <p>
+                    <%= polizas.length %>
+                </p>
+            </li>
+            <li>
+                <p>
+                    Polizas en este mes
+                </p>
+                <p>
+                    <%= mesActual.length %>
+                </p>
+            </li>
+        </ul>
+    </main>
 </body>
 </html>

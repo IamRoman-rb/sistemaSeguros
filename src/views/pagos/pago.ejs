@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include("../partials/header") %>
+    <main>
+        <header>
+            <h1>Detalle de Pago</h1>
+        </header>
+        <ul>
+            <li>
+                <p>Pago #<%= pago.id %></p>
+                <dl>
+                    <dt>Fecha</dt>
+                    <dd><%= pago.fecha %></dd>
+                    <dt>Importe</dt>
+                    <dd><%= pago.monto %></dd>
+                    <dt>Forma de Pago</dt>
+                    <dd><%= pago.forma_pago %></dd>
+                    <dt>Observaciones</dt>
+                    <dd><%= pago.observaciones %></dd>
+                </dl>
+            </li>
+            <li>
+                <p>Poliza #<%= pago.poliza.n_poliza %></p>
+                <dl>
+                    <dt>Fecha de Emision</dt>
+                    <dd><%= pago.poliza.f_emision %></dd>
+                    <dt>Fecha de Inicio de Vigencia</dt>
+                    <dd><%= pago.poliza.f_ini_vigencia %></dd>
+                    <dt>Fecha de Fin de Vigencia</dt>
+                    <dd><%= pago.poliza.f_fin_vigencia %></dd>
+                    <dt>Premio</dt>
+                    <dd><%= pago.poliza.precio %></dd>
+                    <dt>Empresa</dt>
+                    <dd><%= pago.poliza.empresa.nombre %></dd>
+                    <dt>Cobertura</dt>
+                    <dd><%= pago.poliza.cobertura.nombre %>: <%= pago.poliza.cobertura.descripcion %></dd>
+                </dl>
+            </li>
+            <li>
+                <p>Vehiculo</p>
+                <dl>
+                    <dt>Marca</dt>
+                    <dd><%= pago.poliza.marca.marca %></dd>
+                    <dt>Modelo</dt>
+                    <dd><%= pago.poliza.modelo %></dd>
+                    <dt>Patente</dt>
+                    <dd><%= pago.poliza.patente %></dd>
+                    <dt>Año</dt>
+                    <dd><%= pago.poliza.anio %></dd>
+                </dl>
+            </li>
+            <li>
+                <p>Cobrador</p>
+                <dl>
+                    <dt>Nombre</dt>
+                    <dd><%= pago.cobrador.nombre %></dd>
+                    <dt>Sucursal</dt>
+                    <dd><%= pago.cobrador.sucursal.nombre %></dd>
+                </dl>   
+            </li>
+            <li>
+                <p>Cliente</p>
+                <dl>
+                    <dt>Nombre</dt>
+                    <dd><%= pago.cliente.nombre %></dd>
+                    <dt>CUIT</dt>
+                    <dd><%= pago.cliente.cuit %></dd>
+                    <dt>Telefono</dt>
+                    <dd><%= pago.cliente.telefono %></dd>
+                </dl>
+            </li>
+        </ul>
+       
+    </main>
+</body>
+</html>
