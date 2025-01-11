@@ -309,6 +309,33 @@
           "alias": "acreditar",
           "method": "post"
         }
+      ],
+      "caja": [
+        {
+          "path": "/",
+          "alias": "listado",
+          "method": "get"
+        },
+        {
+          "path": "/ingresos",
+          "alias": "ingresos",
+          "method": "get"
+        },
+        {
+          "path": "/egresos",
+          "alias": "egresos",
+          "method": "get"
+        },
+        {
+          "path": "/resumen",
+          "alias": "resumen",
+          "method": "get"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        }
       ]
     }
   },

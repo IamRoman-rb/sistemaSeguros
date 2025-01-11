@@ -10,6 +10,12 @@
     <main>
         <header>
             <h1>Detalle de Pago</h1>
+            <% if (!["Empleado"].includes(user.rol)) { %>
+                <form action="/pagos/eliminar" method="post">
+                    <input type="hidden" name="id" value="<%= pago.id %>">
+                    <button type="submit">Eliminar</button>
+                </form>
+            <% } %>
         </header>
         <ul>
             <li>

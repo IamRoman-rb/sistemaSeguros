@@ -10,5 +10,17 @@
     "forma_pago": "efectivo",
     "observaciones": "Probando",
     "id_cobrador": 4
+  },
+  {
+    "id": 2,
+    "id_cliente": 1736473877514,
+    "id_poliza": 3,
+    "n_poliza": 485,
+    "fecha": "2025-01-11",
+    "hora": "17:36:44",
+    "monto": 15222,
+    "forma_pago": "efectivo",
+    "observaciones": "Prueba 2",
+    "id_cobrador": 4
   }
 ]
