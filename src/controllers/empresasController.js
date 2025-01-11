@@ -135,12 +135,20 @@ export const editar = async (req, res) => {
       "empresas.json"
     );
 
+    const coberturasPath = path.resolve(
+      process.cwd(),
+      "src/data",
+      "coberturas.json"
+    );
     const empresasData = await fs.promises.readFile(empresasPath, "utf8");
     const empresas = JSON.parse(empresasData);
 
+    const coberturasData = await fs.promises.readFile(coberturasPath, "utf8");
+    const coberturas = JSON.parse(coberturasData);
+
     const empresa = empresas.find((e) => e.id === parseInt(id));
 
-    res.render("empresas/editar", { empresa });
+    res.render("empresas/editar", { empresa, coberturas });
   } catch (error) {
     console.error("Error al cargar el formulario de edición:", error.message);
     res.status(500).send("Error al cargar el formulario de edición");
@@ -150,45 +158,45 @@ export const editar = async (req, res) => {
 // Método para procesar el formulario de edición
 export const actualizar = async (req, res) => {
   try {
-    const { id, nombre } = req.body;
+    let { id, nombre, coberturas } = req.body;    
+
+    if (coberturas) {
+      if (coberturas.length <= 1) {
+        coberturas = [coberturas];
+      }
+    }else{
+      coberturas = [];
+    }
 
     const empresasPath = path.resolve(
-      process.cwd(),
-      "src/data",
-      "empresas.json"
+        process.cwd(),
+        "src/data",
+        "empresas.json"
     );
 
     const empresasData = await fs.promises.readFile(empresasPath, "utf8");
     const empresas = JSON.parse(empresasData);
 
-    const empresaIndex = empresas.findIndex((e) => e.id === parseInt(id));
+    const empresaIndex = empresas.findIndex(empresa => empresa.id === parseInt(id));   
 
     if (empresaIndex === -1) {
-      return res.status(404).send("Empresa no encontrada");
+        return res.status(404).send('Empresa no encontrada');
     }
 
-    let empresaExistente = false;
+    const empresa = empresas[empresaIndex];
 
-    empresas.forEach((empresa) => {
-      if (empresa.nombre == nombre) {
-        empresaExistente == true;
-      }
-    });
+    // Actualizar los campos
+    empresa.nombre = nombre;
+    empresa.coberturas = coberturas.map(c => parseInt(c));
 
-    if (empresaExistente) {
-      return res.status(400).send("La empersa con ese nombre ya existe");
-    }
-
-    empresas[empresaIndex].nombre = nombre;
-
-    // Guardar los cambios en el archivo JSON
+    // Guardar los cambios
     fs.writeFileSync(empresasPath, JSON.stringify(empresas, null, 2));
 
     res.redirect("/empresas");
-  } catch (error) {
-    console.error("Error al actualizar la empresa:", error.message);
+} catch (error) {
+    console.error("Error al actualizar la empresa:", error);
     res.status(500).send("Error al actualizar la empresa");
-  }
+}
 };
 
 export const eliminar = (req, res) => {

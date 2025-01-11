@@ -36,11 +36,13 @@
   },
   {
     "id": 4,
-    "nombre": "EMPRESA",
+    "nombre": "EMPRESA 2",
     "coberturas": [
-      "1",
-      "2",
-      "3"
+      1,
+      2,
+      3,
+      4,
+      5
     ]
   }
 ]

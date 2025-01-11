@@ -12,6 +12,18 @@
         <label for="nombre">Nombre
             <input type="text" name="nombre" id="nombre" value="<%= empresa.nombre %>">
         </label>
+        <ul>
+            <% coberturas.forEach(cobertura => { %>
+                <li>
+                    <label for="cobertura"><%= cobertura.nombre %></label>
+                    <% if (empresa.coberturas.find((e_c) => e_c == cobertura.id)) { %>
+                        <input type="checkbox" name="coberturas" id="<%= cobertura.id %>" checked value="<%= cobertura.id %>">
+                    <% } else { %>
+                        <input type="checkbox" name="coberturas" id="<%= cobertura.id %>" value="<%= cobertura.id %>">
+                    <% } %> 
+                </li>
+            <% }) %>
+        </ul>
         <section id="buttons" class="buttons">
             <button type="submit">Editar</button>
         </section>
