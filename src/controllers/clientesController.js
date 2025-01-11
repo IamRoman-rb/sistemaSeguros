@@ -44,7 +44,7 @@ export const detalle = async (req, res) => {
             path.resolve(process.cwd(), "src/data", "automarcas.json"),
         ]
 
-        const [clientes, polizas, provincias, ciudades, empresas, autos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+        let [clientes, polizas, provincias, ciudades, empresas, autos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
         // Buscar al cliente por ID
         const cliente = clientes.find(cliente => cliente.id === Number(id));
@@ -56,11 +56,11 @@ export const detalle = async (req, res) => {
         cliente.provincia = provincias.find(({ id }) => id == Number(cliente.provincia))
         cliente.localidad = ciudades.find(({ id }) => id == Number(cliente.localidad))
 
-        const polizasCliente = cliente.polizas.length == 0 ? cliente.polizas : polizas.filter(poliza => cliente.polizas.includes(poliza.id)).map(poliza => {
+        polizas = cliente.polizas.length == 0 ? cliente.polizas : polizas.filter(poliza => cliente.polizas.includes(poliza.id)).map(poliza => {
             return ({ ...poliza, empresa: empresas.find(empresa => empresa.id == poliza.empresa), marca: autos.find(auto => auto.id == poliza.marca) })
         })
 
-        res.render('clientes/detalle', { cliente, polizas: polizasCliente });
+        res.render('clientes/detalle', { cliente, polizas });
     } catch (error) {
         console.error('Error al obtener los detalles del cliente:', error.message);
         res.status(500).send('Error al obtener los detalles del cliente');
@@ -83,6 +83,7 @@ export const guardar = async (req, res) => {
         }
 
         // Si el cliente no existe, lo creamos
+      
         const nuevoCliente = {
             id: Date.now(),
             nombre,

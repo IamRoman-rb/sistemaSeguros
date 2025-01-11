@@ -1,23 +1,25 @@
 [
   {
-    "n_poliza": "487",
+    "n_poliza": "152",
     "f_emision": "2025-01-10",
-    "f_ini_vigencia": "2025-01-10",
-    "f_fin_vigencia": "2025-01-31",
-    "suma": "500",
-    "cuotas": "3",
-    "empresa": "5",
-    "precio": "2500",
-    "cobertura": "Total",
-    "marca": "3",
-    "modelo": "Siena",
-    "patente": "PHT452",
-    "anio": "2015",
-    "n_chasis": "2",
-    "n_motor": "2",
+    "f_ini_vigencia": "2025-01-17",
+    "f_fin_vigencia": "2025-06-16",
+    "suma": 12000000,
+    "cuotas": 4,
+    "empresa": 1,
+    "precio": 125000,
+    "cobertura": "2",
+    "marca": 1,
+    "modelo": "Fiesta",
+    "patente": "ABC152",
+    "anio": 2010,
+    "n_chasis": 2,
+    "n_motor": 1,
     "combustible": "nafta",
-    "clienteId": "1736473877514",
-    "pagos": [],
-    "id": 1
+    "clienteId": 1736473877514,
+    "pagos": [
+      1
+    ],
+    "id": 2
   }
 ]

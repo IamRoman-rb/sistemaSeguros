@@ -13,7 +13,9 @@
             <header>
                 <h1>Detalles del Cliente</h1>
                 <nav>
-                    <a href="/clientes/confirmar/<%= cliente.id %>" class="btn-eliminar">Eliminar Cliente</a>
+                    <% if (!["Empleado"].includes(user.rol)) { %>
+                        <a href="/clientes/confirmar/<%= cliente.id %>" class="btn-eliminar">Eliminar Cliente</a>
+                    <% } %>
                     <a href="/clientes/editar/<%= cliente.id %>">Editar</a>
                     <a href="/polizas/nuevo/<%= cliente.id %>">Nueva Poliza</a>
                 </nav>
@@ -88,7 +90,6 @@
                                     </dl>
                                     <nav>
                                         <a href="/polizas/detalle/<%= poliza.id %> ">Detalle</a>
-                                        <a href="/pagos/pagar/<%= poliza.id %>">Pagar</a>
                                     </nav>
                                 </li>
 
