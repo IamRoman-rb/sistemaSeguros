@@ -1,0 +1,77 @@
+@import url(/css/index.css);
+
+h1{
+    width: 100%;
+    text-align: center;
+    font-family: var(--poppins);
+    padding: 1rem;
+    margin: 1rem;
+}
+form{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    padding: 2rem;
+    gap: 1rem;
+}
+form fieldset {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    padding: .5rem;
+    border: none;
+}
+form fieldset button{
+    cursor: pointer;
+}
+form fieldset button#showPassword{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .1rem;
+    border-radius: 100%;
+    background-color: transparent;
+    border: none;
+}
+form fieldset button#showPassword span{
+    color: var(--celeste);
+}
+form fieldset.input label{
+    width: 100%;
+}
+form fieldset.input input{
+    width: 90%;
+    padding: .3rem;
+    border-radius: .2rem;
+    border: .1rem solid var(--negro);
+    outline: none;
+}
+form fieldset.buttons {
+    gap: 2rem;
+    justify-content: center;
+}
+form fieldset.buttons button{
+    padding: .3rem;
+    border-radius: .2rem;
+    background-color: transparent;
+    transition: all .2s ease-in-out;
+}
+form fieldset.buttons button#cancelar{
+    border: .1rem solid var(--rojo);
+    color: var(--rojo);
+}
+form fieldset.buttons button#enviar{
+    border: .1rem solid var(--verde);
+    color: var(--verde);
+}
+form fieldset.buttons button#cancelar:hover{
+    background-color: var(--rojo);
+    color: var(--blanco);
+}
+form fieldset.buttons button#enviar:hover{
+    background-color: var(--verde);
+    color: var(--blanco);
+}

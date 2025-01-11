@@ -217,3 +217,6 @@ export const eliminar = (req, res) => {
     res.status(500).send("Error al eliminar el usuario");
   }
 };
+
+
+// FALTA ELIMINAR, EDITAR, ACTUALIZAR

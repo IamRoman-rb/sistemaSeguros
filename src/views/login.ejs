@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesion</title>
-</head>
+<%- include("./partials/head") %>
 <body>
     <h1>Iniciar Sesion</h1>
     <form action="/access" method="POST">
-        <fieldset>
+        <fieldset class="input">
             <label for="nombre">Nombre de usuario</label>
             <input type="text" name="nombre" id="nombre">
         </fieldset>
-        <fieldset>
+        <fieldset class="input">
             <label for="clave">Contraseña</label>
             <input type="password" name="clave" id="clave">
-            <button type="button" id="showPassword">Mostrar</button>
+            <button type="button" id="showPassword"><span class="material-symbols-outlined">visibility</span></button>
         </fieldset>
         <fieldset id="buttons" class="buttons">
-            <button type="reset">Cancelar</button>
-            <button type="submit">Ingresar</button>
+            <button type="reset" id="cancelar">Cancelar</button>
+            <button type="submit" id="enviar">Ingresar</button>
         </fieldset>
     </form>
     <script>
+        const icon = document.getElementsByClassName('material-symbols-outlined');
         document.getElementById("showPassword").addEventListener("click", function() {
             var passwordInput = document.getElementById("clave");
             if (passwordInput.type === "password") {
