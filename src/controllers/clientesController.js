@@ -110,6 +110,15 @@ export const guardar = async (req, res) => {
 export const confirmar = async (req, res) => {
     const { id } = req.params;
 
+    // Ruta al archivo JSON de clientes
+    const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
+
+    // Leer los datos de los archivos JSON
+    const clientesData = await readFile(clientesPath, 'utf8');
+    const clientes = JSON.parse(clientesData);
+
+    const cliente = clientes.find((c) => c.id == id);
+
     res.render('alertas/eliminarCliente', { cliente });
 };
 export const eliminar = async (req, res) => {

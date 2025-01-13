@@ -10,6 +10,6 @@ router.get('/confirmar/:id', hasPermitions, confirmar);
 router.get('/editar/:id', hasPermitions, editar);
 router.post('/guardar', guardar);
 router.post('/actualizar', actualizar);
-router.post('/eliminar', eliminar);
+router.post('/eliminar/:id', eliminar);
 
 export default router;
