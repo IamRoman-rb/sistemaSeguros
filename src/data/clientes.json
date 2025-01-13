@@ -12,5 +12,16 @@
       2,
       3
     ]
+  },
+  {
+    "id": 1736783661522,
+    "nombre": "ROMAN BORLA",
+    "cuit": "20458123617",
+    "fecha_n": "2004-03-23",
+    "telefono": "2246481147",
+    "provincia": "2",
+    "localidad": "223",
+    "direccion": "CALLE 18 346",
+    "polizas": []
   }
 ]

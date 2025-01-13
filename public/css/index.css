@@ -20,6 +20,20 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: var(--karla);
+    font-family: var(--poppins);
     box-sizing: border-box;
+}
+body{
+    display: grid;
+    grid-template-columns: 10% 1fr;
+    grid-template-rows: 1fr;
+}
+header.header{
+    padding: 1.5rem;
+}
+main.main{
+    display: flex;
+}
+a{
+    text-decoration: none;
 }

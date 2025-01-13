@@ -1,0 +1,79 @@
+@import url(/css/index.css);
+main.clientes{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 20%) 1fr;
+    gap: .5rem;
+}
+main.clientes header{
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+}
+main.clientes header a{
+    background-color: var(--celeste);
+    padding: .5rem;
+    border-radius: .2rem;
+    color: var(--blanco);
+}
+main.clientes form{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 1rem;
+    margin: .5rem;
+}
+main.clientes form label{
+    width: 30%;
+    display: flex;
+    align-items: flex-end;
+    flex-flow: row wrap;
+}
+main.clientes form input{
+    width: 100%;
+    padding: .3rem;
+    border-radius: .2rem;
+    border: .1rem solid var(--negro);
+    outline: none;
+}
+main.clientes form button{
+    padding: .3rem;
+    color: var(--blanco);
+    background-color: var(--celeste);
+    border: none;
+    border-radius: .2rem;
+    cursor: pointer;
+}
+main.clientes form a.cancelar{
+    padding: .2rem;
+    color: var(--blanco);
+    background-color: var(--rojo);
+    border-radius: .2rem;
+}
+main.clientes ul{
+    width: 90%;
+}
+main.clientes ul li{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: .3rem;
+    margin: .5rem;
+    gap: .5rem;
+    border: .1rem solid var(--negro);
+    border-radius: .2rem;
+}
+main.clientes ul li dl{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% 1fr 10% 1fr 10% 1fr;
+    grid-template-rows: 1fr; 
+    align-items: center;
+}
+main.clientes ul li a{
+    padding: .2rem;
+    color: var(--blanco);
+    background-color: var(--celeste);
+    border-radius: .2rem;
+}

@@ -1,9 +1,12 @@
 @import url(/css/index.css);
-body{
+main#main_login{
+    width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-flow: row wrap;
 }
+
 h1{
     width: 100%;
     text-align: center;

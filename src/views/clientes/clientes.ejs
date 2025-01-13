@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html lang="es">
+    <%- include("../partials/head") %>
 
 <body>
     <%- include("../partials/header") %>
-        <main>
+        <main class="main clientes">
             <header>
                 <h1>Clientes</h1>
                 <a href="/clientes/nuevo">Nuevo</a>
             </header>
             <form method="GET">
-                <label for="busqueda">Buscar Cliente:</label>
-                <input type="text" id="busqueda" name="busqueda" value="<%= busqueda ? busqueda : "" %>">
+                <label for="busqueda">Buscar Cliente:
+                    <input type="text" id="busqueda" name="busqueda" value="<%= busqueda ? busqueda : "" %>">
+                </label>
                 <button type="submit">Buscar</button>
+                <a href="/clientes" class="cancelar">Cancelar</a>
             </form>
             <ul>
                 <% clientes.forEach(cliente=> { %>
