@@ -139,10 +139,13 @@ export const resumen = async (req, res) => {
       let egresosCaja = caja.filter(item => item.tipo === 'egreso' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
       let ingresosPagos = pagos.filter(item => item.forma_pago === 'efectivo' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
       let egresosPagos = pagos.filter(item => item.forma_pago === 'transferencia' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
-      let ingresos = ingresosCaja.concat(ingresosPagos);
-      let egresos = egresosCaja.concat(egresosPagos);
-      resumen.ingresos = ingresos;
-      resumen.egresos = egresos;
+      ingresosCaja = ingresosCaja.map(item => Number(item.monto));
+      egresosCaja = egresosCaja.map(item => Number(item.monto));
+      ingresosPagos = ingresosPagos.map(item => Number(item.valor));
+      egresosPagos = egresosPagos.map(item => Number(item.valor));
+      resumen.ingresos = ingresosCaja.reduce((a, b) => a + b, 0) + ingresosPagos.reduce((a, b) => a + b, 0);
+      resumen.egresos = egresosCaja.reduce((a, b) => a + b, 0) + egresosPagos.reduce((a, b) => a + b, 0);
+      resumen.balance = resumen.ingresos - resumen.egresos;
       return resumen;
     });
     return res.status(200).json({ resumenes });
