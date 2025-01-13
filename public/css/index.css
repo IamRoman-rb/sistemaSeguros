@@ -28,6 +28,10 @@ body{
     grid-template-columns: 10% 1fr;
     grid-template-rows: 1fr;
 }
+body#body_login{
+    display: flex;
+    flex-flow: row wrap;
+}
 header.header{
     padding: 1.5rem;
 }
