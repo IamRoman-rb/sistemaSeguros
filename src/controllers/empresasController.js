@@ -69,6 +69,7 @@ export const guardar = async (req, res) => {
       id: nuevoId,
       nombre,
       coberturas: coberturas.map(cobertura => parseInt(cobertura)),
+      habilitado: true
     };
 
     empresas.push(nuevaEmpresa);
@@ -227,4 +228,4 @@ export const eliminar = (req, res) => {
 };
 
 
-// FALTA ELIMINAR, EDITAR, ACTUALIZAR
+// FALTA ELIMINAR (DESHABILITAR)

@@ -1,5 +1,9 @@
 @import url(/css/index.css);
-
+body{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
 h1{
     width: 100%;
     text-align: center;
