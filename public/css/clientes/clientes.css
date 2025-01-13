@@ -7,8 +7,13 @@ main.clientes{
 }
 main.clientes header{
     display: flex;
+    justify-content: space-between;
     align-items: flex-start;
     padding: 1rem;
+}
+main.clientes header h1{
+    width: 100%;
+    text-align: center;
 }
 main.clientes header a{
     background-color: var(--celeste);
@@ -23,6 +28,7 @@ main.clientes form{
     align-items: flex-end;
     padding: 1rem;
     margin: .5rem;
+    gap: 1rem;
 }
 main.clientes form label{
     width: 30%;

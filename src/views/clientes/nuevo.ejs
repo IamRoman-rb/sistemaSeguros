@@ -1,79 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <title>Nuevo Cliente</title>
-</head>
+    <%- include("../partials/head") %>
 
 <body>
-    <header>
-        <h1>Nuevo Cliente</h1>
-        <a href="/clientes">Regresar</a>
-    </header>
+    <%- include("../partials/header") %>
+        <main id="main_nuevo_cliente">
+            <header>
+                <h1>Nuevo Cliente</h1>
+                <a href="/clientes">Regresar</a>
+            </header>
 
-    <form method="POST" action="/clientes/guardar">
-        <fieldset>
-            <label for="nombre">Nombre:
-            </label>
-            <input type="text" id="nombre" name="nombre">
-        </fieldset>
-        <fieldset>
-            <label for="cuit">CUIT:</label>
-            <input type="text" id="cuit" name="cuit">
-        </fieldset>
-        <fieldset>
-            <label for="fecha_n">Fecha de Nacimiento:</label>
-            <input type="date" id="fecha_n" name="fecha_n">
-        </fieldset>
-        <fieldset>
-            <label for="telefono">Telefono:</label>
-            <input type="text" id="telefono" name="telefono">
-        </fieldset>
-        <fieldset>
-            <select name="provincia" id="provincia">
-                <option value="0" disabled selected>Provincias</option>
-                <% provincias.forEach(provincia=> { %>
-                    <option value="<%= provincia.id %>">
-                        <%= provincia.provincia %>
-                    </option>
-                    <% }) %>
-            </select>
-        </fieldset>
-        <fieldset>
-            <select name="localidad" id="localidad">
-                <option value="0" disabled selected> Localidad </option>
-                <% provincias.forEach((provincia)=> { %>
-                    <optgroup label="<%= provincia.provincia %>">
-                        <% ciudades.forEach((ciudad)=> { %>
-                            <% if (ciudad.idprovincia==provincia.id) { %>
-                                <option value="<%= ciudad.id %>">
-                                    <%= ciudad.ciudad %>
-                                </option>
-                                <% } }) %>
-                    </optgroup>
-                    <% }) %>
-            </select>
-        </fieldset>
-        <fieldset>
-            <label for="direccion">Direccion:</label>
-            <input type="text" id="direccion" name="direccion">
-        </fieldset>
-        <fieldset>
-            <button type="reset">Borrar</button>
-            <button type="submit">Guardar</button>
-        </fieldset>
-    </form>
-
-    <script>
-        document.querySelector("#provincia").addEventListener('change', (e) => {
-            document.querySelectorAll('#localidad optgroup').forEach((group) => group.disabled = true)
-            const { value } = e.target
-            const option = document.querySelector(`#provincia option[value='${value}']`)
-            const label = String(option.innerText).trim()
-            const group = document.querySelector(`#localidad optgroup[label='${label}']`)
-            group.disabled = false
-        })
-    </script>
+            <form method="POST" action="/clientes/guardar">
+                <fieldset>
+                    <label for="nombre">Nombre:
+                    </label>
+                    <input type="text" id="nombre" name="nombre">
+                </fieldset>
+                <fieldset>
+                    <label for="cuit">CUIT:</label>
+                    <input type="text" id="cuit" name="cuit">
+                </fieldset>
+                <fieldset>
+                    <label for="fecha_n">Fecha de Nacimiento:</label>
+                    <input type="date" id="fecha_n" name="fecha_n">
+                </fieldset>
+                <fieldset>
+                    <label for="telefono">Telefono:</label>
+                    <input type="text" id="telefono" name="telefono">
+                </fieldset>
+                <fieldset>
+                    <select name="provincia" id="provincia">
+                        <option value="0" disabled selected>Provincias</option>
+                        <% provincias.forEach(provincia=> { %>
+                            <option value="<%= provincia.id %>">
+                                <%= provincia.provincia %>
+                            </option>
+                            <% }) %>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <select name="localidad" id="localidad">
+                        <option value="0" disabled selected> Localidad </option>
+                        <% provincias.forEach((provincia)=> { %>
+                            <optgroup label="<%= provincia.provincia %>">
+                                <% ciudades.forEach((ciudad)=> { %>
+                                    <% if (ciudad.idprovincia==provincia.id) { %>
+                                        <option value="<%= ciudad.id %>">
+                                            <%= ciudad.ciudad %>
+                                        </option>
+                                        <% } }) %>
+                            </optgroup>
+                            <% }) %>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <label for="direccion">Direccion:</label>
+                    <input type="text" id="direccion" name="direccion">
+                </fieldset>
+                <fieldset id="buttons">
+                    <button type="reset" id="borrar">Borrar</button>
+                    <button type="submit" id="guardar">Guardar</button>
+                </fieldset>
+            </form>
+        </main>
+        <script>
+            document.querySelector("#provincia").addEventListener('change', (e) => {
+                document.querySelectorAll('#localidad optgroup').forEach((group) => group.disabled = true)
+                const { value } = e.target
+                const option = document.querySelector(`#provincia option[value='${value}']`)
+                const label = String(option.innerText).trim()
+                const group = document.querySelector(`#localidad optgroup[label='${label}']`)
+                group.disabled = false
+            })
+        </script>
 </body>
 
 </html>
