@@ -1,11 +1,16 @@
 @import url(/css/index.css);
 main.clientes{
-    display: grid;
+    /* display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 20%) 1fr;
-    gap: .5rem;
+    gap: .5rem; */
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 1rem;
 }
 main.clientes header{
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
