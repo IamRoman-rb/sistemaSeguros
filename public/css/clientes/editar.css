@@ -1,0 +1,58 @@
+@import url(/css/index.css);
+main#main_editar_cliente{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 1rem;
+}
+main#main_editar_cliente header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+}
+main#main_editar_cliente header h1{
+    width: 100%;
+    text-align: center;
+}
+main#main_editar_cliente header a{
+    padding: .5rem;
+    background-color: var(--rojo);
+    border-radius: .2rem;
+    color: var(--blanco);
+}
+main#main_editar_cliente form{
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 1rem;
+    gap: 1rem;
+}
+main#main_editar_cliente form fieldset{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    border: none;
+}
+main#main_editar_cliente form fieldset#button{
+    justify-content: center;
+}
+main#main_editar_cliente form fieldset input, select{
+    width: 100%;
+    border: .1rem solid var(--negro);
+    border-radius: .2rem;
+    outline: none;
+    padding: .3rem;
+}
+main#main_editar_cliente form fieldset#button button{
+    padding: .5rem;
+    border-radius: .2rem;
+    border: none;
+    cursor: pointer;
+    color: var(--blanco);
+    background-color: var(--verde);
+}
