@@ -39,7 +39,7 @@ export const caja = async (req, res) => {
     let egresos = caja.filter(item => item.tipo === 'egreso');
 
     pagos = pagos.filter(pago => new Date(pago.fecha).getFullYear() === new Date().getFullYear() && new Date(pago.fecha).getMonth() === new Date().getMonth());
-    pagos = pagos.map(pago => ({ ...pago, poliza: polizas.find(poliza => poliza.id === pago.id_poliza) }));
+    pagos = pagos.map(pago => ({ ...pago, poliza: polizas.find(poliza => poliza.id === pago.id_poliza)}));
 
     ingresos = ingresos.concat(pagos.filter(pago => pago.forma_pago === 'efectivo'));
     egresos = egresos.concat(pagos.filter(pago => pago.forma_pago === 'transferencia'));
