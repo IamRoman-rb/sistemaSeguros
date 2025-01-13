@@ -143,13 +143,14 @@ export const resumen = async (req, res) => {
       egresosCaja = egresosCaja.map(item => Number(item.monto));
       ingresosPagos = ingresosPagos.map(item => Number(item.valor));
       egresosPagos = egresosPagos.map(item => Number(item.valor));
+      const fecha = new Date(resumen.anio, resumen.mes - 1);
+      resumen.fecha = ("0" + (fecha.getMonth() + 1)).slice(-2) + "/" + resumen.anio;
       resumen.ingresos = ingresosCaja.reduce((a, b) => a + b, 0) + ingresosPagos.reduce((a, b) => a + b, 0);
       resumen.egresos = egresosCaja.reduce((a, b) => a + b, 0) + egresosPagos.reduce((a, b) => a + b, 0);
       resumen.balance = resumen.ingresos - resumen.egresos;
       return resumen;
     });
-    return res.status(200).json({ resumenes });
-    res.render('caja/resumen', { resumenes })
+    return res.status(200).render("caja/resumen", { resumenes });
   } catch (error) {
     console.error('Error en la carga de la caja', error.message);
     res.status(500).send('Error al cargar la caja');

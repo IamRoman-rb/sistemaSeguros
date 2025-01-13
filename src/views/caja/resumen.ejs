@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Resumen </h1>    
+    <%- include("../partials/header") %>
+    <main>
+        <header>
+            <h2>Resumenes</h2>
+        </header>
+        <ul>
+            <% resumenes.forEach(resumen => { %>
+                <li>
+                    <dl>
+                        <dt>Fecha:</dt>
+                        <dd><%= resumen.fecha %></dd>
+                        <dt>Ingresos:</dt>
+                        <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(resumen.ingresos) %></dd>
+                        <dt>Egresos:</dt>
+                        <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(resumen.egresos) %></dd>
+                        <dt>Balance:</dt>
+                        <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(resumen.balance) %></dd>
+                    </dl>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
 </body>
 </html>
