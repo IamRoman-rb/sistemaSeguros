@@ -7,6 +7,106 @@
 </head>
 <body>
     <%- include("../partials/header") %>
-    <h1>Caja</h1>
+    <main>
+        <header>
+            <h1>Caja</h1>
+        </header>
+        <article>
+            <h2>Ingresos de Polizas</h2>
+            <% if (pagosConIngresos.length == 0) { %>
+                <p>No hay ingresos de polizas</p>
+            <% } else { %>
+                <ul>
+                    <% pagosConIngresos.forEach(pago => { %>
+                        <li>
+                            <dl>
+                                <dt>Fecha:</dt>
+                                <dd><%= pago.fecha %></dd>
+                                <dt>Ingreso:</dt>
+                                <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.valor) %></dd>
+                                <dt>Cliente:</dt>
+                                <dd><%= pago.cliente %></dd>
+                                <dt>Cobrador:</dt>
+                                <dd><%= pago.cobrador %></dd>
+                                <dt>Descripcion:</dt>
+                                <dd><%= pago.descripcion %></dd>
+                            </dl>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } %>
+        </article>
+        <article>
+            <h2>Egresos de Polizas</h2>
+            <% if (pagosConEgresos.length == 0) { %>
+                <p>No hay egresos de polizas</p>
+            <% } else { %>
+                <ul>
+                    <% pagosConEgresos.forEach(pago => { %>
+                        <li>
+                            <dl>
+                                <dt>Fecha:</dt>
+                                <dd><%= pago.fecha %></dd>
+                                <dt>Egreso:</dt>
+                                <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.valor) %></dd>
+                                <dt>Cliente:</dt>
+                                <dd><%= pago.cliente %></dd>
+                                <dt>Cobrador:</dt>
+                                <dd><%= pago.cobrador %></dd>
+                                <dt>Descripcion:</dt>
+                                <dd><%= pago.descripcion %></dd>
+                            </dl>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } %>
+        </article>
+        <article>
+            <h2>Otros Ingresos</h2>
+            <% if (ingresos.length == 0) { %>
+                <p>No hay ingresos</p>
+            <% } else { %>
+                <ul>
+                    <% ingresos.forEach(ingreso => { %>
+                        <li>
+                            <dl>
+                                <dt>Fecha:</dt>
+                                <dd><%= ingreso.fecha %></dd>
+                                <dt>Ingreso:</dt>
+                                <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(ingreso.monto) %></dd>
+                                <dt>Concepto:</dt>
+                                <dd><%= ingreso.motivo %></dd>
+                                <dt>Descripcion:</dt>
+                                <dd><%= ingreso.descripcion %></dd>
+                            </dl>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } %>
+        </article>
+        <article>
+            <h2>Otros Egresos</h2>
+            <% if (egresos.length == 0) { %>
+                <p>No hay egresos</p>
+            <% } else { %>
+                <ul>
+                    <% egresos.forEach(egreso => { %>
+                        <li>
+                            <dl>
+                                <dt>Fecha:</dt>
+                                <dd><%= egreso.fecha %></dd>
+                                <dt>Egreso:</dt>
+                                <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(egreso.monto) %></dd>
+                                <dt>Concepto:</dt>
+                                <dd><%= egreso.motivo %></dd>
+                                <dt>Descripcion:</dt>
+                                <dd><%= egreso.descripcion %></dd>
+                            </dl>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } %>
+        </article>
+    </main>
 </body>
 </html>

@@ -32,18 +32,40 @@ export const caja = async (req, res) => {
     path.resolve(process.cwd(), "src/data", "pagos.json"),
     path.resolve(process.cwd(), "src/data", "polizas.json"),
     path.resolve(process.cwd(), "src/data", "caja.json"),
+    path.resolve(process.cwd(), "src/data", "sucursales.json"),
+    path.resolve(process.cwd(), "src/data", "coberturas.json"),
+    path.resolve(process.cwd(), "src/data", "clientes.json"),
+    path.resolve(process.cwd(), "src/data", "usuarios.json"),
   ];
   try {
-    let [pagos, polizas, caja] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+    let [pagos, polizas, caja, sucursales, coberturas, clientes, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
     let ingresos = caja.filter(item => item.tipo === 'ingreso');
     let egresos = caja.filter(item => item.tipo === 'egreso');
 
-    pagos = pagos.filter(pago => new Date(pago.fecha).getFullYear() === new Date().getFullYear() && new Date(pago.fecha).getMonth() === new Date().getMonth());
-    pagos = pagos.map(pago => ({ ...pago, poliza: polizas.find(poliza => poliza.id === pago.id_poliza)}));
+    ingresos = ingresos.filter(ingreso => new Date(ingreso.fecha).getFullYear() === new Date().getFullYear() && new Date(ingreso.fecha).getMonth() === new Date().getMonth());
+    egresos = egresos.filter(egreso => new Date(egreso.fecha).getFullYear() === new Date().getFullYear() && new Date(egreso.fecha).getMonth() === new Date().getMonth());
 
-    ingresos = ingresos.concat(pagos.filter(pago => pago.forma_pago === 'efectivo'));
-    egresos = egresos.concat(pagos.filter(pago => pago.forma_pago === 'transferencia'));
-    return res.status(200).json({ ingresos, egresos });
+    pagos = pagos.filter(pago => new Date(pago.fecha).getFullYear() === new Date().getFullYear() && new Date(pago.fecha).getMonth() === new Date().getMonth());
+    pagos = pagos.map(pago =>{
+      let poliza = polizas.find(poliza => poliza.id === Number(pago.id_poliza));
+      let cliente = clientes.find(cliente => cliente.id === Number(poliza.clienteId));
+      let cobrador = usuarios.find(usuarios => usuarios.id === Number(pago.id_cobrador));
+      let sucursal = sucursales.find(sucursal => sucursal.id === Number(cobrador.sucursal));
+      let cobertura = coberturas.find(cobertura => cobertura.id === Number(poliza.cobertura));
+      return ({ 
+        fecha: pago.fecha,
+        valor: pago.valor,
+        forma_pago: pago.forma_pago,
+        cliente: `${cliente.nombre} | ${cliente.cuit}`,
+        cobrador: `${cobrador.nombre} | ${sucursal.nombre}`,
+        descripcion: `Poliza N° ${poliza.n_poliza} | ${cobertura.nombre}`,
+      });
+    });
+
+    let pagosConIngresos = pagos.filter(pago => pago.forma_pago === 'efectivo');
+    let pagosConEgresos = pagos.filter(pago => pago.forma_pago === 'transferencia');
+
+    return res.status(200).render("caja/caja",{ ingresos, egresos, pagosConIngresos, pagosConEgresos });
   } catch (error) {
     console.error('Error en la carga de la caja', error.message);
     res.status(500).send('Error al cargar la caja');
