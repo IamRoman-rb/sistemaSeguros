@@ -59,7 +59,7 @@ export const detalle = async (req, res) => {
         polizas = cliente.polizas.length == 0 ? cliente.polizas : polizas.filter(poliza => cliente.polizas.includes(poliza.id)).map(poliza => {
             return ({ ...poliza, empresa: empresas.find(empresa => empresa.id == poliza.empresa), marca: autos.find(auto => auto.id == poliza.marca) })
         })
-
+        //return res.status(200).json({ cliente, polizas });
         res.render('clientes/detalle', { cliente, polizas });
     } catch (error) {
         console.error('Error al obtener los detalles del cliente:', error.message);
@@ -147,11 +147,13 @@ export const eliminar = async (req, res) => {
         // Filtrar las pólizas que pertenecen al cliente a eliminar
         const polizasFiltradas = polizas.filter(poliza => !clientesFiltrados.some(cliente => cliente.polizas.includes(poliza.id)));
 
-        
+        // Filtrar los pagos que pertenecen a las pólizas eliminadas
+        const pagosFiltrados = pagos.filter(pago => !polizasFiltradas.some(poliza => poliza.pagos.includes(pago.id)));
 
         // Escribir los clientes y pólizas filtrados en sus respectivos archivos JSON
         await writeFile(clientesPath, JSON.stringify(clientesFiltrados, null, 2));
         await writeFile(polizasPath, JSON.stringify(polizasFiltradas, null, 2));
+        await writeFile(pagosPath, JSON.stringify(pagosFiltrados, null, 2));
 
         res.redirect('/clientes');
     } catch (error) {

@@ -13,25 +13,25 @@
     <form action="/usuarios/guardar" method="POST">
         <fieldset>
             <label for="nombre"> Nombre </label>
-            <input type="text" name="nombre" id="nombre">
+            <input type="text" name="nombre" id="nombre" minlength="3" required>
         </fieldset>
         <fieldset>
             <label for="clave"> Contraseña </label>
-            <input type="password" name="clave" id="clave">
+            <input type="password" name="clave" id="clave" minlength="6" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
             <button type="button" id="showPassword">Mostrar</button>
         </fieldset>
         <fieldset>
             <label for="dni"> DNI </label>
-            <input type="text" name="dni" id="dni">
+            <input type="text" name="dni" id="dni" minlength="7" required>
         </fieldset>
         <fieldset>
-            <select name="permiso" id="permiso">
+            <select name="permiso" id="permiso" required>
                 <option value="0" selected disabled>Perfil</option>
                 <% permisos.forEach(p => { %>
                     <option value="<%= p.id %>"><%= p.descripcion %></option>
                 <% }) %>
             </select>
-            <select name="sucursal" id="sucursal">
+            <select name="sucursal" id="sucursal" required>
                 <option value="0" selected disabled>Sucursal</option>
                 <% sucursales.forEach(s => { %>
                     <option value="<%= s.id %>"><%= s.nombre %></option>

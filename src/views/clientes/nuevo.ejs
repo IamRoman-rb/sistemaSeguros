@@ -14,22 +14,22 @@
                 <fieldset>
                     <label for="nombre">Nombre:
                     </label>
-                    <input type="text" id="nombre" name="nombre">
+                    <input type="text" id="nombre" name="nombre" minlength="3" required>
                 </fieldset>
                 <fieldset>
                     <label for="cuit">CUIT:</label>
-                    <input type="text" id="cuit" name="cuit">
+                    <input type="text" id="cuit" name="cuit" minlength="11" required>
                 </fieldset>
                 <fieldset>
                     <label for="fecha_n">Fecha de Nacimiento:</label>
-                    <input type="date" id="fecha_n" name="fecha_n">
+                    <input type="date" id="fecha_n" name="fecha_n" required>
                 </fieldset>
                 <fieldset>
                     <label for="telefono">Telefono:</label>
-                    <input type="text" id="telefono" name="telefono">
+                    <input type="text" id="telefono" name="telefono" required>
                 </fieldset>
                 <fieldset>
-                    <select name="provincia" id="provincia">
+                    <select name="provincia" id="provincia" required>
                         <option value="0" disabled selected>Provincias</option>
                         <% provincias.forEach(provincia=> { %>
                             <option value="<%= provincia.id %>">
@@ -39,7 +39,7 @@
                     </select>
                 </fieldset>
                 <fieldset>
-                    <select name="localidad" id="localidad">
+                    <select name="localidad" id="localidad" required>
                         <option value="0" disabled selected> Localidad </option>
                         <% provincias.forEach((provincia)=> { %>
                             <optgroup label="<%= provincia.provincia %>">
@@ -55,7 +55,7 @@
                 </fieldset>
                 <fieldset>
                     <label for="direccion">Direccion:</label>
-                    <input type="text" id="direccion" name="direccion">
+                    <input type="text" id="direccion" name="direccion" required>
                 </fieldset>
                 <fieldset id="buttons">
                     <button type="reset" id="borrar">Borrar</button>

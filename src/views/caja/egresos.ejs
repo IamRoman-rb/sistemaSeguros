@@ -15,11 +15,11 @@
             <input type="hidden" name="tipo" value="egreso">
             <fieldset>
                 <label for="monto">Monto</label>
-                <input type="number" name="monto" id="monto">
+                <input type="number" name="monto" id="monto" required min="100">
             </fieldset>
             <fieldset>
                 <label for="motivo">Motivo</label>
-                <input type="text" name="motivo" id="motivo" list="motivos">
+                <input type="text" name="motivo" id="motivo" list="motivos" minlength="3" required>
                 <datalist id="motivos">
                     <% motivos.forEach(motivo => { %>
                         <option value="<%= motivo %>"><%= motivo %></option>
@@ -28,7 +28,7 @@
             </fieldset>
             <fieldset>
                 <label for="descripcion">Descripcion</label>
-                <textarea name="descripcion" id="descripcion" cols="30"></textarea>
+                <textarea name="descripcion" id="descripcion" cols="30" minlength="10" required></textarea>
             </fieldset>
             <button type="reset">Cancelar</button>
             <button type="submit">Guardar</button>

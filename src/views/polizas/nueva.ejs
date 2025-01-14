@@ -18,18 +18,19 @@
         </header>
         <form action="/polizas/guardar" method="POST" id="create-poliza-form">
             <fieldset>
-                <label for="n_poliza" class="label" id="label_n_poliza">N Poliza
+                <label for="n_poliza" class="label" id="label_n_poliza">
+                    N Poliza
                 </label>
-                <input type="number" name="n_poliza" id="n_poliza">
+                <input type="number" name="n_poliza" id="n_poliza" minlength="3" required>
             </fieldset>
             <fieldset>
                 <label for="f_ini_vigencia" class="label" id="label_f_ini_vigencia">
                     Inicio Vigencia
                 </label>
-                <input type="date" name="f_ini_vigencia" id="f_ini_vigencia">
+                <input type="date" name="f_ini_vigencia" id="f_ini_vigencia" min="<%= new Date().toISOString().split('T')[0] %>" required>
             </fieldset>
             <fieldset>
-                <select name="cuotas" id="cuotas">
+                <select name="cuotas" id="cuotas" required> 
                     <option value="0" disabled selected> Cantidad de Cuotas</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -46,7 +47,7 @@
                 </select>
             </fieldset>
             <fieldset>
-                <select name="empresa" id="empresa">
+                <select name="empresa" id="empresa" required>
                     <option value="0" disabled selected>Empresa</option>
                     <% empresas.forEach(empresa=> { %>
                         <option value="<%= empresa.id %>">
@@ -59,10 +60,10 @@
                 <label for="precio">
                     Precio por cuota del cliente
                 </label>
-                <input type="number" name="precio" id="Precio">
+                <input type="number" name="precio" id="Precio" min="1000" required>
             </fieldset>
             <fieldset>
-                <select name="cobertura" id="cobertura">
+                <select name="cobertura" id="cobertura" required>
                     <option value="0" disabled selected> Cobertura</option>
                     <% empresas.forEach(empresa=> { %>
                         <optgroup label="<%= empresa.nombre %>">
@@ -77,7 +78,7 @@
                 </select>
             </fieldset>
             <fieldset>
-                <select name="marca" id="marca">
+                <select name="marca" id="marca" required>
                     <option value="0" disabled selected> Marca del Vehiculo</option>
                     <% autos.forEach(auto=> { %>
                         <option value="<%= auto.id %>">
@@ -90,40 +91,40 @@
                 <label for="modelo">
                     Modelo del Vehiculo
                 </label>
-                <input type="text" name="modelo" id="modelo">
+                <input type="text" name="modelo" id="modelo" required>
             </fieldset>
             <fieldset>
                 <label for="patente">
                     Patente del Vehiculo
                 </label>
-                <input type="text" name="patente" id="patente">
+                <input type="text" name="patente" id="patente" required>
             </fieldset>
             <fieldset>
                 <label for="anio">
                     Año del Vehiculo
                 </label>
-                <input type="number" name="anio" id="anio">
+                <input type="number" name="anio" id="anio" required>
             </fieldset>
             <fieldset>
                 <label for="suma" class="label" id="label_suma">
                     Suma Asegurada
                 </label>
-                <input type="number" name="suma" id="suma">
+                <input type="number" name="suma" id="suma" required>
             </fieldset>
             <fieldset>
                 <label for="n_chasis">
                     N Chasis
                 </label>
-                <input type="text" name="n_chasis" id="n_chasis">
+                <input type="text" name="n_chasis" id="n_chasis" required>
             </fieldset>
             <fieldset>
                 <label for="n_motor">
                     N motor
                 </label>
-                <input type="text" name="n_motor" id="n_motor">
+                <input type="text" name="n_motor" id="n_motor" required>
             </fieldset>
             <fieldset>
-                <select name="combustible" id="combustible">
+                <select name="combustible" id="combustible" required>
                     <option value="0" disabled selected>Combustible del Vehiculo</option>
                     <option value="nafta">Nafta</option>
                     <option value="diesel">Diesel</option>

@@ -9,36 +9,47 @@
                 <h1>Clientes</h1>
                 <a href="/clientes/nuevo">Nuevo</a>
             </header>
-            <form method="GET">
+            <form method="GET" action="/clientes/">
                 <label for="busqueda">Buscar Cliente:
-                    <input type="text" id="busqueda" name="busqueda" value="<%= busqueda ? busqueda : "" %>">
+                    <input type="text" id="busqueda" name="busqueda" minlength="3" required value="<%= busqueda ? busqueda : "" %>">
                 </label>
                 <button type="submit">Buscar</button>
                 <a href="/clientes" class="cancelar">Cancelar</a>
             </form>
-            <ul>
-                <% clientes.forEach(cliente=> { %>
-                    <li>
-                        <dl>
-                            <dt>Nombre:</dt>
-                            <dd>
-                                <%= cliente.nombre %>
-                            </dd>
-                            <dt>CUIT:</dt>
-                            <dd>
-                                <%= cliente.cuit %>
-                            </dd>
-                            <dt>Telefono:</dt>
-                            <dd>
-                                <%= cliente.telefono %>
-                            </dd>
-                        </dl>
-                        <a href="/clientes/detalle/<%= cliente.id %>">
-                            Detalle
-                        </a>
-                    </li>
+
+            <% if(busqueda) { %>
+                <p>Resultados para: <%= busqueda %></p>
+            <% } %>
+            <% if (busqueda && clientes.length == 0 ) { %>
+                <p>No se encontraron clientes para: <%= busqueda %></p>
+            <% } else if (clientes.length == 0) { %>
+                <p>No hay clientes registrados.</p>
+            <% } else { %>
+                <ul>
+                    <% clientes.forEach(cliente=> { %>
+                        <li>
+                            <dl>
+                                <dt>Nombre:</dt>
+                                <dd>
+                                    <%= cliente.nombre %>
+                                </dd>
+                                <dt>CUIT:</dt>
+                                <dd>
+                                    <%= cliente.cuit %>
+                                </dd>
+                                <dt>Telefono:</dt>
+                                <dd>
+                                    <%= cliente.telefono %>
+                                </dd>
+                            </dl>
+                            <a href="/clientes/detalle/<%= cliente.id %>">
+                                Detalle
+                            </a>
+                        </li>
                     <% }); %>
-            </ul>
+                </ul>
+            <% } %>
+
         </main>
 </body>
 

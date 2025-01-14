@@ -9,7 +9,7 @@
     <h1>Nueva empresa</h1>
     <form action="/empresas/guardar" method="POST">
         <label for="nombre">Nombre
-            <input type="text" name="nombre" id="nombre">
+            <input type="text" name="nombre" id="nombre" minlength="3" required>
         </label>
         <ul>
             <% coberturas.forEach(cobertura => { %>

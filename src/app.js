@@ -18,6 +18,7 @@ import empresas from "./routes/empresas.js";
 // Import Middlewares
 import setUserMiddleware from './middlewares/setUserMiddleware.js';
 import isAuthenticated from './middlewares/isAuthenticated.js';
+import loadStylesheet from './middlewares/loadStylesheet.js';
 
 // Usar import.meta.url para obtener el directorio actual
 const __dirname = path.resolve(dirname(new URL(import.meta.url).pathname).replace(/^\/([A-Za-z]):/, "$1:"));
@@ -52,6 +53,9 @@ app.use(session({
 // middleware para establecer el usuario en res.locals
 app.use(setUserMiddleware);
 
+
+// middleware para cargar el stylesheet
+app.use(loadStylesheet);
 
 // routes
 app.use(auth);
