@@ -53,7 +53,7 @@
                     <h2 id="msj">No tiene polizas asociadas</h2>
                     <% } else { %>
                         <ul>
-                            <% polizas.forEach(poliza=> { %>
+                            <% polizas.filter(poliza => !poliza.inhabilitado).forEach(poliza=> { %>
                                 <li>
                                     <dl>
                                         <dt>Poliza:</dt>

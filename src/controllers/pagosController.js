@@ -214,22 +214,15 @@ export const eliminar = async (req, res) => {
     let [pagos, polizas] = await Promise.all(resources.map(async (file) => JSON.parse(await readFile(file, "utf-8"))));
 
     // Encontrar el pago
-    const pago = pagos.find((p) => p.id === Number(pagoId));
-    if (!pago) {
+    const pago = pagos.findIndex((p) => p.id === Number(pagoId));
+    if (pago === -1) {
       return res.status(404).send("Pago no encontrado.");
     }
+    // Desconocer el pago
+    pagos[pago].desconocido = true;
 
-    // Eliminar el pago
-    pagos = pagos.filter((p) => p.id !== Number(pago.id));
+    // Actualizar el archivo de pagos
     await writeFile(resources[0], JSON.stringify(pagos, null, 2));
-
-    // Actualizar el archivo de polizas
-    const poliza = polizas.find((p) => p.id === Number(polizaId));
-    if (!poliza) {
-      return res.status(404).send("Póliza no encontrada.");
-    }
-    poliza.pagos = poliza.pagos.filter((p) => p !== Number(pago.id));
-    await writeFile(resources[1], JSON.stringify(polizas, null, 2));
 
     // Redirigir a la lista de pagos o a una vista de confirmación
     res.redirect(`/polizas/detalle/${polizaId}`);

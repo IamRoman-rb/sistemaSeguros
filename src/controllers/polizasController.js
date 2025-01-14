@@ -252,12 +252,12 @@ export const eliminar = async (req, res) => {
     const { id } = req.body;
 
     const resources = [
-      path.resolve(process.cwd(), "src/data", "clientes.json"),
       path.resolve(process.cwd(), "src/data", "polizas.json"),
       path.resolve(process.cwd(), "src/data", "pagos.json"),
+      path.resolve(process.cwd(), "src/data", "clientes.json"),
     ];
 
-    let [clientes, polizas, pagos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+    let [polizas, pagos, clientes] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
 
     // Buscar la póliza y eliminarla
@@ -266,22 +266,23 @@ export const eliminar = async (req, res) => {
       return res.status(404).send("Póliza no encontrada");
     }
 
-    // Eliminar el ID de la póliza del cliente asociado
+    // Buscar el cliente asociado a la póliza
     const cliente = clientes.find((c) => c.polizas.includes(Number(id)));
-    if (cliente) {
-      cliente.polizas = cliente.polizas.filter((pid) => pid !== Number(id));
-    }
+    
+    // Inhabilitar la póliza de la lista
+    polizas[polizaIndex].inhabilitado = true;
 
-    // Eliminar la póliza de la lista
-    polizas = polizas.filter((p) => p.id.toString() !== id);
-
-    // Eliminar los pagos asociados a la póliza
-    pagos = pagos.filter((pago) => pago.id_poliza !== Number(id));
+    // Desconocer los pagos asociados a la póliza
+    pagos = pagos.map((pago) => {
+      if (pago.id_poliza === Number(id)) {
+        pago.desconocido = true;
+      }
+      return pago;
+    });
 
     // Guardar los cambios
-    await writeFile(resources[1], JSON.stringify(polizas, null, 2));
-    await writeFile(resources[0], JSON.stringify(clientes, null, 2));
-    await writeFile(resources[2], JSON.stringify(pagos, null, 2));
+    await writeFile(resources[0], JSON.stringify(polizas, null, 2));
+    await writeFile(resources[1], JSON.stringify(pagos, null, 2));
 
     res.redirect(`/clientes/detalle/${cliente.id}`);
   } catch (error) {

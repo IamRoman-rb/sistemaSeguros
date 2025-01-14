@@ -46,7 +46,7 @@
                     <dt>Fecha de Fin de Vigencia</dt>
                     <dd><%= pago.poliza.f_fin_vigencia %></dd>
                     <dt>Premio</dt>
-                    <dd><%= pago.poliza.precio %></dd>
+                    <dd><%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.poliza.precio) %></dd>
                     <dt>Empresa</dt>
                     <dd><%= pago.poliza.empresa.nombre %></dd>
                     <dt>Cuotas</dt>

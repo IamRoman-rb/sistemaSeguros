@@ -47,8 +47,8 @@
             <dt>Cuotas:</dt>
             <dd><%= poliza.cuotas %></dd>
             <dt>Cuotas Pagas:</dt>
-            <dd><%= poliza.pagos.length %></dd>
-            </dl>
+            <dd><%= poliza.pagos.filter(pago => !pago.desconocido).length %></dd>
+          </dl>
         </li>
         <li>
           <strong>Vehiculo:</strong>

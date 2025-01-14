@@ -125,35 +125,43 @@ export const eliminar = async (req, res) => {
     try {
         const { id } = req.body;
 
-        // Ruta al archivo JSON de clientes
-        const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
+        const resources = [
+            path.resolve(process.cwd(), "src/data", "clientes.json"),
+            path.resolve(process.cwd(), "src/data", "polizas.json"),
+            path.resolve(process.cwd(), "src/data", "pagos.json")
+        ]
 
-        // Ruta al archivo JSON de pólizas
-        const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
+        let [clientes, polizas, pagos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
-        const pagosPath = path.resolve(process.cwd(), "src/data", "pagos.json");
 
-        // Leer los datos de los archivos JSON
-        const clientesData = await readFile(clientesPath, 'utf8');
-        const clientes = JSON.parse(clientesData);
-        const polizasData = await readFile(polizasPath, 'utf8');
-        const polizas = JSON.parse(polizasData);
-        const pagosData = await readFile(pagosPath, 'utf8');
-        const pagos = JSON.parse(pagosData);
+        // Inhabilitar los clientes para eliminar el que coincide con el ID
+        clientes = clientes.map((c) => {
+            if (c.id == id) {
+                c.inhabilitado = true;
+            }
+            return c;
+        });
 
-        // Filtrar los clientes para eliminar el que coincide con el ID
-        const clientesFiltrados = clientes.filter(cliente => cliente.id !== Number(id));
+        // Ocultar las pólizas que pertenecen al cliente a eliminar
+        polizas = polizas.map((p) => {
+            if (p.id_cliente == id) {
+                p.inhabilitado = true;
+            }
+            return p;
+        });
 
-        // Filtrar las pólizas que pertenecen al cliente a eliminar
-        const polizasFiltradas = polizas.filter(poliza => !clientesFiltrados.some(cliente => cliente.polizas.includes(poliza.id)));
-
-        // Filtrar los pagos que pertenecen a las pólizas eliminadas
-        const pagosFiltrados = pagos.filter(pago => !polizasFiltradas.some(poliza => poliza.pagos.includes(pago.id)));
+        // Desconocer los pagos que pertenecen a las pólizas eliminadas
+        pagos = pagos.map((p) => {
+            if (p.id_poliza == id) {
+                p.desconocido = true;
+            }
+            return p;
+        });
 
         // Escribir los clientes y pólizas filtrados en sus respectivos archivos JSON
-        await writeFile(clientesPath, JSON.stringify(clientesFiltrados, null, 2));
-        await writeFile(polizasPath, JSON.stringify(polizasFiltradas, null, 2));
-        await writeFile(pagosPath, JSON.stringify(pagosFiltrados, null, 2));
+        await writeFile(resources[0], JSON.stringify(clientes, null, 2));
+        await writeFile(resources[1], JSON.stringify(polizas, null, 2));
+        await writeFile(resources[2], JSON.stringify(pagos, null, 2));
 
         res.redirect('/clientes');
     } catch (error) {

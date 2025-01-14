@@ -25,7 +25,7 @@
         <p>No se encontraron pólizas.</p>
         <% } else { %>
           <ul>
-            <% polizas.forEach(poliza=> { %>
+            <% polizas.filter(poliza => !poliza.inhabilitado).forEach(poliza=> { %>
               <li>
                 <dl>
                   <dt>Número de Póliza</dt>
