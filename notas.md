@@ -1,0 +1,5 @@
+- Clientes:
+    - [] Busqueda
+    - [] Eliminar (CAMBIAR ESTADO)
+    - [] Eliminar pagos de la poliza (CAMBIAR ESTADO)
+    - Validaciones Guardar

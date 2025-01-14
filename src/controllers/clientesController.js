@@ -123,7 +123,7 @@ export const confirmar = async (req, res) => {
 };
 export const eliminar = async (req, res) => {
     try {
-        const { id } = req.params;
+        const { id } = req.body;
 
         // Ruta al archivo JSON de clientes
         const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
@@ -131,11 +131,15 @@ export const eliminar = async (req, res) => {
         // Ruta al archivo JSON de pólizas
         const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
 
+        const pagosPath = path.resolve(process.cwd(), "src/data", "pagos.json");
+
         // Leer los datos de los archivos JSON
-        const clientesData = await fs.promises.readFile(clientesPath, 'utf8');
+        const clientesData = await readFile(clientesPath, 'utf8');
         const clientes = JSON.parse(clientesData);
-        const polizasData = await fs.promises.readFile(polizasPath, 'utf8');
+        const polizasData = await readFile(polizasPath, 'utf8');
         const polizas = JSON.parse(polizasData);
+        const pagosData = await readFile(pagosPath, 'utf8');
+        const pagos = JSON.parse(pagosData);
 
         // Filtrar los clientes para eliminar el que coincide con el ID
         const clientesFiltrados = clientes.filter(cliente => cliente.id !== Number(id));
@@ -143,9 +147,11 @@ export const eliminar = async (req, res) => {
         // Filtrar las pólizas que pertenecen al cliente a eliminar
         const polizasFiltradas = polizas.filter(poliza => !clientesFiltrados.some(cliente => cliente.polizas.includes(poliza.id)));
 
+        
+
         // Escribir los clientes y pólizas filtrados en sus respectivos archivos JSON
-        await fs.promises.writeFile(clientesPath, JSON.stringify(clientesFiltrados, null, 2));
-        await fs.promises.writeFile(polizasPath, JSON.stringify(polizasFiltradas, null, 2));
+        await writeFile(clientesPath, JSON.stringify(clientesFiltrados, null, 2));
+        await writeFile(polizasPath, JSON.stringify(polizasFiltradas, null, 2));
 
         res.redirect('/clientes');
     } catch (error) {
