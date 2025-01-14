@@ -3,6 +3,7 @@ const loadStylesheet = (req, res, next) => {
     let action = req.path.split('/').filter(Boolean);
     if(action.length > 1) action = action[1];
     res.locals.stylesheet = `/css/${entity}/${action}.css`;
+    console.log("CSS",res.locals.stylesheet);
     next();
 };
 
