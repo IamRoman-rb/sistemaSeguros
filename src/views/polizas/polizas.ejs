@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Pólizas</title>
-</head>
+  <%- include("../partials/head") %>
 
 <body>
   <%- include("../partials/header") %>
@@ -19,6 +14,7 @@
           <input type="text" id="busqueda" name="busqueda" minlength="3" required
             placeholder="Ingresar nombre o cuit del cliente, numero de poliza o patente del vehiculo">
           <button type="submit">Buscar</button>
+          <a href="/polizas">Cancelar</a>
         </form>
       </header>
       <% if (polizas.length==0) { %>
@@ -28,41 +24,29 @@
             <% polizas.filter(poliza => !poliza.inhabilitado).forEach(poliza=> { %>
               <li>
                 <dl>
-                  <dt>Número de Póliza</dt>
+                  <dt>N Póliza:</dt>
                   <dd>
                     <%= poliza.n_poliza %>
                   </dd>
-                  <dt>Fecha de Emisión</dt>
-                  <dd>
-                    <%= poliza.f_emision %>
-                  </dd>
-                  <dt>Inicio Vigencia</dt>
+                  <dt>Desde:</dt>
                   <dd>
                     <%= poliza.f_ini_vigencia %>
                   </dd>
-                  <dt>Fin Vigencia</dt>
+                  <dt>Hasta:</dt>
                   <dd>
                     <%= poliza.f_fin_vigencia %>
                   </dd>
-                  <dt>Cobertura</dt>
+                  <dt>Cobertura:</dt>
                   <dd>
                     <%= poliza.cobertura %>
                   </dd>
-                  <dt>Nombre del Cliente</dt>
-                  <dd>
-                    <%= poliza.cliente ? poliza.cliente.nombre : "Sin Cliente" %>
-                  </dd>
-                  <dt>CUIT del Cliente</dt>
-                  <dd>
-                    <%= poliza.cliente ? poliza.cliente.cuit : "Sin Cliente" %>
-                  </dd>
-                  <dt>Patente</dt>
+                  <dt>Patente:</dt>
                   <dd>
                     <%= poliza.patente %>
                   </dd>
                 </dl>
                 <nav>
-                  <a href="/polizas/detalle/<%= poliza.id %>">Ver Detalle</a>
+                  <a href="/polizas/detalle/<%= poliza.id %>">Detalle</a>
                 </nav>
               </li>
               <% }); %>

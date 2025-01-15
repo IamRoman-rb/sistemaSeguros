@@ -22,6 +22,7 @@
     "provincia": "2",
     "localidad": "223",
     "direccion": "CALLE 18 346",
-    "polizas": []
+    "polizas": [],
+    "inhabilitado": true
   }
 ]
