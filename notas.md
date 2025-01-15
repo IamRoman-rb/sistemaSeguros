@@ -1,5 +1,7 @@
-- Clientes:
-    - [] Busqueda
-    - [] Eliminar (CAMBIAR ESTADO)
-    - [] Eliminar pagos de la poliza (CAMBIAR ESTADO)
-    - Validaciones Guardar
+- CSS Completos:
+  - [ ] **_Usuarios_**
+  - [ ] **_Clientes_**
+- CSS Pendientes:
+  - [ ] **_Empresas_**
+  - [ ] **_Polizas_**
+  - [ ] **_Caja_**
