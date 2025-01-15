@@ -1,7 +1,8 @@
 - CSS Completos:
-  - [ ] **_Usuarios_**
-  - [ ] **_Clientes_**
+  - [x] **_Usuarios_**
+  - [x] **_Clientes_**
+  - [x] **_Polizas_**
 - CSS Pendientes:
   - [ ] **_Empresas_**
-  - [ ] **_Polizas_**
   - [ ] **_Caja_**
+  - [ ] **_Pagos_**
