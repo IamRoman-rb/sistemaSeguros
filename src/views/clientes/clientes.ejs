@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include("../partials/head") %>
+<%- include("../partials/head") %>
 
-<body>
-    <%- include("../partials/header") %>
-        <main class="main clientes">
-            <header>
-                <h1>Clientes</h1>
-                <a href="/clientes/nuevo">Nuevo</a>
-            </header>
-            <form method="GET" action="/clientes/">
-                <label for="busqueda">Buscar Cliente:
-                    <input type="text" id="busqueda" name="busqueda" minlength="3" required value="<%= busqueda ? busqueda : "" %>">
-                </label>
-                <button type="submit">Buscar</button>
-                <a href="/clientes" class="cancelar">Cancelar</a>
-            </form>
+    <body>
+        <%- include("../partials/header") %>
+            <main class="main clientes">
+                <header>
+                    <h1>Clientes</h1>
+                    <a href="/clientes/nuevo">Nuevo</a>
+                </header>
+                <form method="GET" action="/clientes/">
+                    <fieldset>
+                        <label for="busqueda">
+                            Buscar Cliente:
+                        </label>
+                        <input type="text" id="busqueda" name="busqueda" minlength="3" required
+                            value="<%= busqueda ? busqueda : "" %>">
+                    </fieldset>
+                    <button type="submit">Buscar</button>
+                    <a href="/clientes" class="cancelar">Cancelar</a>
+                </form>
 
-            <% if(busqueda) { %>
-                <p>Resultados para: <%= busqueda %></p>
-            <% } %>
-            <% if (busqueda && clientes.length == 0 ) { %>
-                <p>No se encontraron clientes para: <%= busqueda %></p>
-            <% } else if (clientes.length == 0) { %>
-                <p>No hay clientes registrados.</p>
-            <% } else { %>
-                <ul>
-                    <% clientes.filter(cliente => !cliente.inhabilitado).forEach(cliente=> { %>
-                        <li>
-                            <dl>
-                                <dt>Nombre:</dt>
-                                <dd>
-                                    <%= cliente.nombre %>
-                                </dd>
-                                <dt>CUIT:</dt>
-                                <dd>
-                                    <%= cliente.cuit %>
-                                </dd>
-                                <dt>Telefono:</dt>
-                                <dd>
-                                    <%= cliente.telefono %>
-                                </dd>
-                            </dl>
-                            <a href="/clientes/detalle/<%= cliente.id %>">
-                                Detalle
-                            </a>
-                        </li>
-                    <% }); %>
-                </ul>
-            <% } %>
+                <% if(busqueda) { %>
+                    <p>Resultados para: <%= busqueda %>
+                    </p>
+                    <% } %>
+                        <% if (busqueda && clientes.length==0 ) { %>
+                            <p>No se encontraron clientes para: <%= busqueda %>
+                            </p>
+                            <% } else if (clientes.length==0) { %>
+                                <p>No hay clientes registrados.</p>
+                                <% } else { %>
+                                    <ul>
+                                        <% clientes.filter(cliente=> !cliente.inhabilitado).forEach(cliente=> { %>
+                                            <li>
+                                                <dl>
+                                                    <dt>Nombre:</dt>
+                                                    <dd>
+                                                        <%= cliente.nombre %>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>CUIT:</dt>
+                                                    <dd>
+                                                        <%= cliente.cuit %>
+                                                    </dd>
+                                                </dl>
+                                                <dl>
+                                                    <dt>Telefono:</dt>
+                                                    <dd>
+                                                        <%= cliente.telefono %>
+                                                    </dd>
+                                                </dl>
+                                                <a href="/clientes/detalle/<%= cliente.id %>">
+                                                    Detalle
+                                                </a>
+                                            </li>
+                                            <% }); %>
+                                    </ul>
+                                    <% } %>
 
-        </main>
-</body>
+            </main>
+    </body>
 
 </html>

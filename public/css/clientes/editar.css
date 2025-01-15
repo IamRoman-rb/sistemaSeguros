@@ -1,58 +1,69 @@
-@import url(/css/index.css);
-main#main_editar_cliente{
-    display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    gap: 1rem;
+@import url("/css/base.css");
+@import url("/css/layout.css");
+
+main {
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
 }
-main#main_editar_cliente header{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 1rem;
+main > header {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--crema);
 }
-main#main_editar_cliente header h1{
-    width: 100%;
-    text-align: center;
+main > header h1 {
+  color: var(--celeste);
 }
-main#main_editar_cliente header a{
-    padding: .5rem;
-    background-color: var(--rojo);
-    border-radius: .2rem;
-    color: var(--blanco);
+main > header a {
+  background-color: var(--celeste);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
+  color: var(--blanco);
+  text-decoration: none;
 }
-main#main_editar_cliente form{
-    width: 100%;
-    height: max-content;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    padding: 1rem;
-    gap: 1rem;
+
+main > form {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 1rem;
+  gap: 1rem;
 }
-main#main_editar_cliente form fieldset{
-    width: 80%;
-    display: flex;
-    align-items: center;
-    flex-flow: row wrap;
-    border: none;
+main > form fieldset {
+  width: calc(50% - 2rem);
+  display: flex;
+  flex-direction: column;
 }
-main#main_editar_cliente form fieldset#button{
-    justify-content: center;
+main > form fieldset input {
+  border: 0.05rem solid var(--gris);
+  padding: 0.25rem 1.25rem;
+  outline: none;
 }
-main#main_editar_cliente form fieldset input, select{
-    width: 100%;
-    border: .1rem solid var(--negro);
-    border-radius: .2rem;
-    outline: none;
-    padding: .3rem;
+main > form fieldset select {
+  border: 0.05rem solid var(--gris);
+  padding: 0.25rem 1.25rem;
+  outline: none;
 }
-main#main_editar_cliente form fieldset#button button{
-    padding: .5rem;
-    border-radius: .2rem;
-    border: none;
-    cursor: pointer;
-    color: var(--blanco);
-    background-color: var(--verde);
+main > form fieldset:last-child {
+  width: 100%;
+  align-items: center;
+  flex-direction: column-reverse;
+  gap: 1rem;
+}
+
+main > form fieldset:last-child button {
+  background-color: var(--celeste);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  color: var(--blanco);
+  cursor: pointer;
 }
