@@ -4,10 +4,12 @@
 main {
   flex: 1;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
+  scrollbar-width: none;
+  overflow-y: scroll;
 }
 main > header {
   width: 100%;
