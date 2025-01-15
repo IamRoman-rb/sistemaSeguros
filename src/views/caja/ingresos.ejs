@@ -1,11 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html lang="es">
+    <%- include("../partials/head") %>
 <body>
+    <%- include("../partials/header") %>
     <main>
         <header>
             <h1>Ingresos</h1>    
@@ -30,8 +27,10 @@
                 <label for="descripcion">Descripcion</label>
                 <textarea name="descripcion" id="descripcion" cols="30" minlength="10" required ></textarea>
             </fieldset>
-            <button type="reset">Cancelar</button>
-            <button type="submit">Guardar</button>
+            <fieldset>
+                <button type="reset" class="cancelar">Cancelar</button>
+                <button type="submit" class="ingresar">Ingresar</button>
+            </fieldset>
         </form>
     </main>
 </body>
