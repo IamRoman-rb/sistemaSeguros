@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<html lang="es">
+    <%- include("../partials/head") %>
 <body>
     <%- include("../partials/header") %>
     <main>
         <header>
-            <h2>Resumenes Mensuales</h2>
+            <h1>Resumenes Mensuales</h2>
         </header>
         <ul>
             <% resumenes.forEach(resumen => { %>
@@ -17,10 +13,16 @@
                     <dl>
                         <dt>Fecha:</dt>
                         <dd><%= resumen.fecha %></dd>
+                    </dl>
+                    <dl>
                         <dt>Ingresos:</dt>
                         <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(resumen.ingresos) %></dd>
+                    </dl>
+                    <dl>
                         <dt>Egresos:</dt>
                         <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(resumen.egresos) %></dd>
+                    </dl>
+                    <dl>
                         <dt>Balance:</dt>
                         <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(resumen.balance) %></dd>
                     </dl>

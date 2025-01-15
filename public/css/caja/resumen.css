@@ -1,0 +1,48 @@
+@import url("/css/base.css");
+@import url("/css/layout.css");
+main{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row wrap;
+    gap: 1rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+main > header {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--crema);
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
+  main > header h1 {
+    color: var(--celeste);
+  }
+  main > ul {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    padding: .5rem;
+    border-radius: .3rem;
+    background-color: var(--crema);
+    gap: 1rem;
+  }
+  main > ul > li{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: .3rem;
+    border: .1rem solid var(--negro);
+    border-radius: .3rem;
+  }
+  main > article > ul li > dl > dt{
+    font-weight: bold;
+  }
