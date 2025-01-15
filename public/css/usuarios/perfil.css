@@ -1,0 +1,66 @@
+@import url("/css/base.css");
+@import url("/css/layout.css");
+
+main {
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  gap: 1rem;
+}
+
+main > header {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--crema);
+}
+main > header h1 {
+  color: var(--celeste);
+}
+main > header a {
+  background-color: var(--celeste);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+main > article {
+  width: calc(100% - 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+main > article dl {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--crema);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  align-items: center;
+}
+
+main > ul {
+  width: calc(100% - 2rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
+main > ul li {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--crema);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  align-items: center;
+}

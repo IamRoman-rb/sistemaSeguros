@@ -1,0 +1,81 @@
+@import url("/css/base.css");
+@import url("/css/layout.css");
+
+main {
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+main > header {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--crema);
+}
+main > header h1 {
+  color: var(--celeste);
+}
+main > header a {
+  background-color: var(--celeste);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.25rem;
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+main > form {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 1rem;
+  gap: 1rem;
+}
+main > form fieldset {
+  width: calc((100% / 3) - 2rem);
+  display: flex;
+  flex-direction: column;
+}
+main > form fieldset:nth-child(4) {
+  width: calc(50% - 2rem);
+}
+main > form fieldset:nth-child(5) {
+  width: calc(50% - 2rem);
+}
+main > form button {
+  cursor: pointer;
+}
+main > form fieldset input {
+  border: 0.05rem solid var(--gris);
+  padding: 0.25rem 1.25rem;
+  outline: none;
+}
+main > form fieldset select {
+  border: 0.05rem solid var(--gris);
+  padding: 0.25rem 1.25rem;
+  outline: none;
+}
+main > form fieldset:last-child {
+  width: 100%;
+  align-items: center;
+  flex-direction: column-reverse;
+  gap: 1rem;
+}
+
+main > form fieldset:last-child button {
+  background-color: var(--celeste);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  color: var(--blanco);
+  cursor: pointer;
+}
+main > form fieldset:last-child button:first-child {
+  background-color: var(--rojo);
+}
