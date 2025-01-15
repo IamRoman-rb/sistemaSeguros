@@ -3,94 +3,116 @@
 
 <%- include("../partials/head") %>
 
-<body>
-    <%- include("../partials/header") %>
-        <main id="main_detalle_cliente">
-            <header>
-                <h1>Detalles del Cliente</h1>
-                <nav>
-                    <% if (!["Empleado"].includes(user.rol)) { %>
-                        <a href="/clientes/confirmar/<%= cliente.id %>" class="btn-eliminar">Eliminar Cliente</a>
-                    <% } %>
-                    <a href="/clientes/editar/<%= cliente.id %>">Editar</a>
-                    <a href="/polizas/nuevo/<%= cliente.id %>">Nueva Poliza</a>
-                    <a href="/clientes">Regresar</a>
-                </nav>
-            </header>
-            <dl id="datos_cliente">
-                <dt>Nombre:</dt>
-                <dd>
-                    <%= cliente.nombre %>
-                </dd>
-                <dt>CUIT:</dt>
-                <dd>
-                    <%= cliente.cuit %>
-                </dd>
-                <dt>Fecha de Nacimiento:</dt>
-                <dd>
-                    <%= cliente.fecha_n %>
-                </dd>
-                <dt>Telefono:</dt>
-                <dd>
-                    <%= cliente.telefono %>
-                </dd>
-                <dt>Provincia:</dt>
-                <dd>
-                    <%= cliente.provincia.provincia %>
-                </dd>
-                <dt>Localidad:</dt>
-                <dd>
-                    <%= cliente.localidad.ciudad %>
-                </dd>
-                <dt>Direccion:</dt>
-                <dd>
-                    <%= cliente.direccion %>
-                </dd>
-            </dl>
-            <article id="polizas_asociadas">
-                <h2>Polizas Asociadas</h2>
-                <% if (polizas.length==0) { %>
-                    <h2 id="msj">No tiene polizas asociadas</h2>
-                    <% } else { %>
-                        <ul>
-                            <% polizas.filter(poliza => !poliza.inhabilitado).forEach(poliza=> { %>
-                                <li>
-                                    <dl>
-                                        <dt>Poliza:</dt>
-                                        <dd>
-                                            <%= poliza.n_poliza %>
-                                        </dd>
-                                        <dt>Desde:</dt>
-                                        <dd>
-                                            <%= poliza.f_ini_vigencia%>
-                                        </dd>
-                                        <dt>Hasta:</dt>
-                                        <dd>
-                                            <%= poliza.f_fin_vigencia %>
-                                        </dd>
-                                        <dt> Marca:</dt>
-                                        <dd>
-                                            <%= poliza.marca.marca %>
-                                        </dd>
-                                        <dt> Modelo:</dt>
-                                        <dd>
-                                            <%= poliza.modelo %>
-                                        </dd>
-                                        <dt> Patente:</dt>
-                                        <dd>
-                                            <%= poliza.patente %>
-                                        </dd>
-                                    </dl>
-                                    <nav>
+    <body>
+        <%- include("../partials/header") %>
+            <main>
+                <header>
+                    <h1>Detalles del Cliente</h1>
+                    <nav>
+                        <% if (!["Empleado"].includes(user.rol)) { %>
+                            <a href="/clientes/confirmar/<%= cliente.id %>" class="btn-eliminar">Eliminar Cliente</a>
+                            <% } %>
+                                <a href="/clientes/editar/<%= cliente.id %>">Editar</a>
+                                <a href="/polizas/nuevo/<%= cliente.id %>">Nueva Poliza</a>
+                                <a href="/clientes">Regresar</a>
+                    </nav>
+                </header>
+                <article>
+                    <dl>
+                        <dt>Nombre:</dt>
+                        <dd>
+                            <%= cliente.nombre %>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>CUIT:</dt>
+                        <dd>
+                            <%= cliente.cuit %>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Fecha de Nacimiento:</dt>
+                        <dd>
+                            <%= cliente.fecha_n %>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Telefono:</dt>
+                        <dd>
+                            <%= cliente.telefono %>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Provincia:</dt>
+                        <dd>
+                            <%= cliente.provincia.provincia %>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Localidad:</dt>
+                        <dd>
+                            <%= cliente.localidad.ciudad %>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Direccion:</dt>
+                        <dd>
+                            <%= cliente.direccion %>
+                        </dd>
+                    </dl>
+                </article>
+                <article id="segundo">
+                    <h2>Polizas Asociadas</h2>
+                    <% if (polizas.length==0) { %>
+                        <h2 id="msj">No tiene polizas asociadas</h2>
+                        <% } else { %>
+                            <ul>
+                                <% polizas.filter(poliza=> !poliza.inhabilitado).forEach(poliza=> { %>
+                                    <li>
+                                        <dl>
+                                            <dt>Poliza:</dt>
+                                            <dd>
+                                                <%= poliza.n_poliza %>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Desde:</dt>
+                                            <dd>
+                                                <%= poliza.f_ini_vigencia%>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Hasta:</dt>
+                                            <dd>
+                                                <%= poliza.f_fin_vigencia %>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt> Marca:</dt>
+                                            <dd>
+                                                <%= poliza.marca.marca %>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt> Modelo:</dt>
+                                            <dd>
+                                                <%= poliza.modelo %>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt> Patente:</dt>
+                                            <dd>
+                                                <%= poliza.patente %>
+                                            </dd>
+                                        </dl>
                                         <a href="/polizas/detalle/<%= poliza.id %> ">Detalle</a>
-                                    </nav>
-                                </li>
+                                    </li>
 
-                                <% }) %>
-                        </ul>
-                        <% } %>
-            </article>
-        </main>
-</body>
+                                    <% }) %>
+                            </ul>
+                            <% } %>
+                </article>
+            </main>
+    </body>
 
 </html>

@@ -1,29 +1,28 @@
 <header id="header" class="header">
+    <a href="/usuarios/perfil">
+        <%= user.nombre %> | <%= user.rol %>
+    </a>
     <ul>
         <% for (const entity of Object.keys(user.permisos)) { %>
-            <% if (user.permisos[entity].filter(action => action.method === 'get' && !action.path.includes(':id')).length > 0) { %>
+            <% if (user.permisos[entity].filter(action=> action.method === 'get' && !action.path.includes(':id')).length
+                > 0) { %>
                 <li>
                     <%= entity %>
-                    <ul>
-                        <% for (const action of user.permisos[entity]) { %>
-                            <% if (action.method === 'get' && !action.path.includes(':id')) { %>
-                                <li>
-                                    <a href="/<%= entity %><%= action.path %>">
-                                        <%= action.alias %>
-                                    </a>
-                                </li>
-                            <% } %>
-                        <% } %>
-                    </ul>
+                        <ul>
+                            <% for (const action of user.permisos[entity]) { %>
+                                <% if (action.method==='get' && !action.path.includes(':id')) { %>
+                                    <li>
+                                        <a href="/<%= entity %><%= action.path %>">
+                                            <%= action.alias %>
+                                        </a>
+                                    </li>
+                                    <% } %>
+                                        <% } %>
+                        </ul>
                 </li>
-            <% } %>
-        <% } %>
+                <% } %>
+                    <% } %>
     </ul>
-    <nav>
-        <a href="/usuarios/perfil">
-            <%= user.nombre %> | <%= user.rol %>
-        </a>
-    </nav>
     <form action="/logout" method="get">
         <button type="submit">Cerrar Sesion</button>
     </form>

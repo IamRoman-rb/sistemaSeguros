@@ -1,86 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <%- include("../partials/header") %>
+<%- include("../partials/head") %>
 
-    <main>
+    <body>
+        <%- include("../partials/header") %>
 
-        <header>
-            <h1>Usuarios</h1>
-            <a href="/usuarios/nuevo">Nuevo</a>
-        </header>
+            <main>
 
-        <article>
-            <h2>Usuarios Activos</h2>
-            <ul>
-                <% usuarios.filter(u => u.activo).forEach(usuario => { %>
-                    <li>
-                        <dl>
-                            <dt>Nombre:</dt>
-                                <dd><%= usuario.nombre %></dd>
-                            <dt>DNI:</dt>
-                                <dd><%= usuario.dni %></dd>
-                            <dt>Permiso:</dt>
-                                <dd><%= usuario.permiso.descripcion %></dd>
-                            <dt>Sucursal:</dt>
-                                <dd><%= usuario.sucursal.nombre %></dd>
-                            <dt>Activo:</dt>
-                                <dd><%= usuario.activo ? "Si" : "No" %></dd>
-                        </dl>
-                        <ul>
+                <header>
+                    <h1>Usuarios</h1>
+                    <a href="/usuarios/nuevo">Nuevo</a>
+                </header>
+
+                <article>
+                    <h2>Usuarios Activos</h2>
+                    <ul>
+                        <% usuarios.filter(u=> u.activo).forEach(usuario => { %>
                             <li>
-                                <a href="/usuarios/detalle/<%= usuario.id %>">Detalle</a>
+                                <dl>
+                                    <dt>Nombre:</dt>
+                                    <dd>
+                                        <%= usuario.nombre %>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>DNI:</dt>
+                                    <dd>
+                                        <%= usuario.dni %>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Permiso:</dt>
+                                    <dd>
+                                        <%= usuario.permiso.descripcion %>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Sucursal:</dt>
+                                    <dd>
+                                        <%= usuario.sucursal.nombre %>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Activo:</dt>
+                                    <dd>
+                                        <%= usuario.activo ? "Si" : "No" %>
+                                    </dd>
+                                </dl>
+                                <nav>
+                                    <a href="/usuarios/detalle/<%= usuario.id %>">Detalle</a>
+                                    <a href="/usuarios/editar/<%= usuario.id %>">Editar</a>
+                                </nav>
+                                <form action="/usuarios/eliminar" method="post">
+                                    <input type="hidden" name="id" value="<%= usuario.id %>">
+                                    <button type="submit">Eliminar</button>
+                                </form>
                             </li>
+                            <% }); %>
+                    </ul>
+                </article>
+                <article>
+                    <h2>Usuarios Inactivos</h2>
+                    <ul>
+                        <% usuarios.filter(u=> !u.activo).forEach(usuario => { %>
                             <li>
-                                <a href="/usuarios/editar/<%= usuario.id %>">Editar</a>
+                                <dl>
+                                    <dt>Nombre:</dt>
+                                    <dd>
+                                        <%= usuario.nombre %>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>DNI:</dt>
+                                    <dd>
+                                        <%= usuario.dni %>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Permiso:</dt>
+                                    <dd>
+                                        <%= usuario.permiso.descripcion %>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Sucursal:</dt>
+                                    <dd>
+                                        <%= usuario.sucursal.nombre %>
+                                    </dd>
+                                </dl>
+                                <dl>
+                                    <dt>Activo:</dt>
+                                    <dd>
+                                        <%= usuario.activo ? "Si" : "No" %>
+                                    </dd>
+                                </dl>
+                                <nav>
+                                    <a href="/usuarios/detalle/<%= usuario.id %>">Detalle</a>
+                                    <a href="/usuarios/editar/<%= usuario.id %>">Editar</a>
+                                </nav>
+                                <form action="/usuarios/eliminar" method="post">
+                                    <input type="hidden" name="id" value="<%= usuario.id %>">
+                                    <button type="submit">Eliminar</button>
+                                </form>
                             </li>
-                        </ul>
-                        <form action="/usuarios/eliminar" method="post">
-                            <input type="hidden" name="id" value="<%= usuario.id %>">
-                            <button type="submit">Eliminar</button>
-                        </form>
-                    </li>
-                <% }); %>
-            </ul>
-        </article>
-        <article>
-            <h2>Usuarios Inactivos</h2>
-            <ul>
-                <% usuarios.filter(u => !u.activo).forEach(usuario => { %>
-                    <li>
-                        <dl>
-                            <dt>Nombre:</dt>
-                                <dd><%= usuario.nombre %></dd>
-                            <dt>DNI:</dt>
-                                <dd><%= usuario.dni %></dd>
-                            <dt>Permiso:</dt>
-                                <dd><%= usuario.permiso.descripcion %></dd>
-                            <dt>Sucursal:</dt>
-                                <dd><%= usuario.sucursal.nombre %></dd>
-                            <dt>Activo:</dt>
-                                <dd><%= usuario.activo ? "Si" : "No" %></dd>
-                        </dl>
-                        <ul>
-                            <li>
-                                <a href="/usuarios/detalle/<%= usuario.id %>">Detalle</a>
-                            </li>
-                            <li>
-                                <a href="/usuarios/editar/<%= usuario.id %>">Editar</a>
-                            </li>
-                        </ul>
-                        <form action="/usuarios/eliminar" method="post">
-                            <input type="hidden" name="id" value="<%= usuario.id %>">
-                            <button type="submit">Eliminar</button>
-                        </form>
-                    </li>
-                <% }); %>
-            </ul>
-        </article>
-    </main>
-</body>
+                            <% }); %>
+                    </ul>
+                </article>
+            </main>
+    </body>
+
 </html>

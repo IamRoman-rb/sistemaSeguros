@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalle de la Póliza</title>
-</head>
+  <%- include("../partials/head") %>
 <body>
   <%- include("../partials/header") %>
   <main>
@@ -25,7 +21,7 @@
     </header>
     <ul>
       <li>
-        <strong>Cliente:</strong>
+        <h2>Cliente</h2>
         <dl>
           <dt>Nombre:</dt>
           <dd><%= cliente.nombre %></dd>
@@ -40,7 +36,7 @@
       </li>
 
       <li>
-        <strong>Poliza:</strong>
+        <h2>Poliza</h2>
         <dl>
           <dt>Número de Poliza:</dt>
           <dd><%= poliza.n_poliza %></dd>
@@ -63,7 +59,7 @@
         </dl>
       </li>
       <li>
-        <strong>Vehiculo:</strong>
+        <h2>Vehiculo</h2>
         <dl>
           <dt>Marca:</dt>
           <dd><%= poliza.marca.marca %></dd>
@@ -82,9 +78,9 @@
         </dl>
       </li>
       <li>
-        <strong>Pagos:</strong>
+        <h2>Pagos</h2>
         <% if (poliza.pagos.filter(pago => !pago.desconocido).length == 0) { %>
-          <p>No hay pagos</p>
+          <p>No hay pagos :D</p>
         <% } else { %>
           <ul>
             <% poliza.pagos.filter(pago => !pago.desconocido).forEach(pago => { %>
@@ -92,16 +88,20 @@
                 <dl>
                   <dt>Fecha:</dt>
                   <dd><%= pago.fecha %> a las <%= pago.hora %></dd>
+                </dl>
+                <dl>
                   <dt>Premio:</dt>
                   <dd><%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.valor) %></dd>
+                </dl>
+                <dl>
                   <dt>Observaciones:</dt>
                   <dd><%= pago.observaciones %></dd>
+                </dl>
+                <dl>
                   <dt>Forma de Pago:</dt>
                   <dd><%= pago.forma_pago %></dd>
                 </dl>
-                <nav>
                   <a href="/pagos/detalle/<%= pago.id %>">Detalle</a>
-                </nav>
               </li>
             <% }) %>
           </ul>

@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include("../partials/head") %>
-<body>
-    <%- include("../partials/header") %>
-    <main id="main_confirmar_eliminar">
-        <h1>¿Estás seguro de eliminar al cliente <span><%= cliente.nombre %></span> ?</h1>
-        <p>Esta acción eliminará también todas las pólizas asociadas al cliente.</p>
-        <form action="/clientes/eliminar" method="POST">
-            <input type="hidden" name="id" value="<%= cliente.id %>">
-            <a href="/clientes/detalle/<%= cliente.id %>" id="cancelar">Cancelar</a>
-            <button type="submit">Confirmar</button>
-        </form>
-    </main>
-</body>
+<%- include("../partials/head") %>
+
+    <body>
+        <%- include("../partials/header") %>
+            <main>
+                <article>
+                    <h1>
+                        ¿Estás seguro de eliminar al cliente
+                        <span>
+                            <%= cliente.nombre %>
+                        </span> ?
+                    </h1>
+                    <p>Esta acción eliminará también todas las pólizas asociadas al cliente.</p>
+                </article>
+                <form action="/clientes/eliminar" method="POST">
+                    <input type="hidden" name="id" value="<%= cliente.id %>">
+                    <button type="submit">Confirmar</button>
+                    <a href="/clientes/detalle/<%= cliente.id %>" id="cancelar">Cancelar</a>
+                </form>
+            </main>
+    </body>
+
 </html>

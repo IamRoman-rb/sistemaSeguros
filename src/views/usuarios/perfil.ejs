@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <%- include("../partials/header") %>
-    <main>
-        <header>
-            <h1>Perfil</h1>
-        </header>
-        <article>
-            <dl>
-                <dt>Nombre:</dt>
-                <dd><%= usuario.nombre %></dd>
-                <dt>Rol:</dt>
-                <dd><%= usuario.permisos.descripcion %></dd>
-                <dt>Sucursal:</dt>
-                <dd><%= usuario.sucursal.nombre %></dd>
-            </dl>
-        </article>
-        <ul>
-            <li>
-                <p>
-                    total de polizas cobradas
-                </p>
-                <p>
-                    <%= polizas.length %>
-                </p>
-            </li>
-            <li>
-                <p>
-                    Polizas en este mes
-                </p>
-                <p>
-                    <%= mesActual.length %>
-                </p>
-            </li>
-        </ul>
-    </main>
-</body>
+<%- include("../partials/head") %>
+
+    <body>
+        <%- include("../partials/header") %>
+            <main>
+                <header>
+                    <h1>Perfil</h1>
+                </header>
+                <article>
+                    <dl>
+                        <dt>Nombre:</dt>
+                        <dd>
+                            <%= usuario.nombre %>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Rol:</dt>
+                        <dd>
+                            <%= usuario.permisos.descripcion %>
+                        </dd>
+                    </dl>
+                    <dl>
+                        <dt>Sucursal:</dt>
+                        <dd>
+                            <%= usuario.sucursal.nombre %>
+                        </dd>
+                    </dl>
+                </article>
+                <ul>
+                    <li>
+                        <p>
+                            total de polizas cobradas
+                        </p>
+                        <p>
+                            <%= polizas.length %>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Polizas en este mes
+                        </p>
+                        <p>
+                            <%= mesActual.length %>
+                        </p>
+                    </li>
+                </ul>
+            </main>
+    </body>
+
 </html>

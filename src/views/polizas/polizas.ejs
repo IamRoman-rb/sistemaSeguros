@@ -7,16 +7,18 @@
     <main>
       <header>
         <h1>Lista de Pólizas</h1>
-        <form action="/polizas/" method="get">
-          <label for="busqueda">
-            Buscar Poliza:
-          </label>
-          <input type="text" id="busqueda" name="busqueda" minlength="3" required
-            placeholder="Ingresar nombre o cuit del cliente, numero de poliza o patente del vehiculo">
-          <button type="submit">Buscar</button>
-          <a href="/polizas">Cancelar</a>
-        </form>
       </header>
+      <form action="/polizas/" method="get">
+        <fieldset>
+        <label for="busqueda">
+          Buscar Poliza:
+        </label>
+        <input type="text" id="busqueda" name="busqueda" minlength="3" required
+          placeholder="Ingresar nombre o cuit del cliente, numero de poliza o patente del vehiculo">
+        </fieldset>
+        <a href="/polizas" class="cancelar">Cancelar</a>
+        <button type="submit">Buscar</button>
+      </form>
       <% if (polizas.length==0) { %>
         <p>No se encontraron pólizas.</p>
         <% } else { %>
@@ -28,18 +30,26 @@
                   <dd>
                     <%= poliza.n_poliza %>
                   </dd>
+                </dl>
+                <dl>
                   <dt>Desde:</dt>
                   <dd>
                     <%= poliza.f_ini_vigencia %>
                   </dd>
+                </dl>
+                <dl>
                   <dt>Hasta:</dt>
                   <dd>
                     <%= poliza.f_fin_vigencia %>
                   </dd>
+                </dl>
+                <dl>
                   <dt>Cobertura:</dt>
                   <dd>
                     <%= poliza.cobertura %>
                   </dd>
+                </dl>
+                <dl>
                   <dt>Patente:</dt>
                   <dd>
                     <%= poliza.patente %>

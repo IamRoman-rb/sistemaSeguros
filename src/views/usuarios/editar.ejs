@@ -1,69 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios | Editar</title>
-</head>
-<body>
-    <header>
-        <h1>Editar Usuario</h1>
-        <a href="/usuarios">Regresar</a>
-    </header>
-    <form action="/usuarios/actualizar" method="POST">
-        <input type="hidden" name="userId" value="<%= usuario.id %>">
-        <fieldset>
-            <label for="nombre"> Nombre </label>
-            <input type="text" name="nombre" id="nombre" value="<%= usuario.nombre %>">
-        </fieldset>
-        <fieldset>
-            <label for="clave"> Contraseña </label>
-            <input type="password" name="clave" id="clave">
-            <button type="button" id="showPassword">Mostrar</button>
-        </fieldset>
-        <fieldset>
-            <label for="dni"> DNI </label>
-            <input type="text" name="dni" id="dni" value="<%= usuario.dni %>">
-        </fieldset>
-        <fieldset>
-            <select name="permiso" id="permiso">
-                <option value="0" disabled>Perfil</option>
-                <% permisos.forEach(p => { %>
-                    <% if (p.id == usuario.permisos) { %>
-                        <option value="<%= p.id %>" selected><%= p.descripcion %></option>
-                    <% } else { %>
-                        <option value="<%= p.id %>" ><%= p.descripcion %></option>
-                    <% } %>
-                <% }) %>
-            </select>
-            <select name="sucursal" id="sucursal">
-                <option value="0" disabled>Sucursal</option>
-                <% sucursales.forEach(s => { %>
-                    <% if (s.id == usuario.sucursal) { %>
-                        <option value="<%= s.id %>" selected><%= s.nombre %></option>
-                    <% } else { %>
-                        <option value="<%= s.id %>"><%= s.nombre %></option>
-                    <% } %>
-                <% }) %>
-            </select>
-        </fieldset>
-        <pre>
-            <code>
-                <%= JSON.stringify(usuario, null, 2) %>
-            </code>
-        </pre>
-        <button type="reset">Borrar</button>
-        <button type="submit">Actualizar</button>
-    </form>
-    <script>
-        document.getElementById("showPassword").addEventListener("click", function() {
-            var passwordInput = document.getElementById("clave");
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-            } else {
-                passwordInput.type = "password";
-            }
-        });
-    </script>
-</body>
+<%- include("../partials/head") %>
+
+    <body>
+        <%- include("../partials/header") %>
+            <main>
+                <header>
+                    <h1>Editar Usuario</h1>
+                    <a href="/usuarios">Regresar</a>
+                </header>
+                <form action="/usuarios/actualizar" method="POST">
+                    <input type="hidden" name="userId" value="<%= usuario.id %>">
+                    <fieldset>
+                        <label for="nombre"> Nombre </label>
+                        <input type="text" name="nombre" id="nombre" value="<%= usuario.nombre %>">
+                    </fieldset>
+                    <fieldset>
+                        <label for="clave"> Contraseña </label>
+                        <input type="password" name="clave" id="clave">
+                        <button type="button" id="showPassword">Mostrar</button>
+                    </fieldset>
+                    <fieldset>
+                        <label for="dni"> DNI </label>
+                        <input type="text" name="dni" id="dni" value="<%= usuario.dni %>">
+                    </fieldset>
+                    <fieldset>
+                        <select name="permiso" id="permiso">
+                            <option value="0" disabled>Perfil</option>
+                            <% permisos.forEach(p=> { %>
+                                <% if (p.id==usuario.permisos) { %>
+                                    <option value="<%= p.id %>" selected>
+                                        <%= p.descripcion %>
+                                    </option>
+                                    <% } else { %>
+                                        <option value="<%= p.id %>">
+                                            <%= p.descripcion %>
+                                        </option>
+                                        <% } %>
+                                            <% }) %>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+
+                        <select name="sucursal" id="sucursal">
+                            <option value="0" disabled>Sucursal</option>
+                            <% sucursales.forEach(s=> { %>
+                                <% if (s.id==usuario.sucursal) { %>
+                                    <option value="<%= s.id %>" selected>
+                                        <%= s.nombre %>
+                                    </option>
+                                    <% } else { %>
+                                        <option value="<%= s.id %>">
+                                            <%= s.nombre %>
+                                        </option>
+                                        <% } %>
+                                            <% }) %>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <button type="reset">Borrar</button>
+                        <button type="submit">Actualizar</button>
+                    </fieldset>
+                </form>
+            </main>
+            <script>
+                document.getElementById("showPassword").addEventListener("click", function () {
+                    var passwordInput = document.getElementById("clave");
+                    if (passwordInput.type === "password") {
+                        passwordInput.type = "text";
+                    } else {
+                        passwordInput.type = "password";
+                    }
+                });
+            </script>
+    </body>
+
 </html>
