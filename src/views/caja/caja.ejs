@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <%- include("../partials/head") %>
 <body>
     <%- include("../partials/header") %>
     <main>
@@ -22,15 +18,23 @@
                             <dl>
                                 <dt>Fecha:</dt>
                                 <dd><%= pago.fecha %></dd>
+                            </dl>
+                            <dl>
                                 <dt>Ingreso:</dt>
                                 <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.valor) %></dd>
+                            </dl>
+                            <dl>
                                 <dt>Cliente:</dt>
                                 <dd><%= pago.cliente %></dd>
+                            </dl>
+                            <dl>
                                 <dt>Cobrador:</dt>
                                 <dd><%= pago.cobrador %></dd>
+                            </dl>
+                            <!-- <dl>
                                 <dt>Descripcion:</dt>
                                 <dd><%= pago.descripcion %></dd>
-                            </dl>
+                            </dl> -->
                         </li>
                     <% }) %>
                 </ul>
@@ -72,10 +76,16 @@
                             <dl>
                                 <dt>Fecha:</dt>
                                 <dd><%= ingreso.fecha %></dd>
+                            </dl>
+                            <dl>
                                 <dt>Ingreso:</dt>
                                 <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(ingreso.monto) %></dd>
+                            </dl>
+                            <dl>
                                 <dt>Concepto:</dt>
                                 <dd><%= ingreso.motivo %></dd>
+                            </dl>
+                            <dl>
                                 <dt>Descripcion:</dt>
                                 <dd><%= ingreso.descripcion %></dd>
                             </dl>
