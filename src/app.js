@@ -24,7 +24,7 @@ import loadStylesheet from './middlewares/loadStylesheet.js';
 const __dirname = path.resolve(dirname(new URL(import.meta.url).pathname).replace(/^\/([A-Za-z]):/, "$1:"));
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // settings
 app.set("port", process.env.PORT || port);
