@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+  <%- include("../partials/head") %>
 <body>
-    <main>
+  <%- include("../partials/header") %>
+  <main>
       <header>
         <h1>Confirmar Pago</h1>
-        <p>Estás a punto de pagar la póliza número #<%= poliza.n_poliza %> verifica que los datos sean correctos.</p>
         <a href="/polizas/detalle/<%= poliza.id %>">Volver al detalle de la poliza</a>
       </header>
       <article>
         <h2>Datos</h2>
-        <ul>
+        <p>Estás a punto de pagar la póliza número #<%= poliza.n_poliza %> verifica que los datos sean correctos.</p>
+        <ul id="datos">
           <li>
             <p>Poliza #<%= poliza.n_poliza %></p>
+              <dl>
+                <dt>Fecha de Emision</dt>
+                <dd><%= poliza.f_emision %></dd>
+              </dl>
+              <dl>
+                <dt>Fecha de Inicio de Vigencia</dt>
+                <dd><%= poliza.f_ini_vigencia %></dd>
+              </dl>
+              <dl>
+                <dt>Fecha de Fin de Vigencia</dt>
+                <dd><%= poliza.f_fin_vigencia %></dd>
+              </dl>
+              <dl>
+                <dt>Premio</dt>
+                <dd><%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(poliza.precio) %></dd>
+              </dl>
+              <dl>
+                <dt>Cuotas</dt>
+                <dd><%= poliza.cuotas %></dd>
+              </dl>
+              <dl>
+                <dt>Empresa</dt>
+                <dd><%= poliza.empresa.nombre %></dd>
+              </dl>
             <dl>
-              <dt>Fecha de Emision</dt>
-              <dd><%= poliza.f_emision %></dd>
-              <dt>Fecha de Inicio de Vigencia</dt>
-              <dd><%= poliza.f_ini_vigencia %></dd>
-              <dt>Fecha de Fin de Vigencia</dt>
-              <dd><%= poliza.f_fin_vigencia %></dd>
-              <dt>Premio</dt>
-              <dd><%= poliza.precio %></dd>
-              <dt>Cuotas</dt>
-              <dd><%= poliza.cuotas %></dd>
-              <dt>Empresa</dt>
-              <dd><%= poliza.empresa.nombre %></dd>
               <dt>Cobertura</dt>
-              <dd><%= poliza.cobertura.nombre %>: <%= poliza.cobertura.descripcion %></dd>
+              <dd><%= poliza.cobertura.nombre %></dd>
             </dl>
           </li>
           <li>
@@ -39,10 +48,16 @@
             <dl>
               <dt>Marca</dt>
               <dd><%= poliza.marca.marca %></dd>
+            </dl>
+            <dl>
               <dt>Modelo</dt>
               <dd><%= poliza.modelo %></dd>
+            </dl>
+            <dl>
               <dt>Patente</dt>
               <dd><%= poliza.patente %></dd>
+            </dl>
+            <dl>
               <dt>Año</dt>
               <dd><%= poliza.anio %></dd>
             </dl>
@@ -76,7 +91,7 @@
         </ul>
       </article>
       <!-- Agregar tips de validacion -->
-      <article>
+      <article id="validacion">
         <h2>Tips de Validación</h2>
         <ul>
           <li>
@@ -95,6 +110,12 @@
       <form method="POST" action="/pagos/acreditar">
         <input type="hidden" name="polizaId" value="<%= poliza.id %>">
         <fieldset>
+          <select name="n_cuota" id="n_cuota" required>
+            <option value="0" disabled selected>Cuota</option>
+            <% for (let i = 1; i <= poliza.cuotas; i++) { %>
+              <option value="<%= i %>"><%= i %></option>
+            <% } %>
+          </select>
           <select name="metodo" id="metodo" required>
             <option value="0" disabled selected>Metodo de Pago</option>
             <option value="efectivo">Efectivo</option>

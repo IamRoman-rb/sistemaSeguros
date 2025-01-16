@@ -1,14 +1,16 @@
 [
   {
-    "id": 1736632043428,
+    "id": 1737046794097,
     "id_cliente": 1736473877514,
     "id_poliza": 2,
     "n_poliza": 152,
-    "fecha": "2025-01-11",
-    "hora": "18:47:23",
+    "n_cuota": 1,
+    "fecha": "2025-01-16",
+    "hora": "13:59:54",
     "valor": 125000,
     "forma_pago": "efectivo",
-    "observaciones": "Pago de la primera cuota",
+    "observaciones": "Primera cuota de la Poliza",
+    "desconocido": false,
     "id_cobrador": 4
   }
 ]
