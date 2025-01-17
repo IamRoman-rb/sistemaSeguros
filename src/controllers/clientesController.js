@@ -69,7 +69,7 @@ export const detalle = async (req, res) => {
 
 export const guardar = async (req, res) => {
     try {
-        const { nombre, cuit, fecha_n, telefono, provincia, localidad, direccion } = req.body;
+        const { nombre, cuit, fecha_n, telefono, telefono_fijo,email, provincia, localidad, direccion } = req.body;
 
         const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
         const clientesData = await readFile(clientesPath, 'utf8');
@@ -95,6 +95,15 @@ export const guardar = async (req, res) => {
             direccion,
             polizas: []
         };
+
+        if (telefono_fijo) {
+            nuevoCliente.telefono_fijo = telefono_fijo;
+        }
+
+        if (email) {
+            nuevoCliente.email = email;
+        }
+
 
         clientes.push(nuevoCliente);
 
@@ -198,7 +207,7 @@ export const editar = async (req, res) => {
 
 export const actualizar = async (req, res) => {
 
-    const { nombre, cuit, fecha_n, telefono, provincia, localidad, direccion, id } = req.body; // Agrega más campos según sea necesario
+    const { nombre, cuit, fecha_n, telefono, telefono_fijo, email, provincia, localidad, direccion, id } = req.body; // Agrega más campos según sea necesario
 
     try {
         // Leer los datos de los clientes desde el archivo JSON
@@ -219,6 +228,8 @@ export const actualizar = async (req, res) => {
         if (cuit !== clientes[index].cuit) cambios.cuit = cuit;
         if (fecha_n !== clientes[index].fecha_n) cambios.fecha_n = fecha_n;
         if (telefono !== clientes[index].telefono) cambios.telefono = telefono;
+        if (telefono_fijo !== clientes[index].telefono_fijo) cambios.telefono_fijo = telefono_fijo;
+        if (email !== clientes[index].email) cambios.email = email;
         if (provincia !== clientes[index].provincia) cambios.provincia = provincia;
         if (localidad !== clientes[index].localidad) cambios.localidad = localidad;
         if (direccion !== clientes[index].direccion) cambios.direccion = direccion;

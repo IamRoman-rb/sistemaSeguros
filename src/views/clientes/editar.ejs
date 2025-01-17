@@ -29,6 +29,14 @@
                         <input type="text" id="telefono" name="telefono" value="<%= cliente.telefono %>">
                     </fieldset>
                     <fieldset>
+                        <label for="telefono_fijo">Telefono Fijo:</label>
+                        <input type="text" id="telefono_fijo" name="telefono_fijo" value="<%= cliente?.telefono_fijo %>">
+                    </fieldset>
+                    <fieldset>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="<%= cliente?.email %>">
+                    </fieldset>
+                    <fieldset>
                         <select name="provincia" id="provincia">
                             <option value="0" disabled>Provincias</option>
                             <% provincias.forEach(provincia=> { %>

@@ -113,8 +113,8 @@ export const guardar = async (req, res) => {
       modelo: req.body.modelo,
       patente: req.body.patente,
       anio: Number(req.body.anio),
-      n_chasis: Number(req.body.n_chasis),
-      n_motor: Number(req.body.n_motor),
+      n_chasis: req.body.n_chasis,
+      n_motor: req.body.n_motor,
       combustible: req.body.combustible,
       clienteId: Number(req.body.clientId), // Asociar la póliza al cliente
       sucursal: sucursal,

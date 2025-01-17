@@ -1,8 +1,4 @@
-- CSS Completos:
-  - [x] **_Usuarios_**
-  - [x] **_Clientes_**
-  - [x] **_Polizas_**
-- CSS Pendientes:
-  - [ ] **_Empresas_**
-  - [ ] **_Caja_**
-  - [ ] **_Pagos_**
+- Devoluciones:
+ - [X] Agregar campos de telefono y email para los clientes
+ - [X] Verificar los datos de las polizas queden completos
+ - [X] Actualiza diseño de los recibos de pago

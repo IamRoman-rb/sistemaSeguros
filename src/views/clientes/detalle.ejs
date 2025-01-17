@@ -42,6 +42,22 @@
                             <%= cliente.telefono %>
                         </dd>
                     </dl>
+                    <% if (cliente?.telefono_fijo) { %>
+                        <dl>
+                            <dt>Telefono Fijo:</dt>
+                            <dd>
+                                <%= cliente.telefono_fijo %>
+                            </dd>
+                        </dl>
+                    <% } %>
+                    <% if (cliente?.email) { %>
+                        <dl>
+                            <dt>Email:</dt>
+                            <dd>
+                                <%= cliente.email %>
+                            </dd>
+                        </dl>
+                    <% } %>
                     <dl>
                         <dt>Provincia:</dt>
                         <dd>

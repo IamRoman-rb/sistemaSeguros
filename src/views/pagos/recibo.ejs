@@ -2,14 +2,14 @@
 <html lang="en">
     <%- include("../partials/head") %>
 <body>
+    <header>
+        <h1>Próximo vencimiento <%= pago.proximoPago %> </h1>
+        <p>
+            Si existiera atraso o incumplimiento en alguna de las cuotas sobre un contrato de servicios adquirido
+            por nuestro intermedio, este y todo su contenido queda automaticamente anulado y sin posibilidad de reclamo alguno.
+        </p>
+    </header>
     <main>
-        <header>
-            <h1>Próximo vencimiento <%= pago.proximoPago %> </h1>
-            <p>
-                Si existiera atraso o incumplimiento en alguna de las cuotas sobre un contrato de servicios adquirido
-                por nuestro intermedio, este y todo su contenido queda automaticamente anulado y sin posibilidad de reclamo alguno.
-            </p>
-        </header>
         <article>
            <h2>
                CENTRO INTEGRADO DE ATENCION Y SERVICIOS
@@ -61,12 +61,12 @@
                 </td>
             </tr>
         </table>
-        <footer>
-            <article>
-                <hr>
-                <p>FIRMA</p>
-            </article>
-        </footer>
     </main>
+    <footer>
+        <article>
+            <hr>
+            <p>FIRMA</p>
+        </article>
+    </footer>
 </body>
 </html>
