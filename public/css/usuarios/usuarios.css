@@ -45,10 +45,6 @@ main > article ul {
   align-items: center;
   padding: 1rem 0;
   gap: 1rem;
-  overflow-y: scroll;
-  max-height: calc(6rem * 2);
-  scroll-behavior: smooth;
-  scrollbar-width: none;
 }
 main > article ul li {
   width: calc(100% - 1rem);

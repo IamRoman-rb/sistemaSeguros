@@ -10,7 +10,20 @@
     "valor": 125000,
     "forma_pago": "efectivo",
     "observaciones": "Primera cuota de la Poliza",
-    "desconocido": false,
+    "desconocido": true,
     "id_cobrador": 4
+  },
+  {
+    "id": 1737326129744,
+    "id_cliente": 1736473877514,
+    "id_poliza": 2,
+    "n_poliza": 152,
+    "fecha": "2025-01-19",
+    "hora": "19:35:29",
+    "valor": 125000,
+    "forma_pago": "efectivo",
+    "observaciones": "234829384",
+    "desconocido": true,
+    "id_cobrador": 1
   }
 ]

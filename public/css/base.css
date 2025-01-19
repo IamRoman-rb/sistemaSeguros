@@ -26,10 +26,5 @@
   box-sizing: border-box;
 }
 html {
-  scrollbar-width: none;
   scroll-behavior: smooth;
-}
-body {
-  min-height: 100dvh;
-  display: flex;
 }

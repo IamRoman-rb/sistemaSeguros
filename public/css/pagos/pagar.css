@@ -8,8 +8,6 @@ main {
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
-  scrollbar-width: none;
-  overflow-y: scroll;
 }
 main > header {
   width: 100%;
@@ -139,13 +137,9 @@ main > form fieldset select {
   outline: none;
 }
 main > form fieldset textarea {
-    width: 50%;
+  width: 50%;
   border: 0.05rem solid var(--gris);
   padding: 0.25rem 1.25rem;
   outline: none;
   resize: none;
-  max-height: calc(6rem * 2);
-  overflow-y: scroll;
-  scrollbar-width: none;
-
 }

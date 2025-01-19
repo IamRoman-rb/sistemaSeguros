@@ -5,11 +5,9 @@ main {
   flex: 1;
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   gap: 1rem;
-  scrollbar-width: none;
-  overflow-y: scroll;
 }
 main > header {
   width: 100%;

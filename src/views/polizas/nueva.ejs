@@ -26,10 +26,22 @@
                 <input type="date" name="f_ini_vigencia" id="f_ini_vigencia" min="<%= new Date().toISOString().split('T')[0] %>" required>
             </fieldset>
             <fieldset>
-                <label for="precio">
-                    Premio Total de la Poliza
-                </label>
-                <input type="number" name="precio" id="Precio" min="1000" required>
+                <label for="periodo">Periodo de Vigencia</label>
+                <select name="periodo" id="periodo" required> 
+                    <option value="0" disabled selected> Periodo de Vigencia</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
             </fieldset>
             <fieldset>
                 <label for="cuotas">Cantidad de Cuotas</label>
@@ -49,6 +61,7 @@
                     <option value="12">12</option>
                 </select>
             </fieldset>
+
             <fieldset>
                 <label for="empresa">Empresa</label>
                 <select name="empresa" id="empresa" required>
@@ -135,9 +148,15 @@
                     <option value="electrico">Electrico</option>
                 </select>
             </fieldset>
+            <fieldset>
+                <label for="precio">
+                    Premio Total de la Poliza
+                </label>
+                <input type="number" name="precio" id="Precio" min="1000" required>
+            </fieldset>
             <input type="hidden" id="id_cliente" name="clientId" value="<%= cliente.id %>">
 
-            <fieldset>
+            <fieldset id="botones">
                 <button type="reset">Cancelar</button>
                 <button type="submit">Emitir</button>
             </fieldset>

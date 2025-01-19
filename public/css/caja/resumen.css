@@ -7,8 +7,6 @@ main{
     align-items: flex-start;
     flex-flow: row wrap;
     gap: 1rem;
-    overflow-y: scroll;
-    scrollbar-width: none;
 }
 main > header {
     width: 100%;
@@ -43,6 +41,6 @@ main > header {
     border: .1rem solid var(--negro);
     border-radius: .3rem;
   }
-  main > article > ul li > dl > dt{
+  main > ul > li > dl > dt{
     font-weight: bold;
   }

@@ -45,12 +45,14 @@ main > form fieldset {
 }
 main > form fieldset input {
   border: 0.05rem solid var(--gris);
-  padding: 0.25rem 1.25rem;
+  border-radius: .3rem;
+  padding: .3rem;
   outline: none;
 }
 main > form fieldset select {
   border: 0.05rem solid var(--gris);
-  padding: 0.25rem 1.25rem;
+  border-radius: .3rem;
+  padding: .3rem;
   outline: none;
 }
 main > form fieldset:last-child {

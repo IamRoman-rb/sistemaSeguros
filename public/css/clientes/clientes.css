@@ -89,10 +89,6 @@ main > ul {
   padding: 1rem 0;
   gap: 1rem;
   flex: 1;
-  overflow-y: scroll;
-  max-height: calc(6rem * 5);
-  scroll-behavior: smooth;
-  scrollbar-width: none;
 }
 main > ul li {
   width: calc(100% - 1rem);

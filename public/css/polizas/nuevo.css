@@ -8,8 +8,6 @@ main {
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
-  scrollbar-width: none;
-  overflow-y: scroll;
 }
 main > header {
   width: 100%;
@@ -63,7 +61,8 @@ main > form fieldset select {
 main > form fieldset:last-child {
   width: 100%;
   align-items: center;
-  flex-direction: column-reverse;
+  justify-content: center;
+  flex-flow: row wrap;
   gap: 1rem;
 }
 

@@ -8,8 +8,6 @@ main {
   justify-content: center;
   align-items: flex-start;
   gap: 1rem;
-  overflow-y: scroll;
-  scrollbar-width: none;
 }
 main > header {
   width: 100%;
@@ -72,10 +70,6 @@ main > article:last-child ul {
   padding: 1rem 0;
   gap: 1rem;
   flex: 1;
-  overflow-y: scroll;
-  max-height: calc(6rem * 1.5);
-  scroll-behavior: smooth;
-  scrollbar-width: none;
 }
 main > article:last-child ul li {
   width: calc(100% - 1rem);

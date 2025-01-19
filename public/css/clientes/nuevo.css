@@ -55,8 +55,9 @@ main > form fieldset select {
 }
 main > form fieldset:last-child {
   width: 100%;
+  flex-flow: row wrap;
+  justify-content: center;
   align-items: center;
-  flex-direction: column-reverse;
   gap: 1rem;
 }
 
