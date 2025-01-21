@@ -10,6 +10,7 @@
   },
   "author": "Roman Borla",
   "dependencies": {
+    "@google-cloud/local-auth": "^3.0.1",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.7",
     "ejs": "^3.1.10",
@@ -17,6 +18,7 @@
     "express-myconnection": "^1.0.4",
     "express-session": "^1.18.1",
     "fs": "^0.0.1-security",
+    "googleapis": "^144.0.0",
     "morgan": "^1.10.0",
     "nodemon": "^3.1.9",
     "sequelize": "^6.37.5"
