@@ -1,15 +1,14 @@
 import { createReadStream } from "node:fs";
-import { readdir } from "fs/promises";
-import { resolve } from "node:path"
+import { readdir, readFile, writeFile } from "fs/promises";
+import { resolve } from "node:path";
 import { google } from "googleapis";
 import { authenticate } from "@google-cloud/local-auth";
 
-
-const CREDENTIALS_PATH = resolve(process.cwd(), "src/modules", "credentials.json"); // Archivo de credenciales
+const CREDENTIALS_PATH = resolve(process.cwd(), "src/modules", "credentials.json");
+const TOKEN_PATH = resolve(process.cwd(), "src/modules", "token.json");
 
 const loadCredentials = async function () {
     try {
-        const TOKEN_PATH = resolve(process.cwd(), "src/modules", "token.json");
         const content = await readFile(TOKEN_PATH);
         const credentials = JSON.parse(content);
         return google.auth.fromJSON(credentials);
@@ -19,7 +18,7 @@ const loadCredentials = async function () {
 }
 
 async function saveCredentials(client) {
-    const content = await fs.readFile(CREDENTIALS_PATH);
+    const content = await readFile(CREDENTIALS_PATH);
     const keys = JSON.parse(content);
     const key = keys.installed || keys.web;
     const payload = JSON.stringify({
@@ -31,16 +30,12 @@ async function saveCredentials(client) {
     await writeFile(TOKEN_PATH, payload);
 }
 
-
-
-
 const uploadToDrive = async () => {
-
     const uploadFiles = async (auth = null) => {
-        const DATA_PATH = resolve(process.cwd(), "src/data")
-        const results = await readdir(DATA_PATH)
+        const DATA_PATH = resolve(process.cwd(), "src/data");
+        const results = await readdir(DATA_PATH);
         const responses = await Promise.all(results.map(async (file) => {
-            const FILE_PATH = resolve(DATA_PATH, file)
+            const FILE_PATH = resolve(DATA_PATH, file);
             const drive = google.drive({ version: 'v3', auth });
             const fileMetadata = {
                 name: file,
@@ -59,15 +54,16 @@ const uploadToDrive = async () => {
             });
 
             console.log(`Archivo subido: ${file} - ID: ${response.data.id}`);
-        }))
+        }));
     }
+
     const authorize = async (cb) => {
         let client = await loadCredentials();
         if (client) {
-            return client;
+            return cb(client);
         }
         client = await authenticate({
-            scopes: ["https://www.googleapis.com/auth/drive"],
+            scopes: ["https://www.googleapis.com/auth/drive.file"],
             keyfilePath: CREDENTIALS_PATH,
         });
         if (client.credentials) {
@@ -75,7 +71,8 @@ const uploadToDrive = async () => {
         }
         return cb(client);
     }
+
     return await authorize(uploadFiles);
 }
 
-uploadToDrive()
+uploadToDrive().catch(console.error);
