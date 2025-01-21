@@ -1,202 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include("../partials/head") %>
-<body>
-    <%- include("../partials/header") %>
-    <main>
-        <header>
-            <h1>Editar Póliza #<%= poliza.n_poliza %></h1>
-            <nav>
-                <a href="/clientes/detalle/<%= cliente.id %>">Volver al perfil del cliente</a>
-                <a href="/polizas/">Volver al listado de polizas</a>
-            </nav>
-        </header>
-        <form action="/polizas/actualizar" method="POST" id="edit-poliza-form">
-            <fieldset>
-                <label for="n_poliza" class="label" id="label_n_poliza">N Poliza
-                </label>
-                <input type="number" name="n_poliza" id="n_poliza" value="<%= poliza.n_poliza %>">
-            </fieldset>
-            <fieldset>
-                <label for="f_ini_vigencia" class="label" id="label_f_ini_vigencia">
-                    Inicio Vigencia
-                </label>
-                <input type="date" name="f_ini_vigencia" id="f_ini_vigencia" value="<%= poliza.f_ini_vigencia %>">
-            </fieldset>
-            <fieldset>
-                <label for="cuotas">
-                    Cuotas
-                </label>
-                <% if (pagos.length == 0) { %>
-                    <select name="cuotas" id="cuotas">
-                        <option value="0" disabled> Cantidad de Cuotas</option>
-                        <option value="1" <%= poliza.cuotas == 1 ? 'selected' : '' %>>1</option>
-                        <option value="2" <%= poliza.cuotas == 2 ? 'selected' : '' %>>2</option>
-                        <option value="3" <%= poliza.cuotas == 3 ? 'selected' : '' %>>3</option>
-                        <option value="4" <%= poliza.cuotas == 4 ? 'selected' : '' %>>4</option>
-                        <option value="5" <%= poliza.cuotas == 5 ? 'selected' : '' %>>5</option>
-                        <option value="6" <%= poliza.cuotas == 6 ? 'selected' : '' %>>6</option>
-                        <option value="7" <%= poliza.cuotas == 7 ? 'selected' : '' %>>7</option>
-                        <option value="8" <%= poliza.cuotas == 8 ? 'selected' : '' %>>8</option>
-                        <option value="9" <%= poliza.cuotas == 9 ? 'selected' : '' %>>9</option>
-                        <option value="10" <%= poliza.cuotas == 10 ? 'selected' : '' %>>10</option>
-                        <option value="11" <%= poliza.cuotas == 11 ? 'selected' : '' %>>11</option>
-                        <option value="12" <%= poliza.cuotas == 12 ? 'selected' : '' %>>12</option>
-                    </select>
-                <% } else { %>
-                    <select name="cuotas" id="cuotas" disabled>
-                        <option value="0" disabled> Cantidad de Cuotas</option>
-                        <option value="1" <%= poliza.cuotas == 1 ? 'selected' : '' %>>1</option>
-                        <option value="2" <%= poliza.cuotas == 2 ? 'selected' : '' %>>2</option>
-                        <option value="3" <%= poliza.cuotas == 3 ? 'selected' : '' %>>3</option>
-                        <option value="4" <%= poliza.cuotas == 4 ? 'selected' : '' %>>4</option>
-                        <option value="5" <%= poliza.cuotas == 5 ? 'selected' : '' %>>5</option>
-                        <option value="6" <%= poliza.cuotas == 6 ? 'selected' : '' %>>6</option>
-                        <option value="7" <%= poliza.cuotas == 7 ? 'selected' : '' %>>7</option>
-                        <option value="8" <%= poliza.cuotas == 8 ? 'selected' : '' %>>8</option>
-                        <option value="9" <%= poliza.cuotas == 9 ? 'selected' : '' %>>9</option>
-                        <option value="10" <%= poliza.cuotas == 10 ? 'selected' : '' %>>10</option>
-                        <option value="11" <%= poliza.cuotas == 11 ? 'selected' : '' %>>11</option>
-                        <option value="12" <%= poliza.cuotas == 12 ? 'selected' : '' %>>12</option>
-                    </select>
-                <% } %>
-            </fieldset>
-            <fieldset>
-                <label for="empresa">
-                    Empresa
-                </label>
-                <select name="empresa" id="empresa">
-                    <option value="0" disabled >Empresa</option>
-                    <% empresas.forEach(empresa=> { %>
-                        <% if (empresa.id == poliza.empresa) { %>
-                            <option value="<%= empresa.id %>" selected>
-                                <%= empresa.nombre %>
-                            </option>
-                        <% } else { %>
-                            <option value="<%= empresa.id %>">
-                                <%= empresa.nombre %>
-                            </option>
-                        <% } %>
-                    <% }) %>
-                </select>
-            </fieldset>
+<%- include("../partials/head") %>
 
-            <fieldset>
-                <label for="cobertura">Cobertura</label>
-                <select name="cobertura" id="cobertura">
-                    <option value="0" disabled selected> Cobertura</option>
-                    <% empresas.forEach(empresa=> { %>
-                        <optgroup label="<%= empresa.nombre %>">
-                            <% coberturas.forEach(cobertura=> { %>
-                                <% if (empresa.coberturas.includes(cobertura.id)) { %>
-                                    <% if (poliza.cobertura == cobertura.id) { %>
-                                        <option value="<%= cobertura.id %>" selected>
-                                            <%= cobertura.nombre %>
-                                        </option>
+    <body>
+        <%- include("../partials/header") %>
+            <main>
+                <header>
+                    <h1>Editar Póliza #<%= poliza.n_poliza %>
+                    </h1>
+                    <nav>
+                        <a href="/clientes/detalle/<%= cliente.id %>">Volver al perfil del cliente</a>
+                        <a href="/polizas/">Volver al listado de polizas</a>
+                    </nav>
+                </header>
+                <form action="/polizas/actualizar" method="POST" id="edit-poliza-form">
+                    <fieldset>
+                        <label for="n_poliza" class="label" id="label_n_poliza">N Poliza
+                        </label>
+                        <input type="number" name="n_poliza" id="n_poliza" value="<%= poliza.n_poliza %>">
+                    </fieldset>
+                    <fieldset>
+                        <label for="f_ini_vigencia" class="label" id="label_f_ini_vigencia">
+                            Inicio Vigencia
+                        </label>
+                        <input type="date" name="f_ini_vigencia" id="f_ini_vigencia"
+                            value="<%= poliza.f_ini_vigencia %>">
+                    </fieldset>
+                    <fieldset>
+                        <label for="periodo">Periodo de Vigencia</label>
+                        <% if (poliza.periodo==0) { %>
+                            <select name="periodo" id="periodo" required>
+                                <option value="0" disabled selected> Periodo de Vigencia</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <% } else { %>
+                                <select name="periodo" id="periodo">
+                                    <option value="0" disabled> Cantidad de Cuotas</option>
+                                    <option value="1" <%=poliza.periodo==1 ? 'selected' : '' %>>1</option>
+                                    <option value="2" <%=poliza.periodo==2 ? 'selected' : '' %>>2</option>
+                                    <option value="3" <%=poliza.periodo==3 ? 'selected' : '' %>>3</option>
+                                    <option value="4" <%=poliza.periodo==4 ? 'selected' : '' %>>4</option>
+                                    <option value="5" <%=poliza.periodo==5 ? 'selected' : '' %>>5</option>
+                                    <option value="6" <%=poliza.periodo==6 ? 'selected' : '' %>>6</option>
+                                    <option value="7" <%=poliza.periodo==7 ? 'selected' : '' %>>7</option>
+                                    <option value="8" <%=poliza.periodo==8 ? 'selected' : '' %>>8</option>
+                                    <option value="9" <%=poliza.periodo==9 ? 'selected' : '' %>>9</option>
+                                    <option value="10" <%=poliza.periodo==10 ? 'selected' : '' %>>10</option>
+                                    <option value="11" <%=poliza.periodo==11 ? 'selected' : '' %>>11</option>
+                                    <option value="12" <%=poliza.periodo==12 ? 'selected' : '' %>>12</option>
+                                </select>
+                                <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <label for="cuotas">
+                            Cuotas
+                        </label>
+                        <% if (pagos.length==0) { %>
+                            <select name="cuotas" id="cuotas">
+                                <option value="0" disabled> Cantidad de Cuotas</option>
+                                <option value="1" <%=poliza.cuotas==1 ? 'selected' : '' %>>1</option>
+                                <option value="2" <%=poliza.cuotas==2 ? 'selected' : '' %>>2</option>
+                                <option value="3" <%=poliza.cuotas==3 ? 'selected' : '' %>>3</option>
+                                <option value="4" <%=poliza.cuotas==4 ? 'selected' : '' %>>4</option>
+                                <option value="5" <%=poliza.cuotas==5 ? 'selected' : '' %>>5</option>
+                                <option value="6" <%=poliza.cuotas==6 ? 'selected' : '' %>>6</option>
+                                <option value="7" <%=poliza.cuotas==7 ? 'selected' : '' %>>7</option>
+                                <option value="8" <%=poliza.cuotas==8 ? 'selected' : '' %>>8</option>
+                                <option value="9" <%=poliza.cuotas==9 ? 'selected' : '' %>>9</option>
+                                <option value="10" <%=poliza.cuotas==10 ? 'selected' : '' %>>10</option>
+                                <option value="11" <%=poliza.cuotas==11 ? 'selected' : '' %>>11</option>
+                                <option value="12" <%=poliza.cuotas==12 ? 'selected' : '' %>>12</option>
+                            </select>
+                            <% } else { %>
+                                <select name="cuotas" id="cuotas" disabled>
+                                    <option value="0" disabled> Cantidad de Cuotas</option>
+                                    <option value="1" <%=poliza.cuotas==1 ? 'selected' : '' %>>1</option>
+                                    <option value="2" <%=poliza.cuotas==2 ? 'selected' : '' %>>2</option>
+                                    <option value="3" <%=poliza.cuotas==3 ? 'selected' : '' %>>3</option>
+                                    <option value="4" <%=poliza.cuotas==4 ? 'selected' : '' %>>4</option>
+                                    <option value="5" <%=poliza.cuotas==5 ? 'selected' : '' %>>5</option>
+                                    <option value="6" <%=poliza.cuotas==6 ? 'selected' : '' %>>6</option>
+                                    <option value="7" <%=poliza.cuotas==7 ? 'selected' : '' %>>7</option>
+                                    <option value="8" <%=poliza.cuotas==8 ? 'selected' : '' %>>8</option>
+                                    <option value="9" <%=poliza.cuotas==9 ? 'selected' : '' %>>9</option>
+                                    <option value="10" <%=poliza.cuotas==10 ? 'selected' : '' %>>10</option>
+                                    <option value="11" <%=poliza.cuotas==11 ? 'selected' : '' %>>11</option>
+                                    <option value="12" <%=poliza.cuotas==12 ? 'selected' : '' %>>12</option>
+                                </select>
+                                <% } %>
+                    </fieldset>
+                    <fieldset>
+                        <label for="empresa">
+                            Empresa
+                        </label>
+                        <select name="empresa" id="empresa">
+                            <option value="0" disabled>Empresa</option>
+                            <% empresas.forEach(empresa=> { %>
+                                <% if (empresa.id==poliza.empresa) { %>
+                                    <option value="<%= empresa.id %>" selected>
+                                        <%= empresa.nombre %>
+                                    </option>
                                     <% } else { %>
-                                        <option value="<%= cobertura.id %>">
-                                            <%= cobertura.nombre %>
+                                        <option value="<%= empresa.id %>">
+                                            <%= empresa.nombre %>
                                         </option>
-                                    <% } %>
-                                <% } }) %>
-                        </optgroup>
-                    <% }) %>
-                </select>
-            </fieldset>
-            <fieldset>
-                <label for="marca">
-                    Marca del Vehiculo
-                </label>
-                <select name="marca" id="marca">
-                    <option value="0" disabled> Marca del Vehiculo</option>
-                    <% autos.forEach(auto=> { %>
-                        <% if (auto.id == poliza.auto) { %>
-                            <option value="<%= auto.id %>" selected>
-                                <%= auto.marca %>
-                            </option>
-                        <% } else { %>
-                            <option value="<%= auto.id %>">
-                                <%= auto.marca %>
-                            </option>
-                        <% } %>
-                        <% }) %>
-                </select>
-            </fieldset>
-            <fieldset>
-                <label for="modelo">
-                    Modelo del Vehiculo
-                </label>
-                <input type="text" name="modelo" id="modelo" value="<%= poliza.modelo %>">
-            </fieldset>
-            <fieldset>
-                <label for="patente">
-                    Patente del Vehiculo
-                </label>
-                <input type="text" name="patente" id="patente" value="<%= poliza.patente %>">
-            </fieldset>
-            <fieldset>
-                <label for="anio">
-                    Año del Vehiculo
-                </label>
-                <input type="number" name="anio" id="anio" value="<%= poliza.anio %>">
-            </fieldset>
-            <fieldset>
-                <label for="suma" class="label" id="label_suma">
-                    Suma Asegurada
-                </label>
-                <input type="number" name="suma" id="suma" value="<%= poliza.suma %>">
-            </fieldset>
-            <fieldset>
-                <label for="n_chasis">
-                    N Chasis
-                </label>
-                <input type="text" name="n_chasis" id="n_chasis" value="<%= poliza.n_chasis %>">
-            </fieldset>
-            <fieldset>
-                <label for="n_motor">
-                    N motor
-                </label>
-                <input type="text" name="n_motor" id="n_motor" value="<%= poliza.n_motor %>">
-            </fieldset>
-            <fieldset>
-                <label for="combustible">
-                    Combustible del Vehiculo
-                </label>
-                <select name="combustible" id="combustible">
-                    <option value="0" disabled >Combustible del Vehiculo</option>
-                    <option value="nafta" <%= poliza.combustible == 'nafta' ? 'selected' : '' %>>Nafta</option>
-                    <option value="diesel" <%= poliza.combustible == 'diesel' ? 'selected' : '' %>>Diesel</option>
-                    <option value="GNC" <%= poliza.combustible == 'GNC' ? 'selected' : '' %>>GNC</option>
-                    <option value="electrico" <%= poliza.combustible == 'electrico' ? 'selected' : '' %>>Electrico</option>
-                </select>
-            </fieldset>
-            <fieldset>
-                <label for="precio">
-                    Premio Total de la Poliza
-                </label>
-                <input type="number" name="precio" id="precio" value="<%= poliza.precio %>">
-            </fieldset>
-            <input type="hidden" id="id_cliente" name="clientId" value="<%= cliente.id %>">
-            <input type="hidden" id="id" name="id" value="<%= poliza.id %>">
+                                        <% } %>
+                                            <% }) %>
+                        </select>
+                    </fieldset>
 
-            <fieldset>
-                <button type="submit">Actualizar</button>
-            </fieldset>
-        </form>
-    </main>
-    <script>
-        document.querySelector("#empresa").addEventListener('change', (e) => {
-            const { value } = e.target
-            disabledGroup(value)
-        })
-        const disabledGroup = (value) => {
-            document.querySelectorAll('#cobertura optgroup').forEach((group) => group.disabled = true)
-            const option = document.querySelector(`#empresa option[value='${value}']`)
-            const label = String(option.innerText).trim()
-            const group = document.querySelector(`#cobertura optgroup[label='${label}']`)
-            group.disabled = false
-        }
-        disabledGroup('<%= poliza.empresa %>')
-    </script>
-</body>
+                    <fieldset>
+                        <label for="cobertura">Cobertura</label>
+                        <select name="cobertura" id="cobertura">
+                            <option value="0" disabled selected> Cobertura</option>
+                            <% empresas.forEach(empresa=> { %>
+                                <optgroup label="<%= empresa.nombre %>">
+                                    <% coberturas.forEach(cobertura=> { %>
+                                        <% if (empresa.coberturas.includes(cobertura.id)) { %>
+                                            <% if (poliza.cobertura==cobertura.id) { %>
+                                                <option value="<%= cobertura.id %>" selected>
+                                                    <%= cobertura.nombre %>
+                                                </option>
+                                                <% } else { %>
+                                                    <option value="<%= cobertura.id %>">
+                                                        <%= cobertura.nombre %>
+                                                    </option>
+                                                    <% } %>
+                                                        <% } }) %>
+                                </optgroup>
+                                <% }) %>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <label for="marca">
+                            Marca del Vehiculo
+                        </label>
+                        <select name="marca" id="marca">
+                            <option value="0" disabled> Marca del Vehiculo</option>
+                            <% autos.forEach(auto=> { %>
+                                <% if (auto.id==poliza.auto) { %>
+                                    <option value="<%= auto.id %>" selected>
+                                        <%= auto.marca %>
+                                    </option>
+                                    <% } else { %>
+                                        <option value="<%= auto.id %>">
+                                            <%= auto.marca %>
+                                        </option>
+                                        <% } %>
+                                            <% }) %>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <label for="modelo">
+                            Modelo del Vehiculo
+                        </label>
+                        <input type="text" name="modelo" id="modelo" value="<%= poliza.modelo %>">
+                    </fieldset>
+                    <fieldset>
+                        <label for="patente">
+                            Patente del Vehiculo
+                        </label>
+                        <input type="text" name="patente" id="patente" value="<%= poliza.patente %>">
+                    </fieldset>
+                    <fieldset>
+                        <label for="anio">
+                            Año del Vehiculo
+                        </label>
+                        <input type="number" name="anio" id="anio" value="<%= poliza.anio %>">
+                    </fieldset>
+                    <fieldset>
+                        <label for="suma" class="label" id="label_suma">
+                            Suma Asegurada
+                        </label>
+                        <input type="number" name="suma" id="suma" value="<%= poliza.suma %>">
+                    </fieldset>
+                    <fieldset>
+                        <label for="n_chasis">
+                            N Chasis
+                        </label>
+                        <input type="text" name="n_chasis" id="n_chasis" value="<%= poliza.n_chasis %>">
+                    </fieldset>
+                    <fieldset>
+                        <label for="n_motor">
+                            N motor
+                        </label>
+                        <input type="text" name="n_motor" id="n_motor" value="<%= poliza.n_motor %>">
+                    </fieldset>
+                    <fieldset>
+                        <label for="combustible">
+                            Combustible del Vehiculo
+                        </label>
+                        <select name="combustible" id="combustible">
+                            <option value="0" disabled>Combustible del Vehiculo</option>
+                            <option value="nafta" <%=poliza.combustible=='nafta' ? 'selected' : '' %>>Nafta</option>
+                            <option value="diesel" <%=poliza.combustible=='diesel' ? 'selected' : '' %>>Diesel</option>
+                            <option value="GNC" <%=poliza.combustible=='GNC' ? 'selected' : '' %>>GNC</option>
+                            <option value="electrico" <%=poliza.combustible=='electrico' ? 'selected' : '' %>>Electrico
+                            </option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <label for="precio">
+                            Premio Total de la Poliza
+                        </label>
+                        <input type="number" name="precio" id="precio" value="<%= poliza.precio %>">
+                    </fieldset>
+                    <input type="hidden" id="id_cliente" name="clientId" value="<%= cliente.id %>">
+                    <input type="hidden" id="id" name="id" value="<%= poliza.id %>">
+
+                    <fieldset>
+                        <button type="submit">Actualizar</button>
+                    </fieldset>
+                </form>
+            </main>
+            <script>
+                document.querySelector("#empresa").addEventListener('change', (e) => {
+                    const { value } = e.target
+                    disabledGroup(value)
+                })
+                const disabledGroup = (value) => {
+                    document.querySelectorAll('#cobertura optgroup').forEach((group) => group.disabled = true)
+                    const option = document.querySelector(`#empresa option[value='${value}']`)
+                    const label = String(option.innerText).trim()
+                    const group = document.querySelector(`#cobertura optgroup[label='${label}']`)
+                    group.disabled = false
+                }
+                disabledGroup('<%= poliza.empresa %>')
+            </script>
+    </body>
+
 </html>
