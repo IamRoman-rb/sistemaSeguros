@@ -74,5 +74,4 @@ const uploadToDrive = async () => {
 
     return await authorize(uploadFiles);
 }
-
-uploadToDrive().catch(console.error);
+export default uploadToDrive
