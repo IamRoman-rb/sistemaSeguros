@@ -25,5 +25,29 @@
     "observaciones": "234829384",
     "desconocido": true,
     "id_cobrador": 1
+  },
+  {
+    "id": 1737559096042,
+    "id_cliente": 1736473877514,
+    "id_poliza": 3,
+    "n_poliza": 485,
+    "fecha": "2025-01-22",
+    "hora": "12:18:16",
+    "valor": 15222,
+    "observaciones": "8092472394",
+    "desconocido": false,
+    "id_cobrador": 1
+  },
+  {
+    "id": 1737559323271,
+    "id_cliente": 1736473877514,
+    "id_poliza": 2,
+    "n_poliza": 152,
+    "fecha": "2025-01-22",
+    "hora": "12:22:3",
+    "valor": 31250,
+    "observaciones": "5878237582375",
+    "desconocido": false,
+    "id_cobrador": 1
   }
 ]
