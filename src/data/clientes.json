@@ -1,21 +1,6 @@
 [
   {
-    "id": 1736473877514,
-    "nombre": "Eduardo Miguel Virgilio",
-    "cuit": "20408088616",
-    "fecha_n": "1996-02-16",
-    "telefono": "01132644188",
-    "provincia": "1",
-    "localidad": "1",
-    "direccion": "Yerbal 1925",
-    "polizas": [
-      2,
-      3,
-      4
-    ]
-  },
-  {
-    "id": 1736783661522,
+    "id": 1737561772538,
     "nombre": "ROMAN BORLA",
     "cuit": "20458123617",
     "fecha_n": "2004-03-23",
@@ -23,7 +8,10 @@
     "provincia": "2",
     "localidad": "223",
     "direccion": "CALLE 18 346",
-    "polizas": [],
-    "inhabilitado": false
+    "polizas": [
+      1
+    ],
+    "telefono_fijo": "0",
+    "email": "roman.borla2004@gmail.com"
   }
 ]

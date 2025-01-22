@@ -46,7 +46,7 @@
           <dd><%= poliza.f_ini_vigencia %></dd>
           <dt>Fin Vigencia:</dt>
           <dd><%= poliza.f_fin_vigencia %></dd>
-          <dt>Precio de la Poliza:</dt>
+          <dt>Premio:</dt>
           <dd><%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(poliza.precio) %></dd>
           <dt>Empresa:</dt>
           <dd><%= poliza.empresa.nombre %></dd>
@@ -90,7 +90,7 @@
                   <dd><%= pago.fecha %> a las <%= pago.hora %></dd>
                 </dl>
                 <dl>
-                  <dt>Premio:</dt>
+                  <dt>Importe:</dt>
                   <dd><%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.valor) %></dd>
                 </dl>
                 <dl>

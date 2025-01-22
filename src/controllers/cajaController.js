@@ -38,14 +38,24 @@ export const caja = async (req, res) => {
     path.resolve(process.cwd(), "src/data", "usuarios.json"),
   ];
   try {
+
+    const fechaActual = new Date();
+    const anioActual = fechaActual.getFullYear();
+    const mesActual = fechaActual.getMonth();
+    const diaActual = (fechaActual.getDate() - 1);
+  
     let [pagos, polizas, caja, sucursales, coberturas, clientes, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
     let ingresos = caja.filter(item => item.tipo === 'ingreso');
     let egresos = caja.filter(item => item.tipo === 'egreso');
 
-    ingresos = ingresos.filter(ingreso => new Date(ingreso.fecha).getFullYear() === new Date().getFullYear() && new Date(ingreso.fecha).getMonth() === new Date().getMonth());
-    egresos = egresos.filter(egreso => new Date(egreso.fecha).getFullYear() === new Date().getFullYear() && new Date(egreso.fecha).getMonth() === new Date().getMonth());
 
-    pagos = pagos.filter(pago => new Date(pago.fecha).getFullYear() === new Date().getFullYear() && new Date(pago.fecha).getMonth() === new Date().getMonth());
+
+    ingresos = ingresos.filter(ingreso => new Date(ingreso.fecha).getFullYear() === anioActual && new Date(ingreso.fecha).getMonth() === mesActual && new Date(ingreso.fecha).getDate() === diaActual);
+    egresos = egresos.filter(egreso => new Date(egreso.fecha).getFullYear() === anioActual && new Date(egreso.fecha).getMonth() === mesActual && new Date(egreso.fecha).getDate() === diaActual);
+
+
+
+    pagos = pagos.filter(pago => new Date(pago.fecha).getFullYear() === anioActual && new Date(pago.fecha).getMonth() === mesActual && new Date(pago.fecha).getDate() === diaActual);
     pagos = pagos.map(pago =>{
       let poliza = polizas.find(poliza => poliza.id === Number(pago.id_poliza));
       let cliente = clientes.find(cliente => cliente.id === Number(poliza.clienteId));
@@ -62,10 +72,13 @@ export const caja = async (req, res) => {
       });
     });
 
-    let pagosConIngresos = pagos.filter(pago => pago.forma_pago === 'efectivo');
-    let pagosConEgresos = pagos.filter(pago => pago.forma_pago === 'transferencia');
+    let pagosEnEfectivo = pagos.filter(pago => pago.forma_pago === 'efectivo');
+    let pagosEnTransferencia = pagos.filter(pago => pago.forma_pago === 'transferencia');
 
-    return res.status(200).render("caja/caja",{ ingresos, egresos, pagosConIngresos, pagosConEgresos });
+    let total = pagosEnEfectivo.reduce((p, a) => { return p += Number(a.valor)}, 0 ) + ingresos.reduce((p, a) => { return p += Number(a.monto) }, 0) - egresos.reduce((p, a) => { return p += Number(a.monto) }, 0) - pagosEnTransferencia.reduce((p, a) => { return p += Number(a.valor) }, 0)
+   
+
+    return res.status(200).render("caja/caja",{ ingresos, egresos, pagosEnEfectivo, pagosEnTransferencia, total });
   } catch (error) {
     console.error('Error en la carga de la caja', error.message);
     res.status(500).send('Error al cargar la caja');

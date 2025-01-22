@@ -1,10 +1,18 @@
 [
   {
-    "id": 1736775594358,
-    "monto": "25000",
-    "tipo": "ingreso",
-    "motivo": "Pago",
-    "descripcion": "Pago de otras polizas",
-    "fecha": "2025-01-13"
+    "id": 1737563301542,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "ERROR",
+    "descripcion": "JKGEGFERGEWG",
+    "fecha": "2025-01-22"
+  },
+  {
+    "id": 1737564593715,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "ERROR",
+    "descripcion": "gergnegerGERGER",
+    "fecha": "2025-02-22"
   }
 ]

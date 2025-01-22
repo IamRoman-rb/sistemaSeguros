@@ -42,6 +42,10 @@
               <dt>Cobertura</dt>
               <dd><%= poliza.cobertura.nombre %></dd>
             </dl>
+            <dl>
+              <dt>Importe</dt>
+              <dd><%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format((poliza.precio / poliza.cuotas)) %></dd>
+            </dl>
           </li>
           <li>
             <p>Vehiculo</p>
