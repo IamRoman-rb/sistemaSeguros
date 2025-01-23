@@ -161,8 +161,17 @@ export const resumen = async (req, res) => {
     
     let usuario_filtrado = usuarios.find(user => user.id == usuario.id);
 
-    caja = caja.filter((c) => c.id_usuario == usuario_filtrado.id);
-    pagos = pagos.filter((p) => p.id_usuario == usuario_filtrado.id);
+    caja = caja.map((c) => {
+      let cobrador = usuarios.find(usuarios => usuarios.id === Number(c.id_usuario));
+      return ({...c, cobrador});
+    });
+    pagos = pagos.map((c) => {
+      let cobrador = usuarios.find(usuarios => usuarios.id === Number(c.id_cobrador));
+      return ({...c, cobrador});
+    });
+
+    caja = caja.filter((c) => c.cobrador.sucursal == usuario_filtrado.sucursal);
+    pagos = pagos.filter((p) => p.cobrador.sucursal == usuario_filtrado.sucursal);
 
     resumenes = resumenes.map(resumen => {
       let ingresosCaja = caja.filter(item => item.tipo === 'ingreso' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
