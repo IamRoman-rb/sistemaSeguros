@@ -14,5 +14,23 @@
     "motivo": "ERROR",
     "descripcion": "gergnegerGERGER",
     "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "1",
+    "id": 1737590188216,
+    "monto": "50000",
+    "tipo": "ingreso",
+    "motivo": "PAGO POLIZA",
+    "descripcion": "NFGVEWJNVJWERN",
+    "fecha": "2025-01-22"
+  },
+  {
+    "id_usuario": "1",
+    "id": 1737591130006,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "cambio",
+    "descripcion": "sanmgvwnogvw",
+    "fecha": "2025-01-22"
   }
 ]

@@ -24,5 +24,44 @@
     "observaciones": "2352523",
     "desconocido": false,
     "id_cobrador": 1
+  },
+  {
+    "id": 1737589273466,
+    "id_cliente": 1737561772538,
+    "id_poliza": 1,
+    "n_poliza": 123123,
+    "fecha": "2025-01-22",
+    "hora": "20:41:13",
+    "valor": 28000,
+    "forma_pago": "efectivo",
+    "observaciones": "fwegfrwegr5yhg465yh",
+    "desconocido": false,
+    "id_cobrador": 1
+  },
+  {
+    "id": 1737590221917,
+    "id_cliente": 1737561772538,
+    "id_poliza": 1,
+    "n_poliza": 123123,
+    "fecha": "2025-01-22",
+    "hora": "20:57:1",
+    "valor": 28000,
+    "forma_pago": "efectivo",
+    "observaciones": "FWQEGEWRGWEBWB",
+    "desconocido": false,
+    "id_cobrador": 1
+  },
+  {
+    "id": 1737591324556,
+    "id_cliente": 1737561772538,
+    "id_poliza": 2,
+    "n_poliza": 54235432,
+    "fecha": "2025-01-22",
+    "hora": "21:15:24",
+    "valor": 7000,
+    "forma_pago": "transferencia",
+    "observaciones": "gergewdbvsebers",
+    "desconocido": false,
+    "id_cobrador": 1
   }
 ]

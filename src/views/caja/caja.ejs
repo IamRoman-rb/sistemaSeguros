@@ -55,12 +55,20 @@
                             <dl>
                                 <dt>Fecha:</dt>
                                 <dd><%= pago.fecha %></dd>
+                            </dl>
+                            <dl>
                                 <dt>Egreso:</dt>
                                 <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.valor) %></dd>
+                            </dl>
+                            <dl>
                                 <dt>Cliente:</dt>
                                 <dd><%= pago.cliente %></dd>
+                            </dl>
+                            <dl>
                                 <dt>Cobrador:</dt>
                                 <dd><%= pago.cobrador %></dd>
+                            </dl>
+                            <dl>
                                 <dt>Descripcion:</dt>
                                 <dd><%= pago.descripcion %></dd>
                             </dl>

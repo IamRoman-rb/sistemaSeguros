@@ -48,14 +48,21 @@ export const caja = async (req, res) => {
     let ingresos = caja.filter(item => item.tipo === 'ingreso');
     let egresos = caja.filter(item => item.tipo === 'egreso');
 
-
-
+    let usuario = req.session.user;
+    
+    let usuario_filtrado = usuarios.filter(user => user.id == usuario.id);
+  
+    ingresos = ingresos.filter(ingreso => ingreso.id_usuario == usuario_filtrado[0].id);
+    egresos = egresos.filter(egresos => egresos.id_usuario == usuario_filtrado[0].id);
+    pagos = pagos.filter(pagos => pagos.id_cobrador == usuario_filtrado[0].id);
+    
     ingresos = ingresos.filter(ingreso => new Date(ingreso.fecha).getFullYear() === anioActual && new Date(ingreso.fecha).getMonth() === mesActual && new Date(ingreso.fecha).getDate() === diaActual);
     egresos = egresos.filter(egreso => new Date(egreso.fecha).getFullYear() === anioActual && new Date(egreso.fecha).getMonth() === mesActual && new Date(egreso.fecha).getDate() === diaActual);
 
-
+    
 
     pagos = pagos.filter(pago => new Date(pago.fecha).getFullYear() === anioActual && new Date(pago.fecha).getMonth() === mesActual && new Date(pago.fecha).getDate() === diaActual);
+    
     pagos = pagos.map(pago =>{
       let poliza = polizas.find(poliza => poliza.id === Number(pago.id_poliza));
       let cliente = clientes.find(cliente => cliente.id === Number(poliza.clienteId));
@@ -73,9 +80,9 @@ export const caja = async (req, res) => {
     });
 
     let pagosEnEfectivo = pagos.filter(pago => pago.forma_pago === 'efectivo');
-    let pagosEnTransferencia = pagos.filter(pago => pago.forma_pago === 'transferencia');
+    let pagosEnTransferencia = pagos.filter(pago => pago.forma_pago === 'transferencia');    
 
-    let total = pagosEnEfectivo.reduce((p, a) => { return p += Number(a.valor)}, 0 ) + ingresos.reduce((p, a) => { return p += Number(a.monto) }, 0) - egresos.reduce((p, a) => { return p += Number(a.monto) }, 0) - pagosEnTransferencia.reduce((p, a) => { return p += Number(a.valor) }, 0)
+    let total = pagosEnEfectivo.reduce((p, a) => { return p += Number(a.valor)}, 0 ) + ingresos.reduce((p, a) => { return p += Number(a.monto) }, 0) - egresos.reduce((p, a) => { return p += Number(a.monto) }, 0);
    
 
     return res.status(200).render("caja/caja",{ ingresos, egresos, pagosEnEfectivo, pagosEnTransferencia, total });
@@ -94,7 +101,8 @@ export const ingreso = async (req, res) => {
     caja = caja.filter(item => item.tipo === 'ingreso');
     let motivos = caja.map(item => item.motivo);
     motivos = [...new Set(motivos)];
-    res.render('caja/ingresos', { motivos })
+    
+    res.render('caja/ingresos', { motivos, id: req.session.user.id})
   } catch (error) {
     console.error('Error en la carga de la caja', error.message);
     res.status(500).send('Error al cargar la caja');
@@ -110,7 +118,7 @@ export const egreso = async (req, res) => {
     caja = caja.filter(item => item.tipo === 'egreso');
     let motivos = caja.map(item => item.motivo);
     motivos = [...new Set(motivos)];
-    res.render('caja/egresos', { motivos })
+    res.render('caja/egresos', { motivos, id: req.session.user.id })
   } catch (error) {
     console.error('Error en la carga de la caja', error.message);
     res.status(500).send('Error al cargar la caja');
@@ -124,11 +132,11 @@ export const guardar = async (req, res) => {
   ];
   try {
     let [caja] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
-    const { monto, tipo, motivo, descripcion } = req.body;
+    const { id_usuario, monto, tipo, motivo, descripcion } = req.body;
     const time = new Date();
     const id = time.getTime();
     const formatDate = time.getFullYear() + "-" + ("0" + (time.getMonth() + 1)).slice(-2) + "-" + ("0" + time.getDate()).slice(-2);
-    const nuevo = { id, monto, tipo, motivo, descripcion, fecha: formatDate };
+    const nuevo = { id_usuario, id, monto, tipo, motivo, descripcion, fecha: formatDate};
     caja.push(nuevo);
     await writeFile(path.resolve(process.cwd(), "src/data", "caja.json"), JSON.stringify(caja, null, 2));
     res.redirect('/caja');

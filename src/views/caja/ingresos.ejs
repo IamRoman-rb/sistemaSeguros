@@ -10,6 +10,7 @@
         </header>
         <form action="/caja/guardar" method="POST">
             <input type="hidden" name="tipo" value="ingreso">
+            <input type="hidden" name="id_usuario" value="<%= id %>">
             <fieldset>
                 <label for="monto">Monto</label>
                 <input type="number" name="monto" id="monto" required min="100">
