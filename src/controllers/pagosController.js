@@ -394,6 +394,8 @@ export const eliminar = async (req, res) => {
     ];
     let [pagos, polizas] = await Promise.all(resources.map(async (file) => JSON.parse(await readFile(file, "utf-8"))));
 
+    let poliza = polizas.find((p) => p.id == polizaId);
+
     // Encontrar el pago
     const pago = pagos.findIndex((p) => p.id === Number(pagoId));
     if (pago === -1) {
@@ -401,9 +403,11 @@ export const eliminar = async (req, res) => {
     }
     // Desconocer el pago
     pagos[pago].desconocido = true;
+    poliza.pagos = poliza.pagos.filter((p) => p != pagos[pago].id);
 
     // Actualizar el archivo de pagos
     await writeFile(resources[0], JSON.stringify(pagos, null, 2));
+    await writeFile(resources[1], JSON.stringify(polizas, null, 2));
 
     // Redirigir a la lista de pagos o a una vista de confirmación
     res.redirect(`/polizas/detalle/${polizaId}`);

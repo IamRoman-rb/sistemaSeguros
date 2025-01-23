@@ -11,7 +11,7 @@
         <% if (poliza.pagos.length == 0) { %>
           <a href="/polizas/editar/<%= poliza.id %>">Editar</a>
         <% } %>
-        <% if (poliza.pagos.length < poliza.cuotas) { %>
+        <% if ( poliza.pagos.filter(pago => !pago.desconocido).length < poliza.cuotas) { %>
           <a href="/pagos/pagar/<%= poliza.id %>">Nuevo Pago</a>
         <% } %>
         <% if (!["Empleado"].includes(user.rol)) { %>

@@ -62,6 +62,7 @@ export const caja = async (req, res) => {
     
 
     pagos = pagos.filter(pago => new Date(pago.fecha).getFullYear() === anioActual && new Date(pago.fecha).getMonth() === mesActual && new Date(pago.fecha).getDate() === diaActual);
+    pagos = pagos.filter(pago => !pago.desconocido);
     
     pagos = pagos.map(pago =>{
       let poliza = polizas.find(poliza => poliza.id === Number(pago.id_poliza));
@@ -156,6 +157,8 @@ export const resumen = async (req, res) => {
   try {
     let [caja, pagos, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
     let resumenes = Array.from({length:12}, (_, i) => ({ mes: i + 1, anio: new Date().getFullYear(),  ingresos: [], egresos: [], balance: 0}))
+
+    pagos = pagos.filter(pago => !pago.desconocido);
 
     let usuario = req.session.user;
     

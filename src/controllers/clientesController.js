@@ -153,7 +153,7 @@ export const eliminar = async (req, res) => {
 
         // Ocultar las pólizas que pertenecen al cliente a eliminar
         polizas = polizas.map((p) => {
-            if (p.id_cliente == id) {
+            if (p.clienteId == id) {
                 p.inhabilitado = true;
             }
             return p;
@@ -161,7 +161,7 @@ export const eliminar = async (req, res) => {
 
         // Desconocer los pagos que pertenecen a las pólizas eliminadas
         pagos = pagos.map((p) => {
-            if (p.id_poliza == id) {
+            if (p.id_cliente == id) {
                 p.desconocido = true;
             }
             return p;

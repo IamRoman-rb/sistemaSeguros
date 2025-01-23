@@ -10,8 +10,8 @@
     "forma_pago": "efectivo",
     "observaciones": "HGBESRBSDBDRS",
     "n_cuota": 1,
-    "desconocido": false,
-    "id_cobrador": 2
+    "id_cobrador": 2,
+    "desconocido": true
   },
   {
     "id": 1737645031995,
@@ -24,7 +24,6 @@
     "forma_pago": "transferencia",
     "observaciones": "SEGUNDA CUOTA",
     "n_cuota": 2,
-    "desconocido": false,
     "id_cobrador": 2
   },
   {
@@ -38,7 +37,6 @@
     "forma_pago": "efectivo",
     "observaciones": "TERCERA CUOTA",
     "n_cuota": 3,
-    "desconocido": false,
     "id_cobrador": 2
   },
   {
@@ -52,7 +50,6 @@
     "forma_pago": "transferencia",
     "observaciones": "ULTIMA CUOTA",
     "n_cuota": 4,
-    "desconocido": false,
     "id_cobrador": 2
   }
 ]
