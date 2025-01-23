@@ -240,7 +240,7 @@ export const actualizar = async (req, res) => {
         // Escribir los datos actualizados en el archivo JSON
         await writeFile(clientesPath, JSON.stringify(clientes, null, 2));
 
-        res.redirect('/clientes');
+        res.redirect(`/clientes/detalle/${clientes[index].id}`);
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al actualizar el cliente');

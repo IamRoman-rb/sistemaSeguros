@@ -40,7 +40,7 @@ export const  nuevo = async (req, res) => {
 
 export const guardar = async (req, res) => {
     try {
-      const { nombre, contraseña, permiso, dni,sucursal} = req.body;
+      const { nombre, clave, permiso, dni,sucursal} = req.body;
 
       const usuariosPath = path.resolve(
         process.cwd(),
@@ -58,7 +58,7 @@ export const guardar = async (req, res) => {
 
       // Encriptar la contraseña
       const saltRounds = 10;
-      const hashedPassword = await bcrypt.hash(contraseña, saltRounds);
+      const hashedPassword = await bcrypt.hash(clave, saltRounds);
 
       // Generar un nuevo ID
       const nuevoId = usuarios.length + 1;
@@ -234,6 +234,33 @@ export const eliminar = async (req, res) => {
 
       // Cambiar el estado del usuario a inactivo
       usuarios[usuarioIndex].activo = false;
+
+      // Guardar los cambios en el archivo JSON
+      await writeFile(resources[0], JSON.stringify(usuarios, null, 2));
+
+      res.redirect("/usuarios");
+    } catch (error) {
+      console.error("Error al eliminar el usuario:", error.message);
+      res.status(500).send("Error al eliminar el usuario");
+    }
+};
+export const habilitar = async (req, res) => {
+    try {
+      const { id } = req.body;
+
+      const resources = [
+        path.resolve(process.cwd(), "src/data", "usuarios.json"),
+      ];
+      let [usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+
+      const usuarioIndex = usuarios.findIndex((u) => u.id === parseInt(id));
+
+      if (usuarioIndex === -1) {
+        return res.status(404).send("Usuario no encontrado");
+      }
+
+      // Cambiar el estado del usuario a inactivo
+      usuarios[usuarioIndex].activo = true;
 
       // Guardar los cambios en el archivo JSON
       await writeFile(resources[0], JSON.stringify(usuarios, null, 2));

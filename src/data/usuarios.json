@@ -10,28 +10,10 @@
   },
   {
     "id": 2,
-    "nombre": "ruben",
-    "contraseña": "$2b$10$FnM7zjJ7A8pqRvn0OgoidOLBRHYrSa1Iqnacka5rzToy9ieLblW9C",
-    "permisos": 3,
+    "nombre": "romina",
+    "contraseña": "$2b$10$F7Y2GPNmBvdEVgHzUS7wBe0znVyKDc4xocvA0HM/W.R1LwaPaOtMm",
+    "permisos": 2,
     "dni": "17586700",
-    "sucursal": 1,
-    "activo": true
-  },
-  {
-    "id": 3,
-    "nombre": "MariaJose",
-    "contraseña": "$2b$10$jnsmJUNYbX54TiO3jnByle8pp7NvFoLRYV4VFJOZ4MWdAjiS.jSDS",
-    "permisos": 2,
-    "dni": "23700586",
-    "sucursal": 1,
-    "activo": true
-  },
-  {
-    "id": 4,
-    "nombre": "eduardo",
-    "contraseña": "$2b$10$z4SISE54j4kEn.o2JjqEue//mLiAhuV6VxGtFJrYQ0gGDLZsnDLQe",
-    "permisos": 2,
-    "dni": "40681808",
     "sucursal": 2,
     "activo": true
   }

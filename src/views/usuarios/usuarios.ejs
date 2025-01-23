@@ -98,9 +98,9 @@
                                     <a href="/usuarios/detalle/<%= usuario.id %>">Detalle</a>
                                     <a href="/usuarios/editar/<%= usuario.id %>">Editar</a>
                                 </nav>
-                                <form action="/usuarios/eliminar" method="post">
+                                <form action="/usuarios/habilitar" method="post">
                                     <input type="hidden" name="id" value="<%= usuario.id %>">
-                                    <button type="submit">Eliminar</button>
+                                    <button type="submit">Habilitar</button>
                                 </form>
                             </li>
                             <% }); %>

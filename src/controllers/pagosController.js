@@ -292,6 +292,7 @@ export const recibo = async (req, res) => {
           };
       
       })();
+      // pago.n_cuota = pago.n_cuota + 1; :D
       pago.valorEnLetras = numeroALetras(pago.valor, { plural: 'PESOS', singular: 'PESO', centPlural: 'PESOS', centSingular: 'PESO' }).trim();
     // return res.status(200).json({ pago });
     res.render('pagos/recibo', { pago });
@@ -363,7 +364,7 @@ export const acreditar = async (req, res) => {
       valor: (Number(poliza.precio) / poliza.cuotas), // Premio de la póliza
       forma_pago: req.body.metodo,
       observaciones: req.body.observaciones,
-      n_cuota: req.body.n_cuota,
+      n_cuota: poliza.pagos.length + 1,
       desconocido: false,
       id_cobrador: Number(req.session.user.id), // ID del cobrador 
     };

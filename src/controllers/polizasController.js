@@ -8,17 +8,20 @@ export const listado = async (req, res) => {
 
     const resources = [
       path.resolve(process.cwd(), "src/data", "clientes.json"),
-      path.resolve(process.cwd(), "src/data", "polizas.json")
+      path.resolve(process.cwd(), "src/data", "polizas.json"),
+      path.resolve(process.cwd(), "src/data", "coberturas.json")
     ]
 
-    let [clientes, polizas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+    let [clientes, polizas, coberturas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
     // Añadir el cliente correspondiente a cada póliza
     polizas = polizas.map((poliza) => {
       const cliente = clientes.find((c) => c.polizas.includes(poliza.id));
+      const cobertura = coberturas.find((c) => c.id === Number(poliza.cobertura))
       return {
         ...poliza,
         cliente,
+        cobertura
       };
     });
 

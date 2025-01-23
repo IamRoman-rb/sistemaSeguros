@@ -50,11 +50,11 @@ export const caja = async (req, res) => {
 
     let usuario = req.session.user;
     
-    let usuario_filtrado = usuarios.filter(user => user.id == usuario.id);
+    let usuario_filtrado = usuarios.find(user => user.id == usuario.id);
   
-    ingresos = ingresos.filter(ingreso => ingreso.id_usuario == usuario_filtrado[0].id);
-    egresos = egresos.filter(egresos => egresos.id_usuario == usuario_filtrado[0].id);
-    pagos = pagos.filter(pagos => pagos.id_cobrador == usuario_filtrado[0].id);
+    ingresos = ingresos.filter(ingreso => ingreso.id_usuario == usuario_filtrado.id);
+    egresos = egresos.filter(egresos => egresos.id_usuario == usuario_filtrado.id);
+    pagos = pagos.filter(pagos => pagos.id_cobrador == usuario_filtrado.id);
     
     ingresos = ingresos.filter(ingreso => new Date(ingreso.fecha).getFullYear() === anioActual && new Date(ingreso.fecha).getMonth() === mesActual && new Date(ingreso.fecha).getDate() === diaActual);
     egresos = egresos.filter(egreso => new Date(egreso.fecha).getFullYear() === anioActual && new Date(egreso.fecha).getMonth() === mesActual && new Date(egreso.fecha).getDate() === diaActual);
@@ -150,11 +150,20 @@ export const resumen = async (req, res) => {
   const resources = [
     path.resolve(process.cwd(), "src/data", "caja.json"),
     path.resolve(process.cwd(), "src/data", "pagos.json"),
+    path.resolve(process.cwd(), "src/data", "usuarios.json"),
 
   ];
   try {
-    let [caja, pagos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+    let [caja, pagos, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
     let resumenes = Array.from({length:12}, (_, i) => ({ mes: i + 1, anio: new Date().getFullYear(),  ingresos: [], egresos: [], balance: 0}))
+
+    let usuario = req.session.user;
+    
+    let usuario_filtrado = usuarios.find(user => user.id == usuario.id);
+
+    caja = caja.filter((c) => c.id_usuario == usuario_filtrado.id);
+    pagos = pagos.filter((p) => p.id_usuario == usuario_filtrado.id);
+
     resumenes = resumenes.map(resumen => {
       let ingresosCaja = caja.filter(item => item.tipo === 'ingreso' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
       let egresosCaja = caja.filter(item => item.tipo === 'egreso' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);

@@ -1,54 +1,29 @@
 [
   {
     "n_poliza": "123123",
-    "f_emision": "2025-01-22",
-    "f_ini_vigencia": "2025-01-22",
-    "f_fin_vigencia": "2025-05-21",
+    "f_emision": "2025-01-23",
+    "f_ini_vigencia": "2025-01-23",
+    "f_fin_vigencia": "2025-05-22",
     "periodo": 4,
-    "suma": 0,
+    "suma": "75000000",
     "cuotas": 4,
-    "empresa": 1,
-    "precio": 112000,
-    "cobertura": "1",
-    "marca": 7,
-    "modelo": "CORSA",
-    "patente": "AEI586",
-    "anio": 2000,
-    "n_chasis": "22222222222aaaaaaaaaa",
-    "n_motor": "NKJVCSONVIWN989078967",
-    "combustible": "GNC",
-    "clienteId": 1737561772538,
-    "pagos": [
-      1737562229918,
-      1737562911511,
-      1737589273466,
-      1737590221917
-    ],
-    "id": 1
-  },
-  {
-    "n_poliza": "54235432",
-    "f_emision": "2025-01-22",
-    "f_ini_vigencia": "2025-01-22",
-    "f_fin_vigencia": "2026-01-21",
-    "periodo": 12,
-    "suma": 0,
-    "cuotas": 4,
-    "empresa": 1,
-    "precio": 28000,
-    "cobertura": "1",
-    "marca": 13,
-    "modelo": "FIESTA",
-    "patente": "AAA333",
-    "anio": 2000,
+    "empresa": 2,
+    "precio": "800000",
+    "cobertura": "7",
+    "marca": 5,
+    "modelo": "A5",
+    "patente": "AG500AA",
+    "anio": "2025",
     "n_chasis": "NGIJERNGVJRENBV8974097807",
     "n_motor": "NKJVCSONVIWN989078967",
-    "combustible": "electrico",
-    "clienteId": 1737561772538,
+    "combustible": "diesel",
+    "clienteId": 1737643898286,
     "pagos": [
-      1737590718464,
-      1737591324556
+      1737644461694,
+      1737645031995,
+      1737645080641,
+      1737645091071
     ],
-    "id": 2
+    "id": 1
   }
 ]

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {listar, nuevo, perfil, detalle, editar, guardar, actualizar, eliminar} from "../controllers/usuariosController.js"; // Usamos 'import' en lugar de 'require'
+import {listar, nuevo, perfil, detalle, editar, guardar, actualizar, eliminar, habilitar} from "../controllers/usuariosController.js"; // Usamos 'import' en lugar de 'require'
 import hasPermitions from "../middlewares/hasPermitions.js";
 
 const router = Router();
@@ -12,5 +12,6 @@ router.get('/editar/:id', hasPermitions, editar);
 router.post('/guardar', guardar);
 router.post('/actualizar', actualizar);
 router.post('/eliminar', eliminar);
+router.post('/habilitar', habilitar);
 
 export default router;
