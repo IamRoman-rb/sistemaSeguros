@@ -4,5 +4,5 @@
 - ***
   - [x] Recalcular la cuota del pago de la poliza (pagos/acreditar)
   - [x] En el recibo mostrar el premio dividido la cantidad de cuotas (pago/recibo/:id)
-  - [ ] Filtrar caja por sucursal (caja/)
-  - [ ] Filtrar resumen por sucursal (caja/resumen)
+  - [x] Filtrar caja por sucursal (caja/)
+  - [x] Filtrar resumen por sucursal (caja/resumen)
