@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {caja,resumen,ingreso,egreso,guardar, detalle} from "../controllers/cajaController.js"; // Usamos 'import' en lugar de 'require'
+import { caja, resumen, ingreso, egreso, guardar, detalle } from "../controllers/cajaController.js"; // Usamos 'import' en lugar de 'require'
 import hasPermitions from "../middlewares/hasPermitions.js";
 const router = Router();
 

@@ -219,6 +219,11 @@
           "path": "/resumen",
           "alias": "resumen",
           "method": "get"
+        },
+        {
+          "path": "/resumen/detalle/:id",
+          "alias": "resumen",
+          "method": "get"
         }
       ]
     }
@@ -227,7 +232,6 @@
     "id": 2,
     "descripcion": "Empleado",
     "alcances": {
-
       "clientes": [
         {
           "path": "/",
@@ -358,6 +362,11 @@
         },
         {
           "path": "/resumen",
+          "alias": "resumen",
+          "method": "get"
+        },
+        {
+          "path": "/resumen/detalle/:id",
           "alias": "resumen",
           "method": "get"
         }
@@ -505,6 +514,11 @@
           "path": "/resumen",
           "alias": "resumen",
           "method": "get"
+        },
+        {
+          "path": "/resumen/detalle/:id",
+          "alias": "resumen",
+          "method": "get"
         }
       ]
     }
@@ -648,6 +662,11 @@
         },
         {
           "path": "/resumen",
+          "alias": "resumen",
+          "method": "get"
+        },
+        {
+          "path": "/resumen/detalle/:id",
           "alias": "resumen",
           "method": "get"
         }
