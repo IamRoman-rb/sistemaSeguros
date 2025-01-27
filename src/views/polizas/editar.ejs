@@ -101,6 +101,20 @@
                                 <% } %>
                     </fieldset>
                     <fieldset>
+                        <label for="usos">Tipo de uso</label>
+                        <select name="usos" id="usos" required> 
+                            <option value="0" disabled>Tipos de usos</option>
+                            <option value="Particular" <%=poliza.usos=="Particular" ? 'selected' : '' %>>Particular</option>
+                            <option value="Taxi" <%=poliza.usos=="Taxi" ? 'selected' : '' %>>Taxi</option>
+                            <option value="Remis" <%=poliza.usos=="Remis" ? 'selected' : '' %>>Remis</option>
+                            <option value="Comercial" <%=poliza.usos=="Comercial" ? 'selected' : '' %>>Comercial</option>
+                            <option value="Alquileres" <%=poliza.usos=="Alquileres" ? 'selected' : '' %>>Alquileres/Chofer</option>
+                            <option value="Ambulancia" <%=poliza.usos=="Ambulancia" ? 'selected' : '' %>>Ambulancia</option>
+                            <option value="Remis Rural" <%=poliza.usos=="Remis Rural" ? 'selected' : '' %>>Remis Rural</option>
+                            <option value="Auto Rural" <%=poliza.usos=="Auto Rural" ? 'selected' : '' %>>Auto Rural</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
                         <label for="empresa">
                             Empresa
                         </label>

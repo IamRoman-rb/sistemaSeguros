@@ -10,7 +10,7 @@
     "empresa": 2,
     "precio": "800000",
     "cobertura": "7",
-    "marca": 5,
+    "marca": 1,
     "modelo": "A5",
     "patente": "AG500AA",
     "anio": "2025",
@@ -19,11 +19,9 @@
     "combustible": "diesel",
     "clienteId": 1737643898286,
     "pagos": [
-      1737645031995,
-      1737645080641,
-      1737645091071,
-      1737987203461
+      1737990065996
     ],
-    "id": 1
+    "id": 1,
+    "usos": "Remis"
   }
 ]

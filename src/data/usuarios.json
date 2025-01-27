@@ -11,8 +11,8 @@
   {
     "id": 2,
     "nombre": "romina",
-    "contraseña": "$2b$10$F7Y2GPNmBvdEVgHzUS7wBe0znVyKDc4xocvA0HM/W.R1LwaPaOtMm",
-    "permisos": 2,
+    "contraseña": "$2b$10$I8fG.jwyKhEdeJr7TkLOJO5xv2HGPdvlOIZZjnF5TUxW3Gvlc6QNa",
+    "permisos": 4,
     "dni": "17586700",
     "sucursal": 2,
     "activo": true

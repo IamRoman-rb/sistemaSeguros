@@ -16,5 +16,14 @@
     "motivo": "RECIBO JUANITO",
     "descripcion": "RECIBO JUANTIO POLIZA 124135423",
     "fecha": "2025-01-23"
+  },
+  {
+    "id_usuario": "1",
+    "id": 1737990141672,
+    "monto": "200000",
+    "tipo": "egreso",
+    "motivo": "CAJA",
+    "descripcion": "NFGVWERJNGVWO",
+    "fecha": "2025-01-27"
   }
 ]

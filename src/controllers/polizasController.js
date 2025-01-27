@@ -110,6 +110,7 @@ export const guardar = async (req, res) => {
       periodo: Number(req.body.periodo),
       suma: Number(req.body.suma),
       cuotas: Number(req.body.cuotas),
+      usos: req.body.usos,
       empresa: Number(req.body.empresa),
       precio: Number(req.body.precio),
       cobertura: req.body.cobertura,
