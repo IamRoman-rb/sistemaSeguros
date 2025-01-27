@@ -51,5 +51,19 @@
     "observaciones": "ULTIMA CUOTA",
     "n_cuota": 4,
     "id_cobrador": 2
+  },
+  {
+    "id": 1737987203461,
+    "id_cliente": 1737643898286,
+    "id_poliza": 1,
+    "n_poliza": 123123,
+    "fecha": "2025-01-27",
+    "hora": "11:13:23",
+    "valor": 200000,
+    "forma_pago": "efectivo",
+    "observaciones": "jnrtfjnydtrjyutf,k",
+    "n_cuota": 4,
+    "desconocido": false,
+    "id_cobrador": 1
   }
 ]

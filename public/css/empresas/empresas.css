@@ -18,7 +18,7 @@ main > article{
     width: 100%;
     display: flex;
     justify-content: center;
-    /* background-color: red; */
+    padding: .5rem;
 }
 main > article > ul{
     width: 100%;
@@ -27,8 +27,29 @@ main > article > ul{
     flex-flow: row wrap;
     overflow-y: scroll;
     scrollbar-width: none;
+    gap: 1rem;
 }
 main > article > ul > li{
+    width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     list-style: none;
+    padding: 1rem;
+    border-radius: .3rem;
+    background-color: var(--crema);
+}
+main > article > ul > li > details ul{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+}
+main > article > ul > li a{
+    text-decoration: none;
+    padding: 0.2rem;
+    color: var(--blanco);
+    background-color: var(--celeste);
+    border-radius: 0.2rem;
+    cursor: pointer;
 }

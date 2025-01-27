@@ -12,11 +12,8 @@
             <ul>
               <% empresas.forEach(empresa => { %>
                 <li>
-                  <dl>
-                    <dt>Nombre:</dt>
-                    <dd><%= empresa.nombre %></dd>
-                    <dt>Coberturas:</dt>
-                    <dd>
+                  <details>
+                    <summary><%= empresa.nombre %></summary>
                       <ul>
                         <% empresa.coberturas.forEach((cobertura_empresa, index) => { %>
                             <% coberturas.forEach(cobertura => { %>
@@ -28,12 +25,8 @@
                             <% }) %>
                         <% }) %>
                       </ul>
-                    </dd>
-                    <dt>Acciones:</dt>
-                    <dd>
-                      <a href="/empresas/editar/<%= empresa.id %>">Editar</a>
-                      </dd>
-                  </dl>
+                  </details>
+                    <a href="/empresas/editar/<%= empresa.id %>">Editar</a>
                 </li>
               <% }); %>
             </ul>

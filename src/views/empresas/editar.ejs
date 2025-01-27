@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Editar empresa</h1>
-    <form action="/empresas/actualizar" method="POST">
-        <input type="hidden" name="id" id="id" value="<%= empresa.id %>">
-        <label for="nombre">Nombre
-            <input type="text" name="nombre" id="nombre" value="<%= empresa.nombre %>">
-        </label>
-        <ul>
-            <% coberturas.forEach(cobertura => { %>
-                <li>
-                    <label for="cobertura"><%= cobertura.nombre %></label>
-                    <% if (empresa.coberturas.find((e_c) => e_c == cobertura.id)) { %>
-                        <input type="checkbox" name="coberturas" id="<%= cobertura.id %>" checked value="<%= cobertura.id %>">
-                    <% } else { %>
-                        <input type="checkbox" name="coberturas" id="<%= cobertura.id %>" value="<%= cobertura.id %>">
-                    <% } %> 
-                </li>
-            <% }) %>
-        </ul>
-        <section id="buttons" class="buttons">
-            <button type="submit">Editar</button>
-        </section>
-    </form>
-</body>
+<html lang="es">
+<%- include("../partials/head") %>
+
+    <body>
+        <%- include("../partials/header") %>
+            <main>
+                <header>
+                    <h1>Editar empresa</h1>
+                </header>
+                <form action="/empresas/actualizar" method="POST">
+                    <input type="hidden" name="id" id="id" value="<%= empresa.id %>">
+                    <label for="nombre">Nombre
+                        <input type="text" name="nombre" id="nombre" value="<%= empresa.nombre %>">
+                    </label>
+                    <ul>
+                        <% coberturas.forEach(cobertura=> { %>
+                            <li>
+                                <label for="cobertura">
+                                    <%= cobertura.nombre %>
+                                </label>
+                                <% if (empresa.coberturas.find((e_c)=> e_c == cobertura.id)) { %>
+                                    <input type="checkbox" name="coberturas" id="<%= cobertura.id %>" checked
+                                        value="<%= cobertura.id %>">
+                                    <% } else { %>
+                                        <input type="checkbox" name="coberturas" id="<%= cobertura.id %>"
+                                            value="<%= cobertura.id %>">
+                                        <% } %>
+                            </li>
+                            <% }) %>
+                    </ul>
+                    <section id="buttons" class="buttons">
+                        <button type="submit">Editar</button>
+                    </section>
+                </form>
+            </main>
+    </body>
+
 </html>

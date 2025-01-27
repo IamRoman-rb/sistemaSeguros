@@ -77,6 +77,10 @@ main > header {
     border-radius: .3rem;
     cursor: pointer;
   }
+  main > form section#buttons button[type="reset"]{
+    background-color: var(--rojo);
+    color: var(--blanco);
+  }
   main > form section#buttons button[type="submit"]{
     background-color: var(--celeste);
     color: var(--blanco);
