@@ -26,6 +26,7 @@
                         <dt>Balance:</dt>
                         <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(resumen.balance) %></dd>
                     </dl>
+                    <a href="/resumen/detalle/<%= resumen.fecha %>">Detalle</a>
                 </li>
             <% }) %>
         </ul>
