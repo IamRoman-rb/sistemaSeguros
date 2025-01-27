@@ -198,3 +198,54 @@ export const resumen = async (req, res) => {
     res.status(500).send('Error al cargar la caja');
   }
 }
+export const detalle = async (req, res) => {
+  const resources = [
+    path.resolve(process.cwd(), "src/data", "caja.json"),
+    path.resolve(process.cwd(), "src/data", "pagos.json"),
+    path.resolve(process.cwd(), "src/data", "usuarios.json"),
+
+  ];
+  try {
+    let [caja, pagos, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+    let resumenes = Array.from({length:12}, (_, i) => ({ mes: i + 1, anio: new Date().getFullYear(),  ingresos: [], egresos: [], balance: 0}))
+
+    pagos = pagos.filter(pago => !pago.desconocido);
+
+    let usuario = req.session.user;
+    
+    let usuario_filtrado = usuarios.find(user => user.id == usuario.id);
+
+    caja = caja.map((c) => {
+      let cobrador = usuarios.find(usuarios => usuarios.id === Number(c.id_usuario));
+      return ({...c, cobrador});
+    });
+    pagos = pagos.map((c) => {
+      let cobrador = usuarios.find(usuarios => usuarios.id === Number(c.id_cobrador));
+      return ({...c, cobrador});
+    });
+
+    caja = caja.filter((c) => c.cobrador.sucursal == usuario_filtrado.sucursal);
+    pagos = pagos.filter((p) => p.cobrador.sucursal == usuario_filtrado.sucursal);
+
+    resumenes = resumenes.map(resumen => {
+      let ingresosCaja = caja.filter(item => item.tipo === 'ingreso' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
+      let egresosCaja = caja.filter(item => item.tipo === 'egreso' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
+      let ingresosPagos = pagos.filter(item => item.forma_pago === 'efectivo' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
+      let egresosPagos = pagos.filter(item => item.forma_pago === 'transferencia' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
+      ingresosCaja = ingresosCaja.map(item => Number(item.monto));
+      egresosCaja = egresosCaja.map(item => Number(item.monto));
+      ingresosPagos = ingresosPagos.map(item => Number(item.valor));
+      egresosPagos = egresosPagos.map(item => Number(item.valor));
+      const fecha = new Date(resumen.anio, resumen.mes - 1);
+      resumen.fecha = ("0" + (fecha.getMonth() + 1)).slice(-2) + "/" + resumen.anio;
+      resumen.ingresos = ingresosCaja.reduce((a, b) => a + b, 0) + ingresosPagos.reduce((a, b) => a + b, 0);
+      resumen.egresos = egresosCaja.reduce((a, b) => a + b, 0) + egresosPagos.reduce((a, b) => a + b, 0);
+      resumen.balance = resumen.ingresos - resumen.egresos;
+      return resumen;
+    });
+    return res.status(200).render("caja/resumen", { resumenes });
+  } catch (error) {
+    console.error('Error en la carga de la caja', error.message);
+    res.status(500).send('Error al cargar la caja');
+  }
+}
