@@ -1,5 +1,5 @@
 - Devoluciones:
  -[x] AGREGAR OBSERVACIONES AL RECIBO
- -[] SACAR METODO DE PAGO
+ -[x] SACAR METODO DE PAGO
  -[] CORREGIR LA CAJA. REVISAR PAGOSCONTROLLER, ACREDITA EL PAGO UN DIA DESPUES
  -[] AGREGAR ACTIVIDAD DIARIA (Ruta, vista, controlador y estiloz creados. Falta enviar todos los movimientos CRUD del dia a esa vista)

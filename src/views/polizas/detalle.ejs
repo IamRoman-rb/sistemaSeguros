@@ -12,7 +12,9 @@
           <a href="/polizas/editar/<%= poliza.id %>">Editar</a>
         <% } %>
         <% if ( poliza.pagos.filter(pago => !pago.desconocido).length < poliza.cuotas) { %>
-          <a href="/pagos/pagar/<%= poliza.id %>">Nuevo Pago</a>
+          <% if (poliza.id_sucursal == id) { %>
+            <a href="/pagos/pagar/<%= poliza.id %>">Nuevo Pago</a>
+          <% } %>
         <% } %>
         <% if (!["Empleado"].includes(user.rol)) { %>
           <a href="/polizas/confirmar/<%= poliza.id %>">Eliminar Poliza</a>

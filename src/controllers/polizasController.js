@@ -52,9 +52,10 @@ export const nueva = async (req, res) => {
       path.resolve(process.cwd(), "src/data", "automarcas.json"),
       path.resolve(process.cwd(), "src/data", "empresas.json"),
       path.resolve(process.cwd(), "src/data", "coberturas.json"),
+      path.resolve(process.cwd(), "src/data", "usuarios.json"),
     ]
 
-    let [clientes, autos, empresas, coberturas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+    let [clientes, autos, empresas, coberturas, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
     // Buscar al cliente por ID (asegúrate de que ambos sean cadenas)
     const cliente = clientes.find((cliente) => cliente.id.toString() === id);
@@ -63,8 +64,11 @@ export const nueva = async (req, res) => {
       return res.status(404).send("Cliente no encontrado");
     }
 
+    let usuario = req.session.user;
 
-    res.render("polizas/nueva", { cliente, autos, empresas, coberturas });
+    let usuario_filtrado = usuarios.find(user => user.id == usuario.id);
+
+    res.render("polizas/nueva", { cliente, autos, empresas, coberturas, id_sucursal: usuario_filtrado.sucursal});
   } catch (error) {
     console.error("Error al cargar el cliente:", error.message);
     res.status(500).send("Error al cargar el cliente: " + error.message);
@@ -73,7 +77,7 @@ export const nueva = async (req, res) => {
 export const guardar = async (req, res) => {
   try {
     /* Agregar sucursal del usuario logueado */
-    const { sucursal } = req.session.user;
+    // const { sucursal } = req.session.user;
 
     /* Validacion de patentes duplicadas */
 
@@ -122,7 +126,7 @@ export const guardar = async (req, res) => {
       n_motor: req.body.n_motor,
       combustible: req.body.combustible,
       clienteId: Number(req.body.clientId), // Asociar la póliza al cliente
-      sucursal: sucursal,
+      sucursal: req.body.sucursal,
       pagos: []
     };
 
@@ -198,7 +202,7 @@ export const detalle = async (req, res) => {
     }
     poliza.cobertura = coberturas.find((c) => c.id === Number(poliza.cobertura));
     // Renderizar la vista con los detalles
-    res.render("polizas/detalle", { poliza, cliente });
+    res.render("polizas/detalle", { poliza, cliente, id: req.session.user.id });
 
   } catch (error) {
     console.error("Error al obtener el detalle de la póliza:", error.message);

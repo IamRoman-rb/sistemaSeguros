@@ -68,7 +68,8 @@
     "combustible": "electrico",
     "clienteId": 1738024365867,
     "pagos": [
-      1738072229973
+      1738072229973,
+      1738072832738
     ],
     "id": 3
   },
@@ -95,5 +96,29 @@
     "pagos": [],
     "id": 4,
     "inhabilitado": true
+  },
+  {
+    "n_poliza": "45678",
+    "f_emision": "2025-01-28",
+    "f_ini_vigencia": "2025-01-28",
+    "f_fin_vigencia": "2025-05-27",
+    "periodo": 4,
+    "suma": 0,
+    "cuotas": 2,
+    "usos": "Particular",
+    "empresa": 1,
+    "precio": 100000,
+    "cobertura": "1",
+    "marca": 2,
+    "modelo": "ESCORT",
+    "patente": "SIG805",
+    "anio": 2000,
+    "n_chasis": "fwabgverhg rwhr",
+    "n_motor": "erthrtwhrejhjty",
+    "combustible": "diesel",
+    "clienteId": 1738024365867,
+    "sucursal": "1",
+    "pagos": [],
+    "id": 5
   }
 ]
