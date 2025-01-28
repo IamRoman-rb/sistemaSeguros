@@ -174,9 +174,10 @@ export const detalle = async (req, res) => {
       path.resolve(process.cwd(), "src/data", "sucursales.json"),
       path.resolve(process.cwd(), "src/data", "empresas.json"),
       path.resolve(process.cwd(), "src/data", "coberturas.json"),
+      path.resolve(process.cwd(), "src/data", "usuarios.json"),
     ];
 
-    const [clientes, polizas, pagos, ciudades, provincias, automarcas, sucursales, empresas, coberturas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
+    const [clientes, polizas, pagos, ciudades, provincias, automarcas, sucursales, empresas, coberturas, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
 
 
     // Buscar la póliza por ID
@@ -202,7 +203,12 @@ export const detalle = async (req, res) => {
     }
     poliza.cobertura = coberturas.find((c) => c.id === Number(poliza.cobertura));
     // Renderizar la vista con los detalles
-    res.render("polizas/detalle", { poliza, cliente, id: req.session.user.id });
+
+    let usuario = req.session.user;
+
+    let usuario_filtrado = usuarios.find(user => user.id == usuario.id);       
+
+    res.render("polizas/detalle", { poliza, cliente, id: usuario_filtrado.sucursal });
 
   } catch (error) {
     console.error("Error al obtener el detalle de la póliza:", error.message);

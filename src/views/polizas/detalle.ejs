@@ -8,16 +8,16 @@
       <h1>Detalle de la Póliza #<%= poliza.n_poliza %></h1>
       <nav>
         <a href="/polizas">Volver al listado de polizas</a>
-        <% if (poliza.pagos.length == 0) { %>
-          <a href="/polizas/editar/<%= poliza.id %>">Editar</a>
-        <% } %>
-        <% if ( poliza.pagos.filter(pago => !pago.desconocido).length < poliza.cuotas) { %>
-          <% if (poliza.id_sucursal == id) { %>
-            <a href="/pagos/pagar/<%= poliza.id %>">Nuevo Pago</a>
+        <% if (poliza.sucursal.id === id) { %>
+          <% if (poliza.pagos.length == 0) { %>
+            <a href="/polizas/editar/<%= poliza.id %>">Editar</a>
           <% } %>
-        <% } %>
-        <% if (!["Empleado"].includes(user.rol)) { %>
-          <a href="/polizas/confirmar/<%= poliza.id %>">Eliminar Poliza</a>
+          <% if ( poliza.pagos.filter(pago => !pago.desconocido).length < poliza.cuotas) { %>
+            <a href="/pagos/pagar/<%= poliza.id %>">Nuevo Pago</a>
+            <% } %>
+          <% if (!["Empleado"].includes(user.rol)) { %>
+            <a href="/polizas/confirmar/<%= poliza.id %>">Eliminar Poliza</a>
+          <% } %>
         <% } %>
       </nav>
     </header>
