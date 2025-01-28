@@ -81,12 +81,12 @@ export const caja = async (req, res) => {
     });
 
     let pagosEnEfectivo = pagos.filter(pago => pago.forma_pago === 'efectivo');
-    let pagosEnTransferencia = pagos.filter(pago => pago.forma_pago === 'transferencia');
+    // let pagosEnTransferencia = pagos.filter(pago => pago.forma_pago === 'transferencia');
 
     let total = pagosEnEfectivo.reduce((p, a) => { return p += Number(a.valor) }, 0) + ingresos.reduce((p, a) => { return p += Number(a.monto) }, 0) - egresos.reduce((p, a) => { return p += Number(a.monto) }, 0);
 
 
-    return res.status(200).render("caja/caja", { ingresos, egresos, pagosEnEfectivo, pagosEnTransferencia, total });
+    return res.status(200).render("caja/caja", { ingresos, egresos, pagosEnEfectivo, total });
   } catch (error) {
     console.error('Error en la carga de la caja', error.message);
     res.status(500).send('Error al cargar la caja');
@@ -180,16 +180,15 @@ export const resumen = async (req, res) => {
       let ingresosCaja = caja.filter(item => item.tipo === 'ingreso' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
       let egresosCaja = caja.filter(item => item.tipo === 'egreso' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
       let ingresosPagos = pagos.filter(item => item.forma_pago === 'efectivo' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
-      let egresosPagos = pagos.filter(item => item.forma_pago === 'transferencia' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
       ingresosCaja = ingresosCaja.map(item => Number(item.monto));
       egresosCaja = egresosCaja.map(item => Number(item.monto));
       ingresosPagos = ingresosPagos.map(item => Number(item.valor));
-      egresosPagos = egresosPagos.map(item => Number(item.valor));
+      // egresosPagos = egresosPagos.map(item => Number(item.valor));
       const fecha = new Date(resumen.anio, resumen.mes - 1);
       resumen.fecha = ("0" + (fecha.getMonth() + 1)).slice(-2) + "/" + resumen.anio;
       resumen.fechaAlt = fecha.getTime()
       resumen.ingresos = ingresosCaja.reduce((a, b) => a + b, 0) + ingresosPagos.reduce((a, b) => a + b, 0);
-      resumen.egresos = egresosCaja.reduce((a, b) => a + b, 0) + egresosPagos.reduce((a, b) => a + b, 0);
+      resumen.egresos = egresosCaja.reduce((a, b) => a + b, 0);
       resumen.balance = resumen.ingresos - resumen.egresos;
       return resumen;
     });
@@ -231,8 +230,8 @@ export const detalle = async (req, res) => {
     resumenes = resumenes.map(resumen => {
       let ingresosCaja = caja.filter(item => item.tipo === 'ingreso' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
       let egresosCaja = caja.filter(item => item.tipo === 'egreso' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
-      let ingresosPagos = pagos.filter(item => item.forma_pago === 'efectivo' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
-      let egresosPagos = pagos.filter(item => item.forma_pago === 'transferencia' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
+      // let ingresosPagos = pagos.filter(item => item.forma_pago === 'efectivo' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
+      // let egresosPagos = pagos.filter(item => item.forma_pago === 'transferencia' && new Date(item.fecha).getMonth() === resumen.mes - 1 && new Date(item.fecha).getFullYear() === resumen.anio);
       resumen.ingresosCaja = ingresosCaja
       resumen.ingresosPagos = ingresosPagos
       resumen.egresosCaja = egresosCaja

@@ -18,9 +18,7 @@
     "n_motor": "NKJVCSONVIWN989078967",
     "combustible": "diesel",
     "clienteId": 1737643898286,
-    "pagos": [
-      1737990065996
-    ],
+    "pagos": [],
     "id": 1,
     "usos": "Remis"
   },
@@ -45,7 +43,7 @@
     "combustible": "nafta",
     "clienteId": 1738024160406,
     "pagos": [
-      1738024596077
+      1738072207500
     ],
     "id": 2
   },
@@ -70,7 +68,7 @@
     "combustible": "electrico",
     "clienteId": 1738024365867,
     "pagos": [
-      1738024662342
+      1738072229973
     ],
     "id": 3
   },
@@ -94,9 +92,7 @@
     "n_motor": "NGERWBNGJERI02378540925",
     "combustible": "GNC",
     "clienteId": 1738024473575,
-    "pagos": [
-      1738024732163
-    ],
+    "pagos": [],
     "id": 4,
     "inhabilitado": true
   }

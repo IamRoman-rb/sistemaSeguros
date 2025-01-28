@@ -1,29 +1,38 @@
 [
   {
-    "id_usuario": "2",
-    "id": 1737645589034,
-    "monto": "28000",
-    "tipo": "ingreso",
-    "motivo": "PAGO POLIZA",
-    "descripcion": "PAGO POLIZA JUANITO 1231234 FEDERACION",
-    "fecha": "2025-01-23"
-  },
-  {
-    "id_usuario": "2",
-    "id": 1737645628328,
-    "monto": "28000",
+    "id_usuario": "1",
+    "id": 1738072260490,
+    "monto": "50000",
     "tipo": "egreso",
-    "motivo": "RECIBO JUANITO",
-    "descripcion": "RECIBO JUANTIO POLIZA 124135423",
-    "fecha": "2025-01-23"
+    "motivo": "RECIBO",
+    "descripcion": "PAGO POLIZA ",
+    "fecha": "2025-01-28"
   },
   {
     "id_usuario": "1",
-    "id": 1737990141672,
-    "monto": "200000",
+    "id": 1738072286016,
+    "monto": "28000",
+    "tipo": "ingreso",
+    "motivo": "PAGO POLIZA RC ",
+    "descripcion": "PAGO POLIZA FDP ",
+    "fecha": "2025-01-28"
+  },
+  {
+    "id_usuario": "1",
+    "id": 1738072315144,
+    "monto": "100000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PEPE",
+    "descripcion": "RECIBO DE PAGO PEPE",
+    "fecha": "2025-01-28"
+  },
+  {
+    "id_usuario": "1",
+    "id": 1738072337183,
+    "monto": "28000",
     "tipo": "egreso",
     "motivo": "CAJA",
-    "descripcion": "NFGVWERJNGVWO",
-    "fecha": "2025-01-27"
+    "descripcion": "CAJA DEL DIA 28/01",
+    "fecha": "2025-01-28"
   }
 ]

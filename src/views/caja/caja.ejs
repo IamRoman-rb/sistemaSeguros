@@ -42,39 +42,6 @@
             <% } %>
         </article>
         <article>
-            <h2>Egresos de Polizas</h2>
-            <% if (pagosEnTransferencia.length == 0) { %>
-                <p>No hay egresos de polizas</p>
-            <% } else { %>
-                <ul>
-                    <% pagosEnTransferencia.forEach(pago => { %>
-                        <li>
-                            <dl>
-                                <dt>Fecha:</dt>
-                                <dd><%= pago.fecha %></dd>
-                            </dl>
-                            <dl>
-                                <dt>Egreso:</dt>
-                                <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.valor) %></dd>
-                            </dl>
-                            <dl>
-                                <dt>Cliente:</dt>
-                                <dd><%= pago.cliente %></dd>
-                            </dl>
-                            <dl>
-                                <dt>Cobrador:</dt>
-                                <dd><%= pago.cobrador %></dd>
-                            </dl>
-                            <dl>
-                                <dt>Descripcion:</dt>
-                                <dd><%= pago.descripcion %></dd>
-                            </dl>
-                        </li>
-                    <% }) %>
-                </ul>
-            <% } %>
-        </article>
-        <article>
             <h2>Otros Ingresos</h2>
             <% if (ingresos.length == 0) { %>
                 <p>No hay ingresos</p>
@@ -104,7 +71,7 @@
             <% } %>
         </article>
         <article>
-            <h2>Otros Egresos</h2>
+            <h2>Egresos</h2>
             <% if (egresos.length == 0) { %>
                 <p>No hay egresos</p>
             <% } else { %>

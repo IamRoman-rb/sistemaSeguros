@@ -362,7 +362,7 @@ export const acreditar = async (req, res) => {
       fecha: fecha.toISOString().split('T')[0], // Fecha en formato YYYY-MM-DD
       hora: `${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`, // Hora actual
       valor: (Number(poliza.precio) / poliza.cuotas), // Premio de la póliza
-      forma_pago: req.body.metodo,
+      forma_pago: 'efectivo',
       observaciones: req.body.observaciones,
       n_cuota: poliza.pagos.length + 1,
       desconocido: false,
