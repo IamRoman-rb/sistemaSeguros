@@ -1,8 +1,5 @@
 - Devoluciones:
-  - [x] Ajustar el nuevo select en el controlador de polizas (polizas/nuevo)
-  - [x] Cambiar el "precio por cuota" por "premio" (suma total del importe e las cuotas por la cantidad de cuotas) (polizas/nuevo)
-- ***
-  - [x] Recalcular la cuota del pago de la poliza (pagos/acreditar)
-  - [x] En el recibo mostrar el premio dividido la cantidad de cuotas (pago/recibo/:id)
-  - [x] Filtrar caja por sucursal (caja/)
-  - [x] Filtrar resumen por sucursal (caja/resumen)
+ -[x] AGREGAR OBSERVACIONES AL RECIBO
+ -[] AGREGAR ACTIVIDAD DIARIA (Ruta, vista, controlador y estiloz creados. Falta enviar todos los movimientos CRUD del dia a esa vista)
+ -[] SACAR METODO DE PAGO
+ -[] CORREGIR LA CAJA. REVISAR PAGOSCONTROLLER, ACREDITA EL PAGO UN DIA DESPUES

@@ -12,5 +12,47 @@
     "n_cuota": 1,
     "desconocido": false,
     "id_cobrador": 1
+  },
+  {
+    "id": 1738024596077,
+    "id_cliente": 1738024160406,
+    "id_poliza": 2,
+    "n_poliza": 1234,
+    "fecha": "2025-01-27",
+    "hora": "21:36:36",
+    "valor": 50000,
+    "forma_pago": "efectivo",
+    "observaciones": "PAGO DE PRIMERA CUOTA",
+    "n_cuota": 1,
+    "desconocido": false,
+    "id_cobrador": 1
+  },
+  {
+    "id": 1738024662342,
+    "id_cliente": 1738024365867,
+    "id_poliza": 3,
+    "n_poliza": 456,
+    "fecha": "2025-01-27",
+    "hora": "21:37:42",
+    "valor": 100000,
+    "forma_pago": "efectivo",
+    "observaciones": "CON REMOLQUE",
+    "n_cuota": 1,
+    "desconocido": false,
+    "id_cobrador": 1
+  },
+  {
+    "id": 1738024732163,
+    "id_cliente": 1738024473575,
+    "id_poliza": 4,
+    "n_poliza": 876909,
+    "fecha": "2025-01-27",
+    "hora": "21:38:52",
+    "valor": 250000,
+    "forma_pago": "transferencia",
+    "observaciones": "PAGA CON CHEQUE",
+    "n_cuota": 1,
+    "desconocido": true,
+    "id_cobrador": 1
   }
 ]

@@ -16,5 +16,14 @@
     "dni": "17586700",
     "sucursal": 2,
     "activo": true
+  },
+  {
+    "id": 3,
+    "nombre": "carola",
+    "contraseña": "$2b$10$t86IRfCzlHSwhcRZRy7Ruu2.m8.nMAPbawiklepWPhtCCLC5GEhEi",
+    "permisos": 2,
+    "dni": "5236435756",
+    "sucursal": 2,
+    "activo": true
   }
 ]

@@ -225,6 +225,13 @@
           "alias": "resumen",
           "method": "get"
         }
+      ],
+      "actividades": [
+        {
+          "path": "/",
+          "alias": "listado",
+          "method": "get"
+        }
       ]
     }
   },
@@ -668,6 +675,13 @@
         {
           "path": "/resumen/detalle/:id",
           "alias": "resumen",
+          "method": "get"
+        }
+      ], 
+      "actividades": [
+        {
+          "path": "/",
+          "alias": "listado",
           "method": "get"
         }
       ]
