@@ -8,9 +8,7 @@
     "provincia": "1",
     "localidad": "1",
     "direccion": "Jose Craviotto 3674",
-    "polizas": [
-      1
-    ],
+    "polizas": [],
     "telefono_fijo": "",
     "email": ""
   },
@@ -24,7 +22,8 @@
     "localidad": "223",
     "direccion": "CALLE 18 346",
     "polizas": [],
-    "telefono_fijo": "0"
+    "telefono_fijo": "0",
+    "inhabilitado": true
   },
   {
     "id": 1738024160406,
@@ -35,10 +34,9 @@
     "provincia": "2",
     "localidad": "223",
     "direccion": "CALLE 18 346",
-    "polizas": [
-      2
-    ],
-    "telefono_fijo": "0"
+    "polizas": [],
+    "telefono_fijo": "0",
+    "inhabilitado": true
   },
   {
     "id": 1738024365867,
@@ -50,11 +48,11 @@
     "localidad": "9",
     "direccion": "Jose Craviotto 3674",
     "polizas": [
-      3,
       5
     ],
     "telefono_fijo": "0",
-    "email": "roman.borla2004@gmail.com"
+    "email": "roman.borla2004@gmail.com",
+    "inhabilitado": true
   },
   {
     "id": 1738024473575,
@@ -65,9 +63,7 @@
     "provincia": "2",
     "localidad": "11",
     "direccion": "CALLE 18 346",
-    "polizas": [
-      4
-    ],
+    "polizas": [],
     "telefono_fijo": "0",
     "email": "eliana.borla2004@gmail.com",
     "inhabilitado": true

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1738170089060,
+    "id_cliente": "1738024365867",
+    "accion": "Eliminar cliente",
+    "id_usuario": 1,
+    "fecha": "2025-1-29",
+    "hora": "14:1:29",
+    "tipo": "cliente"
+  },
+  {
+    "id": 1738170089060,
+    "id_poliza": 5,
+    "accion": "Eliminar poliza",
+    "id_usuario": 1,
+    "fecha": "2025-1-29",
+    "hora": "14:1:29",
+    "tipo": "poliza"
+  },
+  {
+    "id": 1738170089061,
+    "id_pago": 1738074751846,
+    "accion": "Eliminar pago",
+    "id_usuario": 1,
+    "fecha": "2025-1-29",
+    "hora": "14:1:29",
+    "tipo": "pago"
+  },
+  {
+    "id": 1738173978976,
+    "id_cliente": "1738024160406",
+    "accion": "Eliminar cliente",
+    "id_usuario": 1,
+    "fecha": "2025-1-29",
+    "hora": "15:6:18",
+    "tipo": "cliente"
+  },
+  {
+    "id": 1738174231125,
+    "id_cliente": "1738010249227",
+    "accion": "Eliminar cliente",
+    "id_usuario": 1,
+    "fecha": "2025-1-29",
+    "hora": "15:10:31",
+    "tipo": "cliente"
+  }
+]

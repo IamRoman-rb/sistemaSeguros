@@ -72,8 +72,11 @@ export const guardar = async (req, res) => {
         const { nombre, cuit, fecha_n, telefono, telefono_fijo,email, provincia, localidad, direccion } = req.body;
 
         const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
+        const actividadesPath = path.resolve(process.cwd(), "src/data", "actividades.json");
         const clientesData = await readFile(clientesPath, 'utf8');
+        const actividadesData = await readFile(actividadesPath, 'utf8');
         const clientes = JSON.parse(clientesData);
+        const actividades = JSON.parse(actividadesData);
 
         // Verificar si el cliente ya existe
         const clienteExistente = clientes.find(cliente => cliente.cuit === cuit);
@@ -96,6 +99,17 @@ export const guardar = async (req, res) => {
             polizas: []
         };
 
+
+        let actividad = {
+            id: new Date().getTime(),
+            id_cliente: nuevoCliente.id,
+            accion: "Crear cliente",
+            id_usuario: req.session.user.id,
+            fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+            hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+            tipo: 'cliente'
+        };
+
         if (telefono_fijo) {
             nuevoCliente.telefono_fijo = telefono_fijo;
         }
@@ -107,7 +121,10 @@ export const guardar = async (req, res) => {
 
         clientes.push(nuevoCliente);
 
+        actividades.push(actividad);
+
         await writeFile(clientesPath, JSON.stringify(clientes, null, 2));
+        await writeFile(actividadesPath, JSON.stringify(actividades, null, 2));
 
         res.redirect(`/clientes/detalle/${nuevoCliente.id}`);
     } catch (error) {
@@ -137,10 +154,25 @@ export const eliminar = async (req, res) => {
         const resources = [
             path.resolve(process.cwd(), "src/data", "clientes.json"),
             path.resolve(process.cwd(), "src/data", "polizas.json"),
-            path.resolve(process.cwd(), "src/data", "pagos.json")
+            path.resolve(process.cwd(), "src/data", "pagos.json"),
+            path.resolve(process.cwd(), "src/data", "actividades.json")
         ]
 
-        let [clientes, polizas, pagos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+        let [clientes, polizas, pagos, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+
+
+        let actividad_cliente = {
+            id: new Date().getTime(),
+            id_cliente: id,
+            accion: "Eliminar cliente",
+            id_usuario: req.session.user.id,
+            fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+            hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+            tipo: 'cliente'
+        };
+
+        let actividades_polizas = [];
+        let actividades_pagos = [];
 
 
         // Inhabilitar los clientes para eliminar el que coincide con el ID
@@ -154,6 +186,16 @@ export const eliminar = async (req, res) => {
         // Ocultar las pólizas que pertenecen al cliente a eliminar
         polizas = polizas.map((p) => {
             if (p.clienteId == id) {
+                let actividad = {
+                    id: new Date().getTime(),
+                    id_poliza: p.id,
+                    accion: "Eliminar poliza",
+                    id_usuario: req.session.user.id,
+                    fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+                    hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+                    tipo: 'poliza'
+                };
+                actividades_polizas.push(actividad);
                 p.inhabilitado = true;
             }
             return p;
@@ -162,15 +204,34 @@ export const eliminar = async (req, res) => {
         // Desconocer los pagos que pertenecen a las pólizas eliminadas
         pagos = pagos.map((p) => {
             if (p.id_cliente == id) {
+                let actividad = {
+                    id: new Date().getTime(),
+                    id_pago: p.id,
+                    accion: "Eliminar pago",
+                    id_usuario: req.session.user.id,
+                    fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+                    hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+                    tipo: 'pago'
+                };
+                actividades_pagos.push(actividad);
                 p.desconocido = true;
             }
             return p;
         });
 
+        actividades.push(actividad_cliente);
+        if (actividades_polizas.length >= 1) {
+            actividades.push(actividades_polizas.find(a => a));
+        }
+        if (actividades_pagos.length >= 1) {
+            actividades.push(actividades_pagos.find(a => a));
+        }
+
         // Escribir los clientes y pólizas filtrados en sus respectivos archivos JSON
         await writeFile(resources[0], JSON.stringify(clientes, null, 2));
         await writeFile(resources[1], JSON.stringify(polizas, null, 2));
         await writeFile(resources[2], JSON.stringify(pagos, null, 2));
+        await writeFile(resources[3], JSON.stringify(actividades, null, 2));
 
         res.redirect('/clientes');
     } catch (error) {
@@ -214,6 +275,9 @@ export const actualizar = async (req, res) => {
         const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
         const clientesData = await readFile(clientesPath, 'utf8');
         const clientes = JSON.parse(clientesData);
+        const actividadesPath = path.resolve(process.cwd(), "src/data", "actividades.json");
+        const actividadesData = await readFile(actividadesPath, 'utf8');
+        const actividades = JSON.parse(actividadesData);
 
         const index = clientes.findIndex(cliente => cliente.id === parseInt(id));
 
@@ -234,11 +298,25 @@ export const actualizar = async (req, res) => {
         if (localidad !== clientes[index].localidad) cambios.localidad = localidad;
         if (direccion !== clientes[index].direccion) cambios.direccion = direccion;
 
+
+        let actividad = {
+            id: new Date().getTime(),
+            id_cliente: id,
+            accion: "Editar cliente",
+            id_usuario: req.session.user.id,
+            fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+            hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+            tipo: 'cliente'
+        };
+
         // Aplicar los cambios al cliente
         Object.assign(clientes[index], cambios);
 
+        actividades.push(actividad);
+
         // Escribir los datos actualizados en el archivo JSON
         await writeFile(clientesPath, JSON.stringify(clientes, null, 2));
+        await writeFile(actividadesPath, JSON.stringify(actividades, null, 2));
 
         res.redirect(`/clientes/detalle/${clientes[index].id}`);
     } catch (error) {

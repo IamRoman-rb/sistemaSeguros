@@ -99,6 +99,7 @@
       </ul>
     <form action="/polizas/eliminar/" method="post">
       <input type="hidden" name="id" value="<%= poliza.id %>">
+      <input type="hidden" name="id_usuario" value="<%= usuario.id %>">
       <a href="/polizas/detalle/<%= poliza.id %>">Cancelar</a>
       <button type="submit">Eliminar</button>
     </form>

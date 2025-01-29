@@ -391,8 +391,9 @@ export const eliminar = async (req, res) => {
     const resources = [
       path.resolve(process.cwd(), "src/data", "pagos.json"),
       path.resolve(process.cwd(), "src/data", "polizas.json"),
+      path.resolve(process.cwd(), "src/data", "actividades.json"),
     ];
-    let [pagos, polizas] = await Promise.all(resources.map(async (file) => JSON.parse(await readFile(file, "utf-8"))));
+    let [pagos, polizas, actividades] = await Promise.all(resources.map(async (file) => JSON.parse(await readFile(file, "utf-8"))));
 
     let poliza = polizas.find((p) => p.id == polizaId);
 
@@ -405,9 +406,22 @@ export const eliminar = async (req, res) => {
     pagos[pago].desconocido = true;
     poliza.pagos = poliza.pagos.filter((p) => p != pagos[pago].id);
 
+    let actividad = {
+      id: new Date().getTime(),
+      id_pago: pagos[pago].id,
+      accion: "Eliminar pago",
+      id_usuario: req.session.user.id,
+      fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+      hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+      tipo: 'pago'
+  };
+
+  actividades.push(actividad);
+
     // Actualizar el archivo de pagos
     await writeFile(resources[0], JSON.stringify(pagos, null, 2));
     await writeFile(resources[1], JSON.stringify(polizas, null, 2));
+    await writeFile(resources[2], JSON.stringify(actividades, null, 2));
 
     // Redirigir a la lista de pagos o a una vista de confirmación
     res.redirect(`/polizas/detalle/${polizaId}`);

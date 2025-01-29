@@ -7,6 +7,85 @@
         <header>
             <h1>Actividades</h1>
         </header>
-        
+        <ul>
+            <% actividades.forEach(actividad => { %>
+                <% if (actividad.tipo == 'cliente') { %>
+                    <li>
+                        <dl>
+                            <dt>Fecha</dt>
+                            <dd><%= actividad.fecha %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Hora</dt>
+                            <dd><%= actividad.hora %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Nombre</dt>
+                            <dd><%= actividad.cliente.nombre %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Accion</dt>
+                            <dd><%= actividad.accion %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Usuario</dt>
+                            <dd><%= actividad.usuario.nombre %></dd>
+                        </dl>
+                    </li>
+                <% } %>
+                <% if (actividad.tipo == 'pago') { %>
+                    <li>
+                        <dl>
+                            <dt>Fecha</dt>
+                            <dd><%= actividad.fecha %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Hora</dt>
+                            <dd><%= actividad.hora %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Accion</dt>
+                            <dd><%= actividad.accion %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Monto</dt>
+                            <dd><%= actividad.pago.valor %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Usuario</dt>
+                            <dd><%= actividad.usuario.nombre %></dd>
+                        </dl>
+                    </li>
+                <% } %>
+                <% if (actividad.tipo == 'poliza') { %>
+                    <li>
+                    <dl>
+                        <dt>Fecha</dt>
+                        <dd><%= actividad.fecha %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Hora</dt>
+                        <dd><%= actividad.hora %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Accion</dt>
+                        <dd><%= actividad.accion %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Patente</dt>
+                        <dd><%= actividad.poliza.patente %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Vehiculo</dt>
+                        <dd><%= actividad.poliza.modelo %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Usuario</dt>
+                        <dd><%= actividad.usuario.nombre %></dd>
+                    </dl>
+                </li>
+                <% } %>
+            <% }) %>
+        </ul>
     </main>
 </body>

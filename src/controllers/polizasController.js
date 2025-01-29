@@ -68,7 +68,9 @@ export const nueva = async (req, res) => {
 
     let usuario_filtrado = usuarios.find(user => user.id == usuario.id);
 
-    res.render("polizas/nueva", { cliente, autos, empresas, coberturas, id_sucursal: usuario_filtrado.sucursal});
+    
+
+    res.render("polizas/nueva", { cliente, autos, empresas, coberturas, usuario: usuario_filtrado});
   } catch (error) {
     console.error("Error al cargar el cliente:", error.message);
     res.status(500).send("Error al cargar el cliente: " + error.message);
@@ -84,17 +86,16 @@ export const guardar = async (req, res) => {
     const resources = [
       path.resolve(process.cwd(), "src/data", "polizas.json"),
       path.resolve(process.cwd(), "src/data", "clientes.json"),
+      path.resolve(process.cwd(), "src/data", "actividades.json"),
     ]
 
-    let [polizas, clientes] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+    let [polizas, clientes, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
     const polizasPatente = polizas.filter((poliza) => poliza.patente === req.body.patente);
 
     if (polizasPatente.length > 0) {
       return res.status(400).send("Patente duplicada");
     }
-
-
 
     // Calcular la fecha actual
     const fechaActual = new Date();
@@ -127,7 +128,8 @@ export const guardar = async (req, res) => {
       combustible: req.body.combustible,
       clienteId: Number(req.body.clientId), // Asociar la póliza al cliente
       sucursal: req.body.sucursal,
-      pagos: []
+      pagos: [],
+      usuario: req.body.id,
     };
 
     const cliente = clientes.find((cliente) => cliente.id.toString() === req.body.clientId);
@@ -143,6 +145,18 @@ export const guardar = async (req, res) => {
     // Agregar la nueva póliza a las pólizas existentes
     polizas.push(nuevaPoliza);
 
+    let actividad = {
+      id: new Date().getTime(),
+      id_poliza: nuevoIdPoliza,
+      accion: "Creacion de poliza",
+      id_usuario: req.session.user.id,
+      fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+      hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+      tipo: 'poliza'
+    };
+
+    actividades.push(actividad);
+
     // Guardar el nuevo archivo de pólizas
     await writeFile(resources[0], JSON.stringify(polizas, null, 2));
 
@@ -152,6 +166,8 @@ export const guardar = async (req, res) => {
     // Actualizar el archivo de clientes con el nuevo ID de póliza
     await writeFile(resources[1], JSON.stringify(clientes, null, 2));
 
+    // Actualizar el archivo de actividades con la nueva actividad
+    await writeFile(resources[2], JSON.stringify(actividades, null, 2));
     res.redirect("/polizas"); // Redirige a la lista de pólizas
   } catch (error) {
     console.error("Error al guardar la póliza:", error.message);
@@ -220,7 +236,8 @@ export const detalle = async (req, res) => {
 export const confirmar = async (req, res) => {
   try {
     const { id } = req.params; // ID de la póliza desde la URL
-
+    const usuario = req.session.user
+    
     const resources = [
       path.resolve(process.cwd(), "src/data", "clientes.json"),
       path.resolve(process.cwd(), "src/data", "polizas.json"),
@@ -257,7 +274,7 @@ export const confirmar = async (req, res) => {
     poliza.pagos = pagos.filter((pago) => pago.id_poliza === Number(id));
     poliza.cobertura = coberturas.find((c) => c.id === Number(poliza.cobertura));
     // Renderizar la vista de confirmación desde alertas
-    res.render("polizas/confirmar", { poliza, cliente });
+    res.render("polizas/confirmar", { poliza, cliente, usuario });
   } catch (error) {
     console.error("Error al confirmar eliminación:", error.message);
     res.status(500).send("Error al confirmar eliminación: " + error.message);
@@ -272,10 +289,20 @@ export const eliminar = async (req, res) => {
       path.resolve(process.cwd(), "src/data", "polizas.json"),
       path.resolve(process.cwd(), "src/data", "pagos.json"),
       path.resolve(process.cwd(), "src/data", "clientes.json"),
+      path.resolve(process.cwd(), "src/data", "actividades.json"),
     ];
 
-    let [polizas, pagos, clientes] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+    let [polizas, pagos, clientes, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
+    let actividad = {
+      id: new Date().getTime(),
+      id_poliza: id,
+      accion: "eliminar poliza",
+      id_usuario: req.session.user.id,
+      fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+      hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+      tipo: 'poliza'
+    };
 
     // Buscar la póliza y eliminarla
     const polizaIndex = polizas.findIndex((p) => p.id.toString() === id);
@@ -297,9 +324,12 @@ export const eliminar = async (req, res) => {
       return pago;
     });
 
+    actividades.push(actividad);
+
     // Guardar los cambios
     await writeFile(resources[0], JSON.stringify(polizas, null, 2));
     await writeFile(resources[1], JSON.stringify(pagos, null, 2));
+    await writeFile(resources[3], JSON.stringify(actividades, null, 2))
 
     res.redirect(`/clientes/detalle/${cliente.id}`);
   } catch (error) {
@@ -349,8 +379,9 @@ export const actualizar = async (req, res) => {
     // Leer los datos de las pólizas desde el archivo JSON
     const resources = [
       path.resolve(process.cwd(), "src/data", "polizas.json"),
+      path.resolve(process.cwd(), "src/data", "actividades.json"),
     ];
-    let [polizas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+    let [polizas, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
     // Encontrar el índice de la póliza a modificar
     const index = polizas.findIndex(poliza => poliza.id === parseInt(req.body.id));
@@ -393,6 +424,20 @@ export const actualizar = async (req, res) => {
       cambios.f_fin_vigencia = `${f_vencimiento.getFullYear()}-${(f_vencimiento.getMonth() + 1).toString().padStart(2, '0')}-${f_vencimiento.getDate().toString().padStart(2, '0')}`;
     }
 
+
+    let actividad = {
+      id: new Date().getTime(),
+      id_poliza: polizas[index].id,
+      accion: "Editar poliza",
+      id_usuario: req.session.user.id,
+      fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
+      hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+      tipo: 'poliza'
+    };
+
+
+    actividades.push(actividad);
+
     // Aplicar los cambios a la póliza
     Object.assign(polizas[index], cambios);
 
@@ -400,6 +445,7 @@ export const actualizar = async (req, res) => {
 
     // Escribir los datos actualizados en el archivo JSON
     await writeFile(resources[0], JSON.stringify(polizas, null, 2));
+    await writeFile(resources[1], JSON.stringify(actividades, null, 2));
 
     res.redirect(`/polizas/detalle/${polizas[index].id}`); // Redirige a la lista de pólizas
   } catch (error) {

@@ -13,7 +13,8 @@
             </nav>
         </header>
         <form action="/polizas/guardar" method="POST" id="create-poliza-form">
-            <input type="hidden" name="sucursal" value="<%= id_sucursal %>">
+            <input type="hidden" name="sucursal" value="<%= usuario.sucursal %>">
+            <input type="hidden" name="id" value="<%= usuario.id %>">
             <fieldset>
                 <label for="n_poliza" class="label" id="label_n_poliza">
                     N Poliza

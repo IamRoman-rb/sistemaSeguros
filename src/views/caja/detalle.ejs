@@ -5,29 +5,9 @@
     <%- include("../partials/header") %>
     <main>
         <header>
-            <h1>Resumen del mes <%= resumen.fecha %></h1>
+            <h1>Resumen del mes</h1>
         </header>
         <ul>
-            <% resumen.dias.forEach(dia => { %>
-                <li>
-                    <dl>
-                        <dt>Fecha:</dt>
-                        <dd><%= dia.fecha %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Ingresos:</dt>
-                        <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(dia.ingresos) %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Egresos:</dt>
-                        <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(dia.egresos) %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Balance:</dt>
-                        <dd><%=  new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(dia.balance) %></dd>
-                    </dl>
-                </li>
-            <% }) %>
         </ul>
     </main>
 </body>

@@ -9,7 +9,7 @@
       <nav>
         <a href="/polizas">Volver al listado de polizas</a>
         <% if (poliza.sucursal.id === id) { %>
-          <% if (poliza.pagos.length == 0) { %>
+          <% if (poliza.pagos.length <= 1) { %>
             <a href="/polizas/editar/<%= poliza.id %>">Editar</a>
           <% } %>
           <% if ( poliza.pagos.filter(pago => !pago.desconocido).length < poliza.cuotas) { %>
