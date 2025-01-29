@@ -1,5 +1,5 @@
 - Devoluciones:
  -[x] AGREGAR OBSERVACIONES AL RECIBO
  -[x] SACAR METODO DE PAGO
- -[ ] AGREGAR ACTIVIDAD DIARIA (Ruta, vista, controlador y estiloz creados. Falta enviar todos los movimientos CRUD del dia a esa vista) (sumar a metodos que eliminan la fecha de eliminacion y el usuario que realizo la accion)
+ -[x] AGREGAR ACTIVIDAD DIARIA (Ruta, vista, controlador y estiloz creados. Falta enviar todos los movimientos CRUD del dia a esa vista) (sumar a metodos que eliminan la fecha de eliminacion y el usuario que realizo la accion)
  -[  ] Calcular ingresos, egresos y balance de los dias de un mes correspondientes al detalle del resumen
