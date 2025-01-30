@@ -293,6 +293,7 @@ export const recibo = async (req, res) => {
       
       })();
       // pago.n_cuota = pago.n_cuota + 1; :D
+
       pago.valorEnLetras = numeroALetras(pago.valor, { plural: 'PESOS', singular: 'PESO', centPlural: 'PESOS', centSingular: 'PESO' }).trim();
     // return res.status(200).json({ pago });
     res.render('pagos/recibo', { pago });

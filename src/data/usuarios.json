@@ -11,19 +11,46 @@
   {
     "id": 2,
     "nombre": "romina",
-    "contraseña": "$2b$10$I8fG.jwyKhEdeJr7TkLOJO5xv2HGPdvlOIZZjnF5TUxW3Gvlc6QNa",
+    "contraseña": "$2b$10$YWkVEN1PcxfMZ0fAE/PJl.LApQ2J9cF8C9OcH3nCN/WbhSQYH8o2W",
     "permisos": 4,
-    "dni": "17586700",
+    "dni": "123456789",
     "sucursal": 2,
     "activo": true
   },
   {
     "id": 3,
     "nombre": "carola",
-    "contraseña": "$2b$10$t86IRfCzlHSwhcRZRy7Ruu2.m8.nMAPbawiklepWPhtCCLC5GEhEi",
-    "permisos": 2,
+    "contraseña": "$2b$10$Lv/0HM8j.TiULMObftS3t.snYdy8sYHhJynBeudxMefKi1i4Vi.vy",
+    "permisos": 4,
     "dni": "5236435756",
     "sucursal": 2,
+    "activo": true
+  },
+  {
+    "id": 4,
+    "nombre": "ruben",
+    "contraseña": "$2b$10$GGNh2R6YNiykr8zCqVcJH.sPD04n.FJBKtiMai.cm8HXjBZhXFMg.",
+    "permisos": 3,
+    "dni": "17586700",
+    "sucursal": 2,
+    "activo": true
+  },
+  {
+    "id": 5,
+    "nombre": "rubenlt",
+    "contraseña": "$2b$10$K9qnJ2luL8KYVDw4ZUFTxuL/wDoNGm3uK2UlZB8TZVaykIdF9RnB.",
+    "permisos": 3,
+    "dni": "175867001",
+    "sucursal": 1,
+    "activo": true
+  },
+  {
+    "id": 6,
+    "nombre": "nara",
+    "contraseña": "$2b$10$WCgIsKof8T88S6.5hXKrbuR7G.yp4yN3vxf7CJ7xJbUDmTACO/WnO",
+    "permisos": 4,
+    "dni": "987654321",
+    "sucursal": 1,
     "activo": true
   }
 ]

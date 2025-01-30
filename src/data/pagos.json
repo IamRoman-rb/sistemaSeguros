@@ -1,16 +1,1 @@
-[
-  {
-    "id": 1738074751846,
-    "id_cliente": 1738024365867,
-    "id_poliza": 5,
-    "n_poliza": 45678,
-    "fecha": "2025-01-28",
-    "hora": "11:32:31",
-    "valor": 50000,
-    "forma_pago": "efectivo",
-    "observaciones": " ",
-    "n_cuota": 1,
-    "desconocido": false,
-    "id_cobrador": 1
-  }
-]
+[]
