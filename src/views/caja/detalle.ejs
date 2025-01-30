@@ -5,9 +5,46 @@
     <%- include("../partials/header") %>
     <main>
         <header>
-            <h1>Resumen del mes</h1>
+            <h1>Resumen del mes:  <%= mes %>/<%= anio %></h1>
         </header>
         <ul>
+            <% resumen.forEach(r => { %>
+                <% 
+                    // Obtener los valores de ingresos y egresos
+                    const ingreso = r.ingresos;
+                    const egreso = r.egresos;
+        
+                    // Limpiar y convertir ingresos
+                    const ingresosLimpio = ingreso.replace("$", "").replace(" ", "");
+                    const ingresosLimpioFloat = ingresosLimpio.replace(",", ".");
+                    const ingresosFloat = parseFloat(ingresosLimpioFloat);
+        
+                    // Limpiar y convertir egresos
+                    const egresosLimpio = egreso.replace("$", "").replace(" ", "");
+                    const egresosLimpioFloat = egresosLimpio.replace(",", ".");
+                    const egresosFloat = parseFloat(egresosLimpioFloat);
+                %>
+                <% if (ingresosFloat !== 0 || egresosFloat !== 0) { %>
+                    <li>
+                        <dl>
+                            <dt>Fecha</dt>
+                            <dd><%= r.fechaAlt %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Ingresos</dt>
+                            <dd><%= r.ingresos %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Egresos</dt>
+                            <dd><%= r.egresos %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Balance</dt>
+                            <dd><%= r.balance %></dd>
+                        </dl>
+                    </li>
+                <% } %>
+            <% }) %>
         </ul>
     </main>
 </body>
