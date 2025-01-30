@@ -10,7 +10,7 @@
     "forma_pago": "efectivo",
     "observaciones": " ",
     "n_cuota": 1,
-    "desconocido": true,
+    "desconocido": false,
     "id_cobrador": 1
   }
 ]

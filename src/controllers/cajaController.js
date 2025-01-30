@@ -309,13 +309,13 @@ export const detalle = async (req, res) => {
       resources.map(async (resource) =>
         JSON.parse(await readFile(resource, "utf-8"))
       )
-    );    
-    
+    );
+
     let usuario = req.session.user;
     let usuario_filtrado = usuarios.find((user) => user.id == usuario.id);
-    
+
     pagos = pagos.filter((pago) => !pago.desconocido);
-    
+
     caja = caja.map((c) => {
       let cobrador = usuarios.find(
         (usuarios) => usuarios.id === Number(c.id_usuario)
@@ -329,13 +329,49 @@ export const detalle = async (req, res) => {
       );
       return { ...c, cobrador };
     });
-
-    caja = caja.filter((c) => c.cobrador.sucursal == usuario_filtrado.sucursal);
+  
+    if (usuario_filtrado.permisos != 1){
+      caja = caja.filter(
+        (c) => c.cobrador.sucursal == usuario_filtrado.sucursal
+      );
     pagos = pagos.filter(
       (p) => p.cobrador.sucursal == usuario_filtrado.sucursal
-    );    
-
-    res.status(200).render('caja/detalle');
+    );
+    }
+    let date = new Date(Number(req.params.id));
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let countDays = new Date(year, month, 0).getDate();
+    caja = caja.filter((c) => new Date(c.fecha).getMonth() + 1 == month && new Date(c.fecha).getFullYear() == year);
+    pagos = pagos.filter((p) => new Date(p.fecha).getMonth() + 1 == month && new Date(p.fecha).getFullYear() == year);
+    let resumen =Array.from({ length: countDays }, (_, i) => {
+      const date = new Date(year, month - 1, i + 1);
+      let ingresosCaja = caja.filter((item) => item.tipo === "ingreso").filter((item) => new Date(item.fecha).getMonth() == date.getMonth() && new Date(item.fecha).getFullYear() == date.getFullYear() && new Date(item.fecha).getDate() == date.getDate());
+      let egresosCaja = caja.filter((item) => item.tipo === "egreso" ).filter((item) => new Date(item.fecha).getMonth() == date.getMonth() && new Date(item.fecha).getFullYear() == date.getFullYear() && new Date(item.fecha).getDate() == date.getDate());
+      let ingresosPagos = pagos.filter((item) => item.forma_pago === "efectivo").filter((item) => new Date(item.fecha).getMonth() == date.getMonth() && new Date(item.fecha).getFullYear() == date.getFullYear() && new Date(item.fecha).getDate() == date.getDate());
+      let egresosPagos = pagos.filter((item) =>item.forma_pago === "transferencia").filter((item) => new Date(item.fecha).getMonth() == date.getMonth() && new Date(item.fecha).getFullYear() == date.getFullYear() && new Date(item.fecha).getDate() == date.getDate());
+      ingresosCaja = ingresosCaja.map((item) => Number(item.monto)).reduce((a, b) => a + b, 0);
+      egresosCaja = egresosCaja.map((item) => Number(item.monto)).reduce((a, b) => a + b, 0);
+      ingresosPagos = ingresosPagos.map((item) => Number(item.valor)).reduce((a, b) => a + b, 0);
+      egresosPagos = egresosPagos.map((item) => Number(item.valor)).reduce((a, b) => a + b, 0);
+      return ({
+      fecha: date.getTime(),
+      fechaAlt: `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`,
+      ingresos: new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(ingresosCaja + ingresosPagos),
+      egresos: new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(egresosCaja + egresosPagos),
+      balance: new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(ingresosCaja + ingresosPagos - (egresosCaja + egresosPagos)),
+    })
+  });
+  Object.defineProperty(String.prototype, 'capitalizar', {
+    value: function () {
+        return this.charAt(0).toUpperCase() + this.slice(1);
+    },
+    writable: true, // Asi, puede sobreescribirse más tarde
+    configurable: true // Asi, puede borrarse más tarde
+});
+   
+    return res.status(200).json({mes:date.toLocaleDateString("es-mx",{month:"long"}).capitalizar(),anio:date.getFullYear(),resumen});
+    // return res.status(200).render('caja/detalle',{mes:date.toLocaleDateString("es-mx",{month:"long"}).capitalizar(),anio:date.getFullYear(),resumen});
   } catch (error){
     res.status(500).send(error);
     console.error(error);
