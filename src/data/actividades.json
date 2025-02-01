@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "id": 1738422085948,
+    "id_cliente": 1738422085948,
+    "accion": "Crear cliente",
+    "id_usuario": 1,
+    "fecha": "2025-02-01",
+    "hora": "12:01:25",
+    "tipo": "cliente"
+  },
+  {
+    "id": 1738422158180,
+    "id_poliza": 1,
+    "accion": "Creacion de poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-01",
+    "hora": "12:02:38",
+    "tipo": "poliza"
+  }
+]

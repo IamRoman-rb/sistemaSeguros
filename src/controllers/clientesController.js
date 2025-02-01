@@ -1,5 +1,6 @@
 import path from 'path';
 import { readFile, writeFile } from 'node:fs/promises';
+import { DateTime } from 'luxon';
 
 
 export const listado = async (req, res) => {
@@ -69,69 +70,73 @@ export const detalle = async (req, res) => {
 
 export const guardar = async (req, res) => {
     try {
-        const { nombre, cuit, fecha_n, telefono, telefono_fijo,email, provincia, localidad, direccion } = req.body;
-
-        const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
-        const actividadesPath = path.resolve(process.cwd(), "src/data", "actividades.json");
-        const clientesData = await readFile(clientesPath, 'utf8');
-        const actividadesData = await readFile(actividadesPath, 'utf8');
-        const clientes = JSON.parse(clientesData);
-        const actividades = JSON.parse(actividadesData);
-
-        // Verificar si el cliente ya existe
-        const clienteExistente = clientes.find(cliente => cliente.cuit === cuit);
-
-        if (clienteExistente) {
-            return res.status(400).send('El cliente con ese CUIT ya existe.');
-        }
-
-        // Si el cliente no existe, lo creamos
-      
-        const nuevoCliente = {
-            id: Date.now(),
-            nombre,
-            cuit,
-            fecha_n,
-            telefono,
-            provincia,
-            localidad,
-            direccion,
-            polizas: []
-        };
-
-
-        let actividad = {
-            id: new Date().getTime(),
-            id_cliente: nuevoCliente.id,
-            accion: "Crear cliente",
-            id_usuario: req.session.user.id,
-            fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
-            hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
-            tipo: 'cliente'
-        };
-
-        if (telefono_fijo) {
-            nuevoCliente.telefono_fijo = telefono_fijo;
-        }
-
-        if (email) {
-            nuevoCliente.email = email;
-        }
-
-
-        clientes.push(nuevoCliente);
-
-        actividades.push(actividad);
-
-        await writeFile(clientesPath, JSON.stringify(clientes, null, 2));
-        await writeFile(actividadesPath, JSON.stringify(actividades, null, 2));
-
-        res.redirect(`/clientes/detalle/${nuevoCliente.id}`);
+      const { nombre, cuit, fecha_n, telefono, telefono_fijo, email, provincia, localidad, direccion } = req.body;
+  
+      const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
+      const actividadesPath = path.resolve(process.cwd(), "src/data", "actividades.json");
+  
+      const [clientesData, actividadesData] = await Promise.all([
+        readFile(clientesPath, 'utf8'),
+        readFile(actividadesPath, 'utf8')
+      ]);
+  
+      const clientes = JSON.parse(clientesData);
+      const actividades = JSON.parse(actividadesData);
+  
+      // Verificar si el cliente ya existe
+      const clienteExistente = clientes.find(cliente => cliente.cuit === cuit);
+  
+      if (clienteExistente) {
+        return res.status(400).send('El cliente con ese CUIT ya existe.');
+      }
+  
+      // Obtener la fecha y hora actual con Luxon en la zona horaria de Argentina
+      const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
+  
+      const nuevoCliente = {
+        id: ahoraArgentina.toMillis(), // Usar milisegundos desde la época como ID único
+        nombre,
+        cuit,
+        fecha_n,
+        telefono,
+        provincia,
+        localidad,
+        direccion,
+        polizas: []
+      };
+  
+      let actividad = {
+        id: ahoraArgentina.toMillis(),  // Usar milisegundos desde la época para el ID de actividad
+        id_cliente: nuevoCliente.id,
+        accion: "Crear cliente",
+        id_usuario: req.session.user.id,
+        fecha: ahoraArgentina.toFormat('yyyy-MM-dd'), // Formato ISO 8601 para la fecha
+        hora: ahoraArgentina.toFormat('HH:mm:ss'), // Formato de 24 horas para la hora
+        tipo: 'cliente'
+      };
+  
+      if (telefono_fijo) {
+        nuevoCliente.telefono_fijo = telefono_fijo;
+      }
+  
+      if (email) {
+        nuevoCliente.email = email;
+      }
+  
+      clientes.push(nuevoCliente);
+      actividades.push(actividad);
+  
+      await Promise.all([ // Guardar ambos archivos de forma asíncrona y paralela
+        writeFile(clientesPath, JSON.stringify(clientes, null, 2)),
+        writeFile(actividadesPath, JSON.stringify(actividades, null, 2))
+      ]);
+  
+      res.redirect(`/clientes/detalle/${nuevoCliente.id}`);
     } catch (error) {
-        console.error('Error al crear el cliente:', error.message);
-        res.status(500).send('Error al crear el cliente');
+      console.error('Error al crear el cliente:', error.message);
+      res.status(500).send('Error al crear el cliente');
     }
-};
+  };
 
 export const confirmar = async (req, res) => {
     const { id } = req.params;
@@ -156,26 +161,25 @@ export const eliminar = async (req, res) => {
             path.resolve(process.cwd(), "src/data", "polizas.json"),
             path.resolve(process.cwd(), "src/data", "pagos.json"),
             path.resolve(process.cwd(), "src/data", "actividades.json")
-        ]
+        ];
 
-        let [clientes, polizas, pagos, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+        const [clientes, polizas, pagos, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
+        const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
 
         let actividad_cliente = {
-            id: new Date().getTime(),
+            id: ahoraArgentina.toMillis(),
             id_cliente: id,
             accion: "Eliminar cliente",
             id_usuario: req.session.user.id,
-            fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
-            hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+            fecha: ahoraArgentina.toFormat('yyyy-MM-dd'),
+            hora: ahoraArgentina.toFormat('HH:mm:ss'),
             tipo: 'cliente'
         };
 
         let actividades_polizas = [];
         let actividades_pagos = [];
 
-
-        // Inhabilitar los clientes para eliminar el que coincide con el ID
         clientes = clientes.map((c) => {
             if (c.id == id) {
                 c.inhabilitado = true;
@@ -183,16 +187,15 @@ export const eliminar = async (req, res) => {
             return c;
         });
 
-        // Ocultar las pólizas que pertenecen al cliente a eliminar
         polizas = polizas.map((p) => {
             if (p.clienteId == id) {
                 let actividad = {
-                    id: new Date().getTime(),
+                    id: ahoraArgentina.toMillis(),
                     id_poliza: p.id,
                     accion: "Eliminar poliza",
                     id_usuario: req.session.user.id,
-                    fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
-                    hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+                    fecha: ahoraArgentina.toFormat('yyyy-MM-dd'),
+                    hora: ahoraArgentina.toFormat('HH:mm:ss'),
                     tipo: 'poliza'
                 };
                 actividades_polizas.push(actividad);
@@ -201,16 +204,15 @@ export const eliminar = async (req, res) => {
             return p;
         });
 
-        // Desconocer los pagos que pertenecen a las pólizas eliminadas
         pagos = pagos.map((p) => {
             if (p.id_cliente == id) {
                 let actividad = {
-                    id: new Date().getTime(),
+                    id: ahoraArgentina.toMillis(),
                     id_pago: p.id,
                     accion: "Eliminar pago",
                     id_usuario: req.session.user.id,
-                    fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
-                    hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+                    fecha: ahoraArgentina.toFormat('yyyy-MM-dd'),
+                    hora: ahoraArgentina.toFormat('HH:mm:ss'),
                     tipo: 'pago'
                 };
                 actividades_pagos.push(actividad);
@@ -220,18 +222,17 @@ export const eliminar = async (req, res) => {
         });
 
         actividades.push(actividad_cliente);
-        if (actividades_polizas.length >= 1) {
-            actividades.push(actividades_polizas.find(a => a));
-        }
-        if (actividades_pagos.length >= 1) {
-            actividades.push(actividades_pagos.find(a => a));
-        }
+        actividades.push(...actividades_polizas); // Usar spread operator para añadir múltiples actividades
+        actividades.push(...actividades_pagos);   // Usar spread operator para añadir múltiples actividades
 
-        // Escribir los clientes y pólizas filtrados en sus respectivos archivos JSON
-        await writeFile(resources[0], JSON.stringify(clientes, null, 2));
-        await writeFile(resources[1], JSON.stringify(polizas, null, 2));
-        await writeFile(resources[2], JSON.stringify(pagos, null, 2));
-        await writeFile(resources[3], JSON.stringify(actividades, null, 2));
+
+        await Promise.all([ // Escritura de archivos en paralelo
+            writeFile(resources[0], JSON.stringify(clientes, null, 2)),
+            writeFile(resources[1], JSON.stringify(polizas, null, 2)),
+            writeFile(resources[2], JSON.stringify(pagos, null, 2)),
+            writeFile(resources[3], JSON.stringify(actividades, null, 2))
+        ]);
+
 
         res.redirect('/clientes');
     } catch (error) {
@@ -239,6 +240,7 @@ export const eliminar = async (req, res) => {
         res.status(500).send('Error al eliminar el cliente');
     }
 };
+
 
 export const editar = async (req, res) => {
     const { id } = req.params;
@@ -267,26 +269,28 @@ export const editar = async (req, res) => {
 };
 
 export const actualizar = async (req, res) => {
-
-    const { nombre, cuit, fecha_n, telefono, telefono_fijo, email, provincia, localidad, direccion, id } = req.body; // Agrega más campos según sea necesario
+    const { nombre, cuit, fecha_n, telefono, telefono_fijo, email, provincia, localidad, direccion, id } = req.body;
 
     try {
-        // Leer los datos de los clientes desde el archivo JSON
         const clientesPath = path.resolve(process.cwd(), "src/data", "clientes.json");
-        const clientesData = await readFile(clientesPath, 'utf8');
-        const clientes = JSON.parse(clientesData);
         const actividadesPath = path.resolve(process.cwd(), "src/data", "actividades.json");
-        const actividadesData = await readFile(actividadesPath, 'utf8');
+
+        const [clientesData, actividadesData] = await Promise.all([
+            readFile(clientesPath, 'utf8'),
+            readFile(actividadesPath, 'utf8')
+        ]);
+
+        const clientes = JSON.parse(clientesData);
         const actividades = JSON.parse(actividadesData);
 
         const index = clientes.findIndex(cliente => cliente.id === parseInt(id));
 
-        // Verificar si se encontró el cliente
         if (index === -1) {
             return res.status(404).send('Cliente no encontrado');
         }
 
-        // Crear un objeto con los cambios a realizar
+        const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
+
         const cambios = {};
         if (nombre !== clientes[index].nombre) cambios.nombre = nombre;
         if (cuit !== clientes[index].cuit) cambios.cuit = cuit;
@@ -298,29 +302,27 @@ export const actualizar = async (req, res) => {
         if (localidad !== clientes[index].localidad) cambios.localidad = localidad;
         if (direccion !== clientes[index].direccion) cambios.direccion = direccion;
 
-
         let actividad = {
-            id: new Date().getTime(),
+            id: ahoraArgentina.toMillis(),
             id_cliente: id,
             accion: "Editar cliente",
             id_usuario: req.session.user.id,
-            fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
-            hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+            fecha: ahoraArgentina.toFormat('yyyy-MM-dd'), // Formato ISO 8601
+            hora: ahoraArgentina.toFormat('HH:mm:ss'),    // Formato 24 horas
             tipo: 'cliente'
         };
 
-        // Aplicar los cambios al cliente
         Object.assign(clientes[index], cambios);
-
         actividades.push(actividad);
 
-        // Escribir los datos actualizados en el archivo JSON
-        await writeFile(clientesPath, JSON.stringify(clientes, null, 2));
-        await writeFile(actividadesPath, JSON.stringify(actividades, null, 2));
+        await Promise.all([
+            writeFile(clientesPath, JSON.stringify(clientes, null, 2)),
+            writeFile(actividadesPath, JSON.stringify(actividades, null, 2))
+        ]);
 
         res.redirect(`/clientes/detalle/${clientes[index].id}`);
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al actualizar el cliente');
     }
-}
+};

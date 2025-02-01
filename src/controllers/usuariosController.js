@@ -1,6 +1,7 @@
 import path from "path";
 import {readFile,writeFile} from "node:fs/promises";
 import bcrypt from "bcrypt";
+import { DateTime } from 'luxon';
 
 
 export const listar = async (req, res) => {
@@ -87,38 +88,48 @@ export const guardar = async (req, res) => {
     }
   };
 
-export const perfil = async (req, res) => {
-  const resources = [
-    path.resolve(process.cwd(), "src/data", "usuarios.json"),
-    path.resolve(process.cwd(), "src/data", "polizas.json"),
-    path.resolve(process.cwd(), "src/data", "pagos.json"),
-    path.resolve(process.cwd(), "src/data", "sucursales.json"),
-    path.resolve(process.cwd(), "src/data", "permisos.json")
+  export const perfil = async (req, res) => {
+    const resources = [
+        path.resolve(process.cwd(), "src/data", "usuarios.json"),
+        path.resolve(process.cwd(), "src/data", "polizas.json"),
+        path.resolve(process.cwd(), "src/data", "pagos.json"),
+        path.resolve(process.cwd(), "src/data", "sucursales.json"),
+        path.resolve(process.cwd(), "src/data", "permisos.json")
+    ];
 
-  ];
-  let [usuarios, polizas, pagos, sucursales, permisos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
-  
-  const usuario = usuarios.find((u) => u.id === req.session.user.id);
+    try {
+        let [usuarios, polizas, pagos, sucursales, permisos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
-  if (!usuario) {
-    return res.status(404).send("Usuario no encontrado");
-  }
+        const usuario = usuarios.find((u) => u.id === req.session.user.id);
 
-  usuario.permisos = permisos.find(p => p.id === Number(usuario.permisos));
-  usuario.sucursal = sucursales.find(s => s.id === Number(usuario.sucursal));
+        if (!usuario) {
+            return res.status(404).send("Usuario no encontrado");
+        }
 
-  polizas = polizas.map(poliza => ({ ...poliza, pagos: pagos.filter(pago => pago.id_poliza === poliza.id)}));
-  
-  // polizas cobradas por el usuario
+        usuario.permisos = permisos.find(p => p.id === Number(usuario.permisos));
+        usuario.sucursal = sucursales.find(s => s.id === Number(usuario.sucursal));
 
-  polizas = polizas.filter(poliza => poliza.pagos.some(pago => pago.id_cobrador === usuario.id)); 
+        polizas = polizas.map(poliza => ({ ...poliza, pagos: pagos.filter(pago => pago.id_poliza === poliza.id) }));
 
-  // polizas cobradas por el usuario en año actual y mes actual
+        polizas = polizas.filter(poliza => poliza.pagos.some(pago => pago.id_cobrador === usuario.id));
 
-  let mesActual = polizas.filter(poliza => poliza.pagos.some(pago => new Date(pago.fecha).getFullYear() === new Date().getFullYear() && new Date(pago.fecha).getMonth() === new Date().getMonth()));
+        const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
+        const anioActual = ahoraArgentina.year;
+        const mesActual = ahoraArgentina.month;
 
-  res.render("usuarios/perfil", { usuario, polizas, mesActual });
-} 
+        let polizasMesActual = polizas.filter(poliza => poliza.pagos.some(pago => {
+            const fechaPago = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires');
+            return fechaPago.year === anioActual && fechaPago.month === mesActual;
+        }));
+
+
+        res.render("usuarios/perfil", { usuario, polizas, mesActual: polizasMesActual }); // Usar polizasMesActual
+
+    } catch (error) {
+        console.error("Error en el perfil:", error);
+        res.status(500).send("Error interno del servidor");
+    }
+}
 
 export const detalle =  async (req, res) => {
     try {

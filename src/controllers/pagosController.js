@@ -1,5 +1,6 @@
 import path from 'path';
 import {readFile,writeFile} from 'node:fs/promises';
+import { DateTime } from 'luxon';
 
 export const listar = async (req, res) => {
   const resources = [
@@ -124,11 +125,17 @@ export const recibo = async (req, res) => {
     pago.poliza.empresa = empresas.find(e => e.id == Number(pago.poliza.empresa));
     pago.cobrador.sucursal = sucursales.find(s => s.id == Number(pago.cobrador.sucursal));
 
-    pago.fechaEnLetras = `${new Date(pago.fecha).getDate()} de ${new Date(pago.fecha).toLocaleString('es', { month: 'long' }).capitalizar()} de ${new Date(pago.fecha).getFullYear()}` ; // 11 de Diciembre de 2025
+    // Usar Luxon para formatear la fecha
+    pago.fechaEnLetras = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires').toFormat('dd de MMMM de yyyy');
 
-    pago.proximoPago = new Date(pago.fecha).setMonth(new Date(pago.fecha).getMonth() + 1);
-
-    pago.proximoPago = new Date(pago.proximoPago).toLocaleDateString('es-AR', { day: '2-digit', month: 'numeric', year: 'numeric' });
+    // Usar Luxon para calcular el próximo pago
+    const fechaPago = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires');
+    let proximoPago = fechaPago.plus({ months: 1 });
+    
+    // Ajustar al último día del mes si es necesario
+    proximoPago = proximoPago.day > proximoPago.daysInMonth ? proximoPago.endOf('month') : proximoPago;
+    
+    pago.proximoPago = proximoPago.toFormat('dd/MM/yyyy');
 
     // convertir el monto a moneda argentina en formato de texto
     var numeroALetras = (function() {
@@ -339,7 +346,7 @@ export const pagar = async (req, res) => {
 
 export const acreditar = async (req, res) => {
   try {
-    const {polizaId} = req.body;
+    const { polizaId } = req.body;
 
     const resources = [
       path.resolve(process.cwd(), "src/data", "polizas.json"),
@@ -353,15 +360,17 @@ export const acreditar = async (req, res) => {
       return res.status(404).send("Póliza no encontrada.");
     }
 
+    // Obtener la fecha y hora actual en la zona horaria de Argentina
+    const fecha = DateTime.now().setZone('America/Argentina/Buenos_Aires');
+
     // Crear el objeto del pago
-    const fecha = new Date();
     const pago = {
-      id: fecha.getTime(), // ID del pago
+      id: fecha.toMillis(), // ID del pago
       id_cliente: Number(poliza.clienteId), // ID del cliente de la póliza
       id_poliza: Number(poliza.id), // ID de la póliza
-      n_poliza:  Number(poliza.n_poliza), // Número de póliza
-      fecha: fecha.toISOString().split('T')[0], // Fecha en formato YYYY-MM-DD
-      hora: `${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()}`, // Hora actual
+      n_poliza: Number(poliza.n_poliza), // Número de póliza
+      fecha: fecha.toFormat('yyyy-MM-dd'), // Fecha en formato YYYY-MM-DD
+      hora: fecha.toFormat('HH:mm:ss'), // Hora actual
       valor: (Number(poliza.precio) / poliza.cuotas), // Premio de la póliza
       forma_pago: 'efectivo',
       observaciones: req.body.observaciones,
@@ -403,29 +412,36 @@ export const eliminar = async (req, res) => {
     if (pago === -1) {
       return res.status(404).send("Pago no encontrado.");
     }
+
     // Desconocer el pago
     pagos[pago].desconocido = true;
     poliza.pagos = poliza.pagos.filter((p) => p != pagos[pago].id);
 
+    // Obtener la fecha y hora actual en la zona horaria de Argentina
+    const fechaArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
+
+    // Crear la actividad
     let actividad = {
-      id: new Date().getTime(),
+      id: fechaArgentina.toMillis(), // ID de la actividad
       id_pago: pagos[pago].id,
       accion: "Eliminar pago",
       id_usuario: req.session.user.id,
-      fecha: `${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`,
-      hora: `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`,
+      fecha: fechaArgentina.toFormat('yyyy-MM-dd'), // Fecha en formato YYYY-MM-DD
+      hora: fechaArgentina.toFormat('HH:mm:ss'), // Hora en formato HH:mm:ss
       tipo: 'pago'
-  };
+    };
 
-  actividades.push(actividad);
+    // Guardar la actividad
+    actividades.push(actividad);
 
-    // Actualizar el archivo de pagos
-    await writeFile(resources[0], JSON.stringify(pagos, null, 2));
-    await writeFile(resources[1], JSON.stringify(polizas, null, 2));
-    await writeFile(resources[2], JSON.stringify(actividades, null, 2));
+    // Actualizar los archivos
+    await Promise.all([
+      writeFile(resources[0], JSON.stringify(pagos, null, 2)), // Actualizar pagos.json
+      writeFile(resources[1], JSON.stringify(polizas, null, 2)), // Actualizar polizas.json
+      writeFile(resources[2], JSON.stringify(actividades, null, 2)), // Actualizar actividades.json
+    ]);
 
-    // Redirigir a la lista de pagos o a una vista de confirmación
-    res.redirect(`/polizas/detalle/${polizaId}`);
+    res.status(200).send("Pago eliminado correctamente.");
   } catch (error) {
     console.error("Error al eliminar el pago:", error.message);
     res.status(500).send("Error al eliminar el pago.");

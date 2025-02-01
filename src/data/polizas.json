@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "n_poliza": "123123",
+    "f_emision": "2025-02-01",
+    "f_ini_vigencia": "2025-02-01",
+    "f_fin_vigencia": "2025-06-01",
+    "periodo": 4,
+    "suma": 0,
+    "cuotas": 4,
+    "usos": "Particular",
+    "empresa": 1,
+    "precio": 100000,
+    "cobertura": "1",
+    "marca": 3,
+    "modelo": "DUNA 1.4 ",
+    "patente": "AEI586",
+    "anio": 2000,
+    "n_chasis": "GEOINGO9348290",
+    "n_motor": "JKNFJWANG97849021",
+    "combustible": "nafta",
+    "clienteId": 1738422085948,
+    "sucursal": "1",
+    "pagos": [
+      1738422263297
+    ],
+    "usuario": "1",
+    "id": 1
+  }
+]
