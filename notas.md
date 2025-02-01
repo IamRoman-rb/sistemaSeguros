@@ -5,3 +5,5 @@
  -[ ] Calcular ingresos, egresos y balance de los dias de un mes correspondientes al detalle del resumen
 
  - [x] Corregir zona horaria de pagos. Ingresos. egresos, creacion de polizas, actividades. 
+ - [ ] Agregar boton para renovar polizas
+ - [ ] Agregar boton para eliminar egresos e ingresos
