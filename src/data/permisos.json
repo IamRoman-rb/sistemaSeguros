@@ -147,6 +147,11 @@
           "method": "get"
         },
         {
+          "path": "/renovar/:id",
+          "alias": "renovar",
+          "method": "get"
+        },
+        {
           "path": "/guardar",
           "alias": "guardar",
           "method": "post"
@@ -306,6 +311,11 @@
         {
           "path": "/confirmar/:id",
           "alias": "confirmar",
+          "method": "get"
+        },
+        {
+          "path": "/renovar/:id",
+          "alias": "renovar",
           "method": "get"
         },
         {
@@ -675,6 +685,11 @@
         {
           "path": "/confirmar/:id",
           "alias": "confirmar",
+          "method": "get"
+        },
+        {
+          "path": "/renovar/:id",
+          "alias": "renovar",
           "method": "get"
         },
         {

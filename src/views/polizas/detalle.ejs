@@ -18,6 +18,7 @@
           <% if (!["Empleado"].includes(user.rol)) { %>
             <a href="/polizas/confirmar/<%= poliza.id %>">Eliminar Poliza</a>
           <% } %>
+          <a href="/polizas/renovar/<%= poliza.id %>">Renovar Poliza</a>
         <% } %>
       </nav>
     </header>

@@ -44,6 +44,7 @@ export const listado = async (req, res) => {
     res.status(500).send("Error al cargar las pólizas: " + error.message);
   }
 };
+
 export const nueva = async (req, res) => {
   try {
     const { id } = req.params; // Obtener el ID del cliente desde la URL
@@ -76,6 +77,7 @@ export const nueva = async (req, res) => {
     res.status(500).send("Error al cargar el cliente: " + error.message);
   }
 };
+
 export const guardar = async (req, res) => {
   try {
       const resources = [
@@ -163,7 +165,6 @@ export const guardar = async (req, res) => {
   }
 };
 
-
 export const detalle = async (req, res) => {
   try {
     const { id } = req.params; // ID de la póliza desde la URL
@@ -221,6 +222,7 @@ export const detalle = async (req, res) => {
       .send("Error al obtener el detalle de la póliza: " + error.message);
   }
 };
+
 export const confirmar = async (req, res) => {
   try {
     const { id } = req.params; // ID de la póliza desde la URL
@@ -428,3 +430,60 @@ export const actualizar = async (req, res) => {
   }
 };
 
+export const renovar = async (req, res) => {
+  try {
+    const { id } = req.params; // ID de la póliza desde la URL
+
+    const resources = [
+      path.resolve(process.cwd(), "src/data", "clientes.json"),
+      path.resolve(process.cwd(), "src/data", "polizas.json"),
+      path.resolve(process.cwd(), "src/data", "pagos.json"),
+      path.resolve(process.cwd(), "src/data", "ciudades.json"),
+      path.resolve(process.cwd(), "src/data", "provincias.json"),
+      path.resolve(process.cwd(), "src/data", "automarcas.json"),
+      path.resolve(process.cwd(), "src/data", "sucursales.json"),
+      path.resolve(process.cwd(), "src/data", "empresas.json"),
+      path.resolve(process.cwd(), "src/data", "coberturas.json"),
+      path.resolve(process.cwd(), "src/data", "usuarios.json"),
+    ];
+
+    const [clientes, polizas, pagos, ciudades, provincias, automarcas, sucursales, empresas, coberturas, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
+
+
+    // Buscar la póliza por ID
+    let poliza = polizas.find((p) => p.id.toString() === id);
+    if (!poliza) {
+      return res.status(404).send("Póliza no encontrada");
+    }
+
+    // Buscar el cliente asociado a la póliza
+    let cliente = clientes.find((c) => c.polizas.includes(Number(id)));
+    if (!cliente) {
+      return res.status(404).send("Cliente asociado no encontrado");
+    }
+
+    cliente.provincia = provincias.find((p) => p.id === Number(cliente.idprovincia));
+    cliente.ciudad = ciudades.find((c) => c.id === Number(cliente.idciudad));
+
+    poliza.empresa = empresas.find((e) => e.id === Number(poliza.empresa));
+    poliza.sucursal = sucursales.find((s) => s.id === Number(poliza.sucursal));
+    poliza.marca = automarcas.find((a) => a.id === Number(poliza.marca));
+    if (poliza.pagos.length > 0) {
+      poliza.pagos = pagos.filter((pago) => pago.id_poliza === Number(id));
+    }
+    poliza.cobertura = coberturas.find((c) => c.id === Number(poliza.cobertura));
+    // Renderizar la vista con los detalles
+
+    let usuario = req.session.user;
+
+    let usuario_filtrado = usuarios.find(user => user.id == usuario.id);       
+
+    res.render("polizas/renovar", { poliza, cliente, usuario: usuario_filtrado,ciudades, provincias, autos:automarcas, sucursales, empresas, coberturas });
+
+  } catch (error) {
+    console.error("Error al obtener el detalle de la póliza:", error.message);
+    res
+      .status(500)
+      .send("Error al obtener el detalle de la póliza: " + error.message);
+  }
+};

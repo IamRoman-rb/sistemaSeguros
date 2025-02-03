@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("../partials/head") %>
+
+<body>
+    <%- include("../partials/header") %>
+    <main>
+        <header>
+            <h1>Renovar Poliza</h1>
+            <nav>
+                <a href="/clientes/detalle/<%= cliente.id %>">Volver al perfil del cliente</a>
+                <a href="/polizas/">Volver al listado de polizas</a>
+            </nav>
+        </header>
+        <form action="/polizas/guardar" method="POST" id="create-poliza-form">
+            <input type="hidden" name="sucursal" value="<%= usuario.sucursal %>">
+            <input type="hidden" name="id" value="<%= usuario.id %>">
+            <fieldset>
+                <label for="n_poliza" class="label" id="label_n_poliza">
+                    N Poliza
+                </label>
+                <input type="number" name="n_poliza" id="n_poliza" minlength="3" required>
+            </fieldset>
+            <fieldset>
+                <label for="f_ini_vigencia" class="label" id="label_f_ini_vigencia">
+                    Inicio Vigencia
+                </label>
+                <input type="date" name="f_ini_vigencia" id="f_ini_vigencia" required>
+            </fieldset>
+            <fieldset>
+                <label for="periodo">Periodo de Vigencia</label>
+                <select name="periodo" id="periodo" required> 
+                    <option value="0" disabled selected> Periodo de Vigencia</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="cuotas">Cantidad de Cuotas</label>
+                <select name="cuotas" id="cuotas" required> 
+                    <option value="0" disabled> Cantidad de Cuotas</option>
+                    <option value="1" <%= poliza.cuotas == 1 ? 'selected' : '' %> >1</option>
+                    <option value="2" <%= poliza.cuotas == 2 ? 'selected' : '' %> >2</option>
+                    <option value="3" <%= poliza.cuotas == 3 ? 'selected' : '' %> >3</option>
+                    <option value="4" <%= poliza.cuotas == 4 ? 'selected' : '' %> >4</option>
+                    <option value="5" <%= poliza.cuotas == 5 ? 'selected' : '' %> >5</option>
+                    <option value="6" <%= poliza.cuotas == 6 ? 'selected' : '' %> >6</option>
+                    <option value="7" <%= poliza.cuotas == 7 ? 'selected' : '' %> >7</option>
+                    <option value="8" <%= poliza.cuotas == 8 ? 'selected' : '' %> >8</option>
+                    <option value="9" <%= poliza.cuotas == 9 ? 'selected' : '' %> >9</option>
+                    <option value="10" <%= poliza.cuotas == 10 ? 'selected' : '' %> >10</option>
+                    <option value="11" <%= poliza.cuotas == 11 ? 'selected' : '' %> >11</option>
+                    <option value="12" <%= poliza.cuotas == 12 ? 'selected' : '' %> >12</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="usos">Tipo de uso</label>
+                <select name="usos" id="usos" required> 
+                    <option value="0" disabled >Tipos de usos</option>
+                    <option value="Particular" <%= poliza.usos == 'Particular' ? 'selected' : '' %> >Particular</option>
+                    <option value="Taxi" <%= poliza.usos == 'Taxi' ? 'selected' : '' %> >Taxi</option>
+                    <option value="Remis" <%= poliza.usos == 'Remis' ? 'selected' : '' %> >Remis</option>
+                    <option value="Comercial" <%= poliza.usos == 'Comercial' ? 'selected' : '' %> >Comercial</option>
+                    <option value="Alquileres" <%= poliza.usos == 'Alquileres' ? 'selected' : '' %> >Alquileres/Chofer</option>
+                    <option value="Ambulancia" <%= poliza.usos == 'Ambulancia' ? 'selected' : '' %> >Ambulancia</option>
+                    <option value="Remis Rural" <%= poliza.usos == 'Remis Rural' ? 'selected' : '' %> >Remis Rural</option>
+                    <option value="Auto Rural" <%= poliza.usos == 'Auto Rural' ? 'selected' : '' %> >Auto Rural</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label for="empresa">Empresa</label>
+                <select name="empresa" id="empresa" required>
+                    <option value="0" disabled>Empresa</option>
+                    <% empresas.forEach(empresa=> { %>
+                        
+                        <option value="<%= empresa.id %>" <%= poliza.empresa.id == empresa.id ? 'selected' : '' %>>
+                            <%= empresa.nombre %>
+                        </option>
+                        <% }) %>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="cobertura">Cobertura</label>
+                <select name="cobertura" id="cobertura" required>
+                    <option value="0" disabled selected> Cobertura</option>
+                    <% empresas.forEach(empresa=> { %>
+                        <optgroup label="<%= empresa.nombre %>">
+                            <% coberturas.forEach(cobertura=> { %>
+                                <% if (empresa.coberturas.includes(cobertura.id)) { %>
+                                    <% if (poliza.cobertura.id == cobertura.id) { %>
+                                        <option value="<%= cobertura.id %>" selected>
+                                            <%= cobertura.nombre %>
+                                        </option>
+                                    <% } else { %>
+                                        <option value="<%= cobertura.id %>">
+                                            <%= cobertura.nombre %>
+                                        </option>
+                                    <% } %>
+                                <% }  %>
+                            <% }) %>
+                        </optgroup>
+                    <% }) %>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="marca">Marca del Vehiculo</label>
+                <select name="marca" id="marca" required>
+                    <option value="0" disabled > Marca del Vehiculo</option>
+                    <% autos.forEach(auto=> { %>
+                        <option value="<%= auto.id %>" <%= poliza.marca.id == auto.id ? 'selected' : '' %>>
+                            <%= auto.marca %>
+                        </option>
+                        <% }) %>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="modelo">
+                    Modelo del Vehiculo
+                </label>
+                <input type="text" name="modelo" id="modelo" value="<%= poliza.modelo %>" required>
+            </fieldset>
+            <fieldset>
+                <label for="patente">
+                    Patente del Vehiculo
+                </label>
+                <input type="text" name="patente" id="patente" value="<%= poliza.patente %>" required>
+            </fieldset>
+            <fieldset>
+                <label for="anio">
+                    Año del Vehiculo
+                </label>
+                <input type="number" name="anio" id="anio" value="<%= poliza.anio %>" required>
+            </fieldset>
+            <fieldset>
+                <label for="suma" class="label" id="label_suma">
+                    Suma Asegurada
+                </label>
+                <input type="number" name="suma" id="suma" value="<%= poliza.suma %>" required>
+            </fieldset>
+            <fieldset>
+                <label for="n_chasis">
+                    N Chasis
+                </label>
+                <input type="text" name="n_chasis" id="n_chasis" value="<%= poliza.n_chasis %>" required>
+            </fieldset>
+            <fieldset>
+                <label for="n_motor">
+                    N motor
+                </label>
+                <input type="text" name="n_motor" id="n_motor" value="<%= poliza.n_motor %>" required>
+            </fieldset>
+            <fieldset>
+                <label for="combustible">
+                    Combustible del Vehiculo
+                </label>
+                <select name="combustible" id="combustible" required>
+                    <option value="0" disabled>Combustible del Vehiculo</option>
+                    <option value="nafta" <%= poliza.combustible == 'nafta' ? 'selected' : '' %>>Nafta</option>
+                    <option value="diesel" <%= poliza.combustible == 'diesel' ? 'selected' : '' %>>Diesel</option>
+                    <option value="GNC" <%= poliza.combustible == 'GNC' ? 'selected' : '' %>>GNC</option>
+                    <option value="electrico" <%= poliza.combustible == 'electrico' ? 'selected' : '' %>>Electrico</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="precio">
+                    Premio Total de la Poliza
+                </label>
+                <input type="number" name="precio" id="Precio" min="1000" value="<%= poliza.precio %>" required>
+            </fieldset>
+            <input type="hidden" id="id_cliente" name="clientId" value="<%= cliente.id %>">
+
+            <fieldset id="botones">
+                <button type="submit">Renovar</button>
+                <button type="reset">Borrar datos</button>
+            </fieldset>
+        </form>
+    </main>
+
+    <script>
+        document.querySelector("#empresa").addEventListener('change', (e) => {
+            document.querySelectorAll('#cobertura optgroup').forEach((group) => group.disabled = true)
+            const { value } = e.target
+            const option = document.querySelector(`#empresa option[value='${value}']`)
+            const label = String(option.innerText).trim()
+            const group = document.querySelector(`#cobertura optgroup[label='${label}']`)
+            group.disabled = false
+        })
+        const defaultEmpresa = document.querySelector('#empresa option[value="<%= poliza.empresa.id %>"]')
+        defaultEmpresa.selected = true
+        document.querySelectorAll('#cobertura optgroup').forEach((group) => group.disabled = true)
+        const { value } = defaultEmpresa
+        const option = document.querySelector(`#empresa option[value='${value}']`)
+        const label = String(option.innerText).trim()
+        const group = document.querySelector(`#cobertura optgroup[label='${label}']`)
+        group.disabled = false
+
+    </script>
+</body>
+
+</html>
