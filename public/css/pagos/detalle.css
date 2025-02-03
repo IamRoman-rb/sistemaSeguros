@@ -42,6 +42,24 @@ main > header nav {
 main > header nav a[href*="confirmar"] {
     background-color: var(--rojo);
 }
+main > header > form{
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+}
+main > header > form > button{
+    border-radius: 0.25rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--rojo);
+    color: var(--blanco);
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+}
 main > ul {
     width: 100%;
     display: grid;

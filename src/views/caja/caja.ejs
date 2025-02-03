@@ -32,10 +32,6 @@
                                 <dt>Cobrador:</dt>
                                 <dd><%= pago.cobrador %></dd>
                             </dl>
-                            <!-- <dl>
-                                <dt>Descripcion:</dt>
-                                <dd><%= pago.descripcion %></dd>
-                            </dl> -->
                         </li>
                     <% }) %>
                 </ul>
@@ -65,6 +61,12 @@
                                 <dt>Descripcion:</dt>
                                 <dd><%= ingreso.descripcion %></dd>
                             </dl>
+                            <dl>
+                                <% if (usuario.permisos != 3) { %>
+                                    <dt>Acciones:</dt>
+                                    <a href="/caja/confirmar/<%= ingreso.id %>">Eliminar</a>
+                                <% } %>
+                            </dl>
                         </li>
                     <% }) %>
                 </ul>
@@ -93,6 +95,12 @@
                             <dl>
                                 <dt>Descripcion:</dt>
                                 <dd><%= egreso.descripcion %></dd>
+                            </dl>
+                            <dl>
+                                <% if (usuario.permisos != 3) { %>
+                                    <dt>Acciones:</dt>
+                                    <a href="/caja/confirmar/<%= egreso.id %>">Eliminar</a>
+                                <% } %>
                             </dl>
                         </li>
                     <% }) %>

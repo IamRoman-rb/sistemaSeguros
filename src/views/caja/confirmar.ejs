@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("../partials/head") %>
+<body>
+    <%- include("../partials/header") %>
+    <main>
+        <header>
+            <h1>Eliminar Egreso</h1>
+        </header>
+        <% if (movimiento.tipo == 'ingreos') { %>
+            <h2>¿Estas segugo que deseas eliminar el ingeso?</h2>
+        <% } else { %>
+                <h2>¿Estas segugo que deseas eliminar el egreso?</h2>     
+        <% } %>
+        <form action="/caja/eliminar" method="POST">
+            <input type="hidden" name="id" value="<%= id %>">
+            <input type="hidden" name="id_movimiento" value="<%= movimiento.id %>">
+            <a href="/caja">Cancelar</a>
+            <button type="submit">Eliminar</button>
+        </form>
+    </main>
+</body>
+</html>

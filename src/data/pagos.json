@@ -12,5 +12,19 @@
     "n_cuota": 1,
     "desconocido": false,
     "id_cobrador": 1
+  },
+  {
+    "id": 1738505190282,
+    "id_cliente": 1738422085948,
+    "id_poliza": 1,
+    "n_poliza": 123123,
+    "fecha": "2025-02-02",
+    "hora": "11:06:30",
+    "valor": 25000,
+    "forma_pago": "efectivo",
+    "observaciones": "",
+    "n_cuota": 2,
+    "desconocido": false,
+    "id_cobrador": 1
   }
 ]

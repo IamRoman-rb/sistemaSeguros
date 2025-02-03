@@ -1,20 +1,12 @@
 [
   {
     "id_usuario": "1",
-    "id": 1738423010090,
+    "id": 1738610685247,
     "monto": "25000",
     "tipo": "ingreso",
-    "motivo": "PAGO POLIZA",
-    "descripcion": "pago poliza rc",
-    "fecha": "2025-02-01"
-  },
-  {
-    "id_usuario": "1",
-    "id": 1738423068230,
-    "monto": "25000",
-    "tipo": "egreso",
-    "motivo": "RECIBO JUANITO",
-    "descripcion": "recibo juanito rc",
-    "fecha": "2025-02-01"
+    "motivo": "INGRESO PRUEBA",
+    "descripcion": "MGWIGW",
+    "fecha": "2025-02-03",
+    "desconocido": true
   }
 ]

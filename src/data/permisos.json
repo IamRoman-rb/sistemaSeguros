@@ -229,6 +229,16 @@
           "path": "/resumen/detalle/:id",
           "alias": "resumen",
           "method": "get"
+        },
+        {
+          "path": "/confirmar/:id",
+          "alias": "confirmar",
+          "method": "get"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "confirmar",
+          "method": "post"
         }
       ],
       "actividades": [
@@ -536,6 +546,16 @@
           "path": "/resumen/detalle/:id",
           "alias": "resumen",
           "method": "get"
+        },
+        {
+          "path": "/confirmar/:id",
+          "alias": "confirmar",
+          "method": "get"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "confirmar",
+          "method": "post"
         }
       ]
     }
@@ -765,6 +785,16 @@
           "path": "/resumen/detalle/:id",
           "alias": "resumen",
           "method": "get"
+        },
+        {
+          "path": "/confirmar/:id",
+          "alias": "confirmar",
+          "method": "get"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "confirmar",
+          "method": "post"
         }
       ], 
       "actividades": [
