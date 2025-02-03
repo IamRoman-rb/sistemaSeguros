@@ -8,5 +8,15 @@
     "descripcion": "MGWIGW",
     "fecha": "2025-02-03",
     "desconocido": true
+  },
+  {
+    "id_usuario": "1",
+    "id": 1738614152512,
+    "monto": "25000",
+    "tipo": "ingreso",
+    "motivo": "INGRESO PRUEBA",
+    "descripcion": "",
+    "fecha": "2025-02-03",
+    "desconocido": true
   }
 ]

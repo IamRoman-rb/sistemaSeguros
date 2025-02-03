@@ -85,6 +85,26 @@
                     </dl>
                 </li>
                 <% } %>
+                <% if (actividad.tipo == 'movimiento') { %>
+                    <li>
+                        <dl>
+                            <dt>Fecha</dt>
+                            <dd><%= actividad.fecha %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Hora</dt>
+                            <dd><%= actividad.hora %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Accion</dt>
+                            <dd><%= actividad.accion %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Usuario</dt>
+                            <dd><%= actividad.usuario.nombre %></dd>
+                        </dl>
+                    </li>
+                <% } %>
             <% }) %>
         </ul>
     </main>

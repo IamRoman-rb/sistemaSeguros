@@ -25,5 +25,14 @@
     "fecha": "2025-02-03",
     "hora": "17:13:03",
     "tipo": "movimiento"
+  },
+  {
+    "id": 1738614172230,
+    "id_pago": 1738614152512,
+    "accion": "Eliminar ingreso",
+    "id_usuario": 1,
+    "fecha": "2025-02-03",
+    "hora": "17:22:52",
+    "tipo": "movimiento"
   }
 ]
