@@ -10,7 +10,7 @@
     "forma_pago": "efectivo",
     "observaciones": "PRIMER PAGO",
     "n_cuota": 1,
-    "desconocido": false,
+    "desconocido": true,
     "id_cobrador": 1
   },
   {
@@ -24,7 +24,7 @@
     "forma_pago": "efectivo",
     "observaciones": "",
     "n_cuota": 2,
-    "desconocido": false,
+    "desconocido": true,
     "id_cobrador": 1
   },
   {
@@ -38,7 +38,21 @@
     "forma_pago": "efectivo",
     "observaciones": "",
     "n_cuota": 3,
-    "desconocido": false,
+    "desconocido": true,
+    "id_cobrador": 1
+  },
+  {
+    "id": 1738624399270,
+    "id_cliente": 1738422085948,
+    "id_poliza": 1,
+    "n_poliza": 123123,
+    "fecha": "2025-02-03",
+    "hora": "20:13:19",
+    "valor": 25000,
+    "forma_pago": "efectivo",
+    "observaciones": "",
+    "n_cuota": 4,
+    "desconocido": true,
     "id_cobrador": 1
   }
 ]

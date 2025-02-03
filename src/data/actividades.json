@@ -34,5 +34,68 @@
     "fecha": "2025-02-03",
     "hora": "17:22:52",
     "tipo": "movimiento"
+  },
+  {
+    "id": 1738625484257,
+    "id_poliza": 2,
+    "accion": "Creacion de poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-03",
+    "hora": "20:31:24",
+    "tipo": "poliza"
+  },
+  {
+    "id": 1738625506303,
+    "id_poliza": 3,
+    "accion": "Creacion de poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-03",
+    "hora": "20:31:46",
+    "tipo": "poliza"
+  },
+  {
+    "id": 1738625919383,
+    "id_poliza": 2,
+    "accion": "Creacion de poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-03",
+    "hora": "20:38:39",
+    "tipo": "poliza"
+  },
+  {
+    "id": 1738626387233,
+    "id_poliza": 2,
+    "accion": "Creacion de poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-03",
+    "hora": "20:46:27",
+    "tipo": "poliza"
+  },
+  {
+    "id": 1738626423399,
+    "id_poliza": 2,
+    "accion": "Creacion de poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-03",
+    "hora": "20:47:03",
+    "tipo": "poliza"
+  },
+  {
+    "id": 1738626727988,
+    "id_poliza": 2,
+    "accion": "Creacion de poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-03",
+    "hora": "20:52:07",
+    "tipo": "poliza"
+  },
+  {
+    "id": 1738626732522,
+    "id_poliza": "2",
+    "accion": "eliminar poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-03",
+    "hora": "20:52:12",
+    "tipo": "poliza"
   }
 ]

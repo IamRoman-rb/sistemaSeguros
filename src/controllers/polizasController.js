@@ -23,7 +23,7 @@ export const listado = async (req, res) => {
         cliente,
         cobertura
       };
-    });
+    });    
 
     // Filtrar las pólizas si hay un término de búsqueda
     if (busqueda) {
@@ -88,11 +88,11 @@ export const guardar = async (req, res) => {
 
       const [polizas, clientes, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
-      const polizasPatente = polizas.filter((poliza) => poliza.patente === req.body.patente);
+      // const polizasPatente = polizas.filter((poliza) => poliza.patente === req.body.patente);
 
-      if (polizasPatente.length > 0) {
-          return res.status(400).send("Patente duplicada");
-      }
+      // if (polizasPatente.length > 0) {
+      //     return res.status(400).send("Patente duplicada");
+      // }
 
       const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
 
@@ -282,7 +282,7 @@ export const eliminar = async (req, res) => {
           path.resolve(process.cwd(), "src/data", "actividades.json"),
       ];
 
-      const [polizas, pagos, clientes, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+      let [polizas, pagos, clientes, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
       const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
 
@@ -296,12 +296,12 @@ export const eliminar = async (req, res) => {
           tipo: 'poliza'
       };
 
-      const polizaIndex = polizas.findIndex((p) => p.id.toString() === id);
+      let polizaIndex = polizas.findIndex((p) => p.id === Number(id));
       if (polizaIndex === -1) {
           return res.status(404).send("Póliza no encontrada");
       }
 
-      const cliente = clientes.find((c) => c.polizas.includes(Number(id)));
+      let cliente = clientes.find((c) => c.polizas.includes(Number(id)));
 
       polizas[polizaIndex].inhabilitado = true;
 

@@ -9,7 +9,13 @@
     "localidad": "223",
     "direccion": "CALLE 18 346",
     "polizas": [
-      1
+      1,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2
     ]
   }
 ]
