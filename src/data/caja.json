@@ -1,22 +1,30 @@
 [
   {
     "id_usuario": "1",
-    "id": 1738610685247,
-    "monto": "25000",
-    "tipo": "ingreso",
-    "motivo": "INGRESO PRUEBA",
-    "descripcion": "MGWIGW",
-    "fecha": "2025-02-03",
+    "id": 1738682584244,
+    "monto": "187500",
+    "tipo": "egreso",
+    "motivo": "CAJA",
+    "descripcion": "",
+    "fecha": "2025-02-04",
     "desconocido": true
   },
   {
     "id_usuario": "1",
-    "id": 1738614152512,
-    "monto": "25000",
-    "tipo": "ingreso",
-    "motivo": "INGRESO PRUEBA",
+    "id": 1738682605563,
+    "monto": "187500",
+    "tipo": "egreso",
+    "motivo": "CAJA",
     "descripcion": "",
-    "fecha": "2025-02-03",
-    "desconocido": true
+    "fecha": "2025-02-04"
+  },
+  {
+    "id_usuario": "1",
+    "id": 1738682633307,
+    "monto": "20000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "",
+    "fecha": "2025-02-04"
   }
 ]

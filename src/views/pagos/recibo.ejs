@@ -56,7 +56,7 @@
             <tr>
                 <td>
                     <% 
-                      const DateTime = require('luxon').DateTime;
+                      
                       let mes = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires').toFormat('LLLL'); 
                     %>
                     <%= mes.charAt(0).toUpperCase() + mes.slice(1) %>

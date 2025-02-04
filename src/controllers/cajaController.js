@@ -29,14 +29,22 @@ export const caja = async (req, res) => {
         )
       );
 
-    let ingresos = caja.filter((item) => item.tipo === "ingreso");
-    let egresos = caja.filter((item) => item.tipo === "egreso");
+    let usuario = req.session.user;
+    let usuario_filtrado = usuarios.find((user) => user.id == usuario.id);
+
+    // Obtener la sucursal del usuario
+    const sucursalUsuario = usuario_filtrado.sucursal;
+
+    // Filtrar ingresos y egresos por la sucursal del usuario
+    let ingresos = caja.filter(
+      (item) => item.tipo === "ingreso" && item.id_usuario == usuario_filtrado.id
+    );
+    let egresos = caja.filter(
+      (item) => item.tipo === "egreso" && item.id_usuario == usuario_filtrado.id
+    );
 
     ingresos = ingresos.filter((item) => !item.desconocido);
     egresos = egresos.filter((item) => !item.desconocido);
-
-    let usuario = req.session.user;
-    let usuario_filtrado = usuarios.find((user) => user.id == usuario.id);
 
     ingresos = ingresos.filter((ingreso) => {
       const fechaIngreso = DateTime.fromISO(ingreso.fecha).setZone(

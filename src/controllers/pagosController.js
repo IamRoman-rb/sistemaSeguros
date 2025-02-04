@@ -303,7 +303,7 @@ export const recibo = async (req, res) => {
 
       pago.valorEnLetras = numeroALetras(pago.valor, { plural: 'PESOS', singular: 'PESO', centPlural: 'PESOS', centSingular: 'PESO' }).trim();
     // return res.status(200).json({ pago });
-    res.render('pagos/recibo', { pago });
+    res.render('pagos/recibo', { pago, DateTime });
   } catch (error) {
     console.error('Error al procesar los datos:', error);
     res.status(500).send('Error interno del servidor'); // Handle unexpected errors gracefully
