@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { listado, nueva, detalle, confirmar, editar, guardar, actualizar, eliminar,renovar } from "../controllers/polizasController.js";
+import { listado, nueva, detalle, confirmar, editar, guardar, actualizar, eliminar,renovar, propuesta } from "../controllers/polizasController.js";
 import hasPermitions from "../middlewares/hasPermitions.js";
 
 const router = Router();
@@ -13,5 +13,6 @@ router.post('/guardar', guardar);
 router.post('/actualizar', actualizar);
 router.post("/eliminar", eliminar);
 router.get('/renovar/:id', hasPermitions, renovar);
+router.get('/propuesta/:id', hasPermitions, propuesta);
 
 export default router;

@@ -163,7 +163,7 @@ export const eliminar = async (req, res) => {
             path.resolve(process.cwd(), "src/data", "actividades.json")
         ];
 
-        const [clientes, polizas, pagos, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+        let [clientes, polizas, pagos, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
         const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
 

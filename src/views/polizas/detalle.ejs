@@ -8,6 +8,7 @@
       <h1>Detalle de la Póliza #<%= poliza.n_poliza %></h1>
       <nav>
         <a href="/polizas">Volver al listado de polizas</a>
+        <a href="/polizas/propuesta/<%= poliza.id %>" target="_blank">Propuesta</a>
         <% if (poliza.sucursal.id === id) { %>
           <% if (poliza.pagos.length <= 1) { %>
             <a href="/polizas/editar/<%= poliza.id %>">Editar</a>

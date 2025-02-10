@@ -487,3 +487,73 @@ export const renovar = async (req, res) => {
       .send("Error al obtener el detalle de la póliza: " + error.message);
   }
 };
+
+export const propuesta = async (req, res) => {
+  const { id } = req.params; // ID de la póliza desde la URL
+  
+  const resources = [
+    path.resolve(process.cwd(), "src/data", "clientes.json"),
+    path.resolve(process.cwd(), "src/data", "polizas.json"),
+    path.resolve(process.cwd(), "src/data", "ciudades.json"),
+    path.resolve(process.cwd(), "src/data", "provincias.json"),
+    path.resolve(process.cwd(), "src/data", "automarcas.json"),
+    path.resolve(process.cwd(), "src/data", "empresas.json"),
+    path.resolve(process.cwd(), "src/data", "coberturas.json"),
+  ];
+  try {
+    let [clientes, polizas, ciudades, provincias, automarcas, empresas, coberturas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
+
+    let poliza = polizas.find((p) => p.id == id);
+    if (!poliza) {
+      return res.status(404).send('Póliza no encontrada');
+    }
+
+    let cliente = clientes.find((c) => c.id == poliza.clienteId);
+    if (!cliente) {
+      return res.status(404).send('Cliente no encontrado');
+    }
+
+    let ciudad = ciudades.find((c) => c.id == cliente.localidad);
+    let provincia = provincias.find((p) => p.id == cliente.provincia);
+    let automarca = automarcas.find((a) => a.id == poliza.marca);
+    let empresa = empresas.find((e) => e.id == poliza.empresa);
+    let cobertura = coberturas.find((c) => c.id == poliza.cobertura);
+
+    let propuesta = {
+      poliza: {
+        n_poliza: poliza.n_poliza,
+        f_emision: poliza.f_emision,
+        f_ini_vigencia: poliza.f_ini_vigencia,
+        f_fin_vigencia: poliza.f_fin_vigencia,
+        periodo: poliza.periodo,
+        suma: poliza.suma,
+        cuotas: poliza.cuotas,
+        usos: poliza.usos,
+        precio: poliza.precio,
+        modelo: poliza.modelo,
+        patente: poliza.patente,
+        anio: poliza.anio,
+        n_chasis: poliza.n_chasis,
+        n_motor: poliza.n_motor,
+        combustible: poliza.combustible,
+      },
+      cliente: {
+        nombre: cliente.nombre,
+        cuit: cliente.cuit,
+        fecha_n: cliente.fecha_n,
+        telefono: cliente.telefono,
+        direccion: cliente.direccion,
+        ciudad: ciudad ? ciudad.ciudad : 'Ciudad no encontrada',
+        provincia: provincia ? provincia.provincia : 'Provincia no encontrada',
+      },
+      automarca: automarca ? automarca.marca : 'Marca no encontrada',
+      empresa: empresa ? empresa.nombre : 'Empresa no encontrada',
+      cobertura: cobertura ? cobertura.descripcion : 'Cobertura no encontrada',
+    };
+
+    res.status(200).render('polizas/propuesta', { propuesta });
+  } catch (error) {
+    res.status(500).send('Error al mostrar la propuesta', error)
+    console.error('Error al mostrar la propuesta', error);
+  }
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("../partials/head") %>
+
+  <body>
+    <main>
+      <ul>
+        <li>
+          <header>
+            <h2>Datos de la Poliza</h2>
+          </header>
+          <dl>
+            <dt>Numero de poliza</dt>
+            <dd>
+              <%= propuesta.poliza.n_poliza %>
+            </dd>
+          </dl>
+          <dl>
+          <dt>Fecha de Emision</dt>
+          <dd>
+            <%= propuesta.poliza.f_emision %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Inicio de Vigencia</dt>
+          <dd>
+            <%= propuesta.poliza.f_ini_vigencia %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Fin de Vigencia</dt>
+          <dd>
+            <%= propuesta.poliza.f_fin_vigencia %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Periodo</dt>
+          <dd>
+            <%= propuesta.poliza.periodo %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Suma Asegurada</dt>
+          <dd>
+            <%= propuesta.poliza.suma %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Cuotas</dt>
+          <dd>
+            <%= propuesta.poliza.cuotas %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Tipo de Uso</dt>
+          <dd>
+            <%= propuesta.poliza.usos %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Empresa</dt>
+          <dd>
+            <%= propuesta.empresa %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Cobertura</dt>
+          <dd>
+            <%= propuesta.cobertura %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Premio</dt>
+          <dd>
+            <%= propuesta.poliza.precio %>
+          </dd>
+        </dl>
+        </li>
+        <li>
+          <header>
+            <h2>Datos del Vehiculo</h2>
+          </header>
+          <dl>
+            <dt>Marca</dt>
+            <dd>
+              <%= propuesta.automarca %>
+            </dd>
+          </dl>
+          <dl>
+            <dt>Modelo</dt>
+            <dd>
+              <%= propuesta.poliza.modelo %>
+            </dd>
+          </dl>
+          <dl>
+            <dt>Patente</dt>
+            <dd>
+              <%= propuesta.poliza.patente %>
+            </dd>
+          </dl>
+          <dl>
+            <dt>Año</dt>
+            <dd>
+              <%= propuesta.poliza.anio %>
+            </dd>
+          </dl>
+          <dl>
+            <dt>N Chasis</dt>
+            <dd>
+              <%= propuesta.poliza.n_chasis %>
+            </dd>
+          </dl>
+          <dl>
+            <dt>N Motor</dt>
+            <dd>
+              <%= propuesta.poliza.n_motor %>
+            </dd>
+          </dl>
+          <dl>
+            <dt>Combustible</dt>
+            <dd>
+              <%= propuesta.poliza.combustible %>
+            </dd>
+          </dl>
+        </li>
+
+        <li>
+          <header>
+            <h2>Datos del cliente</h2>
+          </header>
+          <dl>
+          <dt>Nombre</dt>
+          <dd>
+            <%= propuesta.cliente.nombre %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>DNI/CUIT/CUIL</dt>
+          <dd>
+            <%= propuesta.cliente.cuit %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Fecha de Nacimiento</dt>
+          <dd>
+            <%= propuesta.cliente.fecha_n %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Telefono</dt>
+          <dd>
+            <%= propuesta.cliente.telefono %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Provincia</dt>
+          <dd>
+            <%= propuesta.cliente.provincia %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Ciudad</dt>
+          <dd>
+            <%= propuesta.cliente.ciudad %>
+          </dd>
+        </dl>
+        <dl>
+          <dt>Direccion</dt>
+          <dd>
+            <%= propuesta.cliente.direccion %>
+          </dd>
+        </dl>
+        </li>
+      </ul>
+    </main>
+  </body>
+
+</html>

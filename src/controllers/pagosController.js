@@ -109,6 +109,53 @@ export const recibo = async (req, res) => {
     if (!pago) {
       return res.status(404).send('Pago no encontrado');
     }
+     // Obtener la póliza asociada al pago
+     const poliza = polizas.find(p => p.id === pago.id_poliza);
+
+     if (!poliza) {
+       return res.status(404).send('Póliza no encontrada');
+     }
+ 
+     // Obtener todos los pagos para esta póliza
+     const pagosPoliza = pagos.filter(p => p.id_poliza === poliza.id);
+ 
+     // Ordenar los pagos por fecha
+     pagosPoliza.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+ 
+     // Calcular la próxima fecha de pago
+     let fechaUltimoPago = DateTime.fromISO(pagosPoliza[pagosPoliza.length - 1].fecha).setZone('America/Argentina/Buenos_Aires');
+     let proximoPago = fechaUltimoPago.plus({ months: 1 });
+ 
+     // Ajustar al último día del mes si es necesario
+     proximoPago = proximoPago.day > proximoPago.daysInMonth ? proximoPago.endOf('month') : proximoPago;
+ 
+     // **CORRECCIÓN:** Ajustar la fecha de pago según la vigencia de la póliza y la cantidad de cuotas
+     const fechaFinVigencia = DateTime.fromISO(poliza.f_fin_vigencia).setZone('America/Argentina/Buenos_Aires');
+     const mesesVigencia = poliza.periodo; // Asumiendo que "periodo" indica la duración en meses
+     const cuotas = poliza.cuotas;
+ 
+     // Calcular la fecha de pago teórica para cada cuota
+     const fechasPagoTeoricas = [];
+     let fechaPagoTeorica = DateTime.fromISO(poliza.f_ini_vigencia).setZone('America/Argentina/Buenos_Aires');
+     for (let i = 0; i < cuotas; i++) {
+       fechasPagoTeoricas.push(fechaPagoTeorica);
+       fechaPagoTeorica = fechaPagoTeorica.plus({ months: mesesVigencia / cuotas });
+     }
+ 
+     // Encontrar la próxima fecha de pago que no haya sido pagada
+     for (const fechaPagoTeorica of fechasPagoTeoricas) {
+       const pagoRealizado = pagosPoliza.find(p => DateTime.fromISO(p.fecha).setZone('America/Argentina/Buenos_Aires').equals(fechaPagoTeorica));
+       if (!pagoRealizado) {
+         proximoPago = fechaPagoTeorica;
+         break;
+       }
+     }
+ 
+     // Ajustar al último día del mes si es necesario
+     proximoPago = proximoPago.day > proximoPago.daysInMonth ? proximoPago.endOf('month') : proximoPago;
+ 
+     pago.proximoPago = proximoPago.toFormat('dd/MM/yyyy');
+ 
 
     Object.defineProperty(String.prototype, 'capitalizar', {
       value: function () {
@@ -128,14 +175,6 @@ export const recibo = async (req, res) => {
     // Usar Luxon para formatear la fecha
     pago.fechaEnLetras = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires').toFormat('dd de MMMM de yyyy');
 
-    // Usar Luxon para calcular el próximo pago
-    const fechaPago = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires');
-    let proximoPago = fechaPago.plus({ months: 1 });
-    
-    // Ajustar al último día del mes si es necesario
-    proximoPago = proximoPago.day > proximoPago.daysInMonth ? proximoPago.endOf('month') : proximoPago;
-    
-    pago.proximoPago = proximoPago.toFormat('dd/MM/yyyy');
 
     // convertir el monto a moneda argentina en formato de texto
     var numeroALetras = (function() {
@@ -299,7 +338,6 @@ export const recibo = async (req, res) => {
           };
       
       })();
-      // pago.n_cuota = pago.n_cuota + 1; :D
 
       pago.valorEnLetras = numeroALetras(pago.valor, { plural: 'PESOS', singular: 'PESO', centPlural: 'PESOS', centSingular: 'PESO' }).trim();
     // return res.status(200).json({ pago });

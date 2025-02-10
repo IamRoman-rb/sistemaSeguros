@@ -125,7 +125,11 @@
           "alias": "listado",
           "method": "get"
         },
-
+        {
+          "path": "/propuesta/:id",
+          "alias": "propuesta",
+          "method": "get"
+        },
         {
           "path": "/nuevo/:id",
           "alias": "nuevo",
@@ -329,6 +333,11 @@
           "method": "get"
         },
         {
+          "path": "/propuesta/:id",
+          "alias": "propuesta",
+          "method": "get"
+        },
+        {
           "path": "/guardar",
           "alias": "guardar",
           "method": "post"
@@ -452,7 +461,11 @@
           "alias": "listado",
           "method": "get"
         },
-
+        {
+          "path": "/propuesta/:id",
+          "alias": "propuesta",
+          "method": "get"
+        },
         {
           "path": "/nuevo/:id",
           "alias": "nuevo",
@@ -686,7 +699,11 @@
           "alias": "listado",
           "method": "get"
         },
-
+        {
+          "path": "/propuesta/:id",
+          "alias": "propuesta",
+          "method": "get"
+        },
         {
           "path": "/nuevo/:id",
           "alias": "nuevo",
