@@ -18,7 +18,7 @@
                SAN FRANCISCO SOLANO | LAS TONINAS
            </p>
         </article>
-        <article>
+        <article id="datos">
             <h2>
                 DATOS DE LA UNIDAD
             </h2>
@@ -31,14 +31,14 @@
             </ul>
         </article>
         <article id="descripcion">
-            <p><%= pago.fechaEnLetras %> </p>
+            <p id="fecha"><%= pago.fechaEnLetras %> </p>
             <p>Recibimos de <%= pago.cliente.nombre %></p>
             <p>La suma de <span><%= pago.valorEnLetras %></span></p>
             <p>Este importe corresponde a la suma de distintas cuotas de servicios contratados por el cliente.</p>
             <p>Tipo de uso: <%= pago.poliza.usos %></p>
             <p> <%= pago.observaciones %> </p>
         </article>
-        <ul>
+        <ul id="datos_contrato">
             <li>
                 <p>Contrato N°:</p>
                 <p><%= pago.poliza.n_poliza %></p>
@@ -48,24 +48,20 @@
                 <p><%= pago.n_cuota %></p>
             </li>
         </ul>
-        <table>
-            <tr>
-                <th>Cuota Vencimiento</th>
-                <th>Importe</th>
-            </tr>
-            <tr>
-                <td>
-                    <% 
-                      
-                      let mes = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires').toFormat('LLLL'); 
-                    %>
-                    <%= mes.charAt(0).toUpperCase() + mes.slice(1) %>
-                </td>
-                <td>
-                    <%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.valor) %>
-                </td>
-            </tr>
-        </table>
+        <article id="importe">
+            <span>
+                <% 
+                    DateTime.locale = 'es';
+                    let mes = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires').toFormat('LLLL'); 
+                %>
+                <p>Cuota Vencimiento</p>
+                <p> <%= mes.charAt(0).toUpperCase() + mes.slice(1) %></p>
+            </span>
+            <span>
+                <p>Importe</p>
+                <p> <%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.valor) %></p>
+            </span>
+        </article>
     </main>
     <footer>
         <article>

@@ -11,144 +11,98 @@
     font-family: 'Poppins', sans-serif;
 }
 body{
-    width: 100dvw;
-    height: 100dvh;
-    border: 0.5rem double var(--negro);
-    background-color: var(--blanco);
+    width: 100vw;
+    border: .1rem solid var(--negro);
     display: flex;
-    flex-direction: column;
+    justify-content:center;
     align-items: flex-start;
-    justify-content: flex-start;
-    gap: 1rem;
-}
-
-main{
-    display: flex;
     flex-flow: row wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 1rem;
 }
-
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: row wrap;
+}
 header{
     width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
+    flex-flow: row wrap;
     background-color: var(--gris);
-}
-
-main  article{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
-}
-
-main article:nth-child(odd){
-    background-color: var(--gris);
-}
-
-main article ul{
-    list-style: none;
-    padding: 0.5rem;
-    display: flex;
+    padding: 1rem;
     gap: 1rem;
 }
-main article#descripcion p{
-    align-self: start;
-    text-align: left;
-}
-
-main article#descripcion p:first-child{
-    align-self: flex-end;
-}
-
-main > ul{
-    width: 50%;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    padding: .25rem;
-    height: calc(4mm * 6);
-}
-
-main > ul li{
-    display: flex;
-    border: 0.1rem solid var(--negro);
-    gap: 1rem;
-    align-items: center;
-}
-main > ul li p:first-child{
-    width: 50%;
-    padding: .25rem;
-    background-color: var(--gris);
-    color: var(--negro);
-    font-weight: bold;
-    text-transform: uppercase;
-    border-right: 0.1rem solid var(--negro);
-}
-
-main > table{
-    width: calc(50% - 1.25rem);
-    border: 0.1rem solid var(--negro);
-    border-collapse: collapse;
-    font-size: 1rem;
-    height: calc(4mm * 4);
-    margin-top: .25rem;
-}
-main > table th{
-    border: 0.1rem solid var(--negro);
-    padding: .25rem;
-    text-align: center;
-    background-color: var(--gris);
-    color: var(--negro);
-    font-weight: bold;
-    text-transform: uppercase;
-}
-main > table td{
-    border: 0.1rem solid var(--negro);
-    padding: .25rem;
+header > h2, header > p{
+    width: 100%;
     text-align: center;
 }
-
-footer{
-    flex: 1;
+main > article{
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-    text-align: center;
-    padding: 6mm;
+    padding: 1rem;
+    background-color: var(--gris);
+    gap: 1rem;
 }
-
-footer article:last-child{
-    width: calc(50% - 1.25rem);
+main > article#datos{
     background-color: var(--blanco);
+
+}
+main > article#datos > h2{
+    width: 100%;
+    text-align: center;
+}
+main > article#datos > ul{
     display: flex;
-    flex-direction: column;
+    list-style: none;
     gap: 1rem;
 }
-
-footer hr{
-    border: none;
-    border-top: 0.1rem solid var(--negro);
-    width: 100%;
+main > article#descripcion{
+    justify-content: flex-start;
+    align-items: flex-start;
 }
-
-
-@media print{
-    * {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-     }
+main > article#descripcion > p#fecha{
+    width: 100%;
+    text-align: right;
+}
+main > ul#datos_contrato{
+    width: 40%;
+    display: flex;
+    flex-flow: row wrap;
+    background-color: var(--gris);
+    list-style: none;
+    margin: 1rem 0;
+}
+main > ul#datos_contrato > li{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    border: .1rem solid var(--negro);
+}
+main > article#importe{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+    margin: 1rem 0;
+}
+main > article#importe > span{
+    width: 40%;
+}
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 1rem;
+}
+footer > article{
+    width: 50%;
 }
