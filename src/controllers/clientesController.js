@@ -84,10 +84,13 @@ export const guardar = async (req, res) => {
       const actividades = JSON.parse(actividadesData);
   
       // Verificar si el cliente ya existe
-      const clienteExistente = clientes.find(cliente => cliente.cuit === cuit);
+      const clienteExistente = clientes.find(cliente => cliente.cuit ===  cuit);
   
       if (clienteExistente) {
-        return res.status(400).send('El cliente con ese CUIT ya existe.');
+        // Verificar si el cliente está inhabilitado
+        if (clienteExistente.inhabilitado == false) {
+            return res.status(400).send('El cliente con ese CUIT ya existe.');
+        }
       }
   
       // Obtener la fecha y hora actual con Luxon en la zona horaria de Argentina
@@ -102,7 +105,8 @@ export const guardar = async (req, res) => {
         provincia,
         localidad,
         direccion,
-        polizas: []
+        polizas: [],
+        inhabilitado: false // Por defecto, el cliente no está inhabilitado
       };
   
       let actividad = {

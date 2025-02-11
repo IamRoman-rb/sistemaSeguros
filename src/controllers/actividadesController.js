@@ -23,15 +23,15 @@ export const actividades = async (req, res) => {
   
         switch (actividad.tipo) {
           case 'cliente':
-            let cliente = clientes.find(c => c.id == actividad.id_cliente);
+            let cliente = clientes.find(c => c.id == Number(actividad.id_cliente));
             actividad.cliente = cliente;
             break;
           case 'poliza':
-            let poliza = polizas.find(p => p.id == actividad.id_poliza);
+            let poliza = polizas.find(p => p.id == Number(actividad.id_poliza));
             actividad.poliza = poliza;
             break;
           case 'pago':
-            let pago = pagos.find(p => p.id == actividad.id_pago);
+            let pago = pagos.find(p => p.id == Number(actividad.id_pago));
             actividad.pago = pago;
             break;
         }
@@ -71,6 +71,9 @@ export const actividades = async (req, res) => {
           return fechaHoraB - fechaHoraA; // Ordenar de más reciente a más antiguo
         });
   
+        console.log(actividades_filtradas);
+        
+
       res.render('actividades/actividades', { actividades: actividades_filtradas });
     } catch (error) {
       res.status(500).send(error);

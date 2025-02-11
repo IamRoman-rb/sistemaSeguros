@@ -1,65 +1,101 @@
 [
   {
-    "id": 1739236221178,
-    "id_cliente": 1739236221178,
+    "id": 1739278880316,
+    "id_cliente": 1739278880316,
     "accion": "Crear cliente",
-    "id_usuario": 1,
-    "fecha": "2025-02-10",
-    "hora": "22:10:21",
+    "id_usuario": 2,
+    "fecha": "2025-02-11",
+    "hora": "10:01:20",
     "tipo": "cliente"
   },
   {
-    "id": 1739236259883,
+    "id": 1739278911166,
     "id_poliza": 1,
     "accion": "Creacion de poliza",
-    "id_usuario": 1,
-    "fecha": "2025-02-10",
-    "hora": "22:10:59",
+    "id_usuario": 2,
+    "fecha": "2025-02-11",
+    "hora": "10:01:51",
     "tipo": "poliza"
   },
   {
-    "id": 1739236647852,
-    "id_cliente": 1739236647852,
-    "accion": "Crear cliente",
-    "id_usuario": 2,
-    "fecha": "2025-02-10",
-    "hora": "22:17:27",
+    "id": 1739283768834,
+    "id_cliente": "1739278880316",
+    "accion": "Eliminar cliente",
+    "id_usuario": 1,
+    "fecha": "2025-02-11",
+    "hora": "11:22:48",
     "tipo": "cliente"
   },
   {
-    "id": 1739236686738,
-    "id_poliza": 2,
-    "accion": "Creacion de poliza",
-    "id_usuario": 2,
-    "fecha": "2025-02-10",
-    "hora": "22:18:06",
+    "id": 1739283768834,
+    "id_poliza": 1,
+    "accion": "Eliminar poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-11",
+    "hora": "11:22:48",
     "tipo": "poliza"
   },
   {
-    "id": 1739237404852,
-    "id_pago": 1739237398301,
+    "id": 1739283768834,
+    "id_pago": 1739278915541,
     "accion": "Eliminar pago",
     "id_usuario": 1,
-    "fecha": "2025-02-10",
-    "hora": "22:30:04",
+    "fecha": "2025-02-11",
+    "hora": "11:22:48",
     "tipo": "pago"
   },
   {
-    "id": 1739237467481,
-    "id_pago": 1739236265507,
+    "id": 1739283955284,
+    "id_cliente": 1739283955284,
+    "accion": "Crear cliente",
+    "id_usuario": 1,
+    "fecha": "2025-02-11",
+    "hora": "11:25:55",
+    "tipo": "cliente"
+  },
+  {
+    "id": 1739283971936,
+    "id_cliente": 1739283971936,
+    "accion": "Crear cliente",
+    "id_usuario": 1,
+    "fecha": "2025-02-11",
+    "hora": "11:26:11",
+    "tipo": "cliente"
+  },
+  {
+    "id": 1739284133803,
+    "id_cliente": "1739278880316",
+    "accion": "Eliminar cliente",
+    "id_usuario": 1,
+    "fecha": "2025-02-11",
+    "hora": "11:28:53",
+    "tipo": "cliente"
+  },
+  {
+    "id": 1739284133803,
+    "id_poliza": 1,
+    "accion": "Eliminar poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-11",
+    "hora": "11:28:53",
+    "tipo": "poliza"
+  },
+  {
+    "id": 1739284133803,
+    "id_pago": 1739278915541,
     "accion": "Eliminar pago",
     "id_usuario": 1,
-    "fecha": "2025-02-10",
-    "hora": "22:31:07",
+    "fecha": "2025-02-11",
+    "hora": "11:28:53",
     "tipo": "pago"
   },
   {
-    "id": 1739238121909,
-    "id_pago": 1739237754836,
-    "accion": "Eliminar ingreso",
+    "id": 1739284145099,
+    "id_cliente": 1739284145099,
+    "accion": "Crear cliente",
     "id_usuario": 1,
-    "fecha": "2025-02-10",
-    "hora": "22:42:01",
-    "tipo": "movimiento"
+    "fecha": "2025-02-11",
+    "hora": "11:29:05",
+    "tipo": "cliente"
   }
 ]

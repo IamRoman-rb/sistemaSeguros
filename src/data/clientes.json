@@ -1,28 +1,28 @@
 [
   {
-    "id": 1739236221178,
+    "id": 1739278880316,
     "nombre": "ROMAN BORLA",
     "cuit": "20458123617",
-    "fecha_n": "2004-03-23",
+    "fecha_n": "2025-02-11",
     "telefono": "763578487649",
-    "provincia": "2",
-    "localidad": "223",
+    "provincia": "1",
+    "localidad": "1",
     "direccion": "Jose Craviotto 3674",
     "polizas": [
       1
-    ]
+    ],
+    "inhabilitado": true
   },
   {
-    "id": 1739236647852,
-    "nombre": "Ariel Borla",
-    "cuit": "9572057",
-    "fecha_n": "1994-03-28",
-    "telefono": "4731280954723",
-    "provincia": "22",
-    "localidad": "1272",
+    "id": 1739284145099,
+    "nombre": "ROMAN BORLA",
+    "cuit": "20458123617",
+    "fecha_n": "2025-02-11",
+    "telefono": "2246481147",
+    "provincia": "1",
+    "localidad": "1",
     "direccion": "CALLE 18 346",
-    "polizas": [
-      2
-    ]
+    "polizas": [],
+    "inhabilitado": false
   }
 ]
