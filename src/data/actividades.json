@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "id": 1739236221178,
+    "id_cliente": 1739236221178,
+    "accion": "Crear cliente",
+    "id_usuario": 1,
+    "fecha": "2025-02-10",
+    "hora": "22:10:21",
+    "tipo": "cliente"
+  },
+  {
+    "id": 1739236259883,
+    "id_poliza": 1,
+    "accion": "Creacion de poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-10",
+    "hora": "22:10:59",
+    "tipo": "poliza"
+  },
+  {
+    "id": 1739236647852,
+    "id_cliente": 1739236647852,
+    "accion": "Crear cliente",
+    "id_usuario": 2,
+    "fecha": "2025-02-10",
+    "hora": "22:17:27",
+    "tipo": "cliente"
+  },
+  {
+    "id": 1739236686738,
+    "id_poliza": 2,
+    "accion": "Creacion de poliza",
+    "id_usuario": 2,
+    "fecha": "2025-02-10",
+    "hora": "22:18:06",
+    "tipo": "poliza"
+  }
+]

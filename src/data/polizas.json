@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "n_poliza": "123123",
+    "f_emision": "2025-02-10",
+    "f_ini_vigencia": "2025-02-10",
+    "f_fin_vigencia": "2025-06-10",
+    "periodo": 4,
+    "suma": 0,
+    "cuotas": 4,
+    "usos": "Particular",
+    "empresa": 1,
+    "precio": 150000,
+    "cobertura": "1",
+    "marca": 11,
+    "modelo": "1500",
+    "patente": "AEI586",
+    "anio": 1980,
+    "n_chasis": "NGIJERNGVJRENBV8974097807",
+    "n_motor": "NKJVCSONVIWN989078967",
+    "combustible": "GNC",
+    "clienteId": 1739236221178,
+    "sucursal": "1",
+    "pagos": [
+      1739236265507
+    ],
+    "usuario": "1",
+    "id": 1
+  },
+  {
+    "n_poliza": "456456",
+    "f_emision": "2025-02-10",
+    "f_ini_vigencia": "2025-02-10",
+    "f_fin_vigencia": "2025-06-10",
+    "periodo": 4,
+    "suma": 0,
+    "cuotas": 3,
+    "usos": "Particular",
+    "empresa": 1,
+    "precio": 400000,
+    "cobertura": "2",
+    "marca": 13,
+    "modelo": "civic",
+    "patente": "AE568YO",
+    "anio": 2010,
+    "n_chasis": "AAAAAAAAAAA2222222222",
+    "n_motor": "RRRRRRRR555555555",
+    "combustible": "diesel",
+    "clienteId": 1739236647852,
+    "sucursal": "2",
+    "pagos": [
+      1739236693000
+    ],
+    "usuario": "2",
+    "id": 2
+  }
+]

@@ -32,16 +32,27 @@ export const caja = async (req, res) => {
     let usuario = req.session.user;
     let usuario_filtrado = usuarios.find((user) => user.id == usuario.id);
 
-    // Obtener la sucursal del usuario
+    // Obtener la sucursal del usuario actual
     const sucursalUsuario = usuario_filtrado.sucursal;
 
-    // Filtrar ingresos y egresos por la sucursal del usuario
-    let ingresos = caja.filter(
-      (item) => item.tipo === "ingreso" && item.id_usuario == usuario_filtrado.id
-    );
-    let egresos = caja.filter(
-      (item) => item.tipo === "egreso" && item.id_usuario == usuario_filtrado.id
-    );
+    // Filtrar ingresos y egresos por la sucursal del usuario que los realizó
+    let ingresos = caja.filter((item) => {
+      const usuarioItem = usuarios.find((user) => user.id === item.id_usuario);
+      return (
+        item.tipo === "ingreso" &&
+        usuarioItem &&
+        usuarioItem.sucursal === sucursalUsuario
+      );
+    });
+
+    let egresos = caja.filter((item) => {
+      const usuarioItem = usuarios.find((user) => user.id === item.id_usuario);
+      return (
+        item.tipo === "egreso" &&
+        usuarioItem &&
+        usuarioItem.sucursal === sucursalUsuario
+      );
+    });
 
     ingresos = ingresos.filter((item) => !item.desconocido);
     egresos = egresos.filter((item) => !item.desconocido);
@@ -68,12 +79,15 @@ export const caja = async (req, res) => {
       );
     });
 
+    // Filtrar pagos por la sucursal del cobrador
     pagos = pagos.filter((pago) => {
       const fechaPago = DateTime.fromISO(pago.fecha).setZone(
         "America/Argentina/Buenos_Aires"
       );
+      const cobrador = usuarios.find((user) => user.id === pago.id_cobrador);
       return (
-        pago.id_cobrador == usuario_filtrado.id &&
+        cobrador &&
+        cobrador.sucursal === sucursalUsuario &&
         fechaPago.year === anioActual &&
         fechaPago.month === mesActual &&
         fechaPago.day === diaActual &&

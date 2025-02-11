@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "id": 1739236265507,
+    "id_cliente": 1739236221178,
+    "id_poliza": 1,
+    "n_poliza": 123123,
+    "fecha": "2025-02-10",
+    "hora": "22:11:05",
+    "valor": 37500,
+    "forma_pago": "efectivo",
+    "observaciones": "",
+    "n_cuota": 1,
+    "desconocido": false,
+    "id_cobrador": 1
+  },
+  {
+    "id": 1739236693000,
+    "id_cliente": 1739236647852,
+    "id_poliza": 2,
+    "n_poliza": 456456,
+    "fecha": "2025-02-10",
+    "hora": "22:18:13",
+    "valor": 133333.33333333334,
+    "forma_pago": "efectivo",
+    "observaciones": "",
+    "n_cuota": 1,
+    "desconocido": false,
+    "id_cobrador": 2
+  }
+]
