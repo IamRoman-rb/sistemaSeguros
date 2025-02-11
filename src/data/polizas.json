@@ -21,7 +21,7 @@
     "clienteId": 1739236221178,
     "sucursal": "1",
     "pagos": [
-      1739236265507
+      1739237686693
     ],
     "usuario": "1",
     "id": 1
@@ -47,9 +47,7 @@
     "combustible": "diesel",
     "clienteId": 1739236647852,
     "sucursal": "2",
-    "pagos": [
-      1739236693000
-    ],
+    "pagos": [],
     "usuario": "2",
     "id": 2
   }

@@ -27,7 +27,15 @@ main > header a {
   color: var(--blanco);
   text-decoration: none;
 }
-
+main > article > h2, main > article > p{
+  width: 100%;
+  margin: 1rem;
+  text-align: center;
+  font-size: 2rem;
+}
+main > article > p{
+  font-size: 1.3rem;
+}
 main > article > #datos {
   list-style: none;
   width: calc(100% - 1rem);
@@ -46,6 +54,23 @@ main > article > #datos > li {
   align-items: flex-start;
   justify-content: flex-start;
   gap: 0.5rem;
+}
+main > article > #datos > li > ul{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  padding: 1rem;
+}
+main > article > #datos > li > ul > li{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border: .1rem solid var(--negro);
+  border-radius: .3rem;
+  list-style: none;
 }
 main > article > #datos > li:not(:last-child) > p{
     width: 100%;

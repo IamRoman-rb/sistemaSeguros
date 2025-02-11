@@ -34,5 +34,23 @@
     "fecha": "2025-02-10",
     "hora": "22:18:06",
     "tipo": "poliza"
+  },
+  {
+    "id": 1739237404852,
+    "id_pago": 1739237398301,
+    "accion": "Eliminar pago",
+    "id_usuario": 1,
+    "fecha": "2025-02-10",
+    "hora": "22:30:04",
+    "tipo": "pago"
+  },
+  {
+    "id": 1739237467481,
+    "id_pago": 1739236265507,
+    "accion": "Eliminar pago",
+    "id_usuario": 1,
+    "fecha": "2025-02-10",
+    "hora": "22:31:07",
+    "tipo": "pago"
   }
 ]

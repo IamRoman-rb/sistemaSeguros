@@ -375,7 +375,10 @@ export const pagar = async (req, res) => {
   cliente.localidad = ciudades.find(({ id }) => id == Number(cliente.localidad));
   poliza.cobertura = coberturas.find(({ id }) => id == Number(poliza.cobertura));
   poliza.marca = automarcas.find(({ id }) => id == Number(poliza.marca));
-  poliza.pagos = pagos.filter(pago => pago.id_poliza === poliza.id);
+  
+  // Filtrar pagos asociados a la póliza y excluir aquellos con pago.desconocido == true
+  poliza.pagos = pagos.filter(pago => pago.id_poliza === poliza.id && !pago.desconocido);
+  
   poliza.empresa = empresas.find(({ id }) => id == Number(poliza.empresa));
 
   // Enviar la póliza y el cliente a la vista
@@ -479,7 +482,7 @@ export const eliminar = async (req, res) => {
       writeFile(resources[2], JSON.stringify(actividades, null, 2)), // Actualizar actividades.json
     ]);
 
-    res.status(200).send("Pago eliminado correctamente.");
+    res.redirect('/polizas')
   } catch (error) {
     console.error("Error al eliminar el pago:", error.message);
     res.status(500).send("Error al eliminar el pago.");
