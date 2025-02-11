@@ -1,5 +1,4 @@
 import { readFile, writeFile } from "node:fs/promises";
-// import { console } from "node:inspector";
 import path from "path";
 import { DateTime } from "luxon";
 
@@ -33,11 +32,12 @@ export const caja = async (req, res) => {
     let usuario_filtrado = usuarios.find((user) => user.id == usuario.id);
 
     // Obtener la sucursal del usuario actual
-    const sucursalUsuario = usuario_filtrado.sucursal;
+    const sucursalUsuario = usuario_filtrado.sucursal;   
 
     // Filtrar ingresos y egresos por la sucursal del usuario que los realizó
     let ingresos = caja.filter((item) => {
-      const usuarioItem = usuarios.find((user) => user.id === item.id_usuario);
+      const usuarioItem = usuarios.find((user) => user.id === Number(item.id_usuario));
+      
       return (
         item.tipo === "ingreso" &&
         usuarioItem &&
@@ -46,7 +46,7 @@ export const caja = async (req, res) => {
     });
 
     let egresos = caja.filter((item) => {
-      const usuarioItem = usuarios.find((user) => user.id === item.id_usuario);
+      const usuarioItem = usuarios.find((user) => user.id === Number(item.id_usuario));
       return (
         item.tipo === "egreso" &&
         usuarioItem &&
@@ -84,7 +84,7 @@ export const caja = async (req, res) => {
       const fechaPago = DateTime.fromISO(pago.fecha).setZone(
         "America/Argentina/Buenos_Aires"
       );
-      const cobrador = usuarios.find((user) => user.id === pago.id_cobrador);
+      const cobrador = usuarios.find((user) => user.id === Number(pago.id_cobrador));
       return (
         cobrador &&
         cobrador.sucursal === sucursalUsuario &&

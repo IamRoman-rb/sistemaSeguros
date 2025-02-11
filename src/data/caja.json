@@ -1,11 +1,21 @@
 [
   {
     "id_usuario": "1",
-    "id": 1739236128168,
-    "monto": "15000",
+    "id": 1739237754836,
+    "monto": "20000",
     "tipo": "ingreso",
     "motivo": "caja",
-    "descripcion": "caja\r\n",
+    "descripcion": "caja",
+    "fecha": "2025-02-10",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "1",
+    "id": 1739237863470,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "caja",
+    "descripcion": "caja",
     "fecha": "2025-02-10"
   }
 ]
