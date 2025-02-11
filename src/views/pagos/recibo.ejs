@@ -51,7 +51,6 @@
         <article id="importe">
             <span>
                 <% 
-                    DateTime.locale = 'es';
                     let mes = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires').toFormat('LLLL'); 
                 %>
                 <p>Cuota Vencimiento</p>

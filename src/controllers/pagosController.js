@@ -1,6 +1,8 @@
 import path from 'path';
 import {readFile,writeFile} from 'node:fs/promises';
 import { DateTime } from 'luxon';
+DateTime.locale = 'es';
+
 
 export const listar = async (req, res) => {
   const resources = [
