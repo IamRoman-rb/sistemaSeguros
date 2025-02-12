@@ -15,6 +15,7 @@ import caja from "./routes/caja.js";
 import pagos from "./routes/pagos.js";
 import empresas from "./routes/empresas.js";
 import actividades from "./routes/actividades.js";
+import auxiliares from "./routes/auxilieares.js";
 
 // Import Middlewares
 import setUserMiddleware from './middlewares/setUserMiddleware.js';
@@ -68,3 +69,4 @@ app.use("/pagos",pagos);
 app.use("/caja",caja);
 app.use("/empresas", empresas);
 app.use("/actividades", actividades);
+app.use("/auxiliares", auxiliares)

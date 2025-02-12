@@ -251,6 +251,38 @@
           "alias": "listado",
           "method": "get"
         }
+      ],
+      "auxiliares": [
+        {
+          "path": "/",
+          "alias": "listado",
+          "method": "get"
+        },
+        {
+          "path": "/nuevo",
+          "alias": "nuevo",
+          "method": "get"
+        },
+        {
+          "path": "/editar/:id",
+          "alias": "editar",
+          "method": "get"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        },
+        {
+          "path": "/actualizar",
+          "alias": "actualizar",
+          "method": "post"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "eliminar",
+          "method": "post"
+        }
       ]
     }
   },
@@ -575,6 +607,23 @@
           "alias": "confirmar",
           "method": "post"
         }
+      ],
+      "auxiliares": [
+        {
+          "path": "/",
+          "alias": "listado",
+          "method": "get"
+        },
+        {
+          "path": "/nuevo",
+          "alias": "nuevo",
+          "method": "get"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        }
       ]
     }
   },
@@ -824,6 +873,38 @@
           "path": "/",
           "alias": "listado",
           "method": "get"
+        }
+      ],
+      "auxiliares": [
+        {
+          "path": "/",
+          "alias": "listado",
+          "method": "get"
+        },
+        {
+          "path": "/nuevo",
+          "alias": "nuevo",
+          "method": "get"
+        },
+        {
+          "path": "/editar/:id",
+          "alias": "editar",
+          "method": "get"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        },
+        {
+          "path": "/actualizar",
+          "alias": "actualizar",
+          "method": "post"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "eliminar",
+          "method": "post"
         }
       ]
     }

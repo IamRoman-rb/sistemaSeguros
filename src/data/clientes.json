@@ -1,7 +1,7 @@
 [
   {
     "id": 1739278880316,
-    "nombre": "ROMAN BORLA",
+    "nombre": "EDUARDO",
     "cuit": "20458123617",
     "fecha_n": "2025-02-11",
     "telefono": "763578487649",
@@ -11,7 +11,7 @@
     "polizas": [
       1
     ],
-    "inhabilitado": true
+    "inhabilitado": false
   },
   {
     "id": 1739284145099,
