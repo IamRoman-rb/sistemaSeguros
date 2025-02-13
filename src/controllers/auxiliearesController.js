@@ -109,3 +109,50 @@ export const nuevo = async (req, res) => {
         console.error(error);        
     }
 }
+export const guardar = async (req, res) => {
+    try {
+
+        const { id, nombre } = req.body;        
+
+        const resources = [
+            path.resolve(process.cwd(), "src/data", "automarcas.json"),
+            path.resolve(process.cwd(), "src/data", "actividades.json"),
+        ];
+        let [automarcas, actividades] = await Promise.all(
+            resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8')))
+        );
+
+        const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
+
+        let marca = {
+            id: ahoraArgentina.toMillis(),
+            marca: nombre
+        }
+
+
+            // Crea la actividad
+    let actividad = {
+        id: ahoraArgentina.toMillis(), // ID de la actividad
+        id_marca: marca.id, // Usar el ID del movimiento
+        accion: 'Crear Marca',
+        id_usuario: id,
+        fecha: ahoraArgentina.toFormat('yyyy-MM-dd'), // Fecha en formato YYYY-MM-DD
+        hora: ahoraArgentina.toFormat('HH:mm:ss'), // Hora en formato HH:mm:ss
+        tipo: 'auxiliares'
+      };
+  
+
+        automarcas.push(marca);
+        actividades.push(actividad);
+        await Promise.all([
+            writeFile(resources[0], JSON.stringify(automarcas, null, 2)),
+            writeFile(resources[1], JSON.stringify(actividades, null, 2)),
+          ]);
+
+          res.redirect('/auxiliares');
+
+    } catch (error) {
+        console.error(error);        
+        res.status(500).send({ error: error.message });
+    }
+}

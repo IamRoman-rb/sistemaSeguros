@@ -17,7 +17,7 @@ export const actividades = async (req, res) => {
       );
   
       function enriquecerActividad(actividad, clientes, polizas, pagos, usuarios) {
-        let usuario = usuarios.find(u => u.id === actividad.id_usuario);
+        let usuario = usuarios.find(u => u.id === Number(actividad.id_usuario));
         actividad.usuario = usuario;
   
         switch (actividad.tipo) {

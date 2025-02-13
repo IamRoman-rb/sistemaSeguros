@@ -9,7 +9,8 @@
                 <h1>Nueva Marca</h1>
                 <a href="/auxiliares">Volver</a>
             </header>
-            <form action="" method="POST">
+            <form action="/auxiliares/guardar" method="POST">
+                <input type="hidden" name="id" value="<%= user.id %>">
                 <fieldset class="input">
                     <label for="nombre">Nombre de la marca</label>
                         <input type="text" name="nombre" id="nombre">
