@@ -100,3 +100,12 @@ export const actualizar = async (req, res) => {
         console.error(error);        
     }
 }
+
+export const nuevo = async (req, res) => {
+    try {
+        res.status(200).render('auxiliares/nuevo', { user: req.session.user });
+    } catch (error) {
+        res.status(500).send('Error', error);
+        console.error(error);        
+    }
+}

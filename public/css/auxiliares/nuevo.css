@@ -1,0 +1,61 @@
+@import url("/css/base.css");
+@import url("/css/layout.css");
+
+main {
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: start;
+  gap: 1rem;
+}
+main > header {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--crema);
+}
+main > header h1 {
+  color: var(--celeste);
+}
+main > header a {
+    background-color: var(--celeste);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.25rem;
+    color: var(--blanco);
+    text-decoration: none;
+}
+main > form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+main > form > fieldset{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+main > form > fieldset.input{
+    flex-direction: column;
+}
+main > form > fieldset.input input{
+    padding: .3rem;
+    border: .1rem solid var(--negro);
+    border-radius: .3rem;
+    outline: none;
+}
+main > form > fieldset.botones button{
+    background-color: var(--celeste);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    color: var(--blanco);
+    cursor: pointer;
+
+}
