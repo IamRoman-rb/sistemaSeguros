@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include("../partials/head") %>
+
+    <body>
+        <%- include("../partials/header") %>
+        <main>
+            <header>
+                <h1>Editar marca</h1>
+                <a href="/auxiliares">Volver atras</a>
+            </header>
+            <form action="/auxiliares/actualizar" method="POST">
+                <fieldset class="input">
+                    <input type="hidden" name="id" value="<%= marca.id %>">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre" value="<%= marca.marca  %>">
+                </fieldset>
+                <fieldset class="botones">
+                    <a href="/auxiliares" class="cancelar">Cancelar</a>
+                    <button type="submit">Editar</button>
+                </fieldset>
+            </form>
+        </main>
+</body>
+</html>

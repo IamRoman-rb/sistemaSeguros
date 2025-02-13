@@ -31,7 +31,7 @@
                                     <dd><%= marca.marca %></dd>
                                 </dl>
                                 <nav>
-                                    <a href="#">Editar</a>
+                                    <a href="/auxiliares/editar/<%= marca.id %>">Editar</a>
                                     <form action="" method="POST">
                                         <button type="submit">Eliminar</button>
                                     </form>
@@ -51,12 +51,6 @@
                                         <dl>
                                             <dd><%= ciudad %></dd>
                                         </dl>
-                                        <nav>
-                                            <a href="#">Editar</a>
-                                            <form action="" method="POST">
-                                                <button type="submit">Eliminar</button>
-                                            </form>
-                                        </nav>
                                     </li>
                                 <% }) %>
                             </ul>
