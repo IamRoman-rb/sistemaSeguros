@@ -116,19 +116,6 @@ main > article ul li a {
   align-self: center;
   text-decoration: none;
 }
-main > article ul li form {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-main > article ul li form button {
-  padding: 0.25rem 1.25rem;
-  color: var(--blanco);
+main > article ul li a.eliminar {
   background-color: var(--rojo);
-  border-radius: 0.2rem;
-  align-self: center;
-  text-decoration: none;
-  font-size: 1rem;
-  cursor: pointer;
 }
-

@@ -97,5 +97,14 @@
     "fecha": "2025-02-11",
     "hora": "11:29:05",
     "tipo": "cliente"
+  },
+  {
+    "id": 1739462919768,
+    "id_marca": 1,
+    "accion": "Crear Marca",
+    "id_usuario": "1",
+    "fecha": "2025-02-13",
+    "hora": "13:08:39",
+    "tipo": "auxiliares"
   }
 ]

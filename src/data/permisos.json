@@ -277,11 +277,6 @@
           "path": "/actualizar",
           "alias": "actualizar",
           "method": "post"
-        },
-        {
-          "path": "/eliminar",
-          "alias": "eliminar",
-          "method": "post"
         }
       ]
     }
@@ -899,11 +894,6 @@
         {
           "path": "/actualizar",
           "alias": "actualizar",
-          "method": "post"
-        },
-        {
-          "path": "/eliminar",
-          "alias": "eliminar",
           "method": "post"
         }
       ]

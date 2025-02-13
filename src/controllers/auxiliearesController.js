@@ -1,6 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'path';
 import { DateTime } from 'luxon'; 
+import e from 'express';
 
 export const auxiliares = async (req, res) => {
     try {
@@ -28,7 +29,6 @@ export const auxiliares = async (req, res) => {
                 provinciasConCiudades[ciudad.idprovincia].ciudades.push(ciudad.ciudad);
             }
         });
-
 
         const provinciasArray = Object.values(provinciasConCiudades);
                
