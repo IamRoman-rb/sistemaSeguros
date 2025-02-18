@@ -243,6 +243,11 @@
           "path": "/eliminar",
           "alias": "confirmar",
           "method": "post"
+        },
+        {
+          "path": "/cajaPorDia",
+          "alias": "Por Dia",
+          "method": "get"
         }
       ],
       "actividades": [
@@ -432,6 +437,11 @@
           "path": "/resumen/detalle/:id",
           "alias": "resumen",
           "method": "get"
+        },
+        {
+          "path": "/cajaPorDia",
+          "alias": "Por Dia",
+          "method": "get"
         }
       ]
     }
@@ -601,6 +611,11 @@
           "path": "/eliminar",
           "alias": "confirmar",
           "method": "post"
+        },
+        {
+          "path": "/cajaPorDia",
+          "alias": "Por Dia",
+          "method": "get"
         }
       ],
       "auxiliares": [
@@ -861,6 +876,11 @@
           "path": "/eliminar",
           "alias": "confirmar",
           "method": "post"
+        },
+        {
+          "path": "/cajaPorDia",
+          "alias": "Por Dia",
+          "method": "get"
         }
       ], 
       "actividades": [

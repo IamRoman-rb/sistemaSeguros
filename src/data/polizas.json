@@ -26,5 +26,32 @@
     "usuario": "2",
     "id": 1,
     "inhabilitado": true
+  },
+  {
+    "n_poliza": "123123",
+    "f_emision": "2025-02-18",
+    "f_ini_vigencia": "2025-02-18",
+    "f_fin_vigencia": "2025-06-18",
+    "periodo": 4,
+    "suma": 0,
+    "cuotas": 4,
+    "usos": "Particular",
+    "empresa": 1,
+    "precio": 100000,
+    "cobertura": "1",
+    "marca": 1,
+    "modelo": "FALCON",
+    "patente": "AEI586",
+    "anio": 2000,
+    "n_chasis": "22222222222aaaaaaaaaaaa",
+    "n_motor": "2222222222AAAAAAAA",
+    "combustible": "nafta",
+    "clienteId": 1739278880316,
+    "sucursal": "1",
+    "pagos": [
+      1739914543915
+    ],
+    "usuario": "1",
+    "id": 2
   }
 ]

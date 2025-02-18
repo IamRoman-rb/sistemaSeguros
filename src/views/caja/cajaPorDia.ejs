@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("../partials/head") %>
+<body>
+    <%- include("../partials/header") %>
+
+    <main>
+        <header>
+            <h1>Caja Por Dia</h1>
+            <form action="" method="GET">
+                <input type="date" name="fecha" id="fecha">
+                <button type="submit">Buscar</button>
+            </form>
+        </header>
+        
+        <ul>
+            <% resultado.forEach(res => { %>
+             <h2><%= res.fecha %></h2>
+             <h3>Pagos</h3>
+             <% res.pagosDelDia.forEach(p => { %>
+                <li>
+                    <dl>
+                        <dt>Fecha</dt>
+                        <dd><%= p.fecha %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Hora</dt>
+                        <dd><%= p.hora %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Cliente</dt>
+                        <dd><%= p.clienteNombre %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Vehiculo</dt>
+                        <dd><%= p.marcaVehiculo %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Patente</dt>
+                        <dd><%= p.patenteVehiculo %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Importe</dt>
+                        <dd><%= p.valor %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Cobrador</dt>
+                        <dd><%= p.cobrador %></dd>
+                    </dl>
+                </li>
+             <% }) %>
+             <h3>Ingresos</h3>
+             <% res.ingresosDelDia.forEach(p => { %>
+                <li>
+                    <dl>
+                        <dt>Fecha</dt>
+                        <dd><%= p.fecha %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Motivo</dt>
+                        <dd><%= p.motivo %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Descripcion</dt>
+                        <dd><%= p.descripcion %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Importe</dt>
+                        <dd><%= p.monto %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Usuario</dt>
+                        <dd><%= p.usuario %></dd>
+                    </dl>
+                </li>
+             <% }) %>
+             <h3>Egresos</h3>
+             <% res.egresosDelDia.forEach(p => { %>
+                <li>
+                    <dl>
+                        <dt>Fecha</dt>
+                        <dd><%= p.fecha %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Motivo</dt>
+                        <dd><%= p.motivo %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Descripcion</dt>
+                        <dd><%= p.descripcion %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Importe</dt>
+                        <dd><%= p.monto %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Usuario</dt>
+                        <dd><%= p.usuario %></dd>
+                    </dl>
+                </li>
+             <% }) %>
+            <% }) %>
+        </ul>
+    </main>
+
+</body>
+</html>

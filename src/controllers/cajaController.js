@@ -477,6 +477,7 @@ export const detalle = async (req, res) => {
         }).format(ingresosCaja + ingresosPagos - (egresosCaja + egresosPagos)),
       };
     });
+    
 
     Object.defineProperty(String.prototype, "capitalizar", {
       value: function () {
@@ -578,3 +579,98 @@ export const eliminarIngresoEgreso = async (req, res) => {
     res.status(500).send(`Error al eliminar el movimiento: ${error.message}`);
   }
 };
+
+export const cajaPorDia = async (req, res) => {
+  const resources = [
+    path.resolve(process.cwd(), "src/data", "caja.json"),
+    path.resolve(process.cwd(), "src/data", "pagos.json"),
+    path.resolve(process.cwd(), "src/data", "polizas.json"),
+    path.resolve(process.cwd(), "src/data", "usuarios.json"),
+    path.resolve(process.cwd(), "src/data", "clientes.json"),
+  ];
+  try {
+    let [caja, pagos, polizas, usuarios, clientes] = await Promise.all(resources.map(async (file) => JSON.parse(await readFile(file, "utf-8"))));
+
+    let movimientosPorDia = {};
+    const fechaFiltro = req.query.fecha; // Obtiene la fecha del formulario
+
+    const formatearFechaBuenosAires = (fecha) => {
+      return DateTime.fromISO(fecha).setZone('America/Argentina/Buenos_Aires').toFormat('yyyy-MM-dd');
+    };
+
+    const buscarRelacionado = (array, id, propiedad) => {
+      return array.find(item => item.id === id)?.[propiedad];
+    };
+
+    caja.forEach(movimiento => {
+      const fecha = formatearFechaBuenosAires(movimiento.fecha);
+
+      // Aplica el filtro si se proporciona una fecha
+      if (fechaFiltro && fecha !== fechaFiltro) {
+        return; // Salta este movimiento si no coincide con la fecha
+      }
+
+      if (!movimientosPorDia[fecha]) {
+        movimientosPorDia[fecha] = {
+          pagosDelDia: [],
+          egresosDelDia: [],
+          ingresosDelDia: []
+        };
+      }
+
+      const usuario = buscarRelacionado(usuarios, movimiento.id_usuario, 'nombre');
+
+      if (movimiento.tipo === 'ingreso') {
+        movimientosPorDia[fecha].ingresosDelDia.push({
+          ...movimiento,
+          usuario
+        });
+      } else {
+        movimientosPorDia[fecha].egresosDelDia.push({
+          ...movimiento,
+          usuario
+        });
+      }
+    });
+
+    pagos.forEach(pago => {
+      const fecha = formatearFechaBuenosAires(pago.fecha);
+
+      // Aplica el filtro si se proporciona una fecha
+      if (fechaFiltro && fecha !== fechaFiltro) {
+        return; // Salta este pago si no coincide con la fecha
+      }
+
+      if (!movimientosPorDia[fecha]) {
+        movimientosPorDia[fecha] = {
+          pagosDelDia: [],
+          egresosDelDia: [],
+          ingresosDelDia: []
+        };
+      }
+
+      const poliza = polizas.find(p => p.id === pago.id_poliza);
+      const cliente = clientes.find(c => c.id === poliza?.clienteId);
+      const cobrador = buscarRelacionado(usuarios, pago.id_cobrador, 'nombre');
+
+      movimientosPorDia[fecha].pagosDelDia.push({
+        ...pago,
+        clienteNombre: cliente?.nombre,
+        marcaVehiculo: poliza?.marca,
+        patenteVehiculo: poliza?.patente,
+        cobrador
+      });
+    });
+
+    const resultado = Object.entries(movimientosPorDia).map(([fecha, movimientos]) => ({
+      fecha,
+      ...movimientos
+    }));
+
+    res.status(200).render('caja/cajaPorDia', { resultado })
+
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).send(`Error: ${error.message}`);
+  }
+}

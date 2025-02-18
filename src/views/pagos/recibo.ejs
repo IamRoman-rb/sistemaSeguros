@@ -3,7 +3,7 @@
     <%- include("../partials/head") %>
 <body>
     <header>
-        <h1>Próximo vencimiento</h1>
+        <h1>RECIBO DE PAGO</h1>
         <p>
             Si existiera atraso o incumplimiento en alguna de las cuotas sobre un contrato de servicios adquirido
             por nuestro intermedio, este y todo su contenido queda automaticamente anulado y sin posibilidad de reclamo alguno.
@@ -51,7 +51,8 @@
         <article id="importe">
             <span>
                 <% 
-                    let mes = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires').toFormat('LLLL'); 
+                    DateTime.defaultLocale = 'es';
+                    let mes = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long' });
                 %>
                 <p>Cuota Vencimiento</p>
                 <p> <%= mes.charAt(0).toUpperCase() + mes.slice(1) %></p>

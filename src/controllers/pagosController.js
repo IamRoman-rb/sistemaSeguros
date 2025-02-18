@@ -1,7 +1,8 @@
 import path from 'path';
 import {readFile,writeFile} from 'node:fs/promises';
 import { DateTime } from 'luxon';
-DateTime.locale = 'es';
+DateTime.defaultLocale = 'es';
+
 
 
 export const listar = async (req, res) => {
@@ -175,10 +176,9 @@ export const recibo = async (req, res) => {
     pago.cobrador.sucursal = sucursales.find(s => s.id == Number(pago.cobrador.sucursal));
 
     // Usar Luxon para formatear la fecha
-    pago.fechaEnLetras = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires').toFormat('dd de MMMM de yyyy');
+  pago.fechaEnLetras = DateTime.fromISO(pago.fecha).toLocaleString(); // Obtener el mes en inglés
 
-
-    // convertir el monto a moneda argentina en formato de texto
+  // convertir el monto a moneda argentina en formato de texto
     var numeroALetras = (function() {
           function Unidades(num){
       

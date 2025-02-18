@@ -1,110 +1,11 @@
 [
   {
-    "id": 1739278880316,
-    "id_cliente": 1739278880316,
-    "accion": "Crear cliente",
-    "id_usuario": 2,
-    "fecha": "2025-02-11",
-    "hora": "10:01:20",
-    "tipo": "cliente"
-  },
-  {
-    "id": 1739278911166,
-    "id_poliza": 1,
+    "id": 1739914536208,
+    "id_poliza": 2,
     "accion": "Creacion de poliza",
-    "id_usuario": 2,
-    "fecha": "2025-02-11",
-    "hora": "10:01:51",
+    "id_usuario": 1,
+    "fecha": "2025-02-18",
+    "hora": "18:35:36",
     "tipo": "poliza"
-  },
-  {
-    "id": 1739283768834,
-    "id_cliente": "1739278880316",
-    "accion": "Eliminar cliente",
-    "id_usuario": 1,
-    "fecha": "2025-02-11",
-    "hora": "11:22:48",
-    "tipo": "cliente"
-  },
-  {
-    "id": 1739283768834,
-    "id_poliza": 1,
-    "accion": "Eliminar poliza",
-    "id_usuario": 1,
-    "fecha": "2025-02-11",
-    "hora": "11:22:48",
-    "tipo": "poliza"
-  },
-  {
-    "id": 1739283768834,
-    "id_pago": 1739278915541,
-    "accion": "Eliminar pago",
-    "id_usuario": 1,
-    "fecha": "2025-02-11",
-    "hora": "11:22:48",
-    "tipo": "pago"
-  },
-  {
-    "id": 1739283955284,
-    "id_cliente": 1739283955284,
-    "accion": "Crear cliente",
-    "id_usuario": 1,
-    "fecha": "2025-02-11",
-    "hora": "11:25:55",
-    "tipo": "cliente"
-  },
-  {
-    "id": 1739283971936,
-    "id_cliente": 1739283971936,
-    "accion": "Crear cliente",
-    "id_usuario": 1,
-    "fecha": "2025-02-11",
-    "hora": "11:26:11",
-    "tipo": "cliente"
-  },
-  {
-    "id": 1739284133803,
-    "id_cliente": "1739278880316",
-    "accion": "Eliminar cliente",
-    "id_usuario": 1,
-    "fecha": "2025-02-11",
-    "hora": "11:28:53",
-    "tipo": "cliente"
-  },
-  {
-    "id": 1739284133803,
-    "id_poliza": 1,
-    "accion": "Eliminar poliza",
-    "id_usuario": 1,
-    "fecha": "2025-02-11",
-    "hora": "11:28:53",
-    "tipo": "poliza"
-  },
-  {
-    "id": 1739284133803,
-    "id_pago": 1739278915541,
-    "accion": "Eliminar pago",
-    "id_usuario": 1,
-    "fecha": "2025-02-11",
-    "hora": "11:28:53",
-    "tipo": "pago"
-  },
-  {
-    "id": 1739284145099,
-    "id_cliente": 1739284145099,
-    "accion": "Crear cliente",
-    "id_usuario": 1,
-    "fecha": "2025-02-11",
-    "hora": "11:29:05",
-    "tipo": "cliente"
-  },
-  {
-    "id": 1739462919768,
-    "id_marca": 1,
-    "accion": "Crear Marca",
-    "id_usuario": "1",
-    "fecha": "2025-02-13",
-    "hora": "13:08:39",
-    "tipo": "auxiliares"
   }
 ]
