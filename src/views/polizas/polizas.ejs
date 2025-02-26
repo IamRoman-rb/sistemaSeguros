@@ -23,47 +23,37 @@
         <p>No se encontraron pólizas.</p>
         <% } else { %>
           <ul>
-            <% polizas.filter(poliza => !poliza.inhabilitado).forEach(poliza=> { %>
+            <% polizas.filter(poliza => !poliza.inhabilitado).forEach(poliza => { %>
               <li>
                 <dl>
                   <dt>N Póliza:</dt>
-                  <dd>
-                    <%= poliza.n_poliza %>
-                  </dd>
+                  <dd><%= poliza.n_poliza %></dd>
                 </dl>
                 <dl>
-                  <dt>Cliente</dt>
-                  <%= poliza.cliente.nombre %>
+                  <dt>Cliente:</dt>
+                  <dd><%= poliza.cliente?.nombre || 'Sin cliente' %></dd>
                 </dl>
                 <dl>
                   <dt>Desde:</dt>
-                  <dd>
-                    <%= poliza.f_ini_vigencia %>
-                  </dd>
+                  <dd><%= poliza.f_ini_vigencia %></dd>
                 </dl>
                 <dl>
                   <dt>Hasta:</dt>
-                  <dd>
-                    <%= poliza.f_fin_vigencia %>
-                  </dd>
+                  <dd><%= poliza.f_fin_vigencia %></dd>
                 </dl>
                 <dl>
                   <dt>Cobertura:</dt>
-                  <dd>
-                    <%= poliza.cobertura.nombre %>
-                  </dd>
+                  <dd><%= poliza.cobertura?.nombre || 'Sin cobertura' %></dd>
                 </dl>
                 <dl>
                   <dt>Patente:</dt>
-                  <dd>
-                    <%= poliza.patente %>
-                  </dd>
+                  <dd><%= poliza.patente %></dd>
                 </dl>
                 <nav>
                   <a href="/polizas/detalle/<%= poliza.id %>">Detalle</a>
                 </nav>
               </li>
-              <% }); %>
+            <% }); %>
           </ul>
           <% } %>
     </main>

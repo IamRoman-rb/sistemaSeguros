@@ -7,5 +7,9 @@
     {
         "id": 2,
         "nombre": "Solano"
+    },
+    {
+        "id": 3,
+        "nombre": "Calle"
     }
 ]

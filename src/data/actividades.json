@@ -7,5 +7,23 @@
     "fecha": "2025-02-18",
     "hora": "18:35:36",
     "tipo": "poliza"
+  },
+  {
+    "id": 1740583989594,
+    "id_poliza": 2,
+    "accion": "Editar poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-26",
+    "hora": "12:33:09",
+    "tipo": "poliza"
+  },
+  {
+    "id": 1740584069960,
+    "id_poliza": 2,
+    "accion": "Editar poliza",
+    "id_usuario": 1,
+    "fecha": "2025-02-26",
+    "hora": "12:34:29",
+    "tipo": "poliza"
   }
 ]

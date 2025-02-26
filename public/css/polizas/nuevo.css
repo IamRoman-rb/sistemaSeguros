@@ -6,7 +6,7 @@ main {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
 }
 main > header {
@@ -44,7 +44,18 @@ main > form fieldset {
   flex-direction: column;
   justify-content: center;
 }
-
+main > form fieldset#empresa_cobertura{
+  flex-flow: row wrap;
+}
+main > form fieldset#empresa_cobertura > fieldset{
+  width: 50%;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0;
+}
+main > form fieldset#empresa_cobertura > fieldset > select{
+  width: 90%;
+}
 main > form button {
   cursor: pointer;
 }

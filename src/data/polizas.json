@@ -24,8 +24,7 @@
       1739278915541
     ],
     "usuario": "2",
-    "id": 1,
-    "inhabilitado": true
+    "id": 1
   },
   {
     "n_poliza": "123123",
@@ -38,8 +37,6 @@
     "usos": "Particular",
     "empresa": 1,
     "precio": 100000,
-    "cobertura": "1",
-    "marca": 1,
     "modelo": "FALCON",
     "patente": "AEI586",
     "anio": 2000,
@@ -52,6 +49,8 @@
       1739914543915
     ],
     "usuario": "1",
-    "id": 2
+    "id": 2,
+    "cobertura": 1,
+    "marca": 1
   }
 ]

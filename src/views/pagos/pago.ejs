@@ -20,73 +20,73 @@
         </header>
         <ul>
             <li>
-                <p>Pago #<%= pago.id %></p>
-                <dl>
-                    <dt>Fecha</dt>
-                    <dd><%= pago.fecha %> a las <%= pago.hora %></dd>
-                    <dt>Importe</dt>
-                    <dd>$<%= pago.valor %></dd>
-                    <dt>Forma de Pago</dt>
-                    <dd><%= pago.forma_pago %></dd>
-                    <dt>Observaciones</dt>
-                    <dd><%= pago.observaciones %></dd>
-                </dl>
+              <p>Pago #<%= pago?.id || 'ID no disponible' %></p>
+              <dl>
+                <dt>Fecha</dt>
+                <dd><%= pago?.fecha ? `${pago.fecha} a las ${pago.hora || '00:00'}` : 'Fecha no disponible' %></dd>
+                <dt>Importe</dt>
+                <dd><%= pago?.valor ? `$${pago.valor}` : 'Importe no disponible' %></dd>
+                <dt>Forma de Pago</dt>
+                <dd><%= pago?.forma_pago || 'Forma de pago no disponible' %></dd>
+                <dt>Observaciones</dt>
+                <dd><%= pago?.observaciones || 'Sin observaciones' %></dd>
+              </dl>
             </li>
             <li>
-                <p>Poliza #<%= pago.poliza.n_poliza %></p>
-                <dl>
-                    <dt>Fecha de Emision</dt>
-                    <dd><%= pago.poliza.f_emision %></dd>
-                    <dt>Fecha de Inicio de Vigencia</dt>
-                    <dd><%= pago.poliza.f_ini_vigencia %></dd>
-                    <dt>Fecha de Fin de Vigencia</dt>
-                    <dd><%= pago.poliza.f_fin_vigencia %></dd>
-                    <dt>Premio</dt>
-                    <dd><%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.poliza.precio) %></dd>
-                    <dt>Empresa</dt>
-                    <dd><%= pago.poliza.empresa.nombre %></dd>
-                    <dt>Cuotas</dt>
-                    <dd><%= pago.poliza.cuotas %> cuotas</dd>
-                    <dt>Pagos</dt>
-                    <dd><%= pago.poliza.pagos.length %> de <%= pago.poliza.cuotas %> cuotas</dd>
-                    <dt>Cobertura</dt>
-                    <dd><%= pago.poliza.cobertura.nombre %>: <%= pago.poliza.cobertura.descripcion %></dd>
-                </dl>
+              <p>Póliza #<%= pago?.poliza?.n_poliza || 'Número de póliza no disponible' %></p>
+              <dl>
+                <dt>Fecha de Emisión</dt>
+                <dd><%= pago?.poliza?.f_emision || 'Fecha no disponible' %></dd>
+                <dt>Fecha de Inicio de Vigencia</dt>
+                <dd><%= pago?.poliza?.f_ini_vigencia || 'Fecha no disponible' %></dd>
+                <dt>Fecha de Fin de Vigencia</dt>
+                <dd><%= pago?.poliza?.f_fin_vigencia || 'Fecha no disponible' %></dd>
+                <dt>Premio</dt>
+                <dd><%= pago?.poliza?.precio ? new Intl.NumberFormat("es-AR", { style: 'currency', currency: 'ARS' }).format(pago.poliza.precio) : 'Premio no disponible' %></dd>
+                <dt>Empresa</dt>
+                <dd><%= pago?.poliza?.empresa?.nombre || 'Empresa no disponible' %></dd>
+                <dt>Cuotas</dt>
+                <dd><%= pago?.poliza?.cuotas ? `${pago.poliza.cuotas} cuotas` : 'Cuotas no disponibles' %></dd>
+                <dt>Pagos</dt>
+                <dd><%= pago?.poliza?.pagos ? `${pago.poliza.pagos.length} de ${pago.poliza.cuotas || 'N/A'} cuotas` : 'Pagos no disponibles' %></dd>
+                <dt>Cobertura</dt>
+                <dd><%= pago?.poliza?.cobertura?.nombre ? `${pago.poliza.cobertura.nombre}: ${pago.poliza.cobertura.descripcion || 'Sin descripción'}` : 'Cobertura no disponible' %></dd>
+              </dl>
             </li>
             <li>
-                <p>Vehiculo</p>
-                <dl>
-                    <dt>Marca</dt>
-                    <dd><%= pago.poliza.marca.marca %></dd>
-                    <dt>Modelo</dt>
-                    <dd><%= pago.poliza.modelo %></dd>
-                    <dt>Patente</dt>
-                    <dd><%= pago.poliza.patente %></dd>
-                    <dt>Año</dt>
-                    <dd><%= pago.poliza.anio %></dd>
-                </dl>
+              <p>Vehículo</p>
+              <dl>
+                <dt>Marca</dt>
+                <dd><%= pago?.poliza?.marca?.marca || 'Marca no disponible' %></dd>
+                <dt>Modelo</dt>
+                <dd><%= pago?.poliza?.modelo || 'Modelo no disponible' %></dd>
+                <dt>Patente</dt>
+                <dd><%= pago?.poliza?.patente || 'Patente no disponible' %></dd>
+                <dt>Año</dt>
+                <dd><%= pago?.poliza?.anio || 'Año no disponible' %></dd>
+              </dl>
             </li>
             <li>
-                <p>Cobrador</p>
-                <dl>
-                    <dt>Nombre</dt>
-                    <dd><%= pago.cobrador.nombre %></dd>
-                    <dt>Sucursal</dt>
-                    <dd><%= pago.cobrador.sucursal.nombre %></dd>
-                </dl>   
+              <p>Cobrador</p>
+              <dl>
+                <dt>Nombre</dt>
+                <dd><%= pago?.cobrador?.nombre || 'Nombre no disponible' %></dd>
+                <dt>Sucursal</dt>
+                <dd><%= pago?.cobrador?.sucursal?.nombre || 'Sucursal no disponible' %></dd>
+              </dl>
             </li>
             <li>
-                <p>Cliente</p>
-                <dl>
-                    <dt>Nombre</dt>
-                    <dd><%= pago.cliente.nombre %></dd>
-                    <dt>CUIT</dt>
-                    <dd><%= pago.cliente.cuit %></dd>
-                    <dt>Telefono</dt>
-                    <dd><%= pago.cliente.telefono %></dd>
-                </dl>
+              <p>Cliente</p>
+              <dl>
+                <dt>Nombre</dt>
+                <dd><%= pago?.cliente?.nombre || 'Nombre no disponible' %></dd>
+                <dt>CUIT</dt>
+                <dd><%= pago?.cliente?.cuit || 'CUIT no disponible' %></dd>
+                <dt>Teléfono</dt>
+                <dd><%= pago?.cliente?.telefono || 'Teléfono no disponible' %></dd>
+              </dl>
             </li>
-        </ul>
+          </ul>
        
     </main>
 </body>
