@@ -37,24 +37,6 @@
                             <% }) %>
                     </ul>
                 </article>
-                <article>
-                    <h2>Provincias</h2>
-                    <ul>
-                        <% provincias.forEach(provincia => { %>
-                            <h3><%= provincia.provincia %></h3>
-                            <ul>
-                                <% provincia.ciudades.forEach(ciudad => { %>
-                                    <li>
-                                        <dl>
-                                            <dd><%= ciudad %></dd>
-                                        </dl>
-                                    </li>
-                                <% }) %>
-                            </ul>
-                        <% }) %>
-                    </ul>
-                </article>
-            </main>
     </body>
 
 </html>

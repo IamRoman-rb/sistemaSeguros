@@ -592,22 +592,31 @@ export const cajaPorDia = async (req, res) => {
     let [caja, pagos, polizas, usuarios, clientes] = await Promise.all(resources.map(async (file) => JSON.parse(await readFile(file, "utf-8"))));
 
     let movimientosPorDia = {};
-    const fechaFiltro = req.query.fecha; // Obtiene la fecha del formulario
+    const fechaFiltro = req.query.fecha;
+    const usuario = req.session.user.id;
+
+    const usuario_filtrado = usuarios.find((u) => u.id == usuario);
+    const sucursalUsuario = usuario_filtrado.sucursal;
 
     const formatearFechaBuenosAires = (fecha) => {
       return DateTime.fromISO(fecha).setZone('America/Argentina/Buenos_Aires').toFormat('yyyy-MM-dd');
     };
 
     const buscarRelacionado = (array, id, propiedad) => {
-      return array.find(item => item.id === id)?.[propiedad];
+      return array.find(item => item.id == id)?.[propiedad];
     };
 
     caja.forEach(movimiento => {
       const fecha = formatearFechaBuenosAires(movimiento.fecha);
 
-      // Aplica el filtro si se proporciona una fecha
       if (fechaFiltro && fecha !== fechaFiltro) {
-        return; // Salta este movimiento si no coincide con la fecha
+        return;
+      }
+
+      // Filtra por sucursal del usuario que realizó el movimiento
+      const usuarioMovimiento = usuarios.find(u => u.id === parseInt(movimiento.id_usuario));
+      if (usuarioMovimiento && usuarioMovimiento.sucursal !== sucursalUsuario) {
+        return;
       }
 
       if (!movimientosPorDia[fecha]) {
@@ -618,7 +627,7 @@ export const cajaPorDia = async (req, res) => {
         };
       }
 
-      const usuario = buscarRelacionado(usuarios, movimiento.id_usuario, 'nombre');
+      const usuario = buscarRelacionado(usuarios, parseInt(movimiento.id_usuario), 'nombre');
 
       if (movimiento.tipo === 'ingreso') {
         movimientosPorDia[fecha].ingresosDelDia.push({
@@ -636,9 +645,14 @@ export const cajaPorDia = async (req, res) => {
     pagos.forEach(pago => {
       const fecha = formatearFechaBuenosAires(pago.fecha);
 
-      // Aplica el filtro si se proporciona una fecha
       if (fechaFiltro && fecha !== fechaFiltro) {
-        return; // Salta este pago si no coincide con la fecha
+        return;
+      }
+
+      // Filtra por sucursal del cobrador del pago
+      const cobradorPago = usuarios.find(u => u.id === pago.id_cobrador);
+      if (cobradorPago && cobradorPago.sucursal !== sucursalUsuario) {
+        return;
       }
 
       if (!movimientosPorDia[fecha]) {
@@ -667,10 +681,10 @@ export const cajaPorDia = async (req, res) => {
       ...movimientos
     }));
 
-    res.status(200).render('caja/cajaPorDia', { resultado })
+    res.status(200).render('caja/cajaPorDia', { resultado });
 
   } catch (error) {
     console.error("Error:", error);
     res.status(500).send(`Error: ${error.message}`);
   }
-}
+};

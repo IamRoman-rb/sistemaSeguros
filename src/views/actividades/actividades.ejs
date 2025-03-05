@@ -48,8 +48,13 @@
                             <dd><%= actividad.accion %></dd>
                         </dl>
                         <dl>
+                            <dt>Cliente</dt>
+                            <dd><%= actividad.pago.cliente.nombre %></dd>
+                        </dl>
+                        <dl>
                             <dt>Monto</dt>
-                            <dd><%= actividad.pago.valor %></dd>
+                            <dd>
+                                <%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(actividad.pago.valor) %> </dd>
                         </dl>
                         <dl>
                             <dt>Usuario</dt>

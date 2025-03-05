@@ -32,6 +32,7 @@ export const actividades = async (req, res) => {
           case 'pago':
             let pago = pagos.find(p => p.id == Number(actividad.id_pago));
             actividad.pago = pago;
+            actividad.pago.cliente = clientes.find( (c) => c.id == pago.id_cliente);
             break;
         }
         return actividad;
@@ -68,10 +69,7 @@ export const actividades = async (req, res) => {
           const fechaHoraB = DateTime.fromFormat(`${b.fecha} ${b.hora}`, 'yyyy-MM-dd HH:mm:ss', { zone: 'America/Argentina/Buenos_Aires' });
   
           return fechaHoraB - fechaHoraA; // Ordenar de más reciente a más antiguo
-        });
-  
-        console.log(actividades_filtradas);
-        
+        });        
 
       res.render('actividades/actividades', { actividades: actividades_filtradas });
     } catch (error) {

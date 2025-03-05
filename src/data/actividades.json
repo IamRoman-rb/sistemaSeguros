@@ -1,29 +1,20 @@
 [
   {
-    "id": 1739914536208,
-    "id_poliza": 2,
-    "accion": "Creacion de poliza",
+    "id": 1740858385653,
+    "id_pago": 1740858379166,
+    "accion": "Eliminar pago",
     "id_usuario": 1,
-    "fecha": "2025-02-18",
-    "hora": "18:35:36",
-    "tipo": "poliza"
+    "fecha": "2025-03-01",
+    "hora": "16:46:25",
+    "tipo": "pago"
   },
   {
-    "id": 1740583989594,
-    "id_poliza": 2,
-    "accion": "Editar poliza",
+    "id": 1741191358590,
+    "id_pago": 1741191348776,
+    "accion": "Eliminar ingreso",
     "id_usuario": 1,
-    "fecha": "2025-02-26",
-    "hora": "12:33:09",
-    "tipo": "poliza"
-  },
-  {
-    "id": 1740584069960,
-    "id_poliza": 2,
-    "accion": "Editar poliza",
-    "id_usuario": 1,
-    "fecha": "2025-02-26",
-    "hora": "12:34:29",
-    "tipo": "poliza"
+    "fecha": "2025-03-05",
+    "hora": "13:15:58",
+    "tipo": "movimiento"
   }
 ]
