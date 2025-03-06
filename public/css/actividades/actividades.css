@@ -23,7 +23,32 @@ main > header {
   main > header h1 {
     color: var(--celeste);
   }
-
+main > header > form{
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  gap: 1rem;
+}
+main > header > form > fieldset{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+main > header > form > fieldset > input, main > header > form > fieldset > select{
+  width: 70%;
+  padding: .3rem;
+  border: .1rem solid var(--negro);
+  border-radius: .3rem;
+  outline: none;
+}
+main > header > form > button{
+  padding: 0.2rem;
+  color: var(--blanco);
+  background-color: var(--celeste);
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
   main > ul {
     width: 100%;
     display: flex;

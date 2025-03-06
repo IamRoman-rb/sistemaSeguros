@@ -6,6 +6,24 @@
     <main>
         <header>
             <h1>Actividades</h1>
+
+            <form action="" method="get">
+                <fieldset>
+                    <label for="fecha">Fecha</label>
+                    <input type="date" name="fecha" id="fecha">
+                </fieldset>
+                <fieldset>
+                    <label for="actividad">Actividad</label>
+                    <select name="actividad" id="actividad">
+                        <option value="." selected>.</option>
+                        <option value="pago">Pago</option>
+                        <option value="poliza">Poliza</option>
+                        <option value="movimiento">Movimiento</option>
+                        <option value="cliente">Cliente</option>
+                    </select>
+                </fieldset>
+                <button type="submit">Filtrar</button>
+            </form>
         </header>
         <ul>
             <% actividades.forEach(actividad => { %>

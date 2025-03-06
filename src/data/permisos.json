@@ -169,6 +169,11 @@
           "path": "/eliminar",
           "alias": "eliminar",
           "method": "post"
+        },
+        {
+          "path": "/riesgos",
+          "alias": "Otros Riesgos",
+          "method": "get"
         }
       ],
       "pagos": [

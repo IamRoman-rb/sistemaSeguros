@@ -557,3 +557,12 @@ export const propuesta = async (req, res) => {
     console.error('Error al mostrar la propuesta', error);
   }
 }
+
+export const riesgos = (req, res) => {
+  try {
+    res.status(200).render('polizas/riesgos');
+  } catch (error) {
+    res.status(500).send('Error', error)
+    console.error('Error', error);
+  }
+}
