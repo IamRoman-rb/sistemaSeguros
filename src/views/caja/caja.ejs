@@ -62,7 +62,7 @@
                                 <dd><%= ingreso.descripcion %></dd>
                             </dl>
                             <dl>
-                                <% if (usuario.permisos != 3) { %>
+                                <% if (usuario.permisos != 2) { %>
                                     <dt>Acciones:</dt>
                                     <a href="/caja/confirmar/<%= ingreso.id %>">Eliminar</a>
                                 <% } %>
@@ -97,7 +97,7 @@
                                 <dd><%= egreso.descripcion %></dd>
                             </dl>
                             <dl>
-                                <% if (usuario.permisos != 3) { %>
+                                <% if (usuario.permisos != 2) { %>
                                     <dt>Acciones:</dt>
                                     <a href="/caja/confirmar/<%= egreso.id %>">Eliminar</a>
                                 <% } %>
