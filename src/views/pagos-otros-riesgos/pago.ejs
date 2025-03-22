@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../partials/head") %>
+<body>
+    <%- include("../partials/header") %>
+    <main>
+      <header>
+          <h1>Detalle de Pago</h1>
+          <% if (!["Empleado"].includes(user.rol)) { %>
+              <form action="/pagos-otros-riesgos/eliminar" method="POST">
+                  <input type="hidden" name="pagoId" value="<%= pago.id %>">
+                  <input type="hidden" name="polizaId" value="<%= pago.poliza.id %>">
+                  <button type="submit">Eliminar</button>
+              </form>
+          <% } %>
+          <nav>
+              <a target="_blank" href="/pagos-otros-riesgos/recibo/<%= pago.id %>">Recibo</a>
+          </nav>
+      </header>
+      <ul>
+          <li>
+              <p>Pago #<%= pago?.id || 'ID no disponible' %></p>
+              <dl>
+                  <dt>Fecha</dt>
+                  <dd><%= pago?.fecha ? `${pago.fecha} a las ${pago.hora || '00:00'}` : 'Fecha no disponible' %></dd>
+                  <dt>Importe</dt>
+                  <dd><%= pago?.valor ? `$${pago.valor}` : 'Importe no disponible' %></dd>
+                  <dt>Forma de Pago</dt>
+                  <dd><%= pago?.forma_pago || 'Forma de pago no disponible' %></dd>
+                  <dt>Observaciones</dt>
+                  <dd><%= pago?.observaciones || 'Sin observaciones' %></dd>
+              </dl>
+          </li>
+          <li>
+              <p>Póliza #<%= pago?.poliza?.n_poliza || 'Número de póliza no disponible' %></p>
+              <dl>
+                  <dt>Fecha de Emisión</dt>
+                  <dd><%= pago?.poliza?.f_emision || 'Fecha no disponible' %></dd>
+                  <dt>Fecha de Inicio de Vigencia</dt>
+                  <dd><%= pago?.poliza?.f_ini_vigencia || 'Fecha no disponible' %></dd>
+                  <dt>Fecha de Fin de Vigencia</dt>
+                  <dd><%= pago?.poliza?.f_fin_vigencia || 'Fecha no disponible' %></dd>
+                  <dt>Premio</dt>
+                  <dd><%= pago?.poliza?.precio ? new Intl.NumberFormat("es-AR", { style: 'currency', currency: 'ARS' }).format(pago.poliza.precio) : 'Premio no disponible' %></dd>
+                  <dt>Empresa</dt>
+                  <dd><%= pago?.poliza?.empresa?.nombre || 'Empresa no disponible' %></dd>
+                  <dt>Cuotas</dt>
+                  <dd><%= pago?.poliza?.cuotas ? `${pago.poliza.cuotas} cuotas` : 'Cuotas no disponibles' %></dd>
+                  <dt>Pagos</dt>
+                  <dd><%= pago?.poliza?.pagos ? `${pago.poliza.pagos.length} de ${pago.poliza.cuotas || 'N/A'} cuotas` : 'Pagos no disponibles' %></dd>
+                  <dt>Tipo Poliza</dt>
+                  <dd><%= pago?.poliza?.tipo_poliza || 'Cobertura no disponible' %></dd>
+              </dl>
+          </li>
+          <li>
+              <p>Cobrador</p>
+              <dl>
+                  <dt>Nombre</dt>
+                  <dd><%= pago?.cobrador?.nombre || 'Nombre no disponible' %></dd>
+                  <dt>Sucursal</dt>
+                  <dd><%= pago?.cobrador?.sucursal?.nombre || 'Sucursal no disponible' %></dd>
+              </dl>
+          </li>
+          <li>
+              <p>Cliente</p>
+              <dl>
+                  <dt>Nombre</dt>
+                  <dd><%= pago?.cliente?.nombre || 'Nombre no disponible' %></dd>
+                  <dt>CUIT</dt>
+                  <dd><%= pago?.cliente?.cuit || 'CUIT no disponible' %></dd>
+                  <dt>Teléfono</dt>
+                  <dd><%= pago?.cliente?.telefono || 'Teléfono no disponible' %></dd>
+              </dl>
+          </li>
+      </ul>
+  </main>
+</body>
+</html>

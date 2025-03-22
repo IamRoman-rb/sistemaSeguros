@@ -9,10 +9,8 @@
     "localidad": "1",
     "direccion": "Jose Craviotto 3674",
     "polizas": [
-      1,
-      2
-    ],
-    "inhabilitado": false
+      1742601111485
+    ]
   },
   {
     "id": 1739284145099,
@@ -23,7 +21,20 @@
     "provincia": "1",
     "localidad": "1",
     "direccion": "CALLE 18 346",
+    "polizas": []
+  },
+  {
+    "id": 1742592332977,
+    "nombre": "CLIENTE 3",
+    "cuit": "20458123627",
+    "fecha_n": "2004-03-23",
+    "telefono": "2246481147",
+    "provincia": "2",
+    "localidad": "5",
+    "direccion": "CALLE 18 346",
     "polizas": [],
-    "inhabilitado": false
+    "inhabilitado": false,
+    "telefono_fijo": "0",
+    "email": "roman.borla2004@gmail.com"
   }
 ]

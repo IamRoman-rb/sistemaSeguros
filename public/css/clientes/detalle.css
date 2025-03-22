@@ -48,7 +48,13 @@ main > article {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
   gap: 1rem;
+}
+main > article > h2{
+  width: 100%;
+  text-align: center;
 }
 main > article > dl {
   width: calc(50% - 1rem);

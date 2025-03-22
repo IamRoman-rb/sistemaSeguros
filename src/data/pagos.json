@@ -1,43 +1,29 @@
 [
   {
-    "id": 1739278915541,
+    "id": 1742602777869,
     "id_cliente": 1739278880316,
-    "id_poliza": 1,
+    "id_poliza": 1742601111485,
     "n_poliza": 123123,
-    "fecha": "2025-02-11",
-    "hora": "10:01:55",
-    "valor": 100000,
+    "fecha": "2025-03-21",
+    "hora": "21:19:37",
+    "valor": 25000,
     "forma_pago": "efectivo",
     "observaciones": "",
     "n_cuota": 1,
     "desconocido": true,
-    "id_cobrador": 2
+    "id_cobrador": 1
   },
   {
-    "id": 1739914543915,
+    "id": 1742602802085,
     "id_cliente": 1739278880316,
-    "id_poliza": 2,
+    "id_poliza": 1742601111485,
     "n_poliza": 123123,
-    "fecha": "2025-02-18",
-    "hora": "18:35:43",
+    "fecha": "2025-03-21",
+    "hora": "21:20:02",
     "valor": 25000,
     "forma_pago": "efectivo",
     "observaciones": "",
     "n_cuota": 1,
-    "desconocido": false,
-    "id_cobrador": 1
-  },
-  {
-    "id": 1740858379166,
-    "id_cliente": 1739278880316,
-    "id_poliza": 2,
-    "n_poliza": 123123,
-    "fecha": "2025-03-01",
-    "hora": "16:46:19",
-    "valor": 25000,
-    "forma_pago": "efectivo",
-    "observaciones": "",
-    "n_cuota": 2,
     "desconocido": true,
     "id_cobrador": 1
   }

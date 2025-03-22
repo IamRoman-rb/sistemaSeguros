@@ -1,0 +1,19 @@
+[
+  {
+    "n_poliza": "123123",
+    "f_emision": "2025-03-21",
+    "f_ini_vigencia": "2025-03-21",
+    "f_fin_vigencia": "2025-07-21",
+    "tipo_poliza": "COMERCIAL",
+    "periodo": 4,
+    "cuotas": 1,
+    "empresa": 1,
+    "precio": 25000,
+    "clienteId": 1739278880316,
+    "sucursal": "1",
+    "pagos": [],
+    "usuario": "1",
+    "id": 1742601111485,
+    "inhabilitado": true
+  }
+]

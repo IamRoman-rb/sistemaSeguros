@@ -9,12 +9,13 @@ export const actividades = async (req, res) => {
         const resources = [
             path.resolve(process.cwd(), "src/data", "clientes.json"),
             path.resolve(process.cwd(), "src/data", "polizas.json"),
+            path.resolve(process.cwd(), "src/data", "otros_riesgos.json"), // Agregar otros_riesgos.json
             path.resolve(process.cwd(), "src/data", "pagos.json"),
             path.resolve(process.cwd(), "src/data", "usuarios.json"),
             path.resolve(process.cwd(), "src/data", "actividades.json"),
         ];
 
-        const results = await Promise.allSettled(resources.map(resource => 
+        const results = await Promise.allSettled(resources.map(resource =>
             readFile(resource, 'utf-8').then(JSON.parse)
         ));
 
@@ -22,9 +23,12 @@ export const actividades = async (req, res) => {
             throw new Error('Error al leer uno o más archivos de datos.');
         }
 
-        const [clientes, polizas, pagos, usuarios, actividades] = results.map(result => result.value);
+        const [clientes, polizas, otrosRiesgos, pagos, usuarios, actividades] = results.map(result => result.value);
 
-        const enrichActivity = (actividad, clientes, polizas, pagos, usuarios) => {
+        // Combinar pólizas de ambos archivos
+        const todasPolizas = [...polizas, ...otrosRiesgos];
+
+        const enrichActivity = (actividad, clientes, todasPolizas, pagos, usuarios) => {
             const usuario = usuarios.find(u => u.id === Number(actividad.id_usuario));
             if (usuario) actividad.usuario = usuario;
 
@@ -33,10 +37,14 @@ export const actividades = async (req, res) => {
                     actividad.cliente = clientes.find(c => c.id === Number(actividad.id_cliente));
                     break;
                 case 'poliza':
-                    actividad.poliza = polizas.find(p => p.id === Number(actividad.id_poliza));
+                    actividad.poliza = todasPolizas.find(p => p.id === Number(actividad.id_poliza));
+                    if (actividad.poliza.tipo_poliza) {
+                        actividad.poliza.cliente = clientes.find( c => c.id == actividad.poliza.clienteId)
+                    }
                     break;
                 case 'pago':
-                    const pago = pagos.find(p => p.id === Number(actividad.id_pago));
+                    const pago = pagos.find(p => p.id == Number(actividad.id_pago));
+
                     if (pago) {
                         actividad.pago = pago;
                         actividad.pago.cliente = clientes.find(c => c.id === pago.id_cliente);
@@ -55,7 +63,7 @@ export const actividades = async (req, res) => {
                 );
                 actividad.fecha = fechaHoraOriginal.toFormat('yyyy-MM-dd');
                 actividad.hora = fechaHoraOriginal.toFormat('HH:mm:ss');
-                return enrichActivity(actividad, clientes, polizas, pagos, usuarios);
+                return enrichActivity(actividad, clientes, todasPolizas, pagos, usuarios);
             })
             .sort((a, b) => DateTime.fromFormat(`${b.fecha} ${b.hora}`, 'yyyy-MM-dd HH:mm:ss', { zone: 'America/Argentina/Buenos_Aires' }) -
                 DateTime.fromFormat(`${a.fecha} ${a.hora}`, 'yyyy-MM-dd HH:mm:ss', { zone: 'America/Argentina/Buenos_Aires' })
@@ -67,7 +75,7 @@ export const actividades = async (req, res) => {
         }
         if (actividad && actividad !== '.') {
             actividadesFiltradas = actividadesFiltradas.filter(a => a.tipo === actividad);
-        }
+        }      
 
         res.render('actividades/actividades', { actividades: actividadesFiltradas });
     } catch (error) {

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../partials/head") %>
+<body>
+  <%- include("../partials/header") %>
+  <main>
+      <header>
+        <h1>Confirmar Pago</h1>
+        <a href="/polizas/detalle/<%= poliza.id %>">Volver al detalle de la poliza</a>
+      </header>
+      <article>
+        <h2>Datos</h2>
+        <p>Estás a punto de pagar la póliza número #<%= poliza.n_poliza %> verifica que los datos sean correctos.</p>
+        <ul id="datos">
+          <li>
+            <p>Poliza #<%= poliza.n_poliza %></p>
+              <dl>
+                <dt>Fecha de Emision</dt>
+                <dd><%= poliza.f_emision %></dd>
+              </dl>
+              <dl>
+                <dt>Fecha de Inicio de Vigencia</dt>
+                <dd><%= poliza.f_ini_vigencia %></dd>
+              </dl>
+              <dl>
+                <dt>Fecha de Fin de Vigencia</dt>
+                <dd><%= poliza.f_fin_vigencia %></dd>
+              </dl>
+              <dl>
+                <dt>Tipo Poliza</dt>
+                <dd><%= poliza.tipo_poliza %></dd>
+              </dl>
+              <dl>
+                <dt>Premio</dt>
+                <dd><%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(poliza.precio) %></dd>
+              </dl>
+              <dl>
+                <dt>Cuotas</dt>
+                <dd><%= poliza.cuotas %></dd>
+              </dl>
+              <dl>
+                <dt>Empresa</dt>
+                <dd><%= poliza.empresa.nombre %></dd>
+              </dl>
+            <dl>
+              <dt>Importe</dt>
+              <dd><%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format((poliza.precio / poliza.cuotas)) %></dd>
+            </dl>
+          </li>
+          <li>
+            <p>Cliente</p>
+            <dl>
+              <dt>Nombre</dt>
+              <dd><%= cliente.nombre %></dd>
+              <dt>Telefono</dt>
+              <dd><%= cliente.telefono %></dd>
+              <dt>CUIT</dt>
+              <dd><%= cliente.cuit %></dd>
+            </dl>
+          </li>
+          <li>
+            <p>Pagos</p>
+            <% if (poliza.pagos.length > 0) { %>
+              <ul>
+                <% poliza.pagos.forEach(pago => { %>
+                  <li>
+                    <p>Fecha: <%= pago.fecha %></p>
+                    <p>Monto: $ <%= pago.valor %></p>
+                  </li>
+                <% }) %>
+              </ul>
+            <% } else { %>
+              <p>No hay pagos registrados.</p>
+            <% } %>
+          </li>
+        </ul>
+      </article>
+      <!-- Agregar tips de validacion -->
+      <article id="validacion">
+        <h2>Tips de Validación</h2>
+        <ul>
+          <li>
+            <p>La fecha de pago debe ser mayor a la de emision.</p>
+          </li>
+          <li>
+            <p>La fecha de pago debe estar fuera de los pagos anteriores.</p>
+          </li>
+          <li>
+            <p>En caso de el cliente pague con efectivo, verifique que el monto a pagar sea igual al precio de la póliza.</p>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Cambiar el redireccion del controller a pagar -->
+      <form method="POST" action="/pagos-otros-riesgos/acreditar">
+        <input type="hidden" name="polizaId" value="<%= poliza.id %>">
+        <fieldset>
+          <label for="observaciones">Observaciones</label>
+          <textarea name="observaciones" id="observaciones"></textarea>
+        </fieldset>
+        <button type="submit">Confirmar Pago</button>
+      </form>
+    </main>
+    
+</body>
+</html>

@@ -14,6 +14,7 @@
                             <% } %>
                                 <a href="/clientes/editar/<%= cliente.id %>">Editar</a>
                                 <a href="/polizas/nuevo/<%= cliente.id %>">Nueva Poliza</a>
+                                <a href="/otros-riesgos/nuevo/<%= cliente.id %>">Otros Riesgos</a>
                                 <a href="/clientes">Regresar</a>
                     </nav>
                 </header>
@@ -127,6 +128,38 @@
                                     <% }) %>
                             </ul>
                             <% } %>
+                            <h2>Otros Riesgos</h2>
+                            <ul>
+                                <% otros_riesgos.forEach(poliza => { %>
+                                    <li>
+                                        <dl>
+                                            <dt>Poliza:</dt>
+                                            <dd>
+                                                <%= poliza.n_poliza %>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Desde:</dt>
+                                            <dd>
+                                                <%= poliza.f_ini_vigencia%>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Hasta:</dt>
+                                            <dd>
+                                                <%= poliza.f_fin_vigencia %>
+                                            </dd>
+                                        </dl>
+                                        <dl>
+                                            <dt>Tipo Poliza</dt>
+                                            <dd>
+                                                <%= poliza.tipo_poliza %>
+                                            </dd>
+                                        </dl>
+                                        <a href="/otros-riesgos/detalle/<%= poliza.id %> ">Detalle</a>
+                                    </li>
+                                <% }) %>
+                            </ul>
                 </article>
             </main>
     </body>

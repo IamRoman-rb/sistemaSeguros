@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head") %>
+<body>
+    <header>
+        <h1>RECIBO DE PAGO</h1>
+        <p>
+            Si existiera atraso o incumplimiento en alguna de las cuotas sobre un contrato de servicios adquirido
+            por nuestro intermedio, este y todo su contenido queda automaticamente anulado y sin posibilidad de reclamo alguno.
+        </p>
+    </header>
+    <main>
+        <article>
+           <h2>
+               CENTRO INTEGRADO DE ATENCION Y SERVICIOS
+           </h2> 
+           <p>
+               SAN FRANCISCO SOLANO | LAS TONINAS
+           </p>
+        </article>
+        <article id="datos">
+            <h2>
+                TIPO DE COBERTURA
+            </h2>
+            <ul>
+                <li><%= pago.poliza.tipo_poliza%></li>
+            </ul>
+        </article>
+        <article id="descripcion">
+            <p id="fecha"><%= pago.fechaEnLetras %> </p>
+            <p>Recibimos de <%= pago.cliente.nombre %></p>
+            <p>La suma de <span><%= pago.valorEnLetras %></span></p>
+            <p>Este importe corresponde a la suma de distintas cuotas de servicios contratados por el cliente.</p>
+            <p>Tipo de uso: <%= pago.poliza.usos %></p>
+            <p> <%= pago.observaciones %> </p>
+        </article>
+        <ul id="datos_contrato">
+            <li>
+                <p>Contrato N°:</p>
+                <p><%= pago.poliza.n_poliza %></p>
+            </li>
+            <li>
+                <p>Cuotas N°:</p>
+                <p><%= pago.n_cuota %></p>
+            </li>
+        </ul>
+        <article id="importe">
+            <span>
+                <% 
+                    DateTime.defaultLocale = 'es';
+                    let mes = DateTime.fromISO(pago.fecha).setZone('America/Argentina/Buenos_Aires').toLocaleString({ month: 'long' });
+                %>
+                <p>Cuota Vencimiento</p>
+                <p> <%= mes.charAt(0).toUpperCase() + mes.slice(1) %></p>
+            </span>
+            <span>
+                <p>Importe</p>
+                <p> <%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(pago.valor) %></p>
+            </span>
+        </article>
+    </main>
+    <footer>
+        <article>
+            <hr>
+            <p>FIRMA</p>
+        </article>
+    </footer>
+</body>
+</html>

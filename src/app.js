@@ -11,8 +11,10 @@ import auth from "./routes/auth.js";
 import usuarios from "./routes/usuarios.js";
 import clientes from "./routes/clientes.js";
 import polizas from "./routes/polizas.js";
+import otrosRiesgos from "./routes/otrosRiesgos.js";
 import caja from "./routes/caja.js";
 import pagos from "./routes/pagos.js";
+import pagosOtrosRiesgos from "./routes/pagosOtrosRiesgos.js";
 import empresas from "./routes/empresas.js";
 import actividades from "./routes/actividades.js";
 import auxiliares from "./routes/auxilieares.js";
@@ -69,4 +71,6 @@ app.use("/pagos",pagos);
 app.use("/caja",caja);
 app.use("/empresas", empresas);
 app.use("/actividades", actividades);
-app.use("/auxiliares", auxiliares)
+app.use("/auxiliares", auxiliares);
+app.use("/otros-riesgos", otrosRiesgos);
+app.use("/pagos-otros-riesgos", pagosOtrosRiesgos);

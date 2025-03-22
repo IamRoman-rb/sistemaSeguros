@@ -6,7 +6,6 @@
     <main>
         <header>
             <h1>Actividades</h1>
-
             <form action="" method="get">
                 <fieldset>
                     <label for="fecha">Fecha</label>
@@ -39,7 +38,7 @@
                         </dl>
                         <dl>
                             <dt>Nombre</dt>
-                            <dd><%= actividad.cliente.nombre %></dd>
+                            <dd><%= actividad.cliente?.nombre || 'No especificado' %></dd>
                         </dl>
                         <dl>
                             <dt>Accion</dt>
@@ -47,7 +46,7 @@
                         </dl>
                         <dl>
                             <dt>Usuario</dt>
-                            <dd><%= actividad.usuario.nombre %></dd>
+                            <dd><%= actividad.usuario?.nombre || 'No especificado' %></dd>
                         </dl>
                     </li>
                 <% } %>
@@ -67,46 +66,63 @@
                         </dl>
                         <dl>
                             <dt>Cliente</dt>
-                            <dd><%= actividad.pago.cliente.nombre %></dd>
+                            <dd><%= actividad.pago?.cliente?.nombre || 'No especificado' %></dd>
                         </dl>
                         <dl>
                             <dt>Monto</dt>
                             <dd>
-                                <%= new Intl.NumberFormat("es-AR",{ style: 'currency', currency: 'ARS' }).format(actividad.pago.valor) %> </dd>
+                                <%= new Intl.NumberFormat("es-AR", { style: 'currency', currency: 'ARS' }).format(actividad.pago?.valor || 0) %>
+                            </dd>
                         </dl>
                         <dl>
                             <dt>Usuario</dt>
-                            <dd><%= actividad.usuario.nombre %></dd>
+                            <dd><%= actividad.usuario?.nombre || 'No especificado' %></dd>
                         </dl>
                     </li>
                 <% } %>
                 <% if (actividad.tipo == 'poliza') { %>
                     <li>
-                    <dl>
-                        <dt>Fecha</dt>
-                        <dd><%= actividad.fecha %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Hora</dt>
-                        <dd><%= actividad.hora %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Accion</dt>
-                        <dd><%= actividad.accion %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Patente</dt>
-                        <dd><%= actividad.poliza.patente %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Vehiculo</dt>
-                        <dd><%= actividad.poliza.modelo %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Usuario</dt>
-                        <dd><%= actividad.usuario.nombre %></dd>
-                    </dl>
-                </li>
+                        <dl>
+                            <dt>Fecha</dt>
+                            <dd><%= actividad.fecha %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Hora</dt>
+                            <dd><%= actividad.hora %></dd>
+                        </dl>
+                        <dl>
+                            <dt>Accion</dt>
+                            <dd><%= actividad.accion %></dd>
+                        </dl>
+                        <% if (actividad.poliza?.patente) { %>
+                            <dl>
+                                <dt>Patente</dt>
+                                <dd><%= actividad.poliza.patente %></dd>
+                            </dl>
+                        <% } %>
+                        <% if (actividad.poliza?.modelo) { %>
+                            <dl>
+                                <dt>Vehículo</dt>
+                                <dd><%= actividad.poliza.modelo %></dd>
+                            </dl>
+                        <% } %>
+                        <% if (actividad.poliza?.tipo_poliza) { %>
+                            <dl>
+                                <dt>Tipo Riesgo</dt>
+                                <dd><%= actividad.poliza.tipo_poliza %></dd>
+                            </dl>
+                        <% } %>
+                        <% if (actividad.poliza?.cliente) { %>
+                            <dl>
+                                <dt>Cliente</dt>
+                                <dd><%= actividad.poliza.cliente.nombre %></dd>
+                            </dl>
+                        <% } %>
+                        <dl>
+                            <dt>Usuario</dt>
+                            <dd><%= actividad.usuario?.nombre || 'No especificado' %></dd>
+                        </dl>
+                    </li>
                 <% } %>
                 <% if (actividad.tipo == 'movimiento') { %>
                     <li>
@@ -124,7 +140,7 @@
                         </dl>
                         <dl>
                             <dt>Usuario</dt>
-                            <dd><%= actividad.usuario.nombre %></dd>
+                            <dd><%= actividad.usuario?.nombre || 'No especificado' %></dd>
                         </dl>
                     </li>
                 <% } %>
@@ -144,7 +160,7 @@
                         </dl>
                         <dl>
                             <dt>Usuario</dt>
-                            <dd><%= actividad.usuario.nombre %></dd>
+                            <dd><%= actividad.usuario?.nombre || 'No especificado' %></dd>
                         </dl>
                     </li>
                 <% } %>

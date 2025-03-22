@@ -2,46 +2,50 @@ import path from "path";
 import { readFile, writeFile } from "node:fs/promises";
 import { DateTime } from 'luxon';
 
+
 export const listado = async (req, res) => {
   try {
-    let { busqueda = null } = req.query || {};
+    const { busqueda = null } = req.query || {};
 
     const resources = [
       path.resolve(process.cwd(), "src/data", "clientes.json"),
-      path.resolve(process.cwd(), "src/data", "polizas.json"),
-      path.resolve(process.cwd(), "src/data", "coberturas.json")
-    ]
+      path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
+    ];
 
-    let [clientes, polizas, coberturas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+    const readJsonFile = async (filePath) => {
+      const data = await readFile(filePath, 'utf-8');
+      return JSON.parse(data);
+    };
+
+    let [clientes, polizas] = await Promise.all(resources.map(readJsonFile));
 
     // Añadir el cliente correspondiente a cada póliza
     polizas = polizas.map((poliza) => {
       const cliente = clientes.find((c) => c.polizas.includes(poliza.id));
-      const cobertura = coberturas.find((c) => c.id === Number(poliza.cobertura))
       return {
         ...poliza,
         cliente,
-        cobertura
       };
     });
 
     // Filtrar las pólizas si hay un término de búsqueda
     if (busqueda) {
-      busqueda = busqueda.trim().toLowerCase();
+      const searchTerm = busqueda.trim().toLowerCase();
       polizas = polizas.filter((poliza) => {
         return (
-          (poliza.cliente && poliza.cliente.nombre.toLowerCase().includes(busqueda)) ||
-          (poliza.cliente && poliza.cliente.cuit.toLowerCase().includes(busqueda)) ||
-          (poliza.n_poliza && poliza.n_poliza.toString().includes(busqueda)) ||
-          (poliza.patente && poliza.patente.toLowerCase().includes(busqueda))
+          poliza.cliente && (
+            poliza.cliente.nombre.toLowerCase().includes(searchTerm) ||
+            poliza.cliente.cuit.toLowerCase().includes(searchTerm) ||
+            poliza.n_poliza.toString().includes(searchTerm)
+          )
         );
       });
     }
-    // Renderizar la vista con las pólizas filtradas y la búsqueda (si existe)
-    return res.render("polizas/polizas", { polizas, busqueda });
+
+    res.status(200).render('otros-riesgos/otrosRiesgos', { polizas, busqueda });
   } catch (error) {
-    console.error("Error al cargar las pólizas:", error.message);
-    res.status(500).send("Error al cargar las pólizas: " + error.message);
+    console.error('Error en listado:', error);
+    res.status(500).send(`Error: ${error.message}`);
   }
 };
 
@@ -50,13 +54,11 @@ export const nueva = async (req, res) => {
     const { id } = req.params; // Obtener el ID del cliente desde la URL
     const resources = [
       path.resolve(process.cwd(), "src/data", "clientes.json"),
-      path.resolve(process.cwd(), "src/data", "automarcas.json"),
       path.resolve(process.cwd(), "src/data", "empresas.json"),
-      path.resolve(process.cwd(), "src/data", "coberturas.json"),
       path.resolve(process.cwd(), "src/data", "usuarios.json"),
     ]
 
-    let [clientes, autos, empresas, coberturas, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+    let [clientes, empresas, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
     // Buscar al cliente por ID (asegúrate de que ambos sean cadenas)
     const cliente = clientes.find((cliente) => cliente.id.toString() === id);
@@ -69,9 +71,8 @@ export const nueva = async (req, res) => {
 
     let usuario_filtrado = usuarios.find(user => user.id == usuario.id);
 
-    
 
-    res.render("polizas/nueva", { cliente, autos, empresas, coberturas, usuario: usuario_filtrado});
+    res.render("otros-riesgos/nueva", { cliente, empresas, usuario: usuario_filtrado});
   } catch (error) {
     console.error("Error al cargar el cliente:", error.message);
     res.status(500).send("Error al cargar el cliente: " + error.message);
@@ -81,18 +82,12 @@ export const nueva = async (req, res) => {
 export const guardar = async (req, res) => {
   try {
       const resources = [
-          path.resolve(process.cwd(), "src/data", "polizas.json"),
+          path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
           path.resolve(process.cwd(), "src/data", "clientes.json"),
           path.resolve(process.cwd(), "src/data", "actividades.json"),
       ];
 
       const [polizas, clientes, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
-
-      // const polizasPatente = polizas.filter((poliza) => poliza.patente === req.body.patente);
-
-      // if (polizasPatente.length > 0) {
-      //     return res.status(400).send("Patente duplicada");
-      // }
 
       const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
 
@@ -106,20 +101,11 @@ export const guardar = async (req, res) => {
           f_emision: fechaFormateada,
           f_ini_vigencia: req.body.f_ini_vigencia,
           f_fin_vigencia: fechaVencimientoFormateada,
+          tipo_poliza: req.body.tipo_poliza,
           periodo: Number(req.body.periodo),
-          suma: Number(req.body.suma),
           cuotas: Number(req.body.cuotas),
-          usos: req.body.usos,
           empresa: Number(req.body.empresa),
           precio: Number(req.body.precio),
-          cobertura: req.body.cobertura,
-          marca: Number(req.body.marca),
-          modelo: req.body.modelo,
-          patente: req.body.patente,
-          anio: Number(req.body.anio),
-          n_chasis: req.body.n_chasis,
-          n_motor: req.body.n_motor,
-          combustible: req.body.combustible,
           clienteId: Number(req.body.clientId),
           sucursal: req.body.sucursal,
           pagos: [],
@@ -131,7 +117,7 @@ export const guardar = async (req, res) => {
           return res.status(404).send("Cliente no encontrado");
       }
 
-      const nuevoIdPoliza = polizas.length > 0 ? Math.max(...polizas.map((p) => p.id)) + 1 : 1;
+      const nuevoIdPoliza = ahoraArgentina.toMillis();
       nuevaPoliza.id = nuevoIdPoliza;
 
       polizas.push(nuevaPoliza);
@@ -158,7 +144,7 @@ export const guardar = async (req, res) => {
 
       await writeFile(resources[1], JSON.stringify(clientes, null, 2));
 
-      res.redirect("/polizas");
+      res.redirect("/otros-riesgos");
   } catch (error) {
       console.error("Error al guardar la póliza:", error.message);
       res.status(500).send("Error al guardar la póliza: " + error.message);
@@ -171,18 +157,16 @@ export const detalle = async (req, res) => {
 
     const resources = [
       path.resolve(process.cwd(), "src/data", "clientes.json"),
-      path.resolve(process.cwd(), "src/data", "polizas.json"),
+      path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
       path.resolve(process.cwd(), "src/data", "pagos.json"),
       path.resolve(process.cwd(), "src/data", "ciudades.json"),
       path.resolve(process.cwd(), "src/data", "provincias.json"),
-      path.resolve(process.cwd(), "src/data", "automarcas.json"),
       path.resolve(process.cwd(), "src/data", "sucursales.json"),
       path.resolve(process.cwd(), "src/data", "empresas.json"),
-      path.resolve(process.cwd(), "src/data", "coberturas.json"),
       path.resolve(process.cwd(), "src/data", "usuarios.json"),
     ];
 
-    const [clientes, polizas, pagos, ciudades, provincias, automarcas, sucursales, empresas, coberturas, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
+    const [clientes, polizas, pagos, ciudades, provincias, sucursales, empresas, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
 
 
     // Buscar la póliza por ID
@@ -202,18 +186,17 @@ export const detalle = async (req, res) => {
 
     poliza.empresa = empresas.find((e) => e.id === Number(poliza.empresa));
     poliza.sucursal = sucursales.find((s) => s.id === Number(poliza.sucursal));
-    poliza.marca = automarcas.find((a) => a.id === Number(poliza.marca));
     if (poliza.pagos.length > 0) {
       poliza.pagos = pagos.filter((pago) => pago.id_poliza === Number(id));
     }
-    poliza.cobertura = coberturas.find((c) => c.id === Number(poliza.cobertura));
+    
     // Renderizar la vista con los detalles
 
     let usuario = req.session.user;
 
     let usuario_filtrado = usuarios.find(user => user.id == usuario.id);       
 
-    res.render("polizas/detalle", { poliza, cliente, id: usuario_filtrado.sucursal });
+    res.render("otros-riesgos/detalle", { poliza, cliente, id: usuario_filtrado.sucursal });
 
   } catch (error) {
     console.error("Error al obtener el detalle de la póliza:", error.message);
@@ -230,17 +213,15 @@ export const confirmar = async (req, res) => {
     
     const resources = [
       path.resolve(process.cwd(), "src/data", "clientes.json"),
-      path.resolve(process.cwd(), "src/data", "polizas.json"),
+      path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
       path.resolve(process.cwd(), "src/data", "pagos.json"),
       path.resolve(process.cwd(), "src/data", "ciudades.json"),
       path.resolve(process.cwd(), "src/data", "provincias.json"),
-      path.resolve(process.cwd(), "src/data", "automarcas.json"),
       path.resolve(process.cwd(), "src/data", "sucursales.json"),
       path.resolve(process.cwd(), "src/data", "empresas.json"),
-      path.resolve(process.cwd(), "src/data", "coberturas.json"),
     ];
 
-    const [clientes, polizas, pagos, ciudades, provincias, automarcas, sucursales, empresas, coberturas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
+    const [clientes, polizas, pagos, ciudades, provincias, sucursales, empresas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
 
 
     // Buscar la póliza por ID
@@ -260,11 +241,10 @@ export const confirmar = async (req, res) => {
 
     poliza.empresa = empresas.find((e) => e.id === Number(poliza.empresa));
     poliza.sucursal = sucursales.find((s) => s.id === Number(poliza.sucursal));
-    poliza.marca = automarcas.find((a) => a.id === Number(poliza.marca));
     poliza.pagos = pagos.filter((pago) => pago.id_poliza === Number(id));
-    poliza.cobertura = coberturas.find((c) => c.id === Number(poliza.cobertura));
+    
     // Renderizar la vista de confirmación desde alertas
-    res.render("polizas/confirmar", { poliza, cliente, usuario });
+    res.render("otros-riesgos/confirmar", { poliza, cliente, usuario });
   } catch (error) {
     console.error("Error al confirmar eliminación:", error.message);
     res.status(500).send("Error al confirmar eliminación: " + error.message);
@@ -276,7 +256,7 @@ export const eliminar = async (req, res) => {
       const { id } = req.body;
 
       const resources = [
-          path.resolve(process.cwd(), "src/data", "polizas.json"),
+          path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
           path.resolve(process.cwd(), "src/data", "pagos.json"),
           path.resolve(process.cwd(), "src/data", "clientes.json"),
           path.resolve(process.cwd(), "src/data", "actividades.json"),
@@ -333,13 +313,11 @@ export const editar = async function editarPoliza(req, res) {
   try {
     const resources = [
       path.resolve(process.cwd(), "src/data", "clientes.json"),
-      path.resolve(process.cwd(), "src/data", "polizas.json"),
+      path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
       path.resolve(process.cwd(), "src/data", "pagos.json"),
-      path.resolve(process.cwd(), "src/data", "automarcas.json"),
       path.resolve(process.cwd(), "src/data", "empresas.json"),
-      path.resolve(process.cwd(), "src/data", "coberturas.json"),
     ];
-    let [clientes, polizas, pagos, autos, empresas, coberturas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+    let [clientes, polizas, pagos, empresas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
 
     // Encontrar la póliza a editar
@@ -356,7 +334,7 @@ export const editar = async function editarPoliza(req, res) {
 
 
     // Renderizar la vista de edición con los datos de la póliza
-    res.render('polizas/editar', { poliza, cliente, autos, empresas, pagos, coberturas });
+    res.render('otros-riesgos/editar', { poliza, cliente, empresas, pagos });
   } catch (error) {
     console.error('Error al editar la póliza:', error);
     res.status(500).send('Error al editar la póliza');
@@ -366,7 +344,7 @@ export const editar = async function editarPoliza(req, res) {
 export const actualizar = async (req, res) => {
   try {
       const resources = [
-          path.resolve(process.cwd(), "src/data", "polizas.json"),
+          path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
           path.resolve(process.cwd(), "src/data", "actividades.json"),
       ];
       const [polizas, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
@@ -389,7 +367,7 @@ export const actualizar = async (req, res) => {
       }
 
       // Conversión de tipos para campos numéricos
-      const camposNumericos = ["empresa", "marca", "cobertura", "cuotas", "periodo", "suma", "precio", "anio"];
+      const camposNumericos = ["empresa", "cuotas", "periodo", "precio"];
       camposNumericos.forEach(campo => {
           if (cambios[campo]) {
               cambios[campo] = Number(cambios[campo]);
@@ -423,7 +401,7 @@ export const actualizar = async (req, res) => {
           writeFile(resources[1], JSON.stringify(actividades, null, 2)),
       ]);
 
-      res.redirect(`/polizas/detalle/${polizas[index].id}`);
+      res.redirect(`/otros-riesgos/detalle/${polizas[index].id}`);
   } catch (error) {
       console.error('Error al modificar la póliza:', error);
       res.status(500).send('Error al modificar la póliza');
@@ -432,22 +410,20 @@ export const actualizar = async (req, res) => {
 
 export const renovar = async (req, res) => {
   try {
-    const { id } = req.params; // ID de la póliza desde la URL
+    const { id } = req.params; // ID de la póliza desde la URL    
 
     const resources = [
       path.resolve(process.cwd(), "src/data", "clientes.json"),
-      path.resolve(process.cwd(), "src/data", "polizas.json"),
+      path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
       path.resolve(process.cwd(), "src/data", "pagos.json"),
       path.resolve(process.cwd(), "src/data", "ciudades.json"),
       path.resolve(process.cwd(), "src/data", "provincias.json"),
-      path.resolve(process.cwd(), "src/data", "automarcas.json"),
       path.resolve(process.cwd(), "src/data", "sucursales.json"),
       path.resolve(process.cwd(), "src/data", "empresas.json"),
-      path.resolve(process.cwd(), "src/data", "coberturas.json"),
       path.resolve(process.cwd(), "src/data", "usuarios.json"),
     ];
 
-    const [clientes, polizas, pagos, ciudades, provincias, automarcas, sucursales, empresas, coberturas, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
+    const [clientes, polizas, pagos, ciudades, provincias, sucursales, empresas, usuarios] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
 
 
     // Buscar la póliza por ID
@@ -467,18 +443,16 @@ export const renovar = async (req, res) => {
 
     poliza.empresa = empresas.find((e) => e.id === Number(poliza.empresa));
     poliza.sucursal = sucursales.find((s) => s.id === Number(poliza.sucursal));
-    poliza.marca = automarcas.find((a) => a.id === Number(poliza.marca));
     if (poliza.pagos.length > 0) {
       poliza.pagos = pagos.filter((pago) => pago.id_poliza === Number(id));
     }
-    poliza.cobertura = coberturas.find((c) => c.id === Number(poliza.cobertura));
     // Renderizar la vista con los detalles
 
     let usuario = req.session.user;
 
     let usuario_filtrado = usuarios.find(user => user.id == usuario.id);       
 
-    res.render("polizas/renovar", { poliza, cliente, usuario: usuario_filtrado,ciudades, provincias, autos:automarcas, sucursales, empresas, coberturas });
+    res.render("otros-riesgos/renovar", { poliza, cliente, usuario: usuario_filtrado, ciudades, provincias, sucursales, empresas, pagos});
 
   } catch (error) {
     console.error("Error al obtener el detalle de la póliza:", error.message);
@@ -487,73 +461,3 @@ export const renovar = async (req, res) => {
       .send("Error al obtener el detalle de la póliza: " + error.message);
   }
 };
-
-export const propuesta = async (req, res) => {
-  const { id } = req.params; // ID de la póliza desde la URL
-  
-  const resources = [
-    path.resolve(process.cwd(), "src/data", "clientes.json"),
-    path.resolve(process.cwd(), "src/data", "polizas.json"),
-    path.resolve(process.cwd(), "src/data", "ciudades.json"),
-    path.resolve(process.cwd(), "src/data", "provincias.json"),
-    path.resolve(process.cwd(), "src/data", "automarcas.json"),
-    path.resolve(process.cwd(), "src/data", "empresas.json"),
-    path.resolve(process.cwd(), "src/data", "coberturas.json"),
-  ];
-  try {
-    let [clientes, polizas, ciudades, provincias, automarcas, empresas, coberturas] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, "utf-8"))));
-
-    let poliza = polizas.find((p) => p.id == id);
-    if (!poliza) {
-      return res.status(404).send('Póliza no encontrada');
-    }
-
-    let cliente = clientes.find((c) => c.id == poliza.clienteId);
-    if (!cliente) {
-      return res.status(404).send('Cliente no encontrado');
-    }
-
-    let ciudad = ciudades.find((c) => c.id == cliente.localidad);
-    let provincia = provincias.find((p) => p.id == cliente.provincia);
-    let automarca = automarcas.find((a) => a.id == poliza.marca);
-    let empresa = empresas.find((e) => e.id == poliza.empresa);
-    let cobertura = coberturas.find((c) => c.id == poliza.cobertura);
-
-    let propuesta = {
-      poliza: {
-        n_poliza: poliza.n_poliza,
-        f_emision: poliza.f_emision,
-        f_ini_vigencia: poliza.f_ini_vigencia,
-        f_fin_vigencia: poliza.f_fin_vigencia,
-        periodo: poliza.periodo,
-        suma: poliza.suma,
-        cuotas: poliza.cuotas,
-        usos: poliza.usos,
-        precio: poliza.precio,
-        modelo: poliza.modelo,
-        patente: poliza.patente,
-        anio: poliza.anio,
-        n_chasis: poliza.n_chasis,
-        n_motor: poliza.n_motor,
-        combustible: poliza.combustible,
-      },
-      cliente: {
-        nombre: cliente.nombre,
-        cuit: cliente.cuit,
-        fecha_n: cliente.fecha_n,
-        telefono: cliente.telefono,
-        direccion: cliente.direccion,
-        ciudad: ciudad ? ciudad.ciudad : 'Ciudad no encontrada',
-        provincia: provincia ? provincia.provincia : 'Provincia no encontrada',
-      },
-      automarca: automarca ? automarca.marca : 'Marca no encontrada',
-      empresa: empresa ? empresa.nombre : 'Empresa no encontrada',
-      cobertura: cobertura ? cobertura.descripcion : 'Cobertura no encontrada',
-    };
-
-    res.status(200).render('polizas/propuesta', { propuesta });
-  } catch (error) {
-    res.status(500).send('Error al mostrar la propuesta', error)
-    console.error('Error al mostrar la propuesta', error);
-  }
-}

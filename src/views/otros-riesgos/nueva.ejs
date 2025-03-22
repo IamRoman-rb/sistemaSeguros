@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include("../partials/head") %>
+
+<body>
+    <%- include("../partials/header") %>
+    <main>
+        <main>
+            <header>
+                <h1>Poliza nueva</h1>
+                <nav>
+                    <a href="/clientes/detalle/<%= cliente.id %>">Volver al perfil del cliente</a>
+                    <a href="/otros-riesgos/">Volver al listado de polizas</a>
+                </nav>
+            </header>
+            <form action="/otros-riesgos/guardar" method="POST" id="create-poliza-form">
+                <input type="hidden" name="sucursal" value="<%= usuario.sucursal %>">
+                <input type="hidden" name="id" value="<%= usuario.id %>">
+                <fieldset>
+                    <label for="n_poliza" class="label" id="label_n_poliza">
+                        N Poliza
+                    </label>
+                    <input type="number" name="n_poliza" id="n_poliza" minlength="3" required>
+                </fieldset>
+                <fieldset>
+                    <label for="f_ini_vigencia" class="label" id="label_f_ini_vigencia">
+                        Inicio Vigencia
+                    </label>
+                    <input type="date" name="f_ini_vigencia" id="f_ini_vigencia" required>
+                </fieldset>
+                <fieldset>
+                    <label for="periodo">Periodo de Vigencia</label>
+                    <select name="periodo" id="periodo" required> 
+                        <option value="0" disabled selected> Periodo de Vigencia</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <label for="cuotas">Cantidad de Cuotas</label>
+                    <select name="cuotas" id="cuotas" required> 
+                        <option value="0" disabled selected> Cantidad de Cuotas</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <label for="empresa">Empresa</label>
+                    <select name="empresa" id="empresa" required>
+                        <option value="0" disabled selected>Empresa</option>
+                        <% empresas.forEach(empresa=> { %>
+                            <option value="<%= empresa.id %>">
+                                <%= empresa.nombre %>
+                            </option>
+                            <% }) %>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <label for="tipo_poliza" class="label" id="label_tipo_poliza">Tipo Poliza</label>
+                    <input type="text" name="tipo_poliza" id="tipo_poliza">
+                </fieldset>
+                <fieldset>
+                    <label for="precio">
+                        Premio Total de la Poliza
+                    </label>
+                    <input type="number" name="precio" id="Precio" min="1000" required>
+                </fieldset>
+                <input type="hidden" id="id_cliente" name="clientId" value="<%= cliente.id %>">
+    
+                <fieldset id="botones">
+                    <button type="reset">Cancelar</button>
+                    <button type="submit">Emitir</button>
+                </fieldset>
+            </form>
+        </main>
+</body>
+</html>

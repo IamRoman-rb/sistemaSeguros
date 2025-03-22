@@ -1,11 +1,12 @@
-import { readFile, writeFile } from "node:fs/promises";
 import path from "path";
+import { readFile } from "node:fs/promises";
 import { DateTime } from "luxon";
 
 export const caja = async (req, res) => {
   const resources = [
     path.resolve(process.cwd(), "src/data", "pagos.json"),
     path.resolve(process.cwd(), "src/data", "polizas.json"),
+    path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
     path.resolve(process.cwd(), "src/data", "caja.json"),
     path.resolve(process.cwd(), "src/data", "sucursales.json"),
     path.resolve(process.cwd(), "src/data", "coberturas.json"),
@@ -18,26 +19,29 @@ export const caja = async (req, res) => {
       "America/Argentina/Buenos_Aires"
     );
     const anioActual = ahoraArgentina.year;
-    const mesActual = ahoraArgentina.month; // No restar 1 al mes a menos que sea intencional
+    const mesActual = ahoraArgentina.month;
     const diaActual = ahoraArgentina.day;
 
-    let [pagos, polizas, caja, sucursales, coberturas, clientes, usuarios] =
+    let [pagos, polizasAuto, polizasOtros, caja, sucursales, coberturas, clientes, usuarios] =
       await Promise.all(
         resources.map(async (resource) =>
           JSON.parse(await readFile(resource, "utf-8"))
         )
       );
 
+    // Combinar pólizas de ambos archivos
+    const todasPolizas = [...polizasAuto, ...polizasOtros];
+
     let usuario = req.session.user;
     let usuario_filtrado = usuarios.find((user) => user.id == usuario.id);
 
     // Obtener la sucursal del usuario actual
-    const sucursalUsuario = usuario_filtrado.sucursal;   
+    const sucursalUsuario = usuario_filtrado.sucursal;
 
     // Filtrar ingresos y egresos por la sucursal del usuario que los realizó
     let ingresos = caja.filter((item) => {
       const usuarioItem = usuarios.find((user) => user.id === Number(item.id_usuario));
-      
+
       return (
         item.tipo === "ingreso" &&
         usuarioItem &&
@@ -96,7 +100,7 @@ export const caja = async (req, res) => {
     });
 
     pagos = pagos.map((pago) => {
-      const poliza = polizas.find(
+      const poliza = todasPolizas.find(
         (poliza) => poliza.id === Number(pago.id_poliza)
       );
       const cliente = clientes.find(

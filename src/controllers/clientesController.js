@@ -39,13 +39,14 @@ export const detalle = async (req, res) => {
         const resources = [
             path.resolve(process.cwd(), "src/data", "clientes.json"),
             path.resolve(process.cwd(), "src/data", "polizas.json"),
+            path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
             path.resolve(process.cwd(), "src/data", "provincias.json"),
             path.resolve(process.cwd(), "src/data", "ciudades.json"),
             path.resolve(process.cwd(), "src/data", "empresas.json"),
             path.resolve(process.cwd(), "src/data", "automarcas.json"),
         ]
 
-        let [clientes, polizas, provincias, ciudades, empresas, autos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
+        let [clientes, polizas, otros_riesgos, provincias, ciudades, empresas, autos] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))))
 
         // Buscar al cliente por ID
         const cliente = clientes.find(cliente => cliente.id === Number(id));
@@ -60,11 +61,15 @@ export const detalle = async (req, res) => {
         polizas = cliente.polizas.length == 0 ? cliente.polizas : polizas.filter(poliza => cliente.polizas.includes(poliza.id)).map(poliza => {
             return ({ ...poliza, empresa: empresas.find(empresa => empresa.id == poliza.empresa), marca: autos.find(auto => auto.id == poliza.marca) })
         })
+        otros_riesgos = cliente.polizas.length == 0 ? cliente.polizas : otros_riesgos.filter(poliza => cliente.polizas.includes(poliza.id)).map(poliza => {
+            return ({ ...poliza, empresa: empresas.find(empresa => empresa.id == poliza.empresa) })
+        })
         //return res.status(200).json({ cliente, polizas });
-        res.render('clientes/detalle', { cliente, polizas });
+        res.status(200).render('clientes/detalle', { cliente, polizas, otros_riesgos });
     } catch (error) {
-        console.error('Error al obtener los detalles del cliente:', error.message);
-        res.status(500).send('Error al obtener los detalles del cliente');
+        res.send(error.message)
+        // console.error('Error al obtener los detalles del cliente:', error.message);
+        // res.status(500).send('Error al obtener los detalles del cliente', error);
     }
 };
 
@@ -163,11 +168,12 @@ export const eliminar = async (req, res) => {
         const resources = [
             path.resolve(process.cwd(), "src/data", "clientes.json"),
             path.resolve(process.cwd(), "src/data", "polizas.json"),
+            path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
             path.resolve(process.cwd(), "src/data", "pagos.json"),
             path.resolve(process.cwd(), "src/data", "actividades.json")
         ];
 
-        let [clientes, polizas, pagos, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+        let [clientes, polizas, otros_riesgos, pagos, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
 
         const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
 
@@ -207,6 +213,22 @@ export const eliminar = async (req, res) => {
             }
             return p;
         });
+
+        otros_riesgos = otros_riesgos.map((p) => {
+            if (p.clienteId == id) {
+                let actividad = {
+                    id: ahoraArgentina.toMillis(),
+                    id_poliza: p.id,
+                    accion: "Eliminar poliza",
+                    id_usuario: req.session.user.id,
+                    fecha: ahoraArgentina.toFormat('yyyy-MM-dd'),
+                    hora: ahoraArgentina.toFormat('HH:mm:ss'),
+                    tipo: 'poliza'
+                };
+                actividades_polizas.push(actividad);
+                p.inhabilitado = true;
+            }
+        })
 
         pagos = pagos.map((p) => {
             if (p.id_cliente == id) {

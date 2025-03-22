@@ -1,20 +1,20 @@
 [
   {
-    "id": 1740858385653,
-    "id_pago": 1740858379166,
+    "id": 1742602794667,
+    "id_pago": 1742602777869,
     "accion": "Eliminar pago",
     "id_usuario": 1,
-    "fecha": "2025-03-01",
-    "hora": "16:46:25",
+    "fecha": "2025-03-21",
+    "hora": "21:19:54",
     "tipo": "pago"
   },
   {
-    "id": 1741191358590,
-    "id_pago": 1741191348776,
-    "accion": "Eliminar ingreso",
+    "id": 1742602808347,
+    "id_pago": 1742602802085,
+    "accion": "Eliminar pago",
     "id_usuario": 1,
-    "fecha": "2025-03-05",
-    "hora": "13:15:58",
-    "tipo": "movimiento"
+    "fecha": "2025-03-21",
+    "hora": "21:20:08",
+    "tipo": "pago"
   }
 ]

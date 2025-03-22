@@ -1,0 +1,114 @@
+@import url("/css/base.css");
+@import url("/css/layout.css");
+main{
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+}
+main > header {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--crema);
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+main > header h1 {
+    color: var(--celeste);
+}
+main > header nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  main > header nav a {
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--celeste);
+    color: var(--blanco);
+    padding: 0.25rem 0.75rem;
+    font-size: 1rem;
+    text-decoration: none;
+}
+main > header nav a[href*="confirmar"] {
+    background-color: var(--rojo);
+}
+main > ul {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 1rem;
+    gap: 1rem;
+    list-style: none;
+}
+main > ul > li{
+    padding: .5rem;
+    border-radius: .3rem;
+    background-color: var(--crema);
+}
+main > ul > li > h2{
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.25rem;
+}
+main > ul > li > nav > a {
+    padding: 0.2rem;
+    color: var(--blanco);
+    background-color: var(--celeste);
+    border-radius: 0.2rem;
+    align-self: center;
+    text-decoration: none;
+}
+main > ul > li > dl > dt{
+    font-weight: bold;
+}
+main > ul > li:last-child{
+    grid-column: span 3;
+}
+main > ul > li:last-child ul{
+    width: calc(100% - 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 1rem;
+    flex: 1;
+}
+main > ul > li:last-child > p{
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    padding: 1rem;
+}
+main > ul > li:last-child ul > li{
+    width: calc(100% - 1rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 1rem;
+    gap: 0.5rem;
+    border: 0.1rem solid var(--negro);
+    border-radius: 0.2rem;
+}
+main > ul > li:last-child ul > li > a {
+    padding: 0.2rem;
+    color: var(--blanco);
+    background-color: var(--celeste);
+    border-radius: 0.2rem;
+    align-self: center;
+    text-decoration: none;
+}
+main > ul > li:last-child ul > li > dl > dt{
+    font-weight: bold;
+}

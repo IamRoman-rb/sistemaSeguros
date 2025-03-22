@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include("../partials/head") %>
+<body>
+  <%- include("../partials/header") %>
+  <main>
+    <header>
+      <h1>¿Estás seguro de que deseas eliminar?</h1>
+      <p>Esta acción no se puede deshacer, por favor confirma los datos antes de continuar.</p>
+      
+    </header>
+      <ul>
+        <li>
+          <strong>Cliente:</strong>
+          <dl>
+            <dt>Nombre:</dt>
+            <dd><%= cliente.nombre %></dd>
+            </dl>
+            <dl>
+              <dt>CUIT:</dt>
+              <dd><%= cliente.cuit %></dd>
+            </dl>
+            <dl>
+            <dt>Telefono:</dt>
+            <dd><%= cliente.telefono %></dd>
+            </dl>
+          </li>
+  
+        <li>
+          <strong>Poliza:</strong>
+          <dl>
+            <dt>Número de Poliza:</dt>
+            <dd><%= poliza.n_poliza %></dd>
+            </dl>
+            <dl>
+            <dt>Fecha de Emisión:</dt>
+            <dd><%= poliza.f_emision %></dd>
+            </dl>
+            <dl>
+            <dt>Inicio Vigencia:</dt>
+            <dd><%= poliza.f_ini_vigencia %></dd>
+            </dl>
+            <dl>
+            <dt>Fin Vigencia:</dt>
+            <dd><%= poliza.f_fin_vigencia %></dd>
+            </dl>
+            <dl>
+            <dt>Precio de la Poliza:</dt>
+            <dd><%= poliza.precio %></dd>
+            </dl>
+            <dl>
+            <dt>Empresa:</dt>
+            <dd><%= poliza.empresa.nombre %></dd>
+            </dl>
+            <dl>
+            <dt>Cobertura:</dt>
+            <dd><%= poliza.tipo_poliza %></dd>
+            </dl>
+            <dl>
+            <dt>Cuotas:</dt>
+            <dd><%= poliza.cuotas %></dd>
+            </dl>
+            <dl>
+            <dt>Cuotas Pagas:</dt>
+            <dd><%= poliza.pagos.filter(pago => !pago.desconocido).length %></dd>
+          </dl>
+        </li>
+      </ul>
+    <form action="/otros-riesgos/eliminar/" method="post">
+      <input type="hidden" name="id" value="<%= poliza.id %>">
+      <input type="hidden" name="id_usuario" value="<%= usuario.id %>">
+      <a href="/otros-riesgos/detalle/<%= poliza.id %>">Cancelar</a>
+      <button type="submit">Eliminar</button>
+    </form>
+  </main>
+</body>
+</html>
