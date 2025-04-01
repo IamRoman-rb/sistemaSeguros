@@ -422,7 +422,6 @@
           "alias": "listado",
           "method": "get"
         },
-
         {
           "path": "/nuevo/:id",
           "alias": "nuevo",
@@ -527,6 +526,65 @@
           "alias": "Por Dia",
           "method": "get"
         }
+      ],
+      "otros-riesgos": [
+        {
+          "path": "/",
+          "alias": "Otros Riesgos",
+          "method": "get"
+        },
+        {
+          "path": "/nuevo/:id",
+          "alias": "nuevo",
+          "method": "get"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        },
+        {
+          "path": "/detalle/:id",
+          "alias": "detalle",
+          "method": "get"
+        },
+        {
+          "path": "/renovar/:id",
+          "alias": "renovar",
+          "method": "get"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        }
+      ],
+      "pagos-otros-riesgos": [
+        {
+          "path": "/detalle/:id",
+          "alias": "detalle",
+          "method": "get"
+        },
+        {
+          "path": "/recibo/:id",
+          "alias": "recibo",
+          "method": "get"
+        },
+        {
+          "path": "/pagar/:id",
+          "alias": "pagar",
+          "method": "get"
+        },
+        {
+          "path": "/acreditar",
+          "alias": "acreditar",
+          "method": "post"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        }
       ]
     }
   },
@@ -591,6 +649,58 @@
           "path": "/nuevo/:id",
           "alias": "nuevo",
           "method": "get"
+        },
+        {
+          "path": "/detalle/:id",
+          "alias": "detalle",
+          "method": "get"
+        },
+        {
+          "path": "/editar/:id",
+          "alias": "editar",
+          "method": "get"
+        },
+        {
+          "path": "/confirmar/:id",
+          "alias": "confirmar",
+          "method": "get"
+        },
+        {
+          "path": "/renovar/:id",
+          "alias": "renovar",
+          "method": "get"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        },
+        {
+          "path": "/actualizar",
+          "alias": "actualizar",
+          "method": "post"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "eliminar",
+          "method": "post"
+        }
+      ],
+      "otros-riesgos": [
+        {
+          "path": "/",
+          "alias": "Otros Riesgos",
+          "method": "get"
+        },
+        {
+          "path": "/nuevo/:id",
+          "alias": "nuevo",
+          "method": "get"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
         },
         {
           "path": "/detalle/:id",
@@ -716,6 +826,38 @@
         {
           "path": "/guardar",
           "alias": "guardar",
+          "method": "post"
+        }
+      ],
+      "pagos-otros-riesgos": [
+        {
+          "path": "/detalle/:id",
+          "alias": "detalle",
+          "method": "get"
+        },
+        {
+          "path": "/recibo/:id",
+          "alias": "recibo",
+          "method": "get"
+        },
+        {
+          "path": "/pagar/:id",
+          "alias": "pagar",
+          "method": "get"
+        },
+        {
+          "path": "/acreditar",
+          "alias": "acreditar",
+          "method": "post"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "eliminar",
           "method": "post"
         }
       ]
@@ -893,6 +1035,58 @@
           "method": "post"
         }
       ],
+      "otros-riesgos": [
+        {
+          "path": "/",
+          "alias": "Otros Riesgos",
+          "method": "get"
+        },
+        {
+          "path": "/nuevo/:id",
+          "alias": "nuevo",
+          "method": "get"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        },
+        {
+          "path": "/detalle/:id",
+          "alias": "detalle",
+          "method": "get"
+        },
+        {
+          "path": "/editar/:id",
+          "alias": "editar",
+          "method": "get"
+        },
+        {
+          "path": "/confirmar/:id",
+          "alias": "confirmar",
+          "method": "get"
+        },
+        {
+          "path": "/renovar/:id",
+          "alias": "renovar",
+          "method": "get"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        },
+        {
+          "path": "/actualizar",
+          "alias": "actualizar",
+          "method": "post"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "eliminar",
+          "method": "post"
+        }
+      ],
       "pagos": [
         {
           "path": "/detalle/:id",
@@ -912,6 +1106,11 @@
         {
           "path": "/acreditar",
           "alias": "acreditar",
+          "method": "post"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
           "method": "post"
         },
         {
@@ -966,7 +1165,7 @@
           "alias": "Por Dia",
           "method": "get"
         }
-      ], 
+      ],
       "actividades": [
         {
           "path": "/",
@@ -998,6 +1197,38 @@
         {
           "path": "/actualizar",
           "alias": "actualizar",
+          "method": "post"
+        }
+      ],
+      "pagos-otros-riesgos": [
+        {
+          "path": "/detalle/:id",
+          "alias": "detalle",
+          "method": "get"
+        },
+        {
+          "path": "/recibo/:id",
+          "alias": "recibo",
+          "method": "get"
+        },
+        {
+          "path": "/pagar/:id",
+          "alias": "pagar",
+          "method": "get"
+        },
+        {
+          "path": "/acreditar",
+          "alias": "acreditar",
+          "method": "post"
+        },
+        {
+          "path": "/guardar",
+          "alias": "guardar",
+          "method": "post"
+        },
+        {
+          "path": "/eliminar",
+          "alias": "eliminar",
           "method": "post"
         }
       ]

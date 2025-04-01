@@ -11,7 +11,9 @@
     "precio": 25000,
     "clienteId": 1739278880316,
     "sucursal": "1",
-    "pagos": [],
+    "pagos": [
+      1743524155976
+    ],
     "usuario": "1",
     "id": 1742601111485,
     "inhabilitado": true

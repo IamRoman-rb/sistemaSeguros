@@ -1,5 +1,5 @@
 import path from "path";
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from 'node:fs/promises';
 import { DateTime } from "luxon";
 
 export const caja = async (req, res) => {

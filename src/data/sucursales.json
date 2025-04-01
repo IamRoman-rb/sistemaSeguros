@@ -8,8 +8,12 @@
         "id": 2,
         "nombre": "Solano"
     },
-    {
-        "id": 3,
-        "nombre": "Calle"
+  	{
+      "id": 3,
+      "nombre": "Calle Las Toninas"
+  	},
+  	{
+      "id": 4,
+      "nombre": "Calle Solano"
     }
 ]
