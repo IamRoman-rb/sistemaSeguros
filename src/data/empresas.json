@@ -36,23 +36,15 @@
   },
   {
     "id": 4,
-    "nombre": "EMPRESA 2",
+    "nombre": "PROVIDENCIA",
     "coberturas": [
       1,
       2,
       3,
       4,
-      5
-    ]
-  },
-  {
-    "id": 5,
-    "nombre": "EMPRESA",
-    "coberturas": [
-      1,
-      2,
-      3,
-      4
-    ]
+      5,
+      6
+    ],
+    "habilitado": true
   }
 ]

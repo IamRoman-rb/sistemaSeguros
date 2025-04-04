@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head") %>
+<body>
+    <%- include("../partials/header") %>
+    <main>
+        <header>
+            <h1>Datos</h1>
+        </header>
+        <ul id="empresas">
+            <h2>Empresas</h2>
+            <% datosEmpresas.forEach(dato => { %>
+                <li>
+                    <h2><%= dato.nombre %></h2>
+                    <dl>
+                        <dt>Polizas</dt>
+                        <dd><%= dato.polizasCreadasTotal %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Polizas este mes</dt>
+                        <dd><%= dato.polizasCreadasMes %></dd>
+                    </dl>
+                </li>
+            <% }) %>
+        </ul>
+        <h2>Sucursales</h2>
+        <ul id="sucursales">
+            <% datosSucursales.forEach(dato => { %>
+                <li>
+                    <h2><%= dato.nombre %></h2>
+                    <dl>
+                        <dt>Polizas</dt>
+                        <dd><%= dato.polizasCreadasTotal %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Polizas este mes</dt>
+                        <dd><%= dato.polizasCreadasMes %></dd>
+                    </dl>
+                </li>
+            <% }) %>
+        </ul>
+        <h2>Usuarios</h2>
+        <ul>
+            <% datos.forEach(user => { %>
+                <li>
+                    <h2><%= user.nombre %></h2>
+                    <dl>
+                        <dt>Sucursal</dt>
+                        <dd> <%= user.sucursal %></dd>
+                    </dl>
+
+                    <h2>Clientes</h2>
+                    <dl>
+                        <dt>Clientes creados</dt>
+                        <dd><%= user.clientesCreadosTotal %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Clientes creados este mes</dt>
+                        <dd><%= user.clientesCreadosMes %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Clientes Eliminados</dt>
+                        <dd><%= user.clientesEliminadosTotal %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Clientes Eliminados este mes</dt>
+                        <dd><%= user.clientesEliminadosMes %></dd>
+                    </dl>
+
+                    <h2>Polizas</h2>
+                    <dl>
+                        <dt>Polizas creadas</dt>
+                        <dd><%= user.polizasCreadasTotal %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Polizas creadas este mes</dt>
+                        <dd> <%= user.polizasCreadasMes %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Polizas Eliminadas</dt>
+                        <dd><%= user.polizasEliminadasTotal %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Polizas Eliminadas este mes</dt>
+                        <dd><%= user.polizasEliminadasMes %></dd>
+                    </dl>
+
+                    <h2>Pagos</h2>
+                    <dl>
+                        <dt>Pagos Cobrados</dt>
+                        <dd> <%= user.pagosCobradosTotal %></dd>
+                    </dl>
+                    <dl>
+                        <dt>Pagos Cobrados este mes</dt>
+                        <dd> <%= user.pagosCobradosMes %> </dd>
+                    </dl>
+                    <dl>
+                        <dt>Pagos Eliminados</dt>
+                        <dd> <%= user.pagosEliminadosTotal %> </dd>
+                    </dl>
+                    <dl>
+                        <dt>Pagos Eliminados este mes</dt>
+                        <dd><%= user.pagosEliminadosMes %> </dd>
+                    </dl>
+                </li>        
+            <% }) %>
+        </ul>
+    </main>
+</body>
+</html>

@@ -11,7 +11,7 @@
   {
     "id": 2,
     "nombre": "romina",
-    "contraseña": "$2b$10$YWkVEN1PcxfMZ0fAE/PJl.LApQ2J9cF8C9OcH3nCN/WbhSQYH8o2W",
+    "contraseña": "$2b$10$rvaJ79Ra4OzGwX5Cr6YQVOmwY0XUNnDe.mvl2KRrSES4xLv6yzkVe",
     "permisos": 4,
     "dni": "123456789",
     "sucursal": 2,
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "nombre": "carola",
-    "contraseña": "$2b$10$Lv/0HM8j.TiULMObftS3t.snYdy8sYHhJynBeudxMefKi1i4Vi.vy",
+    "contraseña": "$2b$10$dsl8hZRZmYli8//3iQDXI.ct9wzmnzil9Ac1wVYQ/J50POF9i6uEC",
     "permisos": 4,
     "dni": "5236435756",
     "sucursal": 2,
@@ -47,10 +47,73 @@
   {
     "id": 6,
     "nombre": "nara",
-    "contraseña": "$2b$10$WCgIsKof8T88S6.5hXKrbuR7G.yp4yN3vxf7CJ7xJbUDmTACO/WnO",
+    "contraseña": "$2b$10$P1IzYh.0pQ0Vvk4Ol.8baOudDCfminx/6DTDK0OqIgUr1c7BAiJdm",
     "permisos": 4,
     "dni": "987654321",
     "sucursal": 1,
+    "activo": true
+  },
+  {
+    "id": 7,
+    "nombre": "mariajoselt",
+    "contraseña": "$2b$10$YO11YwPqoKdPKQ9XF51eYOHwBWrMpBmZFn506uvar4xzdsQCU6bh.",
+    "permisos": 3,
+    "dni": "23700586",
+    "sucursal": 1,
+    "activo": true
+  },
+  {
+    "id": 8,
+    "nombre": "mariajose",
+    "contraseña": "$2b$10$nf2yCHe2l2JmwEmuAfrfwejjnFKyijzGbD5S0Tvaf7/niqNmzGz2C",
+    "permisos": 3,
+    "dni": "23700587",
+    "sucursal": 2,
+    "activo": true
+  },
+  {
+    "id": 9,
+    "nombre": "rubencallelt",
+    "contraseña": "$2b$10$v0GB.G509bqGbc.hd9J5auFq1xCCNWXnjEdRSBhKNUlHWwCNZeVS.",
+    "permisos": 3,
+    "dni": "176657762",
+    "sucursal": 3,
+    "activo": true
+  },
+  {
+    "id": 10,
+    "nombre": "rominacalle",
+    "contraseña": "$2b$10$lhVadWDFzO7cyDEij.I8/ecGuByeB7fERBnH5cE6xw7/2mvDtsK1a",
+    "permisos": 2,
+    "dni": "12345667",
+    "sucursal": 4,
+    "activo": true
+  },
+  {
+    "id": 11,
+    "nombre": "carolacalle",
+    "contraseña": "$2b$10$qn83f0uknnemf6.IUBCZuetVsD9JRhCaoZXDjplr/UpwwsuucgsWe",
+    "permisos": 2,
+    "dni": "9876542",
+    "sucursal": 4,
+    "activo": true
+  },
+  {
+    "id": 12,
+    "nombre": "naracalle",
+    "contraseña": "$2b$10$pqNeZBzX4WKdsZaW3ByaNOT03MqXcNveDcOjmNLe3hsWF4aYQWztG",
+    "permisos": 2,
+    "dni": "569784513",
+    "sucursal": 3,
+    "activo": true
+  },
+  {
+    "id": 13,
+    "nombre": "rubencalle",
+    "contraseña": "$2b$10$p0gsP5EfztRvmIbqMkQYDeBJSmYsOpBPwAXnjci2.O4eYZKqCkI16",
+    "permisos": 3,
+    "dni": "175567764",
+    "sucursal": 4,
     "activo": true
   }
 ]

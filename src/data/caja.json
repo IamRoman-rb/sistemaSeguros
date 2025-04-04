@@ -1,1 +1,7758 @@
-[]
+[
+  {
+    "id_usuario": "2",
+    "id": 1739278557839,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "CAMBIO 11/02",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739294590908,
+    "monto": "54000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "TRANSFERENCIA BANCO",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739294590936,
+    "monto": "54000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "TRANSFERENCIA BANCO",
+    "fecha": "2025-02-11",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739294590962,
+    "monto": "54000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "TRANSFERENCIA BANCO",
+    "fecha": "2025-02-11",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739294666075,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO MARTINEZ CARLOS",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739295018108,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO PORTO LUIS",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739301099032,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GOMEZ VANESA",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739301907712,
+    "monto": "53000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LORA",
+    "descripcion": "TRANSFERENCIA MP",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739306734062,
+    "monto": "85000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SALAS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739307271847,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 12/02",
+    "descripcion": "CAMBIO",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739307524910,
+    "monto": "211000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "CIERRE DE CAJA.",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739312229434,
+    "monto": "60500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SUAREZ EDUARDO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739314413943,
+    "monto": "30500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA TORRES CAROLINA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739315124847,
+    "monto": "17650",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 11/02",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739315246124,
+    "monto": "17350",
+    "tipo": "egreso",
+    "motivo": "EGRESO RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739364575405,
+    "monto": "17650",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739365127454,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "15000",
+    "descripcion": "CAMBIO 12/02",
+    "fecha": "2025-02-12",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739365141049,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "CAMBIO HOY 12/02",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739366078377,
+    "monto": "55000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GAUNA",
+    "descripcion": "TRANSFERENCIA MP",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739366952242,
+    "monto": "25000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO STRAZULLO DIFERENCIA POR MP",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739368872712,
+    "monto": "62000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CESPEDES",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739369461772,
+    "monto": "8000",
+    "tipo": "egreso",
+    "motivo": "VIDRIOS",
+    "descripcion": "",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739373953210,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO PELAYO",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739377246829,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO BRISKE",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739378622735,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LOPEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739378622748,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LOPEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-12",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739393554840,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "15000",
+    "descripcion": "CAMBIO PARA 13/02",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739393906438,
+    "monto": "874000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739397154529,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SOSA MARTIN",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739397191488,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CARBALLO DARIO ",
+    "descripcion": "MERCADO PAGO ",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739397232449,
+    "monto": "152000",
+    "tipo": "ingreso",
+    "motivo": "TRANSFERENCIA PISTAS (FORD-PEUGEOT)",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-12",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739397749804,
+    "monto": "152000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PISTAS (FORD-PEUGEOT)",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739397841146,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BARBIERI ROBERTO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739398362860,
+    "monto": "23000",
+    "tipo": "ingreso",
+    "motivo": "PAGO ATRASADO LOPEZ LEONARDO ",
+    "descripcion": "TRANSFERENCIA",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739398395941,
+    "monto": "49000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA LOPEZ LEONARDO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739401188571,
+    "monto": "282000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA OVETTINI/GERSTENKORN ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739401397954,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 13/02/2025",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739401511560,
+    "monto": "99150",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN ",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739451261485,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "CAMBIO HOY 13/02",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739451261519,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "CAMBIO HOY 13/02",
+    "fecha": "2025-02-13",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739451733701,
+    "monto": "9000",
+    "tipo": "egreso",
+    "motivo": "BOMBEROS",
+    "descripcion": "BOMBEROS",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739456898114,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739458873324,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GIMENEZ RAMIREZ",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739458892289,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GONZALEZ JUAN",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739458971137,
+    "monto": "61000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROLDAN",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739464670426,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GRAVES",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739464670483,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GRAVES",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-13",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739472275557,
+    "monto": "55000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CALLEJAS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739472828582,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO FERNANDEZ ",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739473069261,
+    "monto": "46000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALVAREZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739479567764,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 14/02",
+    "descripcion": "CAMBIO PARA 14/02",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739479567799,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 14/02",
+    "descripcion": "CAMBIO PARA 14/02",
+    "fecha": "2025-02-13",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739480488919,
+    "monto": "68000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739487485025,
+    "monto": "38500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PONCE JUAN",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739487504612,
+    "monto": "64000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA FERREYRA SILVIA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739487525327,
+    "monto": "22000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CORDA JUAN",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739487548914,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA STEINKE OCTAVIO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739487575502,
+    "monto": "64000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA TOÑANES/NEGRO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739487672876,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 14/02",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739487874044,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-13"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739539698628,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO RODRIGUEZ",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739541048768,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739541241794,
+    "monto": "44000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA MOLINA VICTOR",
+    "descripcion": "MERCADO PAGO ",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739542341089,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SAYAVEDRA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739542473432,
+    "monto": "20000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "CAMBIO HOY 14/02",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739544746061,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO MACHUCA",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739545017861,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROMERO NOELIA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739545017883,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROMERO NOELIA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-14",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739545017909,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROMERO NOELIA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-14",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739545686459,
+    "monto": "46000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO DIAZ LUIS",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739547071336,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO MACHADO ANGEL",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739547123172,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GALFRASCONI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739551067997,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MALDONADO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739552071311,
+    "monto": "3600",
+    "tipo": "egreso",
+    "motivo": "AGUA",
+    "descripcion": "",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739555088744,
+    "monto": "67000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LEDESMA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739555088788,
+    "monto": "67000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LEDESMA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-14",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739566496688,
+    "monto": "20400",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 15/02",
+    "descripcion": "CAMBIO PARA 15/02",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739566811723,
+    "monto": "94000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739574462320,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 15/02",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739574634535,
+    "monto": "131000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739623278503,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo\r\n",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "4",
+    "id": 1739624942618,
+    "monto": "20400",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "CAMBIO",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739625255006,
+    "monto": "40000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SOTO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739628834858,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PALAVECINO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739628851099,
+    "monto": "44000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LAGOS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739630017505,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALBARRACIN CTP978",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739630030265,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALBARRACIN NVK090",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739630463284,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LENCINA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739630994222,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ARAUJO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739631814749,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AGUAYO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739633656009,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GALEANO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739634489475,
+    "monto": "20400",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 17/02",
+    "descripcion": "CAMBIO 17/02",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739635097183,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA VARANI ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739635136072,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA RAMIREZ RICARDO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739635240019,
+    "monto": "300000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739635377257,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 17/02",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739635419247,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739797248431,
+    "monto": "20400",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY",
+    "descripcion": "CAMBIO 17/02",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739798311857,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CASTILLO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739798321437,
+    "monto": "42000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALTESOR",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739799191285,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO STRAZZULLO FACUNDO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739799806355,
+    "monto": "53000",
+    "tipo": "egreso",
+    "motivo": "RECIBO VILLAR DUARTE JULIETA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739799818628,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "RECIBO VILLAR DUARTE CARLOS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739801257412,
+    "monto": "112000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS GONZALEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739801729989,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO TOBAL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739802946486,
+    "monto": "78000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBOS LEDESMA RUBEN",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739803422939,
+    "monto": "6600",
+    "tipo": "egreso",
+    "motivo": "ALMACEN",
+    "descripcion": "ALMACEN",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739803607227,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739805955585,
+    "monto": "22000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA OVEJERO EDUARDO",
+    "descripcion": "MERCADO PAGO ",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739805976904,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SEJAS ALAN",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739806103129,
+    "monto": "48000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ABREGU",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739806103187,
+    "monto": "48000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ABREGU",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739806537542,
+    "monto": "40000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CHACON",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739806537555,
+    "monto": "40000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CHACON",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739807604447,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MACHADO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739807604505,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MACHADO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739808054821,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SALAZAR",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739808054839,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SALAZAR",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-17",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739809851255,
+    "monto": "67000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO BAREIRO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739818181452,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO PEREYRA HECTOR",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739818196565,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBOS MARTELETTI",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739825858988,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 18/02",
+    "descripcion": "",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739825883419,
+    "monto": "557800",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN ",
+    "descripcion": "",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739832501871,
+    "monto": "48000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA ACOSTA MIGUEL",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739832536222,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA COTELLA SELENE",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739832562862,
+    "monto": "35000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PENNINO MARIO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739832582317,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA LEON JOSE",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739832603060,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA ARAYA EMANUEL",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739834021972,
+    "monto": "24000",
+    "tipo": "ingreso",
+    "motivo": "PAGO ATRASADO ARISTEGUI HUGO",
+    "descripcion": "CUOTA ENERO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739834044801,
+    "monto": "48000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ARISTEGUI HUGO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739834202432,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 18/02/2025",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739834393709,
+    "monto": "500",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA COTELLA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739834415423,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739883751572,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 18/02",
+    "descripcion": "CAMBIO HOY 18/02",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739884305758,
+    "monto": "46000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ZARZA",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739884305787,
+    "monto": "46000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ZARZA",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-02-18",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "3",
+    "id": 1739887316856,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO VILLALBA ",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739897241804,
+    "monto": "65000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FERNANDEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739912308393,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 19/02",
+    "descripcion": "CAMBIO PARA 19/02",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739912322691,
+    "monto": "217000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739919044303,
+    "monto": "28000",
+    "tipo": "ingreso",
+    "motivo": "TRANSFERENCIA TORRILLA MARCELO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-18",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739919061887,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA TORRILLA MARCELO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739919129969,
+    "monto": "127000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CRISTALDE/QUIÑONES",
+    "descripcion": "MACRO",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739919149622,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA AYALA CARINA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739919174595,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BUELA DANIELA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739919200240,
+    "monto": "39000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA VILAS STELLA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739919438258,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739920252693,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 19/02",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739920306467,
+    "monto": "8000",
+    "tipo": "egreso",
+    "motivo": "AGUA",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739920655210,
+    "monto": "143000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739969625486,
+    "monto": "20000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 19/02",
+    "descripcion": "CAMBIO HOY 19/02",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739970500803,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GOMEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739972139842,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ARELLANO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739972375705,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1739972918589,
+    "monto": "37000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA MERLENDER MARIA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739973969004,
+    "monto": "8000",
+    "tipo": "egreso",
+    "motivo": "VIDRIOS",
+    "descripcion": "VIDRIOS",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739973969017,
+    "monto": "8000",
+    "tipo": "egreso",
+    "motivo": "VIDRIOS",
+    "descripcion": "VIDRIOS",
+    "fecha": "2025-02-19",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739979287527,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS GARCIA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739982174012,
+    "monto": "54000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS MONTAÑA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739982773440,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CASTILLO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739989601719,
+    "monto": "55000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CASTILLO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739994724931,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MARZITELLI ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739994724962,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MARZITELLI ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-19",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739997231947,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SOTO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739998639563,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 20/02/2025",
+    "descripcion": "CAMBIO PARA 20/02/2025",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1739998739868,
+    "monto": "227000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740006148492,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA FERREYRA AMADEO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740006187231,
+    "monto": "85000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ECHARREN ANA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740006206192,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA DEL ARCO ANDREA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740006223013,
+    "monto": "62000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SARVI ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740006242750,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SCALESE SANTIAGO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740006264942,
+    "monto": "53000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GAMARDO SANDRA ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740006290837,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA DIEZ EMANUEL ",
+    "descripcion": "MACRO",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740006677515,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 20/02",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740006859578,
+    "monto": "145000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740056260501,
+    "monto": "20000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 20/02",
+    "descripcion": "CAMBIO HOY 20/02",
+    "fecha": "2025-02-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740070117351,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MELGAREJO",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-02-20"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740082118339,
+    "monto": "160000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO SALINA MARIA",
+    "fecha": "2025-02-20"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740082145843,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO BLANCO",
+    "fecha": "2025-02-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740084793271,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 21/02",
+    "descripcion": "CAMBIO PARA 21/02",
+    "fecha": "2025-02-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740085141693,
+    "monto": "130000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-20"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740087006150,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-20"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740087026022,
+    "monto": "88000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BRZEZINSKI MAURO",
+    "descripcion": "MERCADO",
+    "fecha": "2025-02-20"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740092210182,
+    "monto": "34000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PIERINI LUIS ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-20"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740092603519,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 21/02",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740142995310,
+    "monto": "20000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 21/02",
+    "descripcion": "CAMBIO HOY 21/02",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740146007852,
+    "monto": "82000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO ORTIZ",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740148144465,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740152302025,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CARVALHO MARIA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740152866986,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA RODRIGUEZ DIEGO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740153148171,
+    "monto": "22000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA SALVI ALEJANDRA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740153167236,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA VAZQUEZ TAMARA ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740161211883,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO VIERA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740170825811,
+    "monto": "46000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS RODRIGUEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740171424436,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 22/02",
+    "descripcion": "CAMBIO PARA 22/02",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740171542342,
+    "monto": "107000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740178579632,
+    "monto": "34000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CAVALIERE PABLO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740178598194,
+    "monto": "34000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA OLMOS ROBERTO ",
+    "descripcion": "MERCADO PAGO ",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740179669968,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 22/02",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740179847157,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-21"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740227972712,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo",
+    "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740229755327,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 22/02",
+    "descripcion": "CAMBIO HOY 22/02",
+    "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740235133656,
+    "monto": "68000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALE MIGUEL",
+    "descripcion": "TRANSFERENCIA",
+    "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740235157841,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SCHENFELD",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740236170580,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FERREYRA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740237880597,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROMERO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740238265701,
+    "monto": "55000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CHRUSCIEL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740238265715,
+    "monto": "55000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CHRUSCIEL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-22",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740239163956,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 24/02",
+    "descripcion": "CAMBIO PARA 24/02",
+    "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740239184774,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PALIZA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740239937261,
+    "monto": "296000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740240238653,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 24/02",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-22"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740401454766,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740401757929,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO 24/02",
+    "descripcion": "CAMBIO 24/02",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740402862258,
+    "monto": "135000",
+    "tipo": "egreso",
+    "motivo": "RECIBO WETZEL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740404782057,
+    "monto": "70000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO BARRIONUEVO ROMINA",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740407087239,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CABRERIZO JORGE ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740407721635,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO VEGA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740408058793,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA ROMERO OSVALDO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740409541641,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ARANDA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740409779110,
+    "monto": "34000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GONZALEZ",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740410100153,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CACERES",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740415195526,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO OZUNA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740415195558,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO OZUNA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-24",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740415209158,
+    "monto": "70000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CASTILLO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740415209183,
+    "monto": "70000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CASTILLO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-24",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740417090471,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "RECIBO NIEVAS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740423086874,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LLANOS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740430104840,
+    "monto": "131000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIAS CORSINI  MARCELO ",
+    "descripcion": "MACRO",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740430315599,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 25/02/2025",
+    "descripcion": "CAMBIO PARA 25/02/2025",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740430741493,
+    "monto": "82000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740437236289,
+    "monto": "21000",
+    "tipo": "ingreso",
+    "motivo": "PAGO POLIZA COMBINADO HOGAR PENSADO FELIZ",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740438057050,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 25/02",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740438095198,
+    "monto": "72000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-24"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740488180628,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 25/02",
+    "descripcion": "CAMBIO HOY 25/02",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740488285331,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO VELAZQUEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740488781115,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO KARLEN",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740489570787,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740494808206,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA OJEDA ENZO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740496014194,
+    "monto": "74000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LOPEZ",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740496247502,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MENDOZA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740496398612,
+    "monto": "42000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO MARTINEZ",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740499701508,
+    "monto": "94000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CABRERA- NIKODEM ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740507109983,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GONZALEZ OMAR",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740512482179,
+    "monto": "47000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GAROFANI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740513609244,
+    "monto": "90000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ESCALANTE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740513864942,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS PATEL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740513864961,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS PATEL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-25",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740513885183,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LUNA LEONARDO",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740514547871,
+    "monto": "40500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA FERNANDEZ MAXIMILIANO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740515582862,
+    "monto": "54000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIAS PONCE JUAN",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740516976648,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 26/02/2025",
+    "descripcion": "CAMBIO PARA 26/02/2025",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740517141501,
+    "monto": "259000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740520273432,
+    "monto": "18000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 26/02",
+    "descripcion": "Efectivo ",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740520362195,
+    "monto": "57000",
+    "tipo": "egreso",
+    "motivo": "Entrega Ruben",
+    "descripcion": "Efectivo ",
+    "fecha": "2025-02-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740574970293,
+    "monto": "18000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo\r\n",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740576460146,
+    "monto": "43000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALBORNOZ",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740576472053,
+    "monto": "95000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MOLINAS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740576472091,
+    "monto": "95000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MOLINAS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-26",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740576526229,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 26/02",
+    "descripcion": "CAMBIO HOY 26/02",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740578050838,
+    "monto": "8000",
+    "tipo": "egreso",
+    "motivo": "VIDRIOS",
+    "descripcion": "VIDRIOS",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740584466066,
+    "monto": "78000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA DENTONI HECTOR ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740584503223,
+    "monto": "42000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA MONTIEL ADRIANO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740590151160,
+    "monto": "64000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARRAMUÑO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740597332848,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FERNANDEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740598604586,
+    "monto": "40000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LUNA RAMON",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740603156470,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO PARA 27/02/2025",
+    "descripcion": "CAMBIO PARA 27/02/2025",
+    "fecha": "2025-02-26",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740603213048,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 27/02/2025",
+    "descripcion": "CAMBIO PARA 27/02/2025",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740603517460,
+    "monto": "331000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740611324127,
+    "monto": "18000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 27/02",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740611396084,
+    "monto": "114000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740661052207,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 27/02",
+    "descripcion": "CAMBIO HOY 27/02",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740661202818,
+    "monto": "62000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LEGUIZA ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740661438373,
+    "monto": "18000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740668220190,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "POLIZA ACCIDENTES PERSONALES",
+    "descripcion": "MARQUES GUSTAVO",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740668884986,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA HERRERA CARLOS",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740671963115,
+    "monto": "64000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CEPEDA RUFINO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740674653362,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SILVERA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740676874729,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO STRAZZULLO FACUNDO",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740683386249,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO MALDONADO",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740688108309,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ARENAS RAMON ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740689906166,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 28/02/2025",
+    "descripcion": "CAMBIO PARA 28/02/2025",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740689978051,
+    "monto": "401000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740693766251,
+    "monto": "34000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GIMENEZ ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740697322109,
+    "monto": "76500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GARCIA HORACIO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740697773388,
+    "monto": "18000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 28/02/2025",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740697852845,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740746888959,
+    "monto": "20000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 28/02",
+    "descripcion": "CAMBIO HOY 28/02",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740747899962,
+    "monto": "18000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740750875071,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA RODRIGUEZ ARIEL BERNARDO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740750892761,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GARCIA BARBARA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740751616778,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MEDINA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740751646103,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GOMEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740754749353,
+    "monto": "67000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GUTIERREZ",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740756131053,
+    "monto": "97000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO DUARTE GABRIELA",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740759765981,
+    "monto": "3600",
+    "tipo": "egreso",
+    "motivo": "AGUA",
+    "descripcion": "AGUA\r\n",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740759766008,
+    "monto": "3600",
+    "tipo": "egreso",
+    "motivo": "AGUA",
+    "descripcion": "AGUA\r\n",
+    "fecha": "2025-02-28",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740766712422,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO DIAZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740771733925,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO CACHI",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740772540717,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MENDOZA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1740773011247,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO DUARTE JUAN",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740774683056,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BARRIONUEVO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740776086963,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 01/03/25",
+    "descripcion": "CAMBIO PARA 01/03/25",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740776276385,
+    "monto": "382400",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740776276400,
+    "monto": "382400",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-02-28",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740783685056,
+    "monto": "17000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 01/03/2025",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740783697725,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-02-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740833683128,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 01/03",
+    "descripcion": "CAMBIO HOY 01/03",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740833863439,
+    "monto": "17000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740834092571,
+    "monto": "54000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LOHN",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740834092611,
+    "monto": "54000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LOHN",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-01",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740834849718,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FRANICHEVICH",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-01",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740834870311,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FRANICHEVICH",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740839934896,
+    "monto": "8700",
+    "tipo": "ingreso",
+    "motivo": "PAGO POLIZA CENTRO DE JUBILADOS Y PENSIONADOS",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740841247792,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PANINI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740841260674,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "RECIBO JARA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740841271843,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BARBOZA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740844478314,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 05/03/2025",
+    "descripcion": "CAMBIO PARA 05/03/2025",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740844481704,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GONZALEZ FRANCISCO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740844497123,
+    "monto": "26000",
+    "tipo": "ingreso",
+    "motivo": "TRANSFERENCIA BILONE JORGE ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-01",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740844517193,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BILONE JORGE",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740844541250,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA AQUINO JOSE",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740844574837,
+    "monto": "64000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA MONTENEGRO RICARDO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740844594111,
+    "monto": "38500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PONCE JUAN",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1740844783413,
+    "monto": "255000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740845361216,
+    "monto": "15700",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 03/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-01",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740845414253,
+    "monto": "15700",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 05/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1740845428899,
+    "monto": "10000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741178817561,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 05/03",
+    "descripcion": "CAMBIO HOY 05/03",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741178817620,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 05/03",
+    "descripcion": "CAMBIO HOY 05/03",
+    "fecha": "2025-03-05",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741179800887,
+    "monto": "39000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SANCHEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741179816743,
+    "monto": "48000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FERNANDEZ",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741179832639,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SORIA",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741179832652,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SORIA",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-05",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741179845611,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO RESLER",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741181192619,
+    "monto": "65000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO MEDINA GRANCE",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741181334597,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ZORAIDE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741181802222,
+    "monto": "64000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS BULACIO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741185109554,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MENDIETA",
+    "descripcion": "TRANSFERENCIA  A MP",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741185689691,
+    "monto": "15700",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO ",
+    "descripcion": "Efectivo ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741185780271,
+    "monto": "40000",
+    "tipo": "egreso",
+    "motivo": "RECIBO VALLEJOS",
+    "descripcion": "TRANSFERENCIA A RUBEN",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741186057867,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GONZALEZ DANIEL ",
+    "descripcion": "MACRO",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741186095657,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BERGAGLIO ",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741186129809,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PEREZ LUCAS",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741186295498,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO DIAZ FELIX DIF POR MP",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741189928465,
+    "monto": "8000",
+    "tipo": "egreso",
+    "motivo": "VIDRIOS",
+    "descripcion": "VIDRIOS",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741191093903,
+    "monto": "70000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALBORNOZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741191112174,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ARCE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741191717491,
+    "monto": "55000",
+    "tipo": "egreso",
+    "motivo": "RECIBO HILDEBRANDT",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741199203752,
+    "monto": "62000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CESPEDES",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741205096845,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FERNANDEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741205096871,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FERNANDEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-05",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "11",
+    "id": 1741207822671,
+    "monto": "83000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBOS SANCHEZ TAMARA",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741208086077,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 06/03/2025",
+    "descripcion": "CAMBIO PARA 06/03/2025",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741208301146,
+    "monto": "779000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214079431,
+    "monto": "25000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GABOTTO",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214100880,
+    "monto": "57000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA KOBER",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214122312,
+    "monto": "22000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CORREA",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214146253,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GILABERT",
+    "descripcion": "Mercado",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214168504,
+    "monto": "34000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BIONDI",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214200528,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA OLIVA",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214228467,
+    "monto": "33000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA FERNANDEZ FABIO",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214250414,
+    "monto": "62000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GODOY",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214273259,
+    "monto": "22000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA NUÑEZ SAMUEL",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214295375,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CASTILLO MONICA",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214342132,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GARCIA MERCEDES ",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741214370340,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SOSA TORRES",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741215228920,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SARRICHIO",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741216277425,
+    "monto": "17200",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 06/03",
+    "descripcion": "Efectivo ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741216326545,
+    "monto": "10000",
+    "tipo": "egreso",
+    "motivo": "AGUA",
+    "descripcion": "Efectivo ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741217027318,
+    "monto": "215000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA Ruben ",
+    "descripcion": "Efectivo ",
+    "fecha": "2025-03-05"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741265809457,
+    "monto": "17200",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO ",
+    "descripcion": "Efectivo ",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741265996590,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 06/03",
+    "descripcion": "CAMBIO HOY 06/03",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741265996615,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 06/03",
+    "descripcion": "CAMBIO HOY 06/03",
+    "fecha": "2025-03-06",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741267545522,
+    "monto": "92000",
+    "tipo": "egreso",
+    "motivo": "RECIBO DOMINGO ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741267571512,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GAROFANI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741268966233,
+    "monto": "42000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GOMEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741269640665,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BRUNI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741269670411,
+    "monto": "70000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MOLINA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741270315970,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AVALOS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-06",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741270618761,
+    "monto": "53500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BRUNO EDUARDO",
+    "descripcion": "Macro",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741270648822,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PIETRANDREA ",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741271291793,
+    "monto": "70000",
+    "tipo": "egreso",
+    "motivo": "RECIBO RUIZ",
+    "descripcion": "70000",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741271483595,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO DE GIOBANI",
+    "descripcion": "",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741271695323,
+    "monto": "44000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA MOLINA",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741271733145,
+    "monto": "51000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARCIA",
+    "descripcion": "RECIBO GARCIA",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741271885972,
+    "monto": "58000",
+    "tipo": "ingreso",
+    "motivo": "RECIBO GARCIA",
+    "descripcion": "GARCIA",
+    "fecha": "2025-03-06",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741272813815,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA MARTINEZ CARLOS",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741273299530,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARCIA",
+    "descripcion": "GARCIA",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "11",
+    "id": 1741275859133,
+    "monto": "76000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBOS AVILA CARLOS",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741275882961,
+    "monto": "65000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO ESPINILLO CINTIA",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741277025530,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO INSAURRALDE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741282312494,
+    "monto": "406000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS PALICHUK",
+    "descripcion": "RECIBOS PALICHUK",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741282332738,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SOSA",
+    "descripcion": "RECIBO SOSA",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741282355324,
+    "monto": "300000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS VIDAL",
+    "descripcion": "RECIBOS VIDAL",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741282367004,
+    "monto": "80000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AGUIRRE",
+    "descripcion": "RECIBO AGUIRRE",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741283553074,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MOREL ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741283569602,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARAY",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741283640179,
+    "monto": "9000",
+    "tipo": "egreso",
+    "motivo": "BOMBEROS",
+    "descripcion": "",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741284021185,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AVALOS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741284036884,
+    "monto": "62000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CAJAL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741292530770,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS NUÑEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741294562511,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 07/03",
+    "descripcion": "",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741294705540,
+    "monto": "443000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741297007191,
+    "monto": "3000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CANTERO CELSO (ABONO UNA PARTE EN EFECTIVO Y OTRA POR TRANSFERENCIA)",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741298158859,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA DEL ARCO GUSTAVO ",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741299901572,
+    "monto": "76000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA OVETTINI SILVIO ",
+    "descripcion": "Mercado ",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741302178237,
+    "monto": "17200",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 07/03",
+    "descripcion": "Efectivo ",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741302286084,
+    "monto": "107000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN ",
+    "descripcion": "Efectivo ",
+    "fecha": "2025-03-06"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741352188346,
+    "monto": "80000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS MARTINEZ",
+    "descripcion": "RECIBOS MARTINEZ",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741352283784,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 07/03",
+    "descripcion": "CAMBIO HOY 07/03",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741353232671,
+    "monto": "17200",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "Efectivo ",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741355762790,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PESTONI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741357248182,
+    "monto": "67000",
+    "tipo": "egreso",
+    "motivo": "RECIBO COFRE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741357496145,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GONZALEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "11",
+    "id": 1741358417577,
+    "monto": "985000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS CALLE",
+    "descripcion": "",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741359800030,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MAIDANA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741363950172,
+    "monto": "36000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MONTIVERO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741365578073,
+    "monto": "55000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CALLEJAS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741365759943,
+    "monto": "120000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO TEVEZ",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741365792895,
+    "monto": "49000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PRESENTADO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741367874754,
+    "monto": "130000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO NIURA",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741369350130,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARCIA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741375044763,
+    "monto": "78000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MIÑO",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741376423713,
+    "monto": "78000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MIÑO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-07",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741376464233,
+    "monto": "61000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CARBAJAL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741378846254,
+    "monto": "31000",
+    "tipo": "ingreso",
+    "motivo": "PAGO COMBINADO HOGAR - TORRES CANO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741378911472,
+    "monto": "40000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GARCIA JORGE",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741379672014,
+    "monto": "85000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ECHARREN ANA",
+    "descripcion": "MERCADO",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741380826158,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "POLIZA ACCIDENTES PERSONALES",
+    "descripcion": "POLIZA ACCIDENTES PERSONALES",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741381056869,
+    "monto": "68000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO NAVARRETE",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741381427731,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 08/03",
+    "descripcion": "",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741381535168,
+    "monto": "110000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS MOYANO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741381547663,
+    "monto": "440000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741382316403,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ARAYA ",
+    "descripcion": "MERCADO",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741382343188,
+    "monto": "57000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA AMARO ENRIQUE",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741386003416,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA RAMIREZ LEANDRO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741386038967,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ISSE ARIEL",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741386367853,
+    "monto": "22000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA VIOLA CARINA ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741389099584,
+    "monto": "17700",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 08/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741389588824,
+    "monto": "114000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN ",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-07"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741438171061,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 08/03",
+    "descripcion": "CAMBIO HOY 08/03",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741438448909,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO STEFANAZZI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741439916811,
+    "monto": "62000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PORTO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741442124861,
+    "monto": "17700",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741442156385,
+    "monto": "92000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA MARTINEZ VIVIANA (FORD-RENAULT)",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741442180715,
+    "monto": "48000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ACOSTA MIGUEL ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741442267492,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GAUNA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741442415180,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ANDROVETTO CLAUDIO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741442772072,
+    "monto": "78000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ACUÑA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741443813956,
+    "monto": "62000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ACOSTA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741446032704,
+    "monto": "22000",
+    "tipo": "ingreso",
+    "motivo": "PAGO ATRASADO MULLER OLGA (FEBRERO)",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741446033060,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO NAVARRO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741446968124,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA MULLER OLGA ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741447032029,
+    "monto": "59000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SAGARDOY RAUL",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741447774621,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SCHDMIT",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741447795975,
+    "monto": "48000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROUSSEAUX ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741447852101,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MARTINEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741447861142,
+    "monto": "65000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BRITO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741447879863,
+    "monto": "46000",
+    "tipo": "egreso",
+    "motivo": "RECIBO RODRIGUEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741448186746,
+    "monto": "48500",
+    "tipo": "egreso",
+    "motivo": "RECIBO LEZCANO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741448350658,
+    "monto": "42000",
+    "tipo": "egreso",
+    "motivo": "RECIBO OJEDA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741448747160,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PEREIRA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741448829613,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CEJAS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741449670283,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 10/03/25",
+    "descripcion": "CAMBIO PARA 10/03/25",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741449683856,
+    "monto": "284000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741449753031,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA LUERO EMMANUEL ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741450073572,
+    "monto": "17700",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 10/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741450585630,
+    "monto": "118000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN ",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-08"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741610414443,
+    "monto": "17700",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741611586410,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 10/03",
+    "descripcion": "CAMBIO HOY 10/03",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741613360381,
+    "monto": "64000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BENITEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741613551640,
+    "monto": "72000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROLDAN",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741614825255,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROLON",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741618228959,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA RUIZ JUAN ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741618249518,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA AMAARO ENRIQUE",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741618284560,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PINO ESTEBAN (ACOSTA OLGA)",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741618908795,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MALDONADO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "11",
+    "id": 1741619529124,
+    "monto": "191000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS CALLE",
+    "descripcion": "",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741622002868,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LEDESMA",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741622018360,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO CUELLAR",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741622592160,
+    "monto": "25000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BARRIOS NOELIA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741622611580,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA FERNANDEZ FAVIO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741623377754,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ACEVEDO",
+    "descripcion": "TRANSFERENCIA",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741623407770,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GAROFANI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741625830537,
+    "monto": "85000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SALAS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741625937445,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "RECIBO VALLEJOS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741630073545,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LEZCANO FEBRERO",
+    "descripcion": "CUOTA FEBRERO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741630084760,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LEZCANO",
+    "descripcion": "RECIBO LEZCANO MARZO.",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741630983879,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GONZALEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741632558407,
+    "monto": "23000",
+    "tipo": "egreso",
+    "motivo": "PARTE RECIBO LEDESMA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741635043891,
+    "monto": "64000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA RODRIGUEZ ARIEL",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741636794301,
+    "monto": "44000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS ALVAREZ CARLOS (PEUGEOT - LEGACY)",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741637790817,
+    "monto": "26000",
+    "tipo": "ingreso",
+    "motivo": "SEGURO ACCIDENTE PERSONALES",
+    "descripcion": "RECIBO IFRAN AP",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741637899062,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBOS PATEL ALDO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741638116465,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO ESPINOZA GUSTAVO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741638556146,
+    "monto": "55000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LUQUE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741638775141,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO RODRIGUEZ",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741640246676,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 11/03",
+    "descripcion": "CAMBIO PARA 11/03",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741640320485,
+    "monto": "1256000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN ",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741644449413,
+    "monto": "17700",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 11/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741644496976,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "NARA",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741644522333,
+    "monto": "22000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-10"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741697128882,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 11/03",
+    "descripcion": "CAMBIO HOY 11/03",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741697564682,
+    "monto": "17700",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741698968290,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AYALA",
+    "descripcion": "TRANSFERENCIA A BANCO (CORRESPONDE AL 01/03/25)",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741699698919,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MORERA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741701809507,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO VILLALBA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741702130345,
+    "monto": "168000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA OVETTINI (TENIA SALDO A FAVOR $20.300)",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741702191320,
+    "monto": "31000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BELEN MARIANO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741710230826,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ZAPIOLA",
+    "descripcion": "RECIBO ZAPIOLA",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741713875530,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO MACHADO ANGEL",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741716231848,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GAUNA DIF POR MP",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741718444348,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GONZALEZ",
+    "descripcion": "RECIBO GONZALEZ",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741718933808,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO MACHADO RAZZETO",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741721696317,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GOMEZ",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741723169641,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LANZILLOTTI",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741725230909,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALDERETE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741726624834,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 12/03",
+    "descripcion": "CAMBIO PARA 12/03",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741726694678,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741728511255,
+    "monto": "28000",
+    "tipo": "ingreso",
+    "motivo": "PAGO ATRASADO RUQUET ",
+    "descripcion": "TRANSFERENCIA MERCADO",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741728587732,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA RUQUET GUSTAVO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741730797681,
+    "monto": "17700",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 12/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741730932706,
+    "monto": "140000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-11"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741783545966,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 12/03",
+    "descripcion": "CAMBIO HOY 12/03",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741784309139,
+    "monto": "17700",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741784728313,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BRISKE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741788095070,
+    "monto": "8000",
+    "tipo": "egreso",
+    "motivo": "VIDRIOS",
+    "descripcion": "VIDRIOS",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741791045912,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GONZALEZ",
+    "descripcion": "TRANSFERENCIA.",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741800230094,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AYALA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741800245934,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS MONTAÑA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741809267968,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO FERNANDEZ",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741809570147,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA RAMIREZ AGUSTIN",
+    "descripcion": "NERCADO PAGO",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741809599192,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA TORRES CAROLINA ",
+    "descripcion": "MERCADO PAGO ",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741809622128,
+    "monto": "33000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA LEGAL GONZALO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741809764988,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO ALZOGARAY",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741810056695,
+    "monto": "42000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AVILA",
+    "descripcion": "RECIBO AVILA",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741810330123,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ARIAS",
+    "descripcion": "RECIBO ARIAS",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741810663591,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BETTINI",
+    "descripcion": "RECIBO BETTINI",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741810675484,
+    "monto": "36000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BETTINI",
+    "descripcion": "RECIBO BETTINI",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741810817156,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BETTINI",
+    "descripcion": "RECIBO BETTINI",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741811104042,
+    "monto": "35000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BENAVIDEZ",
+    "descripcion": "RECIBO BENAVIDEZ",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741811280212,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BENITEZ",
+    "descripcion": "RECIBO BENITEZ",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741811471417,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BENITEZ",
+    "descripcion": "RECIBO BENITEZ",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741811640233,
+    "monto": "80000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARDENAL",
+    "descripcion": "RECIBO GARDENAL",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741812129267,
+    "monto": "160000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARDENAL",
+    "descripcion": "RECIBO GARDENAL",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741812139190,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "RECIBO IBARRA",
+    "descripcion": "RECIBO IBARRA",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741812988806,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 13/03",
+    "descripcion": "CAMBIO PARA 13/03",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741813081938,
+    "monto": "213000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741813552153,
+    "monto": "35000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA MONTENEGRO MARIA ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741814141459,
+    "monto": "60500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SUAREZ EDUARDO",
+    "descripcion": "MERCADO PAGO ",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741816884279,
+    "monto": "17700",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 13/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741816990024,
+    "monto": "70000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-12"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741870417364,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 13/03",
+    "descripcion": "CAMBIO HOY 13/03",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741871069085,
+    "monto": "41000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PERI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741872425718,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO RODRIGUEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741875421112,
+    "monto": "17700",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741876190286,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SOSA MARTIN ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741878885758,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CHACON",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "11",
+    "id": 1741879946357,
+    "monto": "522000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS CALLE",
+    "descripcion": "",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741880408166,
+    "monto": "53000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LORA",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741881131196,
+    "monto": "64000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA FERREYRA SILVIA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741883426155,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BLANCO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741884883640,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ARGUELLO",
+    "descripcion": "RECIBO ARGUELLO",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741890450744,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO MAIDANA",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741896233898,
+    "monto": "65000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO MARTELETTI",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741898497242,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ECHAVARRIA DANIEL ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741899424524,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SOTO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741899733627,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 14/03",
+    "descripcion": "CAMBIO PARA 14/03",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741899744207,
+    "monto": "400000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741902536465,
+    "monto": "41500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PICALLO MARCELA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741903685557,
+    "monto": "13700",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 14/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741903848518,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-13"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741956610342,
+    "monto": "22000",
+    "tipo": "egreso",
+    "motivo": "TRANFERENCIA OVEJERO EDUARDO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741958025888,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 14/03",
+    "descripcion": "CAMBIO HOY 14/03",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741958345677,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CASTILLO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741963743338,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA RAMIREZ RICARDO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741963904464,
+    "monto": "6200",
+    "tipo": "egreso",
+    "motivo": "AGUA",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741966511768,
+    "monto": "78000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS DIAZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741967490535,
+    "monto": "40000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBOS SALINAS",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741970249073,
+    "monto": "55000",
+    "tipo": "egreso",
+    "motivo": "RECIBO IRRAZABAL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741970796810,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SALVA TIERRA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741971406785,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS TELLECHEA",
+    "descripcion": "PATENTE TIK491",
+    "fecha": "2025-03-14",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741971668996,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO TELLECHEA",
+    "descripcion": "PATENTE TIK491",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741972123020,
+    "monto": "150000",
+    "tipo": "egreso",
+    "motivo": "RECIBO TELLECHEA",
+    "descripcion": "CXU100",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741972493963,
+    "monto": "67000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LEDESMA",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1741972559651,
+    "monto": "55000",
+    "tipo": "egreso",
+    "motivo": "RECIBO COCCARO",
+    "descripcion": "RECIBO COCCARO",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741973767856,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROMERO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741974352345,
+    "monto": "25000",
+    "tipo": "egreso",
+    "motivo": "LIMPIEZA",
+    "descripcion": "LIMPIEZA",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741978087118,
+    "monto": "6000",
+    "tipo": "egreso",
+    "motivo": "AGUA",
+    "descripcion": "AGUA",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741979850532,
+    "monto": "67000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GALFRASCONI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "11",
+    "id": 1741982338341,
+    "monto": "122500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO ARCE",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1741982638823,
+    "monto": "53000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO ARCE",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741985731218,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 15/03",
+    "descripcion": "CAMBIO PARA 15/03",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1741985979071,
+    "monto": "183000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741988702565,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA QUINTEROS MAURICIO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741988728478,
+    "monto": "22000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CORDA JUAN",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741988777641,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BARBIERI ROBERTO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741990470063,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "cambio para 15/3",
+    "descripcion": "",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741990645342,
+    "monto": "13700",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1741990997429,
+    "monto": "10000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "",
+    "fecha": "2025-03-14"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742042750133,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 15/03",
+    "descripcion": "CAMBIO HOY 15/03",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742043949683,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ARELLANO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742044146408,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PEREYRA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742045022572,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GOITIA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742051084247,
+    "monto": "46000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALVAREZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742053632665,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 17/03",
+    "descripcion": "CAMBIO PARA 17/03",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742054309701,
+    "monto": "110000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742055323112,
+    "monto": "274000",
+    "tipo": "egreso",
+    "motivo": "TRANFERENCIA PISTAS ANGEL",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742055347103,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA ZAMBONI",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742055373560,
+    "monto": "34000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA PIERINI ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742055403501,
+    "monto": "27500",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA  CAPILLERA ALEJO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742055428425,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA STEINKE OCTAVIO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742055673130,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742055706512,
+    "monto": "17500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 17/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-15"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742217285956,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 17/03",
+    "descripcion": "CAMBIO HOY 17/03",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742217804337,
+    "monto": "42000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALTESOR",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742218674388,
+    "monto": "37000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PRIETO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742218705844,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GONZALEZ JUAN",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742220035674,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO VEGA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742220104306,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ARAUJO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742220231659,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO SOTO MIGUEL",
+    "fecha": "2025-03-17",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742221227129,
+    "monto": "67000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BAREIRO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "11",
+    "id": 1742221336164,
+    "monto": "88000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS CALLE",
+    "descripcion": "",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742222654842,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AGUAYO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742222928402,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SAYAVEDRA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742223026322,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO NICKLER RAUL",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742226299095,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AMERI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1742233856576,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BABUIN",
+    "descripcion": "RECIBO BABUIN",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742236257375,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AVILA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742244277450,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 18/03",
+    "descripcion": "CAMBIO PARA 18/03",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742245140831,
+    "monto": "256000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "5",
+    "id": 1742248878122,
+    "monto": "180000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "VARIOS",
+    "fecha": "2025-03-17"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742301521154,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 18/03",
+    "descripcion": "CAMBIO HOY 18/03",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742303535157,
+    "monto": "46000",
+    "tipo": "egreso",
+    "motivo": "RECIBO DIAZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1742305650477,
+    "monto": "57000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CAPORUSSO",
+    "descripcion": "RECIBO CAPORUSSO",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742306337991,
+    "monto": "61000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GIMENEZ",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742310096883,
+    "monto": "52000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MACHUCA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742311177670,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FERNANDEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742317940702,
+    "monto": "22500",
+    "tipo": "egreso",
+    "motivo": "LIMPIEZA",
+    "descripcion": "LIMPIEZA",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742325739290,
+    "monto": "72000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LEGUIZA",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742326679180,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LENCINA",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742330446247,
+    "monto": "55000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GODOY",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742330827042,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PALAVECINO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742331271023,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO",
+    "descripcion": "CAMBIO PARA 19/03",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742331659120,
+    "monto": "256500",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN ",
+    "descripcion": "",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "5",
+    "id": 1742335419968,
+    "monto": "370000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "VARIOS",
+    "fecha": "2025-03-18"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742389070250,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO VELAZQUEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742389249451,
+    "monto": "67000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CASTILLO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742389478935,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PATEL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742389732878,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LLANOS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742390195264,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SPOSITO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742391725673,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742392626627,
+    "monto": "8000",
+    "tipo": "egreso",
+    "motivo": "VIDRIOS",
+    "descripcion": "VIDRIOS",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742394983994,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO SALAZAR AVILA",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742410641233,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GOMEZ",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742417313743,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 20/03",
+    "descripcion": "CAMBIO PARA 20/03",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742417947979,
+    "monto": "133000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "5",
+    "id": 1742421895208,
+    "monto": "371000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "VARIOS",
+    "fecha": "2025-03-19"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742475076766,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 20/03",
+    "descripcion": "CAMBIO HOY 20/03",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742475162123,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SOTO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742475295243,
+    "monto": "46000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ZARZA",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742476565000,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO RODRIGUEZ ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742476584040,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AMARILLA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742489928742,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO KARLEN",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742491534048,
+    "monto": "88000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LOPEZ EMMANUEL",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742497195093,
+    "monto": "131000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS GONZALEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "11",
+    "id": 1742498845534,
+    "monto": "40000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CALLE",
+    "descripcion": "RECIBO PEREYRA FLEITAS",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742500150919,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO ABREGU",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742500790304,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FERREYRA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742501152544,
+    "monto": "68000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742503416584,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 21/03",
+    "descripcion": "",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742504340840,
+    "monto": "103000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "5",
+    "id": 1742508119580,
+    "monto": "237000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "VARIOS",
+    "fecha": "2025-03-20"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742561820791,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 21/03",
+    "descripcion": "CAMBIO HOY 21/03",
+    "fecha": "2025-03-21"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742562238808,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PALIZA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-21"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742564610177,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO VILLAR DUARTE",
+    "fecha": "2025-03-21"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742566788392,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROMERO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-21"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742580366302,
+    "monto": "6000",
+    "tipo": "egreso",
+    "motivo": "AGUA",
+    "descripcion": "AGUA",
+    "fecha": "2025-03-21"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742590382134,
+    "monto": "44000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GONZALEZ",
+    "fecha": "2025-03-21"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742590569154,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO 22/03",
+    "descripcion": "CAMBIO 22/03",
+    "fecha": "2025-03-21"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742590840088,
+    "monto": "263000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-21"
+  },
+  {
+    "id_usuario": "5",
+    "id": 1742594579477,
+    "monto": "205000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "VARIOS",
+    "fecha": "2025-03-21"
+  },
+  {
+    "id_usuario": "5",
+    "id": 1742676455325,
+    "monto": "113000",
+    "tipo": "egreso",
+    "motivo": "CAJA",
+    "descripcion": "CAJA",
+    "fecha": "2025-03-22"
+  },
+  {
+    "id_usuario": "4",
+    "id": 1742676487419,
+    "monto": "672000",
+    "tipo": "egreso",
+    "motivo": "CAJA",
+    "descripcion": "CAJA",
+    "fecha": "2025-03-22"
+  },
+  {
+    "id_usuario": "5",
+    "id": 1742685052195,
+    "monto": "74000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "VARIOS",
+    "fecha": "2025-03-22"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742907472234,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 25/03",
+    "descripcion": "CAMBIO HOY 25/03",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742907921674,
+    "monto": "17500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742908202760,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SCALESE SANTIAGO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742910525967,
+    "monto": "20000",
+    "tipo": "ingreso",
+    "motivo": "PAGO ATRASADO PEREYRA JULIA",
+    "descripcion": "MES FEBRERO",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742910557972,
+    "monto": "42000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA PEREYRA JULIA (QUISPE CHOQUE)",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742912647041,
+    "monto": "8750",
+    "tipo": "ingreso",
+    "motivo": "PAGO POLIZA CENTRO DE JUBILADOS Y PENSIONADOS",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742916956442,
+    "monto": "84000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ROJAS ALAN ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742917009584,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MOYA MIRTA- COBRADO POR RUBEN ",
+    "descripcion": "",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742917781542,
+    "monto": "80000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BARRIONUEVO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742917924484,
+    "monto": "65000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CHRUSCIEL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742921592839,
+    "monto": "25000",
+    "tipo": "egreso",
+    "motivo": "LIMPIEZA",
+    "descripcion": "LIMPIEZA",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742928442947,
+    "monto": "150000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO WETZEL",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742931612121,
+    "monto": "27000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARCIA",
+    "descripcion": "PARTE RECIBO GARCIA, TRANSFERENCIA A MP",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742931863974,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GONZALEZ",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742936161741,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 26/03",
+    "descripcion": "CAMBIO PARA 26/03",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742936357838,
+    "monto": "283000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN ",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742940110327,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA KAPLAN (ABONO UNA PARTE EN EFECTIVO Y OTRA CON TRANSFERENCIA)",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742940174808,
+    "monto": "84000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ROJAS ALAN ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-25",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742940306502,
+    "monto": "17200",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 26/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742940426889,
+    "monto": "151050",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-25"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742993097427,
+    "monto": "17200",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742993969889,
+    "monto": "20000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 26/03",
+    "descripcion": "CAMBIO HOY 26/03",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742995171673,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO DE LA ROSA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1742997687992,
+    "monto": "8000",
+    "tipo": "egreso",
+    "motivo": "VIDRIOS",
+    "descripcion": "VIDRIOS",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742998784092,
+    "monto": "104000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CABRERA- NIKODEM ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742998801849,
+    "monto": "78000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA DENTONI HECTOR ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1742998819394,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GAFURI ARIANA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1742999130008,
+    "monto": "51000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO VEGA",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743002262267,
+    "monto": "62000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO NIEVAS",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743004118954,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ARANDA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743004265578,
+    "monto": "131000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA CORSINI MARCELO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743009297093,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CEQUI",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743015833049,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GOMEZ",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743015850168,
+    "monto": "68000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO FERNANDEZ",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743018019965,
+    "monto": "40000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LUNA",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1743018581008,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CALERA",
+    "descripcion": "TRANSFERENCIA",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743022590628,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PIERRI JOSE",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743022616093,
+    "monto": "15000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 27/03",
+    "descripcion": "CAMBIO PARA 27/03",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743022692734,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA DIEZ EMANUEL ",
+    "descripcion": "MACRO",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743022751839,
+    "monto": "375000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743026422205,
+    "monto": "17200",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 27/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743026498653,
+    "monto": "6000",
+    "tipo": "egreso",
+    "motivo": "AGUA",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743026572412,
+    "monto": "72000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-26"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743079830479,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MENDOZA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743080417280,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ARDILES",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743080470825,
+    "monto": "15000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 27/03",
+    "descripcion": "CAMBIO HOY 27/03",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743085776530,
+    "monto": "600",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO ",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743085793037,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BARGAS ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743085808959,
+    "monto": "17200",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743096841818,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GIRARDI",
+    "descripcion": "TRANSFERENCIA A RUBEN",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743096851618,
+    "monto": "64000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARRAMUÑO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743100414339,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO LUNA LEONARDO",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743105803427,
+    "monto": "100000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ESCALANTE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743108558775,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 28/03",
+    "descripcion": "CAMBIO PARA 28/03",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743109192110,
+    "monto": "308000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743115116185,
+    "monto": "84000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743115153498,
+    "monto": "15800",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO 28/03/25",
+    "descripcion": "",
+    "fecha": "2025-03-27",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743115256881,
+    "monto": "15800",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 28/03",
+    "descripcion": "",
+    "fecha": "2025-03-27"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743165384795,
+    "monto": "15800",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743166211675,
+    "monto": "50000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 28/03",
+    "descripcion": "CAMBIO HOY 28/03",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743167212005,
+    "monto": "72000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MEDINA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743167484016,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CONTRERAS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743172532145,
+    "monto": "10000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO FERREYRA",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743177485079,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA ARAYA EMANUEL",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743177506632,
+    "monto": "122000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PISTAS ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743177524089,
+    "monto": "76500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GARCIA HORACIO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743177541694,
+    "monto": "24000",
+    "tipo": "egreso",
+    "motivo": "TRASNFERENCIA TITO CHAIRA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743177560160,
+    "monto": "24000",
+    "tipo": "ingreso",
+    "motivo": "PAGO ATRASADO TITO CHAIRA ",
+    "descripcion": "",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743179960946,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBOS NUÑEZ",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743180968819,
+    "monto": "25000",
+    "tipo": "egreso",
+    "motivo": "LIMPIEZA",
+    "descripcion": "LIMPIEZA",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743182777672,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MORA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743182805131,
+    "monto": "48000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GEL",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743185646882,
+    "monto": "46000",
+    "tipo": "egreso",
+    "motivo": "RECIBO INSAURRALDE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1743190452707,
+    "monto": "96000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS ZAPIOLA",
+    "descripcion": "TRANSFERENCIA A RUBEN",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743192442981,
+    "monto": "70000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CASTILLO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743193473481,
+    "monto": "6100",
+    "tipo": "egreso",
+    "motivo": "AGUA",
+    "descripcion": "",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743195274570,
+    "monto": "16500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 29-03",
+    "descripcion": "CAMBIO PARA 29-03",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743195584987,
+    "monto": "279400",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743195842646,
+    "monto": "42000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA MONTIEL ADRIANO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743199861951,
+    "monto": "15800",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 29/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-28"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743252717497,
+    "monto": "15800",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743252827907,
+    "monto": "16500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 29/03",
+    "descripcion": "CAMBIO HOY 29/03",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743254432008,
+    "monto": "43000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALBORNOZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743256730760,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA AQUINO JOSE",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743256801762,
+    "monto": "84000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS DIAZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1743258177942,
+    "monto": "48500",
+    "tipo": "egreso",
+    "motivo": "RECIBO ARGUELLO",
+    "descripcion": "TRANSFERENCIA A RUBEN",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743261956186,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MEDINA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743264020752,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "transferencia RAMIREZ MARIANA",
+    "descripcion": "MERCADO PAGO ",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743264047783,
+    "monto": "15500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 31/03",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743264058673,
+    "monto": "280000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743264235346,
+    "monto": "16800",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 31/03",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743264296919,
+    "monto": "29000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-03-29"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743425934676,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO OZUNAS",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743425946914,
+    "monto": "15500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 31/03",
+    "descripcion": "CAMBIO HOY 31/03",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743426529951,
+    "monto": "62000",
+    "tipo": "egreso",
+    "motivo": "RECIBO MARTINEZ",
+    "descripcion": "TRANSFERENCIA A BANCO 24/03",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743429923377,
+    "monto": "75000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PALACIO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743429935671,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "RECIBO BARRIONUEVO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743430093710,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "PARTE RECIBO CARBALLO",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743430209688,
+    "monto": "57000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ALONSO ELISA",
+    "descripcion": "COBRADO POR RUBEN ",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743430228568,
+    "monto": "51000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PRESTIA MARIANA ",
+    "descripcion": "COBRADO POR RUBEN ",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743430995054,
+    "monto": "35000",
+    "tipo": "egreso",
+    "motivo": "RECIBO COPPOLA MARIA",
+    "descripcion": "COBRADO POR RUBEN",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743432898272,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ARENAS RAMON",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743435431028,
+    "monto": "40500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA FERNANDEZ MAXIMILIANO ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743435459465,
+    "monto": "53500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA BRUNO EDUARDO",
+    "descripcion": "MACRO",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743446106579,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO BARBOZA RUFINO",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743450410472,
+    "monto": "34000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA CAVALIERE PABLO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743452577799,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO MALDONADO",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743454176581,
+    "monto": "64000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LOHN",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743454484361,
+    "monto": "15500",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA  01/04",
+    "descripcion": "CAMBIO PARA 01/04",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743454743548,
+    "monto": "397000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743458720744,
+    "monto": "16800",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743458754801,
+    "monto": "16800",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 01/04",
+    "descripcion": "",
+    "fecha": "2025-03-31"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743511273124,
+    "monto": "15500",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 01/04",
+    "descripcion": "CAMBIO HOY 01/04",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743512131422,
+    "monto": "16800",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743517037320,
+    "monto": "56000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO GONZALEZ ",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "11",
+    "id": 1743517069716,
+    "monto": "68000",
+    "tipo": "egreso",
+    "motivo": "RECIBO CABALLERO",
+    "descripcion": "",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743521911222,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO BRANDAN",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743530530200,
+    "monto": "25000",
+    "tipo": "egreso",
+    "motivo": "LIMPIEZA",
+    "descripcion": "LIMPIEZA",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743530553458,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO DUARTE",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743531973503,
+    "monto": "97000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO DUARTE",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743540444500,
+    "monto": "20000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 03/04",
+    "descripcion": "CAMBIO PARA 03/04",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743541142802,
+    "monto": "444500",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743543827791,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA ROJAS PAMELA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743543850882,
+    "monto": "80000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GONZALEZ FRANCISCO",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743545094775,
+    "monto": "16800",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 02/04",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743545161672,
+    "monto": "104000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN ",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-04-01"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743684892053,
+    "monto": "40000",
+    "tipo": "egreso",
+    "motivo": "RECIBO VALLEJOS",
+    "descripcion": "TRANSFERENCIA A RUBEN",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1743684932710,
+    "monto": "76000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS AVILA",
+    "descripcion": "TRANSFERENCIA A RUBEN",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743685030330,
+    "monto": "16800",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743685624258,
+    "monto": "70000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PEREZ CRISTIAN ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743686019794,
+    "monto": "20000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 03/04",
+    "descripcion": "CAMBIO HOY 03/04",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743686833044,
+    "monto": "69000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SANCHEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-04-03",
+    "desconocido": true
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743687660960,
+    "monto": "72000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS MONEDA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "12",
+    "id": 1743688743429,
+    "monto": "124000",
+    "tipo": "egreso",
+    "motivo": "PAGOS GARCIA CESAR ALBERTO",
+    "descripcion": "CLIENTE DE SOLANO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1743688933806,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SOTO",
+    "descripcion": "TRANSFERENCIA",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1743688942956,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SOSA",
+    "descripcion": "TRANSFERENCIA",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1743688958491,
+    "monto": "160000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARDENAL",
+    "descripcion": "TRANSFERENCIA",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1743688969253,
+    "monto": "80000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARDENAL",
+    "descripcion": "TRANSFERENCIA",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1743688980999,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO PALICHUK BERTA",
+    "descripcion": "TRANSFERENCIA",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743689972088,
+    "monto": "8000",
+    "tipo": "egreso",
+    "motivo": "VIDRIOS",
+    "descripcion": "VIDRIOS",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743689996439,
+    "monto": "49000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SANCHEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743690074780,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "RECIBO AYALA",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743690783833,
+    "monto": "38500",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PONCE JUAN",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743691554632,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO RODRIGUEZ",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743691570362,
+    "monto": "43000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROMAN",
+    "descripcion": "TRANSFERENCIA ",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743692045637,
+    "monto": "81000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO DOMINGUEZ ",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "11",
+    "id": 1743692421641,
+    "monto": "1421000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS CALLE",
+    "descripcion": "",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743693886023,
+    "monto": "38000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA PEREZ LUCAS ",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743699897103,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO GARAY",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743700697479,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO RIOS CLAUDIO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743705631652,
+    "monto": "30000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO FRANICHEVICH",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743707990341,
+    "monto": "32000",
+    "tipo": "egreso",
+    "motivo": "RECIBO LUNA",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743712420838,
+    "monto": "50000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GERSTENKORN",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743713696708,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GARCIA MERCEDES",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743713725496,
+    "monto": "66000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA SARRICHIO SILVIA",
+    "descripcion": "MERCADO PAGO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743713748735,
+    "monto": "26000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA GONZALEZ DANIEL ",
+    "descripcion": "MACRO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743714806366,
+    "monto": "40000",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 04/04",
+    "descripcion": "CAMBIO PARA 04/04",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743714817949,
+    "monto": "747000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "ENTREGA RUBEN",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743718183010,
+    "monto": "16300",
+    "tipo": "egreso",
+    "motivo": "CAMBIO PARA 04/04",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743718195223,
+    "monto": "60000",
+    "tipo": "egreso",
+    "motivo": "NARA",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743718369326,
+    "monto": "39000",
+    "tipo": "egreso",
+    "motivo": "ENTREGA RUBEN",
+    "descripcion": "EFECTIVO",
+    "fecha": "2025-04-03"
+  },
+  {
+    "id_usuario": "6",
+    "id": 1743770773778,
+    "monto": "16300",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO",
+    "descripcion": "efectivo",
+    "fecha": "2025-04-04"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743771465682,
+    "monto": "40000",
+    "tipo": "ingreso",
+    "motivo": "CAMBIO HOY 04/04",
+    "descripcion": "CAMBIO HOY 04/04",
+    "fecha": "2025-04-04"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743771549448,
+    "monto": "120000",
+    "tipo": "egreso",
+    "motivo": "RECIBO TEVEZ",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-04-04"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743773006112,
+    "monto": "48000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FERNANDEZ",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-04-04"
+  },
+  {
+    "id_usuario": "3",
+    "id": 1743773024873,
+    "monto": "70000",
+    "tipo": "egreso",
+    "motivo": "TRANSFERENCIA",
+    "descripcion": "RECIBO ALBORNOZ",
+    "fecha": "2025-04-04"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743773031430,
+    "monto": "28000",
+    "tipo": "egreso",
+    "motivo": "RECIBO ROLON",
+    "descripcion": "TRANSFERENCIA A BANCO",
+    "fecha": "2025-04-04"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743774197288,
+    "monto": "45000",
+    "tipo": "egreso",
+    "motivo": "RECIBO FERNANDEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-04-04"
+  },
+  {
+    "id_usuario": "2",
+    "id": 1743776851291,
+    "monto": "58000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS VALDEZ",
+    "descripcion": "TRANSFERENCIA A MP",
+    "fecha": "2025-04-04"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1743777807171,
+    "monto": "47000",
+    "tipo": "egreso",
+    "motivo": "RECIBO SANCHEZ",
+    "descripcion": "TRANSFERENCIA A RUBEN",
+    "fecha": "2025-04-04"
+  },
+  {
+    "id_usuario": "10",
+    "id": 1743778149248,
+    "monto": "124000",
+    "tipo": "egreso",
+    "motivo": "RECIBOS GARCIA",
+    "descripcion": "TRANSFERENCIA A RUBEN",
+    "fecha": "2025-04-04"
+  }
+]
