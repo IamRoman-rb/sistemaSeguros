@@ -26,6 +26,7 @@ export const listado = async (req, res) => {
     res.status(500).send("Error al cargar los clientes: " + error.message);
   }
 };
+
 export const nuevo = async (req, res) => {
   const resources = [
     path.resolve(process.cwd(), "src/data", "provincias.json"),
@@ -43,6 +44,7 @@ export const nuevo = async (req, res) => {
   }));
   return res.render("clientes/nuevo", { provincias, ciudades });
 };
+
 export const detalle = async (req, res) => {
   try {
     const { id } = req.params;
@@ -231,6 +233,7 @@ export const confirmar = async (req, res) => {
 
   res.render("alertas/eliminarCliente", { cliente });
 };
+
 export const eliminar = async (req, res) => {
   try {
     const { id } = req.body;

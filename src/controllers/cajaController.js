@@ -194,6 +194,7 @@ export const egreso = async (req, res) => {
     res.status(500).send("Error al cargar la caja");
   }
 };
+
 export const guardar = async (req, res) => {
   const resources = [path.resolve(process.cwd(), "src/data", "caja.json")];
   try {
@@ -530,18 +531,19 @@ export const eliminarIngresoEgreso = async (req, res) => {
       return res.status(400).send("Faltan datos requeridos.");
     }
 
-    const resources = [
-      path.resolve(process.cwd(), "src/data", "caja.json"),
-      path.resolve(process.cwd(), "src/data", "actividades.json"),
-    ];
+    // Define las rutas de los archivos directamente
+    const cajaPath = path.resolve(process.cwd(), "src/data", "caja.json");
+    const actividadesPath = path.resolve(process.cwd(), "src/data", "actividades.json");
 
     // Lee los archivos JSON
-    let [caja, actividades] = await Promise.all(resources.map(async (file) => JSON.parse(await readFile(file, "utf-8"))));
+    let [caja, actividades] = await Promise.all([
+      readFile(cajaPath, "utf-8").then(JSON.parse),
+      readFile(actividadesPath, "utf-8").then(JSON.parse)
+    ]);
 
     // Encuentra el índice del movimiento
     let movimientoIndex = caja.findIndex((m) => m.id === Number(id_movimiento));
     
-
     if (movimientoIndex === -1) {
       return res.status(404).send("Movimiento no encontrado.");
     }
@@ -572,8 +574,8 @@ export const eliminarIngresoEgreso = async (req, res) => {
 
     // Actualiza los archivos
     await Promise.all([
-      writeFile(resources[0], JSON.stringify(caja, null, 2)), // Actualiza caja.json
-      writeFile(resources[1], JSON.stringify(actividades, null, 2)), // Actualiza actividades.json
+      writeFile(cajaPath, JSON.stringify(caja, null, 2)),
+      writeFile(actividadesPath, JSON.stringify(actividades, null, 2))
     ]);
 
     // Redirige a la página de caja
