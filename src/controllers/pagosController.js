@@ -482,169 +482,222 @@ export const recibo = async (req, res) => {
 
 export const pagar = async (req, res) => {
   const { id } = req.params;
-  const resources = [
-    path.resolve(process.cwd(), "src/data", "polizas.json"),
-    path.resolve(process.cwd(), "src/data", "clientes.json"),
-    path.resolve(process.cwd(), "src/data", "provincias.json"),
-    path.resolve(process.cwd(), "src/data", "ciudades.json"),
-    path.resolve(process.cwd(), "src/data", "coberturas.json"),
-    path.resolve(process.cwd(), "src/data", "automarcas.json"),
-    path.resolve(process.cwd(), "src/data", "pagos.json"),
-    path.resolve(process.cwd(), "src/data", "empresas.json"),
-  ];
-  const [
-    polizas,
-    clientes,
-    provincias,
-    ciudades,
-    coberturas,
-    automarcas,
-    pagos,
-    empresas,
-  ] = await Promise.all(
-    resources.map(async (file) => JSON.parse(await readFile(file, "utf-8")))
-  );
 
-  // Encontrar la póliza por ID
-  const poliza = polizas.find((poliza) => poliza.id === parseInt(id));
-  if (!poliza) return res.status(404).send("Póliza no encontrada");
+  try {
+    // 1. Cargar archivos necesarios individualmente
+    const polizas = await readFile(path.resolve(process.cwd(), "src/data", "polizas.json"), "utf-8")
+      .then(JSON.parse)
+      .catch(() => []);
 
-  // Encontrar el cliente correspondiente a la póliza
-  const cliente = clientes.find(
-    (cliente) => cliente.id === parseInt(poliza.clienteId)
-  );
-  if (!cliente) return res.status(404).send("Cliente no encontrado");
+    const clientes = await readFile(path.resolve(process.cwd(), "src/data", "clientes.json"), "utf-8")
+      .then(JSON.parse)
+      .catch(() => []);
 
-  cliente.provincia = provincias.find(
-    ({ id }) => id == Number(cliente.provincia)
-  );
-  cliente.localidad = ciudades.find(
-    ({ id }) => id == Number(cliente.localidad)
-  );
-  poliza.cobertura = coberturas.find(
-    ({ id }) => id == Number(poliza.cobertura)
-  );
-  poliza.marca = automarcas.find(({ id }) => id == Number(poliza.marca));
+    // 2. Buscar la póliza y el cliente
+    const poliza = polizas.find(p => p.id === parseInt(id));
+    if (!poliza) return res.status(404).send("Póliza no encontrada");
 
-  // Filtrar pagos asociados a la póliza y excluir aquellos con pago.desconocido == true
-  poliza.pagos = pagos.filter(
-    (pago) => pago.id_poliza === poliza.id && !pago.desconocido
-  );
+    const cliente = clientes.find(c => c.id === parseInt(poliza.clienteId));
+    if (!cliente) return res.status(404).send("Cliente no encontrado");
 
-  poliza.empresa = empresas.find(({ id }) => id == Number(poliza.empresa));
+    // 3. Cargar datos adicionales solo si son necesarios
+    const [provincias, ciudades, coberturas, automarcas, empresas, pagos] = await Promise.all([
+      readFile(path.resolve(process.cwd(), "src/data", "provincias.json"), "utf-8").then(JSON.parse).catch(() => []),
+      readFile(path.resolve(process.cwd(), "src/data", "ciudades.json"), "utf-8").then(JSON.parse).catch(() => []),
+      readFile(path.resolve(process.cwd(), "src/data", "coberturas.json"), "utf-8").then(JSON.parse).catch(() => []),
+      readFile(path.resolve(process.cwd(), "src/data", "automarcas.json"), "utf-8").then(JSON.parse).catch(() => []),
+      readFile(path.resolve(process.cwd(), "src/data", "empresas.json"), "utf-8").then(JSON.parse).catch(() => []),
+      readFile(path.resolve(process.cwd(), "src/data", "pagos.json"), "utf-8").then(JSON.parse).catch(() => [])
+    ]);
 
-  // Enviar la póliza y el cliente a la vista
-  res.render("pagos/pagar", { poliza, cliente });
+    // 4. Enriquecer datos
+    cliente.provincia = provincias.find(p => p.id == Number(cliente.provincia));
+    cliente.localidad = ciudades.find(c => c.id == Number(cliente.localidad));
+    poliza.cobertura = coberturas.find(c => c.id == Number(poliza.cobertura));
+    poliza.marca = automarcas.find(a => a.id == Number(poliza.marca));
+    poliza.empresa = empresas.find(e => e.id == Number(poliza.empresa));
+    poliza.pagos = pagos.filter(p => p.id_poliza === poliza.id && !p.desconocido);
+
+    // 5. Renderizar vista
+    res.render("pagos/pagar", { 
+      poliza, 
+      cliente,
+      title: "Registrar Pago"
+    });
+
+  } catch (error) {
+    console.error("Error en el proceso de pago:", error);
+    res.status(500).render('error', {
+      title: "Error del servidor",
+      message: "Ocurrió un error al procesar su solicitud"
+    });
+  }
 };
 
 export const acreditar = async (req, res) => {
   try {
-    const { polizaId } = req.body;
+    const { polizaId, observaciones } = req.body;
+    const userId = req.session.user.id;
 
-    const resources = [
-      path.resolve(process.cwd(), "src/data", "polizas.json"),
-      path.resolve(process.cwd(), "src/data", "pagos.json"),
-    ];
-    const [polizas, pagos] = await Promise.all(
-      resources.map(async (file) => JSON.parse(await readFile(file, "utf-8")))
-    );
-
-    // Encontrar la póliza
-    const poliza = polizas.find((p) => p.id === parseInt(polizaId));
-    if (!poliza) {
-      return res.status(404).send("Póliza no encontrada.");
+    // 1. Validación de entrada
+    if (!polizaId || isNaN(Number(polizaId))) {
+      return res.status(400).render('error', {
+        title: 'ID inválido',
+        message: 'El ID de póliza proporcionado no es válido'
+      });
     }
 
-    // Obtener la fecha y hora actual en la zona horaria de Argentina
-    const fecha = DateTime.now().setZone("America/Argentina/Buenos_Aires");
+    // 2. Cargar archivos necesarios
+    const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
+    const pagosPath = path.resolve(process.cwd(), "src/data", "pagos.json");
 
-    // Crear el objeto del pago
-    const pago = {
-      id: fecha.toMillis(), // ID del pago
-      id_cliente: Number(poliza.clienteId), // ID del cliente de la póliza
-      id_poliza: Number(poliza.id), // ID de la póliza
-      n_poliza: Number(poliza.n_poliza), // Número de póliza
-      fecha: fecha.toFormat("yyyy-MM-dd"), // Fecha en formato YYYY-MM-DD
-      hora: fecha.toFormat("HH:mm:ss"), // Hora actual
-      valor: Number(poliza.precio) / poliza.cuotas, // Premio de la póliza
+    const [polizasData, pagosData] = await Promise.all([
+      readFile(polizasPath, "utf-8").then(JSON.parse).catch(() => []),
+      readFile(pagosPath, "utf-8").then(JSON.parse).catch(() => [])
+    ]);
+
+    // 3. Buscar la póliza
+    const polizaIndex = polizasData.findIndex(p => p.id === Number(polizaId));
+    if (polizaIndex === -1) {
+      return res.status(404).render('error', {
+        title: 'Póliza no encontrada',
+        message: 'La póliza especificada no existe'
+      });
+    }
+
+    const poliza = polizasData[polizaIndex];
+
+    // 4. Crear nuevo pago
+    const fecha = DateTime.now().setZone("America/Argentina/Buenos_Aires");
+    const nuevoPago = {
+      id: fecha.toMillis(),
+      id_cliente: Number(poliza.clienteId),
+      id_poliza: Number(poliza.id),
+      n_poliza: Number(poliza.n_poliza),
+      fecha: fecha.toFormat("yyyy-MM-dd"),
+      hora: fecha.toFormat("HH:mm:ss"),
+      valor: Number(poliza.precio) / poliza.cuotas,
       forma_pago: "efectivo",
-      observaciones: req.body.observaciones,
-      n_cuota: poliza.pagos.length + 1,
+      observaciones: observaciones || '',
+      n_cuota: (poliza.pagos?.length || 0) + 1,
       desconocido: false,
-      id_cobrador: Number(req.session.user.id), // ID del cobrador
+      id_cobrador: Number(userId)
     };
 
-    // Actualizar el archivo de pagos
-    pagos.push(pago);
-    await writeFile(resources[1], JSON.stringify(pagos, null, 2));
+    // 5. Actualizar datos
+    const pagosActualizados = [...pagosData, nuevoPago];
+    const polizasActualizadas = [...polizasData];
+    polizasActualizadas[polizaIndex].pagos = [...(poliza.pagos || []), nuevoPago.id];
 
-    // Actualizar la póliza con las cuotas pagadas
-    polizas[polizas.findIndex((p) => p.id === Number(polizaId))].pagos.push(
-      pago.id
-    );
-    await writeFile(resources[0], JSON.stringify(polizas, null, 2));
+    // 6. Guardar cambios
+    await Promise.all([
+      writeFile(pagosPath, JSON.stringify(pagosActualizados, null, 2)),
+      writeFile(polizasPath, JSON.stringify(polizasActualizadas, null, 2))
+    ]);
 
-    // Redirigir a la lista de pagos o a una vista de confirmación
+    // 7. Redirigir con mensaje de éxito
+    req.session.flash = { type: 'success', message: 'Pago registrado correctamente' };
     res.redirect(`/polizas/detalle/${polizaId}`);
+
   } catch (error) {
-    console.error("Error al realizar el pago:", error.message);
-    res.status(500).send("Error al realizar el pago.");
+    console.error("Error al acreditar pago:", error);
+    res.status(500).render('error', {
+      title: "Error en el pago",
+      message: "Ocurrió un error al procesar el pago",
+      error: process.env.NODE_ENV === 'development' ? error : null
+    });
   }
 };
 
 export const eliminar = async (req, res) => {
   try {
     const { pagoId, polizaId } = req.body;
-    const resources = [
-      path.resolve(process.cwd(), "src/data", "pagos.json"),
-      path.resolve(process.cwd(), "src/data", "polizas.json"),
-      path.resolve(process.cwd(), "src/data", "actividades.json"),
-    ];
-    let [pagos, polizas, actividades] = await Promise.all(
-      resources.map(async (file) => JSON.parse(await readFile(file, "utf-8")))
-    );
+    const userId = req.session.user.id;
 
-    let poliza = polizas.find((p) => p.id == polizaId);
-
-    // Encontrar el pago
-    const pago = pagos.findIndex((p) => p.id === Number(pagoId));
-    if (pago === -1) {
-      return res.status(404).send("Pago no encontrado.");
+    // 1. Validación de entrada
+    if (!pagoId || !polizaId || isNaN(Number(pagoId)) || isNaN(Number(polizaId))) {
+      return res.status(400).render('error', {
+        title: 'Datos inválidos',
+        message: 'Los IDs proporcionados no son válidos'
+      });
     }
 
-    // Desconocer el pago
-    pagos[pago].desconocido = true;
-    poliza.pagos = poliza.pagos.filter((p) => p != pagos[pago].id);
+    // 2. Definir paths de archivos
+    const pagosPath = path.resolve(process.cwd(), "src/data", "pagos.json");
+    const polizasPath = path.resolve(process.cwd(), "src/data", "polizas.json");
+    const actividadesPath = path.resolve(process.cwd(), "src/data", "actividades.json");
 
-    // Obtener la fecha y hora actual en la zona horaria de Argentina
-    const fechaArgentina = DateTime.now().setZone(
-      "America/Argentina/Buenos_Aires"
-    );
-
-    // Crear la actividad
-    let actividad = {
-      id: fechaArgentina.toMillis(), // ID de la actividad
-      id_pago: pagos[pago].id,
-      accion: "Eliminar pago",
-      id_usuario: req.session.user.id,
-      fecha: fechaArgentina.toFormat("yyyy-MM-dd"), // Fecha en formato YYYY-MM-DD
-      hora: fechaArgentina.toFormat("HH:mm:ss"), // Hora en formato HH:mm:ss
-      tipo: "pago",
-    };
-
-    // Guardar la actividad
-    actividades.push(actividad);
-
-    // Actualizar los archivos
-    await Promise.all([
-      writeFile(resources[0], JSON.stringify(pagos, null, 2)), // Actualizar pagos.json
-      writeFile(resources[1], JSON.stringify(polizas, null, 2)), // Actualizar polizas.json
-      writeFile(resources[2], JSON.stringify(actividades, null, 2)), // Actualizar actividades.json
+    // 3. Cargar datos
+    const [pagos, polizas, actividades] = await Promise.all([
+      readFile(pagosPath, "utf-8").then(JSON.parse).catch(() => []),
+      readFile(polizasPath, "utf-8").then(JSON.parse).catch(() => []),
+      readFile(actividadesPath, "utf-8").then(JSON.parse).catch(() => [])
     ]);
 
+    // 4. Buscar pago y póliza
+    const pagoIndex = pagos.findIndex(p => p.id === Number(pagoId));
+    if (pagoIndex === -1) {
+      return res.status(404).render('error', {
+        title: 'Pago no encontrado',
+        message: 'El pago especificado no existe'
+      });
+    }
+
+    const polizaIndex = polizas.findIndex(p => p.id === Number(polizaId));
+    if (polizaIndex === -1) {
+      return res.status(404).render('error', {
+        title: 'Póliza no encontrada',
+        message: 'La póliza asociada no existe'
+      });
+    }
+
+    // 5. Actualizar datos (usando inmutabilidad)
+    const pagosActualizados = [...pagos];
+    const polizasActualizadas = [...polizas];
+    const actividadesActualizadas = [...actividades];
+
+    // Marcar pago como desconocido
+    pagosActualizados[pagoIndex] = { 
+      ...pagosActualizados[pagoIndex], 
+      desconocido: true 
+    };
+
+    // Actualizar póliza (filtrar el pago eliminado)
+    polizasActualizadas[polizaIndex] = {
+      ...polizasActualizadas[polizaIndex],
+      pagos: polizasActualizadas[polizaIndex].pagos.filter(id => id !== Number(pagoId))
+    };
+
+    // Registrar actividad
+    const fechaArgentina = DateTime.now().setZone("America/Argentina/Buenos_Aires");
+    const nuevaActividad = {
+      id: fechaArgentina.toMillis(),
+      id_pago: Number(pagoId),
+      accion: "Eliminar pago",
+      id_usuario: userId,
+      fecha: fechaArgentina.toFormat("yyyy-MM-dd"),
+      hora: fechaArgentina.toFormat("HH:mm:ss"),
+      tipo: "pago"
+    };
+    actividadesActualizadas.push(nuevaActividad);
+
+    // 6. Guardar cambios
+    await Promise.all([
+      writeFile(pagosPath, JSON.stringify(pagosActualizados, null, 2)),
+      writeFile(polizasPath, JSON.stringify(polizasActualizadas, null, 2)),
+      writeFile(actividadesPath, JSON.stringify(actividadesActualizadas, null, 2))
+    ]);
+
+    // 7. Redirigir con mensaje de éxito
+    req.session.flash = { type: 'success', message: 'Pago eliminado correctamente' };
     res.redirect("/polizas");
+
   } catch (error) {
-    console.error("Error al eliminar el pago:", error.message);
-    res.status(500).send("Error al eliminar el pago.");
+    console.error("Error al eliminar pago:", error);
+    res.status(500).render('error', {
+      title: "Error al eliminar",
+      message: "Ocurrió un error al intentar eliminar el pago",
+      error: process.env.NODE_ENV === 'development' ? error : null
+    });
   }
 };

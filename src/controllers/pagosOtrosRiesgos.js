@@ -508,31 +508,52 @@ export const pagar = async (req, res) => {
 
 export const acreditar = async (req, res) => {
   try {
-    const { polizaId } = req.body;
+    const { polizaId, observaciones } = req.body;
+    const userId = req.session.user?.id;
 
-    // Definir rutas explícitamente
-    const otrosRiesgosPath = path.resolve(
-      process.cwd(),
-      "src/data",
-      "otros_riesgos.json"
-    );
-    const pagosPath = path.resolve(process.cwd(), "src/data", "pagos.json");
-
-    // Leer archivos
-    const [otrosRiesgos, pagos] = await Promise.all([
-      readFile(otrosRiesgosPath, "utf-8").then(JSON.parse),
-      readFile(pagosPath, "utf-8").then(JSON.parse),
-    ]);
-
-    // Encontrar la póliza en otros_riesgos.json
-    const poliza = otrosRiesgos.find((p) => p.id === parseInt(polizaId));
-    if (!poliza) {
-      return res.status(404).send("Póliza no encontrada.");
+    // 1. Validación de entrada
+    if (!polizaId || isNaN(Number(polizaId))) {
+      return res.status(400).render('error', {
+        title: 'ID inválido',
+        message: 'El ID de póliza proporcionado no es válido',
+        user: req.session.user
+      });
     }
 
-    const fecha = DateTime.now().setZone("America/Argentina/Buenos_Aires");
+    if (!userId) {
+      return res.status(401).render('error', {
+        title: 'No autorizado', 
+        message: 'Debe iniciar sesión para realizar esta acción',
+        user: req.session.user
+      });
+    }
 
-    // Crear el objeto del pago
+    // 2. Definir paths
+    const dataPaths = {
+      otrosRiesgos: path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
+      pagos: path.resolve(process.cwd(), "src/data", "pagos.json")
+    };
+
+    // 3. Cargar datos
+    const [otrosRiesgos, pagos] = await Promise.all([
+      readFile(dataPaths.otrosRiesgos, "utf-8").then(JSON.parse).catch(() => []),
+      readFile(dataPaths.pagos, "utf-8").then(JSON.parse).catch(() => [])
+    ]);
+
+    // 4. Buscar y validar póliza
+    const polizaIndex = otrosRiesgos.findIndex(p => p.id === Number(polizaId));
+    if (polizaIndex === -1) {
+      return res.status(404).render('error', {
+        title: 'Póliza no encontrada',
+        message: 'La póliza de otros riesgos especificada no existe',
+        user: req.session.user
+      });
+    }
+
+    const poliza = otrosRiesgos[polizaIndex];
+
+    // 5. Crear nuevo pago (inmutable)
+    const fecha = DateTime.now().setZone("America/Argentina/Buenos_Aires");
     const nuevoPago = {
       id: fecha.toMillis(),
       id_cliente: Number(poliza.clienteId),
@@ -542,100 +563,147 @@ export const acreditar = async (req, res) => {
       hora: fecha.toFormat("HH:mm:ss"),
       valor: Number(poliza.precio) / poliza.cuotas,
       forma_pago: "efectivo",
-      observaciones: req.body.observaciones,
-      n_cuota: poliza.pagos ? poliza.pagos.length + 1 : 1, // Manejar caso undefined
+      observaciones: observaciones || '',
+      n_cuota: (poliza.pagos?.length || 0) + 1,
       desconocido: false,
-      id_cobrador: Number(req.session.user.id),
+      id_cobrador: Number(userId)
     };
 
-    // Actualizar pagos.json
-    pagos.push(nuevoPago);
+    // 6. Preparar actualizaciones (inmutables)
+    const otrosRiesgosActualizados = [...otrosRiesgos];
+    otrosRiesgosActualizados[polizaIndex] = {
+      ...poliza,
+      pagos: [...(poliza.pagos || []), nuevoPago.id]
+    };
 
-    // Actualizar otros_riesgos.json
-    if (!poliza.pagos) {
-      poliza.pagos = []; // Inicializar array si no existe
-    }
-    poliza.pagos.push(nuevoPago.id);
+    const pagosActualizados = [...pagos, nuevoPago];
 
-    // Guardar cambios
+    // 7. Guardar cambios
     await Promise.all([
-      writeFile(pagosPath, JSON.stringify(pagos, null, 2)),
-      writeFile(otrosRiesgosPath, JSON.stringify(otrosRiesgos, null, 2)),
+      writeFile(dataPaths.pagos, JSON.stringify(pagosActualizados, null, 2)),
+      writeFile(dataPaths.otrosRiesgos, JSON.stringify(otrosRiesgosActualizados, null, 2))
     ]);
 
+    // 8. Feedback y redirección
+    req.session.flash = {
+      type: 'success',
+      message: 'Pago de otros riesgos registrado correctamente'
+    };
     res.redirect(`/otros-riesgos/detalle/${polizaId}`);
+
   } catch (error) {
-    console.error("Error al realizar el pago:", error.message);
-    res.status(500).send("Error al realizar el pago.");
+    console.error("Error al acreditar pago de otros riesgos:", error);
+    res.status(500).render('error', {
+      title: "Error en el pago",
+      message: "Ocurrió un error al procesar el pago de otros riesgos",
+      error: process.env.NODE_ENV === 'development' ? error : null,
+      user: req.session.user
+    });
   }
 };
 
 export const eliminar = async (req, res) => {
   try {
     const { pagoId, polizaId } = req.body;
+    const userId = req.session.user?.id;
 
-    // Definir rutas explícitamente
-    const pagosPath = path.resolve(process.cwd(), "src/data", "pagos.json");
-    const otrosRiesgosPath = path.resolve(
-      process.cwd(),
-      "src/data",
-      "otros_riesgos.json"
-    );
-    const actividadesPath = path.resolve(
-      process.cwd(),
-      "src/data",
-      "actividades.json"
-    );
-
-    // Leer archivos
-    let [pagos, otrosRiesgos, actividades] = await Promise.all([
-      readFile(pagosPath, "utf-8").then(JSON.parse),
-      readFile(otrosRiesgosPath, "utf-8").then(JSON.parse),
-      readFile(actividadesPath, "utf-8").then(JSON.parse),
-    ]);
-
-    // Encontrar el pago
-    const pagoIndex = pagos.findIndex((p) => p.id === Number(pagoId));
-    if (pagoIndex === -1) {
-      return res.status(404).send("Pago no encontrado.");
+    // 1. Validación de entrada
+    if (!pagoId || !polizaId || isNaN(Number(pagoId)) || isNaN(Number(polizaId))) {
+      return res.status(400).render('error', {
+        title: 'Datos inválidos',
+        message: 'Los IDs proporcionados no son válidos',
+        user: req.session.user
+      });
     }
 
-    // Marcar pago como desconocido
-    pagos[pagoIndex].desconocido = true;
-
-    // Actualizar la póliza en otros_riesgos.json
-    const polizaIndex = otrosRiesgos.findIndex((p) => p.id == polizaId);
-    if (polizaIndex !== -1) {
-      otrosRiesgos[polizaIndex].pagos = otrosRiesgos[polizaIndex].pagos.filter(
-        (idPago) => idPago != pagoId
-      );
+    if (!userId) {
+      return res.status(401).render('error', {
+        title: 'No autorizado',
+        message: 'Debe iniciar sesión para realizar esta acción',
+        user: req.session.user
+      });
     }
 
-    // Registrar actividad
-    const fechaArgentina = DateTime.now().setZone(
-      "America/Argentina/Buenos_Aires"
-    );
-    const nuevaActividad = {
-      id: fechaArgentina.toMillis(),
-      id_pago: pagos[pagoIndex].id,
-      accion: "Eliminar pago",
-      id_usuario: req.session.user.id,
-      fecha: fechaArgentina.toFormat("yyyy-MM-dd"),
-      hora: fechaArgentina.toFormat("HH:mm:ss"),
-      tipo: "pago",
+    // 2. Definir paths
+    const dataPaths = {
+      pagos: path.resolve(process.cwd(), "src/data", "pagos.json"),
+      otrosRiesgos: path.resolve(process.cwd(), "src/data", "otros_riesgos.json"),
+      actividades: path.resolve(process.cwd(), "src/data", "actividades.json")
     };
-    actividades.push(nuevaActividad);
 
-    // Guardar cambios
-    await Promise.all([
-      writeFile(pagosPath, JSON.stringify(pagos, null, 2)),
-      writeFile(otrosRiesgosPath, JSON.stringify(otrosRiesgos, null, 2)),
-      writeFile(actividadesPath, JSON.stringify(actividades, null, 2)),
+    // 3. Cargar datos
+    const [pagos, otrosRiesgos, actividades] = await Promise.all([
+      readFile(dataPaths.pagos, "utf-8").then(JSON.parse).catch(() => []),
+      readFile(dataPaths.otrosRiesgos, "utf-8").then(JSON.parse).catch(() => []),
+      readFile(dataPaths.actividades, "utf-8").then(JSON.parse).catch(() => [])
     ]);
 
+    // 4. Buscar y validar
+    const pagoIndex = pagos.findIndex(p => p.id === Number(pagoId));
+    if (pagoIndex === -1) {
+      return res.status(404).render('error', {
+        title: 'Pago no encontrado',
+        message: 'El pago especificado no existe',
+        user: req.session.user
+      });
+    }
+
+    const polizaIndex = otrosRiesgos.findIndex(p => p.id === Number(polizaId));
+    if (polizaIndex === -1) {
+      return res.status(404).render('error', {
+        title: 'Póliza no encontrada',
+        message: 'La póliza de otros riesgos asociada no existe',
+        user: req.session.user
+      });
+    }
+
+    // 5. Preparar actualizaciones (inmutables)
+    const pagosActualizados = pagos.map((pago, index) => 
+      index === pagoIndex ? { ...pago, desconocido: true } : pago
+    );
+
+    const otrosRiesgosActualizados = otrosRiesgos.map((poliza, index) => 
+      index === polizaIndex ? {
+        ...poliza,
+        pagos: poliza.pagos.filter(id => id !== Number(pagoId))
+      } : poliza
+    );
+
+    const fechaArgentina = DateTime.now().setZone("America/Argentina/Buenos_Aires");
+    const actividadesActualizadas = [
+      ...actividades,
+      {
+        id: fechaArgentina.toMillis(),
+        id_pago: Number(pagoId),
+        accion: "Eliminar pago (otros riesgos)",
+        id_usuario: userId,
+        fecha: fechaArgentina.toFormat("yyyy-MM-dd"),
+        hora: fechaArgentina.toFormat("HH:mm:ss"),
+        tipo: "pago"
+      }
+    ];
+
+    // 6. Guardar cambios
+    await Promise.all([
+      writeFile(dataPaths.pagos, JSON.stringify(pagosActualizados, null, 2)),
+      writeFile(dataPaths.otrosRiesgos, JSON.stringify(otrosRiesgosActualizados, null, 2)),
+      writeFile(dataPaths.actividades, JSON.stringify(actividadesActualizadas, null, 2))
+    ]);
+
+    // 7. Feedback y redirección
+    req.session.flash = {
+      type: 'success',
+      message: 'Pago de otros riesgos eliminado correctamente'
+    };
     res.redirect("/otros-riesgos");
+
   } catch (error) {
-    console.error("Error al eliminar el pago:", error.message);
-    res.status(500).send("Error al eliminar el pago.");
+    console.error("Error eliminando pago de otros riesgos:", error);
+    res.status(500).render('error', {
+      title: "Error en eliminación",
+      message: "Ocurrió un error al eliminar el pago de otros riesgos",
+      error: process.env.NODE_ENV === 'development' ? error : null,
+      user: req.session.user
+    });
   }
 };

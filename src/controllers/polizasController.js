@@ -80,88 +80,116 @@ export const nueva = async (req, res) => {
 
 export const guardar = async (req, res) => {
   try {
-      const resources = [
-          path.resolve(process.cwd(), "src/data", "polizas.json"),
-          path.resolve(process.cwd(), "src/data", "clientes.json"),
-          path.resolve(process.cwd(), "src/data", "actividades.json"),
-      ];
+    const { body, session } = req;
+    const userId = session.user?.id;
 
-      const [polizas, clientes, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+    // 1. Validación básica
+    if (!userId || !body.clientId || isNaN(Number(body.clientId))) {
+      return res.status(400).render('error', {
+        title: 'Datos incompletos',
+        message: 'Faltan datos requeridos para crear la póliza',
+        user: session.user
+      });
+    }
 
-      // const polizasPatente = polizas.filter((poliza) => poliza.patente === req.body.patente);
+    // 2. Definir paths de archivos
+    const dataPaths = {
+      polizas: path.resolve(process.cwd(), "src/data", "polizas.json"),
+      clientes: path.resolve(process.cwd(), "src/data", "clientes.json"),
+      actividades: path.resolve(process.cwd(), "src/data", "actividades.json")
+    };
 
-      // if (polizasPatente.length > 0) {
-      //     return res.status(400).send("Patente duplicada");
-      // }
+    // 3. Cargar datos necesarios
+    const [polizas, clientes, actividades] = await Promise.all([
+      readFile(dataPaths.polizas, 'utf-8').then(JSON.parse).catch(() => []),
+      readFile(dataPaths.clientes, 'utf-8').then(JSON.parse).catch(() => []),
+      readFile(dataPaths.actividades, 'utf-8').then(JSON.parse).catch(() => [])
+    ]);
 
-      const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
+    // 4. Validar cliente existe
+    const cliente = clientes.find(c => c.id === Number(body.clientId));
+    if (!cliente) {
+      return res.status(404).render('error', {
+        title: 'Cliente no encontrado',
+        message: 'El cliente asociado no existe en el sistema',
+        user: session.user
+      });
+    }
 
-      const fechaFormateada = ahoraArgentina.toFormat('yyyy-MM-dd');
+    // 5. Crear nueva póliza (con validación de tipos)
+    const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
+    const fVencimiento = DateTime.fromISO(body.f_ini_vigencia)
+      .setZone('America/Argentina/Buenos_Aires')
+      .plus({ months: Number(body.periodo) });
 
-      const f_vencimiento = DateTime.fromISO(req.body.f_ini_vigencia).setZone('America/Argentina/Buenos_Aires').plus({ months: Number(req.body.periodo) });
-      const fechaVencimientoFormateada = f_vencimiento.toFormat('yyyy-MM-dd');
+    const nuevaPoliza = {
+      id: polizas.length > 0 ? Math.max(...polizas.map(p => p.id)) + 1 : 1,
+      n_poliza: body.n_poliza,
+      f_emision: ahoraArgentina.toFormat('yyyy-MM-dd'),
+      f_ini_vigencia: body.f_ini_vigencia,
+      f_fin_vigencia: fVencimiento.toFormat('yyyy-MM-dd'),
+      periodo: Number(body.periodo),
+      suma: Number(body.suma),
+      cuotas: Number(body.cuotas),
+      usos: body.usos,
+      empresa: Number(body.empresa),
+      precio: Number(body.precio),
+      cobertura: body.cobertura,
+      marca: Number(body.marca),
+      modelo: body.modelo,
+      patente: body.patente,
+      anio: Number(body.anio),
+      n_chasis: body.n_chasis,
+      n_motor: body.n_motor,
+      combustible: body.combustible,
+      clienteId: Number(body.clientId),
+      sucursal: body.sucursal,
+      pagos: [],
+      usuario: userId
+    };
 
-      const nuevaPoliza = {
-          n_poliza: req.body.n_poliza,
-          f_emision: fechaFormateada,
-          f_ini_vigencia: req.body.f_ini_vigencia,
-          f_fin_vigencia: fechaVencimientoFormateada,
-          periodo: Number(req.body.periodo),
-          suma: Number(req.body.suma),
-          cuotas: Number(req.body.cuotas),
-          usos: req.body.usos,
-          empresa: Number(req.body.empresa),
-          precio: Number(req.body.precio),
-          cobertura: req.body.cobertura,
-          marca: Number(req.body.marca),
-          modelo: req.body.modelo,
-          patente: req.body.patente,
-          anio: Number(req.body.anio),
-          n_chasis: req.body.n_chasis,
-          n_motor: req.body.n_motor,
-          combustible: req.body.combustible,
-          clienteId: Number(req.body.clientId),
-          sucursal: req.body.sucursal,
-          pagos: [],
-          usuario: req.body.id,
-      };
+    // 6. Registrar actividad
+    const nuevaActividad = {
+      id: ahoraArgentina.toMillis(),
+      id_poliza: nuevaPoliza.id,
+      accion: "Creación de póliza",
+      id_usuario: userId,
+      fecha: ahoraArgentina.toFormat('yyyy-MM-dd'),
+      hora: ahoraArgentina.toFormat('HH:mm:ss'),
+      tipo: 'poliza'
+    };
 
-      const cliente = clientes.find((cliente) => cliente.id.toString() === req.body.clientId);
-      if (!cliente) {
-          return res.status(404).send("Cliente no encontrado");
-      }
+    // 7. Preparar datos actualizados (inmutables)
+    const polizasActualizadas = [...polizas, nuevaPoliza];
+    const actividadesActualizadas = [...actividades, nuevaActividad];
+    const clientesActualizados = clientes.map(c => 
+      c.id === Number(body.clientId) 
+        ? { ...c, polizas: [...(c.polizas || []), nuevaPoliza.id] } 
+        : c
+    );
 
-      const nuevoIdPoliza = polizas.length > 0 ? Math.max(...polizas.map((p) => p.id)) + 1 : 1;
-      nuevaPoliza.id = nuevoIdPoliza;
+    // 8. Guardar todos los cambios atómicamente
+    await Promise.all([
+      writeFile(dataPaths.polizas, JSON.stringify(polizasActualizadas, null, 2)),
+      writeFile(dataPaths.clientes, JSON.stringify(clientesActualizados, null, 2)),
+      writeFile(dataPaths.actividades, JSON.stringify(actividadesActualizadas, null, 2))
+    ]);
 
-      polizas.push(nuevaPoliza);
+    // 9. Redirigir con feedback
+    req.session.flash = {
+      type: 'success',
+      message: 'Póliza creada exitosamente'
+    };
+    res.redirect("/polizas");
 
-      let actividad = {
-          id: ahoraArgentina.toMillis(),
-          id_poliza: nuevoIdPoliza,
-          accion: "Creacion de poliza",
-          id_usuario: req.session.user.id,
-          fecha: ahoraArgentina.toFormat('yyyy-MM-dd'),
-          hora: ahoraArgentina.toFormat('HH:mm:ss'),
-          tipo: 'poliza'
-      };
-
-      actividades.push(actividad);
-
-      await Promise.all([
-          writeFile(resources[0], JSON.stringify(polizas, null, 2)),
-          writeFile(resources[1], JSON.stringify(clientes, null, 2)),
-          writeFile(resources[2], JSON.stringify(actividades, null, 2)),
-      ]);
-
-      cliente.polizas.push(nuevaPoliza.id);
-
-      await writeFile(resources[1], JSON.stringify(clientes, null, 2));
-
-      res.redirect("/polizas");
   } catch (error) {
-      console.error("Error al guardar la póliza:", error.message);
-      res.status(500).send("Error al guardar la póliza: " + error.message);
+    console.error("Error al guardar póliza:", error);
+    res.status(500).render('error', {
+      title: "Error al guardar",
+      message: "Ocurrió un error al crear la póliza",
+      error: process.env.NODE_ENV === 'development' ? error : null,
+      user: req.session.user
+    });
   }
 };
 
@@ -273,57 +301,107 @@ export const confirmar = async (req, res) => {
 
 export const eliminar = async (req, res) => {
   try {
-      const { id } = req.body;
+    const { id } = req.body;
+    const userId = req.session.user?.id;
 
-      const resources = [
-          path.resolve(process.cwd(), "src/data", "polizas.json"),
-          path.resolve(process.cwd(), "src/data", "pagos.json"),
-          path.resolve(process.cwd(), "src/data", "clientes.json"),
-          path.resolve(process.cwd(), "src/data", "actividades.json"),
-      ];
-
-      let [polizas, pagos, clientes, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
-
-      const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
-
-      let actividad = {
-          id: ahoraArgentina.toMillis(),
-          id_poliza: id,
-          accion: "eliminar poliza",
-          id_usuario: req.session.user.id,
-          fecha: ahoraArgentina.toFormat('yyyy-MM-dd'),
-          hora: ahoraArgentina.toFormat('HH:mm:ss'),
-          tipo: 'poliza'
-      };
-
-      let polizaIndex = polizas.findIndex((p) => p.id === Number(id));
-      if (polizaIndex === -1) {
-          return res.status(404).send("Póliza no encontrada");
-      }
-
-      let cliente = clientes.find((c) => c.polizas.includes(Number(id)));
-
-      polizas[polizaIndex].inhabilitado = true;
-
-      pagos = pagos.map((pago) => {
-          if (pago.id_poliza === Number(id)) {
-              pago.desconocido = true;
-          }
-          return pago;
+    // 1. Validación de entrada
+    if (!id || isNaN(Number(id))) {
+      return res.status(400).render('error', {
+        title: 'ID inválido',
+        message: 'El ID de póliza proporcionado no es válido',
+        user: req.session.user
       });
+    }
 
-      actividades.push(actividad);
+    if (!userId) {
+      return res.status(401).render('error', {
+        title: 'No autorizado',
+        message: 'Debe iniciar sesión para realizar esta acción',
+        user: req.session.user
+      });
+    }
 
-      await Promise.all([
-          writeFile(resources[0], JSON.stringify(polizas, null, 2)),
-          writeFile(resources[1], JSON.stringify(pagos, null, 2)),
-          writeFile(resources[3], JSON.stringify(actividades, null, 2)),
-      ]);
+    // 2. Definir paths de archivos
+    const dataPaths = {
+      polizas: path.resolve(process.cwd(), "src/data", "polizas.json"),
+      pagos: path.resolve(process.cwd(), "src/data", "pagos.json"),
+      clientes: path.resolve(process.cwd(), "src/data", "clientes.json"),
+      actividades: path.resolve(process.cwd(), "src/data", "actividades.json")
+    };
 
-      res.redirect(`/clientes/detalle/${cliente.id}`);
+    // 3. Cargar datos necesarios
+    const [polizas, pagos, clientes, actividades] = await Promise.all([
+      readFile(dataPaths.polizas, 'utf-8').then(JSON.parse).catch(() => []),
+      readFile(dataPaths.pagos, 'utf-8').then(JSON.parse).catch(() => []),
+      readFile(dataPaths.clientes, 'utf-8').then(JSON.parse).catch(() => []),
+      readFile(dataPaths.actividades, 'utf-8').then(JSON.parse).catch(() => [])
+    ]);
+
+    // 4. Buscar y validar póliza
+    const polizaIndex = polizas.findIndex(p => p.id === Number(id));
+    if (polizaIndex === -1) {
+      return res.status(404).render('error', {
+        title: 'Póliza no encontrada',
+        message: 'La póliza especificada no existe',
+        user: req.session.user
+      });
+    }
+
+    // 5. Buscar cliente asociado
+    const cliente = clientes.find(c => c.polizas?.includes(Number(id)));
+    if (!cliente) {
+      return res.status(404).render('error', {
+        title: 'Cliente no encontrado',
+        message: 'No se encontró el cliente asociado a esta póliza',
+        user: req.session.user
+      });
+    }
+
+    // 6. Registrar actividad
+    const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
+    const nuevaActividad = {
+      id: ahoraArgentina.toMillis(),
+      id_poliza: Number(id),
+      accion: "Eliminar póliza",
+      id_usuario: userId,
+      fecha: ahoraArgentina.toFormat('yyyy-MM-dd'),
+      hora: ahoraArgentina.toFormat('HH:mm:ss'),
+      tipo: 'poliza'
+    };
+
+    // 7. Preparar datos actualizados (inmutables)
+    const polizasActualizadas = polizas.map((poliza, index) => 
+      index === polizaIndex ? { ...poliza, inhabilitado: true } : poliza
+    );
+
+    const pagosActualizados = pagos.map(pago => 
+      pago.id_poliza === Number(id) ? { ...pago, desconocido: true } : pago
+    );
+
+    const actividadesActualizadas = [...actividades, nuevaActividad];
+
+    // 8. Guardar cambios atómicamente
+    await Promise.all([
+      writeFile(dataPaths.polizas, JSON.stringify(polizasActualizadas, null, 2)),
+      writeFile(dataPaths.pagos, JSON.stringify(pagosActualizados, null, 2)),
+      writeFile(dataPaths.actividades, JSON.stringify(actividadesActualizadas, null, 2))
+    ]);
+
+    // 9. Redirigir con feedback
+    req.session.flash = {
+      type: 'success',
+      message: 'Póliza eliminada correctamente'
+    };
+    res.redirect(`/clientes/detalle/${cliente.id}`);
+
   } catch (error) {
-      console.error("Error al eliminar la póliza:", error.message);
-      res.status(500).send("Error al eliminar la póliza: " + error.message);
+    console.error("Error al eliminar póliza:", error);
+    res.status(500).render('error', {
+      title: "Error al eliminar",
+      message: "Ocurrió un error al eliminar la póliza",
+      error: process.env.NODE_ENV === 'development' ? error : null,
+      user: req.session.user
+    });
   }
 };
 
@@ -365,68 +443,112 @@ export const editar = async function editarPoliza(req, res) {
 
 export const actualizar = async (req, res) => {
   try {
-      const resources = [
-          path.resolve(process.cwd(), "src/data", "polizas.json"),
-          path.resolve(process.cwd(), "src/data", "actividades.json"),
-      ];
-      const [polizas, actividades] = await Promise.all(resources.map(async (resource) => JSON.parse(await readFile(resource, 'utf-8'))));
+    const { body, session } = req;
+    const userId = session.user?.id;
 
-      const index = polizas.findIndex(poliza => poliza.id === parseInt(req.body.id));
-
-      if (index === -1) {
-          return res.status(404).send('Póliza no encontrada');
-      }
-
-      const cambios = {};
-
-      let campos = Object.keys(req.body);
-      campos = campos.filter(campo => !["id", "clientId"].includes(campo));
-
-      for (const campo of campos) {
-          if (req.body[campo] !== undefined && req.body[campo] !== polizas[index][campo]) {
-              cambios[campo] = req.body[campo];
-          }
-      }
-
-      // Conversión de tipos para campos numéricos
-      const camposNumericos = ["empresa", "marca", "cobertura", "cuotas", "periodo", "suma", "precio", "anio"];
-      camposNumericos.forEach(campo => {
-          if (cambios[campo]) {
-              cambios[campo] = Number(cambios[campo]);
-          }
+    // 1. Validación de entrada
+    if (!body.id || isNaN(Number(body.id))) {
+      return res.status(400).render('error', {
+        title: 'ID inválido',
+        message: 'El ID de póliza proporcionado no es válido',
+        user: session.user
       });
+    }
 
+    if (!userId) {
+      return res.status(401).render('error', {
+        title: 'No autorizado',
+        message: 'Debe iniciar sesión para realizar esta acción',
+        user: session.user
+      });
+    }
 
-      if (cambios.periodo) {
-          const f_vencimiento = DateTime.fromISO(polizas[index].f_ini_vigencia).setZone('America/Argentina/Buenos_Aires').plus({ months: Number(cambios.periodo) });
-          cambios.f_fin_vigencia = f_vencimiento.toFormat('yyyy-MM-dd');
+    // 2. Definir paths de archivos
+    const dataPaths = {
+      polizas: path.resolve(process.cwd(), "src/data", "polizas.json"),
+      actividades: path.resolve(process.cwd(), "src/data", "actividades.json")
+    };
+
+    // 3. Cargar datos necesarios
+    const [polizas, actividades] = await Promise.all([
+      readFile(dataPaths.polizas, 'utf-8').then(JSON.parse).catch(() => []),
+      readFile(dataPaths.actividades, 'utf-8').then(JSON.parse).catch(() => [])
+    ]);
+
+    // 4. Buscar y validar póliza
+    const polizaIndex = polizas.findIndex(p => p.id === Number(body.id));
+    if (polizaIndex === -1) {
+      return res.status(404).render('error', {
+        title: 'Póliza no encontrada',
+        message: 'La póliza especificada no existe',
+        user: session.user
+      });
+    }
+
+    // 5. Preparar cambios (con validación de tipos)
+    const cambios = {};
+    const camposNumericos = new Set(["empresa", "marca", "cobertura", "cuotas", "periodo", "suma", "precio", "anio"]);
+
+    Object.entries(body).forEach(([campo, valor]) => {
+      if (campo === "id" || campo === "clientId") return;
+      
+      if (valor !== undefined && valor !== polizas[polizaIndex][campo]) {
+        cambios[campo] = camposNumericos.has(campo) ? Number(valor) : valor;
       }
+    });
 
-      const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
+    // 6. Calcular nueva fecha de vencimiento si cambió el periodo
+    if (cambios.periodo) {
+      const fVencimiento = DateTime
+        .fromISO(polizas[polizaIndex].f_ini_vigencia)
+        .setZone('America/Argentina/Buenos_Aires')
+        .plus({ months: Number(cambios.periodo) });
+      
+      cambios.f_fin_vigencia = fVencimiento.toFormat('yyyy-MM-dd');
+    }
 
-      let actividad = {
-          id: ahoraArgentina.toMillis(),
-          id_poliza: polizas[index].id,
-          accion: "Editar poliza",
-          id_usuario: req.session.user.id,
-          fecha: ahoraArgentina.toFormat('yyyy-MM-dd'),
-          hora: ahoraArgentina.toFormat('HH:mm:ss'),
-          tipo: 'poliza'
-      };
+    // 7. Registrar actividad
+    const ahoraArgentina = DateTime.now().setZone('America/Argentina/Buenos_Aires');
+    const nuevaActividad = {
+      id: ahoraArgentina.toMillis(),
+      id_poliza: polizas[polizaIndex].id,
+      accion: "Editar póliza",
+      id_usuario: userId,
+      fecha: ahoraArgentina.toFormat('yyyy-MM-dd'),
+      hora: ahoraArgentina.toFormat('HH:mm:ss'),
+      tipo: 'poliza'
+    };
 
-      actividades.push(actividad);
+    // 8. Preparar datos actualizados (inmutables)
+    const polizasActualizadas = [...polizas];
+    polizasActualizadas[polizaIndex] = { 
+      ...polizasActualizadas[polizaIndex], 
+      ...cambios 
+    };
 
-      Object.assign(polizas[index], cambios);
+    const actividadesActualizadas = [...actividades, nuevaActividad];
 
-      await Promise.all([
-          writeFile(resources[0], JSON.stringify(polizas, null, 2)),
-          writeFile(resources[1], JSON.stringify(actividades, null, 2)),
-      ]);
+    // 9. Guardar cambios atómicamente
+    await Promise.all([
+      writeFile(dataPaths.polizas, JSON.stringify(polizasActualizadas, null, 2)),
+      writeFile(dataPaths.actividades, JSON.stringify(actividadesActualizadas, null, 2))
+    ]);
 
-      res.redirect(`/polizas/detalle/${polizas[index].id}`);
+    // 10. Redirigir con feedback
+    req.session.flash = {
+      type: 'success',
+      message: 'Póliza actualizada correctamente'
+    };
+    res.redirect(`/polizas/detalle/${polizas[polizaIndex].id}`);
+
   } catch (error) {
-      console.error('Error al modificar la póliza:', error);
-      res.status(500).send('Error al modificar la póliza');
+    console.error('Error al actualizar póliza:', error);
+    res.status(500).render('error', {
+      title: "Error al actualizar",
+      message: "Ocurrió un error al modificar la póliza",
+      error: process.env.NODE_ENV === 'development' ? error : null,
+      user: req.session.user
+    });
   }
 };
 

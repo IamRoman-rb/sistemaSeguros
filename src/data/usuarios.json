@@ -115,5 +115,23 @@
     "dni": "175567764",
     "sucursal": 4,
     "activo": true
+  },
+  {
+    "id": 14,
+    "nombre": "ariel",
+    "contraseña": "$2b$10$uw6t7qasUrOsdSbbxyFz0eryvQZFPHZJsEMMp7cnC8s6nK7/KoBWu",
+    "permisos": 1,
+    "dni": "38058498",
+    "sucursal": 1,
+    "activo": true
+  },
+  {
+    "id": 15,
+    "nombre": "arielcalle",
+    "contraseña": "$2b$10$3pCzhj9K8k1xtlleiUhU3.0rm9WdVBNANlAHqi9XK.YBKR9dtCnXu",
+    "permisos": 1,
+    "dni": "38058497",
+    "sucursal": 3,
+    "activo": true
   }
 ]

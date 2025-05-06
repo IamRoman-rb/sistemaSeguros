@@ -17,7 +17,7 @@ const loadStylesheet = (req, res, next) => {
         break;
     }
     res.locals.stylesheet = `${entity}/${action}.css`;
-    console.log("CSS",res.locals.stylesheet);
+    // console.log("CSS",res.locals.stylesheet);
     next();
 };
 
