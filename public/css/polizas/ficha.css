@@ -1,0 +1,37 @@
+@import url("/css/base.css");
+
+body{
+    width: 15cm;
+    height: 10cm;
+    display: flex;
+    flex-flow: row wrap;
+    padding: .5rem;
+}
+h2{
+    font-size: 1rem;
+}
+h3{
+    font-size: .8rem;
+    font-weight: 500;
+}
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+main{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main > section.datosPoliza{
+    width: 45%;
+}
+main > section.datosPoliza > ul{
+    list-style: none;
+}
+footer{
+    width: 100%;
+}

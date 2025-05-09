@@ -1,110 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
-    <%- include("../partials/head") %>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+        .chart-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .chart-title {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.2rem;
+        }
+        canvas {
+            width: 100% !important;
+            height: 300px !important;
+        }
+    </style>
+</head>
+<%- include('../partials/head') %>
 <body>
-    <%- include("../partials/header") %>
-    <main>
-        <header>
-            <h1>Datos</h1>
-        </header>
-        <ul id="empresas">
-            <h2>Empresas</h2>
-            <% datosEmpresas.forEach(dato => { %>
-                <li>
-                    <h2><%= dato.nombre %></h2>
-                    <dl>
-                        <dt>Polizas</dt>
-                        <dd><%= dato.polizasCreadasTotal %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Polizas este mes</dt>
-                        <dd><%= dato.polizasCreadasMes %></dd>
-                    </dl>
-                </li>
-            <% }) %>
-        </ul>
-        <h2>Sucursales</h2>
-        <ul id="sucursales">
-            <% datosSucursales.forEach(dato => { %>
-                <li>
-                    <h2><%= dato.nombre %></h2>
-                    <dl>
-                        <dt>Polizas</dt>
-                        <dd><%= dato.polizasCreadasTotal %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Polizas este mes</dt>
-                        <dd><%= dato.polizasCreadasMes %></dd>
-                    </dl>
-                </li>
-            <% }) %>
-        </ul>
-        <h2>Usuarios</h2>
-        <ul>
-            <% datos.forEach(user => { %>
-                <li>
-                    <h2><%= user.nombre %></h2>
-                    <dl>
-                        <dt>Sucursal</dt>
-                        <dd> <%= user.sucursal %></dd>
-                    </dl>
+    <%- include('../partials/header') %>
 
-                    <h2>Clientes</h2>
-                    <dl>
-                        <dt>Clientes creados</dt>
-                        <dd><%= user.clientesCreadosTotal %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Clientes creados este mes</dt>
-                        <dd><%= user.clientesCreadosMes %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Clientes Eliminados</dt>
-                        <dd><%= user.clientesEliminadosTotal %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Clientes Eliminados este mes</dt>
-                        <dd><%= user.clientesEliminadosMes %></dd>
-                    </dl>
+    <div class="dashboard">
+        
+        <!-- Gráfico 1: Actividades por Usuario -->
+        <div class="chart-container">
+            <h3 class="chart-title">Actividades por Usuario</h3>
+            <canvas id="actividadesChart"></canvas>
+        </div>
+        
+        <!-- Gráfico 2: Pólizas por Compañía -->
+        <div class="chart-container">
+            <h3 class="chart-title">Pólizas por Compañía</h3>
+            <canvas id="polizasCompaniaChart"></canvas>
+        </div>
+        
+        <!-- Gráfico 3: Pólizas por Sucursal -->
+        <div class="chart-container">
+            <h3 class="chart-title">Pólizas por Sucursal</h3>
+            <canvas id="polizasSucursalChart"></canvas>
+        </div>
+        
+        <!-- Gráfico 4: Pagos por Mes -->
+        <div class="chart-container">
+            <h3 class="chart-title">Pagos por Mes</h3>
+            <canvas id="pagosChart"></canvas>
+        </div>
+    </div>
 
-                    <h2>Polizas</h2>
-                    <dl>
-                        <dt>Polizas creadas</dt>
-                        <dd><%= user.polizasCreadasTotal %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Polizas creadas este mes</dt>
-                        <dd> <%= user.polizasCreadasMes %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Polizas Eliminadas</dt>
-                        <dd><%= user.polizasEliminadasTotal %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Polizas Eliminadas este mes</dt>
-                        <dd><%= user.polizasEliminadasMes %></dd>
-                    </dl>
+<script>
+    const colores = [
+        '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', 
+        '#e74a3b', '#858796', '#5a5c69', '#3a3b45'
+    ];
 
-                    <h2>Pagos</h2>
-                    <dl>
-                        <dt>Pagos Cobrados</dt>
-                        <dd> <%= user.pagosCobradosTotal %></dd>
-                    </dl>
-                    <dl>
-                        <dt>Pagos Cobrados este mes</dt>
-                        <dd> <%= user.pagosCobradosMes %> </dd>
-                    </dl>
-                    <dl>
-                        <dt>Pagos Eliminados</dt>
-                        <dd> <%= user.pagosEliminadosTotal %> </dd>
-                    </dl>
-                    <dl>
-                        <dt>Pagos Eliminados este mes</dt>
-                        <dd><%= user.pagosEliminadosMes %> </dd>
-                    </dl>
-                </li>        
-            <% }) %>
-        </ul>
-    </main>
+    const generarColores = (cantidad) => {
+        const base = [...colores];
+        while (base.length < cantidad) {
+            base.push(`#${Math.floor(Math.random()*16777215).toString(16)}`);
+        }
+        return base.slice(0, cantidad);
+    };
+
+    // Gráfico 1: Actividades por Usuario
+    new Chart(document.getElementById('actividadesChart'), {
+        type: 'bar',
+        data: {
+            labels: <%- JSON.stringify(stats.actividadesPorUsuario.map(u => u.nombre)) %>,
+            datasets: [
+                {
+                    label: 'Recibos emitidos',
+                    data: <%- JSON.stringify(stats.actividadesPorUsuario.map(u => u.recibos)) %>,
+                    backgroundColor: colores[0]
+                },
+                {
+                    label: 'Pólizas creadas',
+                    data: <%- JSON.stringify(stats.actividadesPorUsuario.map(u => u.polizas)) %>,
+                    backgroundColor: colores[1]
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    // Gráfico 2: Pólizas por Compañía
+    new Chart(document.getElementById('polizasCompaniaChart'), {
+        type: 'bar',
+        data: {
+            labels: <%- JSON.stringify(stats.polizasPorCompania.map(c => c.compania)) %>,
+            datasets: [{
+                label: 'Pólizas',
+                data: <%- JSON.stringify(stats.polizasPorCompania.map(c => c.cantidad)) %>,
+                backgroundColor: generarColores(<%= stats.polizasPorCompania.length %>)
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    // Gráfico 3: Pólizas por Sucursal
+    new Chart(document.getElementById('polizasSucursalChart'), {
+        type: 'pie',
+        data: {
+            labels: <%- JSON.stringify(stats.polizasPorSucursal.map(s => s.sucursal)) %>,
+            datasets: [{
+                data: <%- JSON.stringify(stats.polizasPorSucursal.map(s => s.cantidad)) %>,
+                backgroundColor: generarColores(<%= stats.polizasPorSucursal.length %>)
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'right' }
+            }
+        }
+    });
+
+    // Gráfico 4: Pagos por Mes
+    new Chart(document.getElementById('pagosChart'), {
+        type: 'bar',
+        data: {
+            labels: <%- JSON.stringify(meses) %>,
+            datasets: [
+                {
+                    label: 'Cantidad de pagos',
+                    data: <%- JSON.stringify(stats.pagosPorMes.map(p => p.cantidad)) %>,
+                    backgroundColor: colores[0],
+                    yAxisID: 'y'
+                },
+                {
+                    label: 'Total recaudado ($)',
+                    data: <%- JSON.stringify(stats.pagosPorMes.map(p => p.total)) %>,
+                    borderColor: colores[1],
+                    backgroundColor: colores[1],
+                    type: 'line',
+                    tension: 0.3,
+                    fill: false,
+                    yAxisID: 'y1'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            interaction: {
+                mode: 'index',
+                intersect: false
+            },
+            stacked: false,
+            scales: {
+                y: {
+                    type: 'linear',
+                    position: 'left',
+                    beginAtZero: true,
+                    title: { display: true, text: 'Cantidad de pagos' }
+                },
+                y1: {
+                    type: 'linear',
+                    position: 'right',
+                    beginAtZero: true,
+                    title: { display: true, text: 'Total recaudado ($)' },
+                    grid: { drawOnChartArea: false }
+                }
+            }
+        }
+    });
+</script>
+
+    
 </body>
 </html>

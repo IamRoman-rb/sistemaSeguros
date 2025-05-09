@@ -679,3 +679,12 @@ export const propuesta = async (req, res) => {
     console.error('Error al mostrar la propuesta', error);
   }
 }
+
+export const ficha =  async (req, res) => {
+  try {
+    res.status(200).render('polizas/ficha');
+  } catch (error) {
+    console.error('Error', error);
+    res.status(500).render('Error', error);
+  }
+}

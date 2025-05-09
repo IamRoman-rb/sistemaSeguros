@@ -165,215 +165,67 @@ export const actividades = async (req, res) => {
 
 export const datos = async (req, res) => {
   try {
-    // Definir rutas con nombres descriptivos
     const filePaths = {
-      clientes: path.resolve(process.cwd(), "src/data", "clientes.json"),
-      polizas: path.resolve(process.cwd(), "src/data", "polizas.json"),
-      otrosRiesgos: path.resolve(
-        process.cwd(),
-        "src/data",
-        "otros_riesgos.json"
-      ),
-      pagos: path.resolve(process.cwd(), "src/data", "pagos.json"),
-      sucursales: path.resolve(process.cwd(), "src/data", "sucursales.json"),
-      empresas: path.resolve(process.cwd(), "src/data", "empresas.json"),
-      usuarios: path.resolve(process.cwd(), "src/data", "usuarios.json"),
-      actividades: path.resolve(process.cwd(), "src/data", "actividades.json"),
+      clientes: path.resolve("src/data", "clientes.json"),
+      polizas: path.resolve("src/data", "polizas.json"),
+      otrosRiesgos: path.resolve("src/data", "otros_riesgos.json"),
+      pagos: path.resolve("src/data", "pagos.json"),
+      sucursales: path.resolve("src/data", "sucursales.json"),
+      empresas: path.resolve("src/data", "empresas.json"),
+      usuarios: path.resolve("src/data", "usuarios.json"),
+      actividades: path.resolve("src/data", "actividades.json"),
     };
 
-    // Leer todos los archivos con manejo de errores individual
-    const [
-      clientes,
-      polizas,
-      otrosRiesgos,
-      pagos,
-      sucursales,
-      empresas,
-      usuarios,
-      actividades,
-    ] = await Promise.all([
-      readFile(filePaths.clientes, "utf-8")
-        .then(JSON.parse)
-        .catch(() => []),
-      readFile(filePaths.polizas, "utf-8")
-        .then(JSON.parse)
-        .catch(() => []),
-      readFile(filePaths.otrosRiesgos, "utf-8")
-        .then(JSON.parse)
-        .catch(() => []),
-      readFile(filePaths.pagos, "utf-8")
-        .then(JSON.parse)
-        .catch(() => []),
-      readFile(filePaths.sucursales, "utf-8")
-        .then(JSON.parse)
-        .catch(() => []),
-      readFile(filePaths.empresas, "utf-8")
-        .then(JSON.parse)
-        .catch(() => []),
-      readFile(filePaths.usuarios, "utf-8")
-        .then(JSON.parse)
-        .catch(() => []),
-      readFile(filePaths.actividades, "utf-8")
-        .then(JSON.parse)
-        .catch(() => []),
-    ]);
+    const [clientes, polizas, otrosRiesgos, pagos, sucursales, empresas, usuarios, actividades] =
+      await Promise.all(Object.values(filePaths).map(path =>
+        readFile(path, "utf-8").then(JSON.parse)
+      ));
 
-    const now = DateTime.local();
-    const startOfCurrentMonth = now.startOf("month");
-    const endOfCurrentMonth = now.endOf("month");
+    const todasLasPolizas = [...polizas, ...otrosRiesgos];
+    const stats = {
+      actividadesPorUsuario: usuarios
+      .filter(usuario => usuario.permisos !== 1 && usuario.permisos !== 3)
+      .map(usuario => {
+        const actividadesUsuario = actividades.filter(a => a.id_usuario == usuario.id);
+        return {
+          nombre: usuario.nombre,
+          recibos: actividadesUsuario.filter(a => a.accion == 'Crear cliente').length,
+          polizas: actividadesUsuario.filter(a => a.accion == 'Creacion de poliza').length
+        };
+      }),
 
-    // Preparar datos de sucursales y empresas
-    const datosSucursales = sucursales.map((sucursal) => ({
-      id: sucursal.id,
-      nombre: sucursal.nombre,
-      polizasCreadasTotal: 0,
-      polizasCreadasMes: 0,
-      otrosRiesgosCreadosTotal: 0,
-      otrosRiesgosCreadosMes: 0,
-    }));
+      polizasPorCompania: empresas.map(empresa => ({
+        compania: empresa.nombre,
+        cantidad: todasLasPolizas.filter(p => p.empresa == empresa.id).length
+      })),
+      
+      polizasPorSucursal: sucursales.map(sucursal => ({
+        sucursal: sucursal.nombre,
+        cantidad: todasLasPolizas.filter(p => p.sucursal == sucursal.id).length
+      })),
+      
 
-    const datosEmpresas = empresas.map((empresa) => ({
-      id: empresa.id,
-      nombre: empresa.nombre,
-      polizasCreadasTotal: 0,
-      polizasCreadasMes: 0,
-      otrosRiesgosCreadosTotal: 0,
-      otrosRiesgosCreadosMes: 0,
-    }));
+      pagosPorMes: Array.from({ length: 12 }, (_, i) => {
+        const pagosDelMes = pagos.filter(p => {
+          const fecha = new Date(p.fecha);
+          return fecha.getMonth() == i;
+        });
+        return {
+          mes: i,
+          cantidad: pagosDelMes.length,
+          total: pagosDelMes.reduce((suma, pago) => suma + pago.monto, 0)
+        };
+      })
+    };
 
-    // Preparar datos de usuarios
-    const datosUsuarios = usuarios.map((usuario) => ({
-      id: usuario.id,
-      nombre: usuario.nombre,
-      sucursal:
-        sucursales.find((s) => s.id === usuario.sucursal)?.nombre ||
-        "Desconocido",
-      polizasCreadasTotal: 0,
-      polizasCreadasMes: 0,
-      otrosRiesgosCreadosTotal: 0,
-      otrosRiesgosCreadosMes: 0,
-      pagosCobradosTotal: 0,
-      pagosCobradosMes: 0,
-      pagosEliminadosTotal: 0,
-      pagosEliminadosMes: 0,
-      clientesCreadosTotal: 0,
-      clientesCreadosMes: 0,
-      clientesEliminadosTotal: 0,
-      clientesEliminadosMes: 0,
-      polizasEliminadasTotal: 0,
-      polizasEliminadasMes: 0,
-      otrosRiesgosEliminadosTotal: 0,
-      otrosRiesgosEliminadosMes: 0,
-    }));
+    const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
 
-    // Procesar actividades
-    actividades.forEach((actividad) => {
-      const usuario = datosUsuarios.find((u) => u.id == actividad.id_usuario);
-      if (!usuario) return;
-
-      const fechaActividad = DateTime.fromISO(actividad.fecha);
-      const esEsteMes =
-        fechaActividad >= startOfCurrentMonth &&
-        fechaActividad <= endOfCurrentMonth;
-
-      switch (actividad.accion) {
-        case "Crear cliente":
-          usuario.clientesCreadosTotal++;
-          if (esEsteMes) usuario.clientesCreadosMes++;
-          break;
-
-        case "Eliminar cliente":
-          usuario.clientesEliminadosTotal++;
-          if (esEsteMes) usuario.clientesEliminadosMes++;
-          break;
-
-        case "Eliminar pago":
-          usuario.pagosEliminadosTotal++;
-          if (esEsteMes) usuario.pagosEliminadosMes++;
-          break;
-
-        case "Eliminar poliza":
-          // Determinar si es poliza u otros riesgos
-          const esOtrosRiesgos = otrosRiesgos.some(
-            (p) => p.id == actividad.id_poliza
-          );
-          if (esOtrosRiesgos) {
-            usuario.otrosRiesgosEliminadosTotal++;
-            if (esEsteMes) usuario.otrosRiesgosEliminadosMes++;
-          } else {
-            usuario.polizasEliminadasTotal++;
-            if (esEsteMes) usuario.polizasEliminadasMes++;
-          }
-          break;
-      }
+    res.render("actividades/datos", {
+      title: "Estadísticas del Sistema",
+      stats,
+      meses
     });
 
-    // Procesar pólizas y otros riesgos
-    [...polizas, ...otrosRiesgos].forEach((poliza) => {
-      const usuario = datosUsuarios.find((u) => u.id == poliza.usuario);
-      if (!usuario) return;
-
-      const esOtrosRiesgos = poliza.tipo_poliza !== undefined;
-      const fechaEmision = DateTime.fromISO(poliza.f_emision);
-      const esEsteMes =
-        fechaEmision >= startOfCurrentMonth &&
-        fechaEmision <= endOfCurrentMonth;
-
-      if (esOtrosRiesgos) {
-        usuario.otrosRiesgosCreadosTotal++;
-        if (esEsteMes) usuario.otrosRiesgosCreadosMes++;
-      } else {
-        usuario.polizasCreadasTotal++;
-        if (esEsteMes) usuario.polizasCreadasMes++;
-      }
-
-      // Estadísticas por sucursal
-      const sucursal = datosSucursales.find((s) => s.id == poliza.sucursal);
-      if (sucursal) {
-        if (esOtrosRiesgos) {
-          sucursal.otrosRiesgosCreadosTotal++;
-          if (esEsteMes) sucursal.otrosRiesgosCreadosMes++;
-        } else {
-          sucursal.polizasCreadasTotal++;
-          if (esEsteMes) sucursal.polizasCreadasMes++;
-        }
-      }
-
-      // Estadísticas por empresa
-      const empresa = datosEmpresas.find((e) => e.id == poliza.empresa);
-      if (empresa) {
-        if (esOtrosRiesgos) {
-          empresa.otrosRiesgosCreadosTotal++;
-          if (esEsteMes) empresa.otrosRiesgosCreadosMes++;
-        } else {
-          empresa.polizasCreadasTotal++;
-          if (esEsteMes) empresa.polizasCreadasMes++;
-        }
-      }
-    });
-
-    // Procesar pagos
-    pagos.forEach((pago) => {
-      const cobrador = datosUsuarios.find((u) => u.id == pago.id_cobrador);
-      if (!cobrador) return;
-
-      const fechaPago = DateTime.fromISO(pago.fecha);
-      const esEsteMes =
-        fechaPago >= startOfCurrentMonth && fechaPago <= endOfCurrentMonth;
-
-      cobrador.pagosCobradosTotal++;
-      if (esEsteMes) cobrador.pagosCobradosMes++;
-    });
-
-    res.status(200).render("actividades/datos", {
-      datos: datosUsuarios,
-      datosSucursales,
-      datosEmpresas,
-      periodo: {
-        inicio: startOfCurrentMonth.toFormat("dd/MM/yyyy"),
-        fin: endOfCurrentMonth.toFormat("dd/MM/yyyy"),
-      },
-    });
   } catch (error) {
     console.error("Error en datos:", error);
     res.status(500).render("error", {
@@ -382,3 +234,4 @@ export const datos = async (req, res) => {
     });
   }
 };
+

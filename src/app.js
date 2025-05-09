@@ -72,25 +72,6 @@ app.use("/auxiliares", auxiliares);
 app.use("/otros-riesgos", otrosRiesgos);
 app.use("/pagos-otros-riesgos", pagosOtrosRiesgos);
 
-// Manejo de errores 404
-app.use((req, res) => {
-  res.status(404).render("error", {
-    title: "Página no encontrada",
-    message: "La página que buscas no existe",
-    error: null,
-  });
-});
-
-// Manejo centralizado de errores
-app.use((err, req, res, next) => {
-  console.error("💥 Error:", err);
-  res.status(500).render("error", {
-    title: "Error del servidor",
-    message: "Algo salió mal en el servidor",
-    error: process.env.NODE_ENV === "development" ? err : null,
-  });
-});
-
 // Iniciar servidor
 app.listen(port, () => {
   console.log(`🌐 Servidor corriendo en http://localhost:${port}`);
